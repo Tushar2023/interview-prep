@@ -7,6 +7,7 @@ Usage: merge.py <prep_dir> <out data.js>
 import json, os, re, sys, datetime
 
 CAPS = {"dsa": 50, "design": 50, "lld": 30}
+CAPS_OVERRIDE = {"google": {"dsa": 100}}  # Google L4 is DSA-only, so give it a deeper list
 COMPANIES = [
     # id, name, color, emoji, default level label
     ("google",     "Google",      "#58a6ff", "G", "L4 · SWE III"),
@@ -174,7 +175,7 @@ def main():
 
         # ---- cap + attach
         counts = {}
-        for kind, cap in CAPS.items():
+        for kind, cap in {**CAPS, **CAPS_OVERRIDE.get(cid, {})}.items():
             entries = sorted(per_company[kind].values(), key=lambda e: (-e["score"], e["q"]["title"]))[:cap]
             counts[kind] = len(entries)
             for rank, e in enumerate(entries, 1):
@@ -213,6 +214,14 @@ def main():
         fh.write(";\n")
     print("\n".join(stats))
     print(f"questions={len(qs)} size={os.path.getsize(out)//1024}KB")
+    idx = os.path.join(os.path.dirname(out), "index.html")
+    if os.path.exists(idx):
+        html = open(idx, encoding="utf-8").read()
+        stamp = datetime.datetime.now().strftime("%Y%m%d%H%M")
+        html2 = re.sub(r'src="data\.js[^"]*"', f'src="data.js?v={stamp}"', html)
+        if html2 != html:
+            open(idx, "w", encoding="utf-8").write(html2)
+            print(f"cache-busted index.html -> data.js?v={stamp}")
 
 if __name__ == "__main__":
     main()
