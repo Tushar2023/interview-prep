@@ -1,0 +1,1895 @@
+{
+ "company": "Broadcom",
+ "slug": "broadcom",
+ "levelMapping": "Software hiring in India is mostly the former VMware org (now the VCF division + Tanzu/NSX/vSAN teams) plus Symantec/CA/Brocade and semiconductor-firmware units. Legacy VMware ladder still used in postings/offers: MTS-1 (P1, 0-2 YOE) -> MTS-2 (P2, ~2-4 YOE) -> MTS-3 (P3, ~3-6 YOE; ≈ Google L4 / Amazon SDE II) -> SMTS / Staff (P4/P5, 6-10+ YOE; one Blind commenter maps SMTS to Google L4, so MTS-3 may sit at the L4 floor) -> Staff 2 (P6). Broadcom's own ladder appears in newer offers as IC-3/IC-4/IC-5 (a 9-YOE VCF offer in 2025 was IC-4). For ~3.3 YOE expect MTS-2 or MTS-3 depending on the bar you clear — MTS-3 Bengaluru offers reported at 49-52 LPA (2022-2024, 2.5-7 YOE), MTS-2 at ~28-33 LPA (2022-2023, 1.8-2.8 YOE). Level is often decided after the loop, so ask the recruiter which band the req is open at.",
+ "process": {
+  "summary": "The VMware-by-Broadcom loop in India is a 4-6 round, mostly virtual, engineer-driven process: recruiter/hiring-manager call, sometimes a 60-90 min HackerRank OA, then 2-3 one-hour technical rounds that each mix 1-2 LeetCode easy/medium problems with CS-fundamentals and language-internals questions (OS, networking, C++/Java internals), a design round (HLD for everyone, a separate LLD round for SMTS), an optional scenario/debugging round, and a hiring-manager behavioral round. Problems are rarely LC-hard; interviewers care more about clean, compiled-in-head code, edge cases and your ability to explain why (vector internals, how a mutex works, deadlock mitigation). Legacy Broadcom units (Brocade, firmware, Symantec) run shorter, more C/OS-heavy and resume-driven loops, sometimes with a written C test at an in-person drive.",
+  "rounds": [
+   {
+    "name": "Recruiter / hiring-manager intro call",
+    "type": "screen",
+    "duration": "30-60 min",
+    "what": "Background, current project, why VMware/Broadcom, role and location (5-day WFO) expectations. Many HM calls are technical: core Java/C++ or multithreading questions and sometimes one coding problem (Trapping Rain Water was asked in an HM screen).",
+    "probes": "Depth on your current project's architecture, pain points and what you would redesign; language you will code in (C/C++ for vSphere/ESXi/kernel teams, Java/Go for VCF/Tanzu/Aria control planes, Python for automation/tooling)."
+   },
+   {
+    "name": "Online assessment (team-dependent)",
+    "type": "oa",
+    "duration": "60-90 min",
+    "what": "HackerRank (occasionally Codility/HirePro). Typical: 2-3 coding problems (LC easy/medium: tree diameter, consecutive-numbers sum, sort-by-popcount, prefix-count problems) plus 6-15 MCQs on OS/networking/DBMS/C. Efficient solutions earn extra points; proctored with camera and tab-switch detection in 2025 reports.",
+    "probes": "Hidden test cases and time/space complexity; MCQs lean GATE-style (paging, deadlock, TCP, SQL)."
+   },
+   {
+    "name": "Technical round 1 - DSA + fundamentals",
+    "type": "dsa",
+    "duration": "60 min",
+    "what": "HackerRank CodePair / shared editor (often no autocomplete, no run button). Intro + 10-15 min project discussion, then 1-2 problems: linked lists (reverse, loop detect+remove, remove duplicates, middle, k-group), arrays/strings (merge sorted, anagrams, K-distinct substring), trees (LCA, invert without recursion, level order). Follow-up rapid-fire on stack vs heap, vector internals, list vs array traversal cost.",
+    "probes": "Iterative AND recursive versions; constant-space constraint; complexity of each step; dry-run on an edge case (empty, single node, cycle); they expect code that would compile without a run button."
+   },
+   {
+    "name": "Technical round 2 - coding + language/OS internals",
+    "type": "dsa",
+    "duration": "60 min",
+    "what": "Second LC easy/medium set (DP such as LIS/edit-distance variants, BFS/DFS islands, kth largest, stock span, task-scheduler-like) plus a long verbal block: C++ virtual functions/vptr, diamond problem, how a mutex/spinlock/semaphore is implemented, deadlock examples and mitigation, fork and process vs thread, virtual memory/page faults/TLB, TCP vs UDP, HTTP vs HTTPS. Java teams ask ConcurrentHashMap, BlockingQueue, Thread vs Runnable, immutability.",
+    "probes": "Interviewers deliberately challenge syntax and ask confusing follow-ups to test confidence; be ready to write a comparator, a thread-safe singleton or a two-thread lock on the spot."
+   },
+   {
+    "name": "Design round (HLD; SMTS gets a separate LLD round)",
+    "type": "design",
+    "duration": "60 min",
+    "what": "Systems-flavoured design: thread-pool library, memory-management subsystem, rolling upgrade of servers in a distributed system, job/machine (cluster) scheduler, load balancer + LRU cache, logging framework with levels, telemetry ingestion, blob-storage API. Often starts with an LRU cache implementation or vertical vs horizontal scaling / caching / master-slave warm-ups and then goes deep on failure handling.",
+    "probes": "Bottlenecks and failure at each stage, consistency, SPOF avoidance, consistent hashing, sharding of your own project's DB, how your design would have survived the 2018 GitHub DDoS."
+   },
+   {
+    "name": "Scenario / debugging round (some teams)",
+    "type": "practical",
+    "duration": "60 min",
+    "what": "Debug a C++ program that compiles but produces wrong output; GDB/WinDbg usage; how you debug running production services; log levels and reconstructing an incident from logs; how snapshots are implemented; Pune C++/kernel teams also discuss your debugging habits and tools.",
+    "probes": "Systematic narrowing (bisect, breakpoints, core dumps), memory errors (dangling pointer, UB, off-by-one), reading crash dumps."
+   },
+   {
+    "name": "Hiring manager / behavioral",
+    "type": "hm",
+    "duration": "45-60 min",
+    "what": "Scenario-based behavioral: conflict with teammate/manager, handling negative feedback, proudest moment, pressure and deadlines, working on an old tech stack, customer-facing escalation scenario (SMTS). Also discussion of the team's tech stack and your language comfort (e.g., rate your Java 1-10).",
+    "probes": "Why leave current job; ownership stories; whether you will cope with 5-day office and a lean, high-expectation culture."
+   },
+   {
+    "name": "HR / offer",
+    "type": "other",
+    "duration": "15-30 min",
+    "what": "Expected CTC, notice period, 5-year view. Offers = base + 12% target bonus + 4-year RSU grant (quarterly vest) + joining/relocation bonus; RSU grant size is usually declared non-negotiable, cash via joining bonus is the lever. Reqs can sit 'pending budget approval' after a positive loop.",
+    "probes": ""
+   }
+  ],
+  "indiaNotes": "Bengaluru is the main hub (VCF/vSphere/ESXi, vSAN, NSX, Aria/automation, Tanzu, Symantec, Brocade, semis firmware); Pune hosts C++/Windows-kernel, EUC-legacy and some Tanzu/Spring teams; Hyderabad has Symantec/CA-style Java/microservices teams. Rounds are all virtual (Zoom + HackerRank CodePair) and usually spread over 1-3 weeks, sometimes two rounds back-to-back on one day. India loops lean harder on CS fundamentals and language internals than US loops (US reports: Codility phone screen + 2 coding + 1 design + HM, more LC-medium focused). Legacy Broadcom units in Bengaluru still run in-person drives: a 20-question written C paper (syntax errors, DS, networking, OS, architecture, debugging) followed by F2F technical rounds; Brocade F2F rounds are 'very basic C' and resume-driven. EUC (Workspace ONE/Horizon) was carved out to Omnissa (KKR) in 2024 and Carbon Black folded into Symantec, so those are no longer Broadcom reqs. 5-day work-from-office is mandatory in India; attendance is tracked.",
+  "timeline": "Glassdoor averages 14 days (Broadcom) to 18-26 days (VMware); real India reports range from 5 days (two rounds a day) to ~4 weeks, with offers arriving 2 days to 1 month after the last round. Some reqs stall after a positive loop for budget approval; 2023-2024 reports of positions put 'on hold' after final rounds and stack-ranking between finalists.",
+  "tips": [
+   "Prepare linked-list and tree problems to the point of writing them iteratively and recursively without a run button; they appear in nearly every India report (reverse, loop detect+remove, remove duplicates, middle, k-group, LCA, invert without recursion).",
+   "For every data structure you use, be able to explain its internals and complexity (vector growth, hash table buckets/collisions, list vs array cache behaviour) — these follow-ups decide the round as much as the problem.",
+   "Revise OS/concurrency fundamentals as interview questions, not trivia: mutex vs semaphore vs spinlock and how a mutex is implemented, deadlock example + mitigation, process vs thread and fork(), virtual memory/page fault/TLB, what malloc does across user/kernel.",
+   "Expect C++ depth if the team is vSphere/ESXi/NSX/kernel (virtual functions, vptr, diamond problem, name mangling, extern \"C\", RAII); Java/Go depth for VCF control plane/Tanzu/Aria (ConcurrentHashMap, BlockingQueue, immutability, goroutines/channels).",
+   "Design rounds are infra-flavoured: practise thread pool, cluster/job scheduler, memory manager, rolling upgrades, logging/telemetry pipelines, load balancer with consistent hashing, and be ready to start by implementing an LRU cache.",
+   "Drive the project discussion yourself: flow diagram, resiliency, scale numbers, pain points and what you would redesign — several loops (SDE-4 2025, MTS-3 2021) used this as the de-facto design round.",
+   "Interviewers may argue syntax or interrupt; stay calm, state assumptions, say 'I don't know' instead of guessing (reported as appreciated).",
+   "Confirm the business unit, level band and whether the req is funded before investing in the loop; ask about layoffs in that team and the 5-day WFO policy.",
+   "If you get a take-home (Windows/kernel or Tanzu pairing teams), expect to defend it line-by-line in a later round."
+  ],
+  "notes": "No fixed 'bar raiser' or values round; the hiring manager decides with interviewer feedback (US reports mention a hiring-committee-style review). Coding language is free in most teams, but C/C++ is expected for ESXi/kernel/Brocade/firmware roles and Java/Go for control-plane teams. Platforms: HackerRank (OA + CodePair), occasionally Codility or HirePro; interviews on Zoom. Some teams use a one-week take-home (e.g., a Windows Unicode wrapper for a kernel team) or a 3-hour case study (class diagram + pseudocode). A dedicated LLD/OOD round exists mainly at SMTS and in Symantec/CA/EUC-legacy Java teams (pub-sub, rate limiter, parking lot, in-memory game module, immutable class); for MTS-2/MTS-3 LLD questions are folded into coding or design rounds. Post-acquisition reputation (2024-2026): ~19k VMware roles cut since Nov 2023 (Heise via KORE1), repeated RIF cycles in the VCF division, mandatory 5-day office with attendance tracking in India, benefits trimmed, but strong RSU refreshers (reported India grants ~$60k SDE2 to ~$200k SDE4 over 4 years, alternating years) and pay that can exceed Google for senior ICs. Units still hiring software engineers in India in 2025-2026: VCF (vSphere/ESXi, vSAN, NSX, Aria/automation, VCF operations), parts of Tanzu, Symantec/CA infra-software (Agile Ops/Rally, mainframe, security), Brocade storage networking (C), and semiconductor firmware/validation (C/embedded). Glassdoor-wide: 'average' difficulty, 'very positive' experience, 41% applied online, 22% referral.",
+  "sources": [
+   {
+    "title": "VMware SMTS Staff Engineer interview experience (Bangalore, hypervisors/containers team) - GeeksforGeeks",
+    "url": "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/",
+    "date": "2025-08"
+   },
+   {
+    "title": "VMware Interview Questions (Glassdoor) - SMTS Jul 2024 Bengaluru report with round-by-round questions",
+    "url": "https://www.glassdoor.com/Interview/VMware-Interview-Questions-E12830.htm",
+    "date": "2025-08"
+   },
+   {
+    "title": "VMware | MTS2 | Bengaluru | Jan 2023 | Offer - LeetCode Discuss",
+    "url": "https://leetcode.com/discuss/interview-experience/3101316",
+    "date": "2023-01"
+   },
+   {
+    "title": "VMware | MTS-2 | Pune | Offer (C++/Windows kernel team, 5 rounds incl. debugging) - LeetCode Discuss",
+    "url": "https://leetcode.com/discuss/interview-experience/5216967/VMware-or-MTS-2-or-Pune-or-offer/",
+    "date": "2024-05"
+   },
+   {
+    "title": "VMware | MTS-3 | Bangalore | Feb 2022 | Offer (5 technical rounds incl. thread-pool design, GDB/logging scenario) - LeetCode Discuss",
+    "url": "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer",
+    "date": "2022-02"
+   },
+   {
+    "title": "VMware | MTS-3 | Bengaluru | March 2022 | Offer - LeetCode Discuss",
+    "url": "https://leetcode.com/discuss/interview-experience/1950504/vmware-mts-3-bengaluru-march-2022-offer",
+    "date": "2022-03"
+   },
+   {
+    "title": "VMware | MTS-3 | Bangalore | Offer (memory-management subsystem design, server upgrade HLD) - LeetCode Discuss",
+    "url": "https://leetcode.com/discuss/interview-experience/1320283/vmware-mts-3-bangalore-offer",
+    "date": "2021"
+   },
+   {
+    "title": "VMware | MTS2 | Bangalore | Offer (Apr 2022, 5 coding rounds) - LeetCode Discuss",
+    "url": "https://leetcode.com/discuss/interview-experience/1928536/vmware-mts2-bangalore-offer/",
+    "date": "2022-04"
+   },
+   {
+    "title": "Broadcom SDE-4 interview experience, India (2 LC mediums, design = project deep dive, managerial) - Taro",
+    "url": "https://www.jointaro.com/interviews/companies/broadcom/experiences/sde-4-india-june-24-2025-accepted-offer-neutral-8ecf89b9/",
+    "date": "2025-06"
+   },
+   {
+    "title": "Broadcom Software Engineer interview, India Nov 2025 (2 tech + managerial + HR; BST, DP) - Taro",
+    "url": "https://www.jointaro.com/interviews/companies/broadcom/experiences/software-engineer-india-november-3-2025-accepted-offer-positive-a92f5208/",
+    "date": "2025-11"
+   },
+   {
+    "title": "Broadcom Software Engineer interview Bengaluru Feb 2024 (LRU cache, no-run editor) - Taro",
+    "url": "https://www.jointaro.com/interviews/companies/broadcom/experiences/software-engineer-bengaluru-february-18-2024-no-offer-negative-bea626f4/",
+    "date": "2024-02"
+   },
+   {
+    "title": "Broadcom Software Engineer Interview Questions (Glassdoor) - May 2026 Bengaluru written C paper, 2026 reports",
+    "url": "https://www.glassdoor.com/Interview/Broadcom-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,26.htm",
+    "date": "2026-09"
+   },
+   {
+    "title": "Broadcom Senior Software Engineer Interview Questions (Glassdoor) - Pune Jul 2024, Apr 2025 reports",
+    "url": "https://www.glassdoor.com/Interview/Broadcom-Senior-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,33.htm",
+    "date": "2025-04"
+   },
+   {
+    "title": "VMware Senior MTS Interview Questions (Glassdoor) - Dec 2023 Bengaluru SMTS loop (2 coding + LLD + HLD + behavioral)",
+    "url": "https://www.glassdoor.com/Interview/VMware-Senior-Member-of-Technical-Staff-Interview-Questions-EI_IE12830.0,6_KO7,39.htm",
+    "date": "2023-12"
+   },
+   {
+    "title": "Broadcom interview for sr software engineer (VCF division 5-hour loop; RIF warnings) - Blind",
+    "url": "https://www.teamblind.com/post/broadcom-interview-for-sr-software-engineer-ojgjfe4u",
+    "date": "2025-05"
+   },
+   {
+    "title": "Google vs Broadcom offer, India (IC-4 VCF offer, refreshers, 5-day WFO, layoffs) - Blind",
+    "url": "https://www.teamblind.com/post/google-vs-broadcom-offer-india-d7vtl6aw",
+    "date": "2025"
+   },
+   {
+    "title": "Broadcom interview experience (Brocade Bengaluru F2F drive, basic C) - Blind",
+    "url": "https://www.teamblind.com/post/Broadcom-interview-experience-uwjhSGi2",
+    "date": "2023-10"
+   },
+   {
+    "title": "VMware MTS-3 offer evaluation (loop: 2 DSA LC-medium, easy design, managerial) - Blind",
+    "url": "https://www.teamblind.com/post/vmware-mts-3-offer-evaluation-2mvqvk5g",
+    "date": "2022"
+   },
+   {
+    "title": "VMware by Broadcom | MTS3 | Bengaluru compensation (May 2024, EUC) - LeetCode Discuss",
+    "url": "https://leetcode.com/discuss/compensation/5203596/VMware-by-Broadcom-or-MTS3-or-Bengaluru/",
+    "date": "2024-05"
+   },
+   {
+    "title": "VMware Broadcom Layoffs 2026: 19,000 roles - KORE1",
+    "url": "https://www.kore1.com/vmware-broadcom-layoffs-2026/",
+    "date": "2026-05"
+   },
+   {
+    "title": "Broadcom Software Engineer review Bengaluru Nov 2024 (5-day WFO, attendance tracking) - Taro",
+    "url": "https://www.jointaro.com/interviews/companies/broadcom/work-experiences/software-engineer-bengaluru-november-19-2024-1-2be2b967/",
+    "date": "2024-11"
+   },
+   {
+    "title": "My Real VMware HackerRank Questions From the 2025 Interview - linkjob.ai (promotional, treat with caution)",
+    "url": "https://www.linkjob.ai/interview-questions/vmware-hackerrank/",
+    "date": "2025-11"
+   },
+   {
+    "title": "Broadcom Software Engineer interview guide (Symantec unit, 12 reports Q3 2024-Q2 2026) - Interview Query",
+    "url": "https://www.interviewquery.com/interview-guides/broadcom-software-engineer",
+    "date": "2026"
+   }
+  ]
+ },
+ "dsa": [
+  {
+   "title": "Reverse a Linked List (iterative + recursive)",
+   "lcId": 206,
+   "url": "https://leetcode.com/problems/reverse-linked-list/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Linked List",
+    "Recursion"
+   ],
+   "statement": "",
+   "variant": "Asked both iteratively and recursively in one go; C teams want linear time / constant space and a whiteboard dry-run; also appears as a warm-up in firmware/Brocade rounds.",
+   "evidence": "Reported in 6+ loops: Bengaluru SWE (Glassdoor, May 2022 posted Oct 2024), Bengaluru SWE in C (Taro Jul 2023), MTS-3 Feb 2022, Sr MTS 2020 round 3, Principal Bengaluru 2017, Firmware whiteboard Jun 2026",
+   "recency": "2026-06",
+   "sources": [
+    "https://www.glassdoor.com/Interview/VMware-Software-Engineer-Interview-Questions-EI_IE12830.0,6_KO7,24.htm",
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/software-engineer-bengaluru-july-18-2023-accepted-offer-positive-e9d19741/",
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer",
+    "https://www.glassdoor.com/Interview/Broadcom-Firmware-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,26.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Detect and remove a loop in a linked list",
+   "lcId": 142,
+   "url": "https://leetcode.com/problems/linked-list-cycle-ii/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Linked List",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "Floyd's cycle detection, then the follow-up is always 'now remove the loop' and state time/space complexity.",
+   "evidence": "SMTS Bengaluru Jul 2024 round 2; GFG 2023 technical round; MTS-1 off-campus 2021 round 2; GFG VMware prep list",
+   "recency": "2025-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-2/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-mts-1-off-campus-2021/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Remove duplicates from a linked list (sorted and unsorted)",
+   "lcId": 83,
+   "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Linked List",
+    "Hash Set"
+   ],
+   "statement": "",
+   "variant": "Unsorted variant (hash set, or O(n^2) with O(1) space) is what SMTS/Staff loops asked; Staff 2021 phrased it as 'find duplicate in linked list'.",
+   "evidence": "SMTS Bengaluru Jul 2024 round 1; Broadcom Staff SWE India 2021; Interview Query Symantec reports 2024-2026",
+   "recency": "2025-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/",
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/staff-software-engineer-india-june-27-2021-accepted-offer-positive-24ca4843/",
+    "https://www.interviewquery.com/interview-guides/broadcom-software-engineer"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Middle of the Linked List (one traversal) + circular / doubly variants",
+   "lcId": 876,
+   "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Linked List",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "Follow-ups: middle of a circular list, middle of a doubly linked list, and justify the complexity of the slow/fast approach.",
+   "evidence": "MTS-3 Bengaluru Mar 2022 round 2; MTS-3 Bengaluru Jun 2021 (Glassdoor); Broadcom Plano Oct 2025 (one traversal)",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1950504/vmware-mts-3-bengaluru-march-2022-offer",
+    "https://www.glassdoor.co.in/Interview/VMware-Member-of-Technical-Staff-III-Interview-Questions-EI_IE12830.0,6_KO7,36.htm",
+    "https://prachub.com/resources/broadcom-software-engineering-intern-interview-2027-c-c-networking-and-firmware"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Reverse Nodes in k-Group",
+   "lcId": 25,
+   "url": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Linked List",
+    "Recursion"
+   ],
+   "statement": "",
+   "variant": "Asked after a resume deep-dive in a projects+coding round; GFG prep list also lists 'reverse a linked list in groups of given size'.",
+   "evidence": "MTS-3 Bangalore loop (LeetCode Discuss); GFG VMware preparation list",
+   "recency": "2021",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1320283/vmware-mts-3-bangalore-offer",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-preparation/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Lowest Common Ancestor of a Binary Tree (nodes may be absent)",
+   "lcId": 236,
+   "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "Clarify whether both nodes are guaranteed present; the phone-screen version became LC 1644 (two-pass existence check vs single-pass with counters). Interviewer then asked for hardcoded test trees run live in Codility.",
+   "evidence": "VMware senior phone screen (Codility); MTS-3 Bangalore round 3 'variation of LCA'; MTS-2 round 2",
+   "recency": "2021-12",
+   "sources": [
+    "https://leetcode.com/discuss/interview-question/1617414/vmware-phone-interview-experienced",
+    "https://leetcode.com/discuss/interview-experience/1320283/vmware-mts-3-bangalore-offer",
+    "https://leetcode.com/discuss/interview-experience/1043784/vmware-mts-2"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Merge Two Sorted Arrays, then Merge k Sorted Lists",
+   "lcId": 23,
+   "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Heap",
+    "Linked List",
+    "Divide and Conquer"
+   ],
+   "statement": "",
+   "variant": "Round starts with LC 88 (merge sorted array in place) and escalates to LC 23 coded live; followed by stack-vs-heap and vector questions.",
+   "evidence": "MTS2 Bengaluru Jan 2023 round 1",
+   "recency": "2023-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/3101316"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Longest Substring with At Most K Distinct Characters",
+   "lcId": 340,
+   "url": "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Asked in the coding+design round before the LRU/scaling discussion.",
+   "evidence": "MTS2 Bengaluru Jan 2023 round 2",
+   "recency": "2023-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/3101316"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Group Anagrams",
+   "lcId": 49,
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "String",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "Phrased as 'rearrange an array of strings so anagrams are adjacent'; discuss sorted-key vs count-key hashing.",
+   "evidence": "MTS-3 Bengaluru Mar 2022 round 1; GFG on-campus technical round",
+   "recency": "2022-03",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1950504/vmware-mts-3-bengaluru-march-2022-offer",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-on-campus-4/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Longest Increasing Subsequence (DP, then recursive formulation)",
+   "lcId": 300,
+   "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Dynamic Programming",
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "Interviewer asked for the O(n^2) DP first, then to re-express it recursively (memoised); be ready for the O(n log n) patience-sorting version.",
+   "evidence": "MTS-3 Bengaluru Mar 2022 round 1; 'a DP problem' is the most common description of SMTS coding rounds (Glassdoor Dec 2023, Taro Nov 2025)",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1950504/vmware-mts-3-bengaluru-march-2022-offer",
+    "https://www.glassdoor.com/Interview/VMware-Senior-Member-of-Technical-Staff-Interview-Questions-EI_IE12830.0,6_KO7,39.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Min Stack + Score of Parentheses (phone-screen pair)",
+   "lcId": 155,
+   "url": "https://leetcode.com/problems/min-stack/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Stack",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Asked together in one 45-min phone screen; Score of Parentheses is LC 856. Plain balanced-parentheses (LC 20) is the warm-up in other loops.",
+   "evidence": "MTS-3 Bangalore phone screen; MTS-3 Mar 2022 round 2 (balanced parentheses)",
+   "recency": "2022-03",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1320283/vmware-mts-3-bangalore-offer",
+    "https://leetcode.com/discuss/interview-experience/1950504/vmware-mts-3-bengaluru-march-2022-offer"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Online Stock Span",
+   "lcId": 901,
+   "url": "https://leetcode.com/problems/online-stock-span/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Monotonic Stack"
+   ],
+   "statement": "",
+   "variant": "Asked as the classic 'stock span problem' on HackerRank CodePair.",
+   "evidence": "MTS-3 Bangalore Feb 2022 round 1",
+   "recency": "2022-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Minimum insertions and deletions to convert string A into B",
+   "lcId": 583,
+   "url": "https://leetcode.com/problems/delete-operation-for-two-strings/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Dynamic Programming",
+    "String"
+   ],
+   "statement": "",
+   "variant": "Reduce to LCS: deletions = |A| - LCS, insertions = |B| - LCS; interviewer may push toward full edit distance (LC 72).",
+   "evidence": "MTS-3 Bangalore Feb 2022 round 1",
+   "recency": "2022-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Number of Islands (+ DFS on adjacency list with topological-order follow-up)",
+   "lcId": 200,
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "BFS",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "4-connected grid version; a separate loop asked plain DFS over an adjacency list and then 'maintain precedence order' (hint toward topological sort, LC 210). Graph DFS/BFS also cited in a Bengaluru Sr SWE 2023 loop.",
+   "evidence": "MTS-3 Bangalore Feb 2022 round 2; MTS-1 on-campus 2021 round 2; VMware Sr SWE Bengaluru Jun 2023 (Glassdoor)",
+   "recency": "2023-06",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-mts-1-on-campus-2021/",
+    "https://www.glassdoor.com/Interview/VMware-Senior-Software-Engineer-Interview-Questions-EI_IE12830.0,6_KO7,31.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Kth Largest Element in an array / in an infinite stream",
+   "lcId": 215,
+   "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Quickselect"
+   ],
+   "statement": "",
+   "variant": "Stream version (LC 703): first 'max element in an infinite stream', then 'kth largest in the same stream' — expect to defend a min-heap of size k vs quickselect.",
+   "evidence": "MTS-3 Bangalore Feb 2022 round 3; Sr MTS Apr 2020 round 1",
+   "recency": "2022-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-sr-mts-april-2020/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Trapping Rain Water",
+   "lcId": 42,
+   "url": "https://leetcode.com/problems/trapping-rain-water/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Two Pointers",
+    "Stack"
+   ],
+   "statement": "",
+   "variant": "Asked inside the hiring-manager screening call after core Java/multithreading questions.",
+   "evidence": "MTS2 Bangalore Apr 2022 round 1",
+   "recency": "2022-04",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1928536/vmware-mts2-bangalore-offer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Height of a binary tree, then print its top view",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "BFS",
+    "Hash Map"
+   ],
+   "statement": "Given a binary tree, first return its height (LC 104). Then print the 'top view': for each horizontal distance from the root, the first node seen when looking from above. Solve with BFS carrying (node, hd) and record the first node per hd; discuss why DFS needs depth tracking to be correct.",
+   "variant": "",
+   "evidence": "MTS2 Bangalore Apr 2022 round 2 (after project discussion)",
+   "recency": "2022-04",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1928536/vmware-mts2-bangalore-offer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Longest substring with no two adjacent characters equal",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "String",
+    "Sliding Window"
+   ],
+   "statement": "Given a string, return the longest contiguous substring in which no two neighbouring characters are the same (e.g. 'aabcbd' -> 'abcbd'). Single pass: extend while s[i] != s[i-1], reset the window start when they match; return the best window.",
+   "variant": "",
+   "evidence": "MTS2 Bangalore Apr 2022 round 4",
+   "recency": "2022-04",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1928536/vmware-mts2-bangalore-offer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Find All Anagrams in a String",
+   "lcId": 438,
+   "url": "https://leetcode.com/problems/find-all-anagrams-in-a-string/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "MTS2 Bangalore Apr 2022 round 4",
+   "recency": "2022-04",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1928536/vmware-mts2-bangalore-offer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Implement a growable stack / queue / stack using queues",
+   "lcId": 225,
+   "url": "https://leetcode.com/problems/implement-stack-using-queues/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Stack",
+    "Queue",
+    "Design"
+   ],
+   "statement": "Write a Stack class over a raw array that doubles its internal array when capacity is reached (push/pop/peek, amortised O(1)); separately, implement a queue from scratch and a stack using queues. Interviewers probe amortised analysis, shrinking policy and thread-safety of the class.",
+   "variant": "SMTS round 1 asked the auto-extending stack in C++; MTS2 2022 asked 'implement a queue'; GFG 2021 asked stack via queues.",
+   "evidence": "SMTS Bengaluru Jul 2024 round 1; MTS2 Apr 2022 round 4; Intern+MTS 2021 manager round",
+   "recency": "2025-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/",
+    "https://leetcode.com/discuss/interview-experience/1928536/vmware-mts2-bangalore-offer/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-internmts-off-campus-2021/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design an O(1) collection: ordered, duplicates allowed, O(1) get/remove",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Linked List",
+    "Design"
+   ],
+   "statement": "Design a list-like data structure in Java/C++ that preserves insertion order, allows duplicate values, and supports get and remove in O(1). Expected answer: a doubly linked list for order plus a hash map from value to a set/list of node references (compare with LC 380/381 Insert Delete GetRandom O(1)). A Pune 2024 variant was simply 'support these operations in O(1)' solved with hashmap + list.",
+   "variant": "",
+   "evidence": "MTS2 Bangalore Apr 2022 round 5 (candidate could not solve); MTS-2 Pune 2024 round 2",
+   "recency": "2024-05",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1928536/vmware-mts2-bangalore-offer/",
+    "https://leetcode.com/discuss/interview-experience/5216967/VMware-or-MTS-2-or-Pune-or-offer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Task Scheduler (cooldown between same tasks)",
+   "lcId": 621,
+   "url": "https://leetcode.com/problems/task-scheduler/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "Heap",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Reported as 'similar to Task Scheduler'; the interviewer pressed on writing a custom comparator in C++ for the heap.",
+   "evidence": "VMware SMTS Nov 2023 (Glassdoor)",
+   "recency": "2023-11",
+   "sources": [
+    "https://www.glassdoor.com/Interview/VMware-Senior-Member-of-Technical-Staff-Interview-Questions-EI_IE12830.0,6_KO7,39.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Maximum j - i such that arr[i] <= arr[j]",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Array",
+    "Prefix/Suffix",
+    "Two Pointers"
+   ],
+   "statement": "Given an integer array, find the maximum index difference j - i with arr[i] <= arr[j] (0 if none). Brute force O(n^2) was accepted first, then the interviewer required O(n): build a prefix-min array and a suffix-max array and sweep both with two pointers. Also on GFG's VMware 'hard' list.",
+   "variant": "",
+   "evidence": "VMware Staff Engineer Bengaluru May 2023 (Glassdoor) coding round; GFG VMware topics list",
+   "recency": "2023-05",
+   "sources": [
+    "https://www.glassdoor.com/Interview/VMware-Staff-Engineer-Interview-Questions-EI_IE12830.0,6_KO7,21.htm",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-topics-for-interview-preparation/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Sort an array of 0s and 1s (and 0/1/2 - Sort Colors)",
+   "lcId": 75,
+   "url": "https://leetcode.com/problems/sort-colors/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Two Pointers",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "Asked as a 10-minute warm-up before OS questions; expect one-pass Dutch-national-flag partitioning.",
+   "evidence": "Sr MTS Apr 2020 round 1; Staff Engineer Jan 2021 (Glassdoor)",
+   "recency": "2021-03",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-sr-mts-april-2020/",
+    "https://www.glassdoor.com/Interview/VMware-Staff-Engineer-Interview-Questions-EI_IE12830.0,6_KO7,21.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Maximum Subarray with start and end indices",
+   "lcId": 53,
+   "url": "https://leetcode.com/problems/maximum-subarray/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Dynamic Programming",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "Kadane's with index tracking; also reported in a Broadcom-tagged practice set.",
+   "evidence": "MTS-3 Bengaluru Jun 2021 (Glassdoor); interviewsolver Broadcom set",
+   "recency": "2021-06",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/VMware-Member-of-Technical-Staff-III-Interview-Questions-EI_IE12830.0,6_KO7,36.htm",
+    "https://interviewsolver.com/interview-questions/broadcom"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Pythagorean triple in an array (3Sum family)",
+   "lcId": 15,
+   "url": "https://leetcode.com/problems/3sum/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Two Pointers",
+    "Hash Set",
+    "Sorting"
+   ],
+   "statement": "Given an integer array, decide whether it contains a, b, c with a^2 + b^2 = c^2. Square everything, sort, then for each candidate c^2 run a two-pointer pair-sum (O(n^2)); mention the hash-set alternative and the 3Sum / triplet-sum variants that other VMware loops asked.",
+   "variant": "Plain 3Sum and 'closest 3-sum to target' (LC 16) reported in older VMware rounds; a triplet-sum variant where the interviewer graded code structure over the answer.",
+   "evidence": "Broadcom SWE Sep 2026 (Glassdoor, Israel); VMware on-campus 2021 (3Sum); MTS-1 on-campus 2021 (triplet variant); VMware MTS 2017 (3-sum closest)",
+   "recency": "2026-09",
+   "sources": [
+    "https://www.glassdoor.com/Interview/Broadcom-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,26.htm",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-on-campus-2021-2/",
+    "https://www.glassdoor.co.in/Interview/VMware-Interview-E12830-RVW12719343.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Binary search variants: first/last occurrence, rotation count",
+   "lcId": 34,
+   "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "Interviewers push from linear scan -> binary search + linear expansion (rejected, not O(log n)) -> two separate binary searches. A sibling question: number of rotations of a sorted rotated array = index of the minimum (LC 153).",
+   "evidence": "VMware MTS on-campus (takeUforward) round 2; VMware on-campus 2021 round 2 (rotations)",
+   "recency": "2022",
+   "sources": [
+    "https://takeuforward.org/interview-experience/vmware-member-of-technical-staff-mts-interview-experience-set-1",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-on-campus-2021-2/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "First Missing Positive (constant space) + two missing numbers in linear time",
+   "lcId": 41,
+   "url": "https://leetcode.com/problems/first-missing-positive/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Array",
+    "Bit Manipulation",
+    "Math"
+   ],
+   "statement": "",
+   "variant": "Round began with 'find the two missing numbers from 1..n in O(n)' (sum/sum-of-squares or XOR partitioning — interviewer had not seen the XOR trick), then 'smallest missing positive in an unsorted array, constant extra space' (index-marking / cyclic sort).",
+   "evidence": "VMware MTS on-campus round 1 (GFG), 2 interviewers at MTS-3 level",
+   "recency": "2021-09",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-mts-on-campus-2/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Invert / mirror a binary tree without recursion (+ level-order variants)",
+   "lcId": 226,
+   "url": "https://leetcode.com/problems/invert-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Tree",
+    "Stack",
+    "BFS"
+   ],
+   "statement": "",
+   "variant": "Always 'without recursion' (explicit stack or queue). Companion asks: level-order traversal, bottom-up level order / 'leaf to root nodes by level' (LC 107), swap left and right subtrees.",
+   "evidence": "MTS-2 round 2 (LeetCode Discuss); Intern+MTS 2021 round 2; GFG 2023 technical round; MTS-3 Mar 2022 design round (leaf-to-root by level)",
+   "recency": "2023-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1043784/vmware-mts-2",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-internmts-off-campus-2021/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-2/",
+    "https://leetcode.com/discuss/interview-experience/1950504/vmware-mts-3-bengaluru-march-2022-offer"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "HackerRank OA set (MTS-2): Diameter of Binary Tree, Consecutive Numbers Sum, custom exception",
+   "lcId": 543,
+   "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "Math",
+    "OA"
+   ],
+   "statement": "",
+   "variant": "90-minute HackerRank with three parts: raise and handle a custom exception in Python, LC 829 Consecutive Numbers Sum, LC 543 Diameter of Binary Tree.",
+   "evidence": "VMware MTS-2 OA (LeetCode Discuss)",
+   "recency": "2021",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1043784/vmware-mts-2"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Validate BST, then merge two BSTs into one BST in O(m+n)",
+   "lcId": 98,
+   "url": "https://leetcode.com/problems/validate-binary-search-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "BST",
+    "Inorder"
+   ],
+   "statement": "",
+   "variant": "Follow-up (explain, no code): inorder both trees to sorted lists, merge, build a balanced BST from the sorted array (LC 108) — O(m+n) time. 'BST' is also the topic named in a Nov 2025 India SWE loop.",
+   "evidence": "Intern+MTS 2021 round 2 (validate BST); VMware MTS on-campus round 2 (merge BSTs); Broadcom SWE India Nov 2025 (BST + DP topics)",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-internmts-off-campus-2021/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-mts-on-campus-2/",
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/software-engineer-india-november-3-2025-accepted-offer-positive-a92f5208/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Count Negative Numbers in a Sorted Matrix",
+   "lcId": 1351,
+   "url": "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Matrix",
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "Interviewer rejected the first two approaches and wanted the staircase O(m+n) walk from the top-right/bottom-left corner.",
+   "evidence": "VMware on-campus 2022 technical round 2 (GFG)",
+   "recency": "2022-01",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-on-campus-2022/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design a HashMap class with collision handling",
+   "lcId": 706,
+   "url": "https://leetcode.com/problems/design-hashmap/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Hash Table",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Discuss chaining vs open addressing before coding insert/get; the same loop series asks 'how is a hash table implemented internally' verbally (SMTS 2024).",
+   "evidence": "MTS-1 2022 round 1 (20-30 min design + code); SMTS Jul 2024 round 2 (verbal)",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/2424437/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Implement a vector class (push_back, shrink_to_fit) with calloc/realloc",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "C/C++",
+    "Memory",
+    "Design"
+   ],
+   "statement": "Write a minimal std::vector in C/C++: raw buffer, size and capacity, push_back with geometric growth (realloc), shrink_to_fit, operator[]; explain amortised O(1) and why constant-time indexing holds. The verbal twin — 'what is a vector and how is it implemented internally' — recurs in C++ rounds.",
+   "variant": "",
+   "evidence": "Intern+MTS 2021 round 1 (coded); MTS2 Jan 2023 (advantages of vector); SMTS Jul 2024 (verbal internals)",
+   "recency": "2025-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-internmts-off-campus-2021/",
+    "https://leetcode.com/discuss/interview-experience/3101316",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "C bit-manipulation and memory-layout drills (Broadcom hardware/firmware units)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Bit Manipulation",
+    "C",
+    "Memory Layout"
+   ],
+   "statement": "A cluster of C questions from Broadcom (non-VMware) rounds: (1) compute sizeof a struct {int; char; short; char; int} with padding (answer 16); (2) set all bits from position start to end of an integer without a loop by building a mask ((1<<end)-1) ^ ((1<<(start-1))-1) and OR-ing; (3) 265 switches all off, toggle every 2nd/3rd/5th/7th/13th — count how many are on; (4) swap two ints without a temp or arithmetic (XOR); (5) write your own sizeof() using pointer arithmetic.",
+   "variant": "Bit manipulation + pointers + linked lists was the stated syllabus of a 2023 Bengaluru SWE loop in C.",
+   "evidence": "Broadcom round-1 questions post (LeetCode Discuss); Intern+MTS 2021 round 2; Broadcom SWE Bengaluru Jul 2023 (Taro)",
+   "recency": "2023-07",
+   "sources": [
+    "https://leetcode.com/discuss/interview-question/1287500/broadcom-interviews-questions-solutions/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-internmts-off-campus-2021/",
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/software-engineer-bengaluru-july-18-2023-accepted-offer-positive-e9d19741/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Trie + DFS hard problem (Word Search II style)",
+   "lcId": 212,
+   "url": "https://leetcode.com/problems/word-search-ii/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Trie",
+    "DFS",
+    "Backtracking"
+   ],
+   "statement": "",
+   "variant": "Reported as 'a hard-tagged LeetCode problem needing a Trie with DFS' in a 1-hour staff-level round after 20 min of project talk; candidate ran out of time and was asked to at least implement the Trie. Exact problem not named.",
+   "evidence": "Blind, VMware VCDR staff interview thread (comment)",
+   "recency": "2023",
+   "sources": [
+    "https://www.teamblind.com/post/vmware-staff-engineer-interview-q33khvnh"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "HackerRank OA set (2025): Sort by popcount, distinct-digit counts, permutation subarrays",
+   "lcId": 1356,
+   "url": "https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sorting",
+    "Prefix Sum",
+    "Hash Table",
+    "OA"
+   ],
+   "statement": "Three problems in a 90-min proctored HackerRank (6 MCQ + 3 coding): (1) Cardinality sorting = LC 1356; (2) for up to 1e5 queries [n, m] with m <= 1e6, count numbers whose digits are all distinct — precompute a prefix count; (3) given a permutation p of 1..n, for each k output 1 if some length-k window is a permutation of 1..k — track the span of positions of values 1..k.",
+   "variant": "",
+   "evidence": "linkjob.ai first-person VMware OA account, Nov 2025 (promotional site; unverified)",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.linkjob.ai/interview-questions/vmware-hackerrank/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Sorting implementations and custom comparators",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Sorting",
+    "Comparator"
+   ],
+   "statement": "Be ready to hand-write merge sort / quicksort / bubble sort with complexity, compare merge vs quick, and to sort with custom keys: sort a list of words alphabetically (including 'VMware') and return the second-to-last; sort an array of date strings ascending; sort a list without built-in APIs and explain how you compare elements. SMTS rounds argued about comparator syntax in C++.",
+   "variant": "",
+   "evidence": "Broadcom SWE Apr 2024 (merge vs quick, AVL); Broadcom intern Bengaluru Feb 2024 (merge sort); GFG 2023 (quicksort); Sr MTS 2020 round 1; MTS-1 on-campus 2021; SMTS Nov 2023 comparator",
+   "recency": "2024-04",
+   "sources": [
+    "https://static-pc.glassdoor.de/Interview/Broadcom-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,26_IP5.htm",
+    "https://www.glassdoor.com/Interview/Broadcom-Intern-Interview-Questions-EI_IE6926.0,8_KO9,15.htm",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-senior-mts/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Concurrency coding drills: two-thread lock, reader-writer, producer-consumer, ping-pong tasks",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Concurrency",
+    "Threads",
+    "Synchronization"
+   ],
+   "statement": "Recurring coded exercises: (a) design a lock with acquire()/release() used by two threads and write it (also 'mutual exclusion without kernel primitives' — Peterson/Dekker or atomics); (b) multithreaded reader-writer problem in C++ with variations (writer preference, condition variables); (c) bounded producer-consumer queue with mutex + condition variables, and why volatile does not fix data races; (d) two asynchronous tasks that alternately hand control to each other (C#/Java async), and converting a synchronous routine to asynchronous; (e) write a multithreaded program touching shared global data and list the precautions.",
+   "variant": "",
+   "evidence": "Sr MTS Apr 2020 rounds 1-2; Sr MTS Oct 2020 round 3; MTS-3 Bengaluru Jun 2021; VMware MTS phone 2017 (producer-consumer); Broadcom Glassdoor Jan 2026 (queue + producer-consumer, via PracHub)",
+   "recency": "2026-01",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-sr-mts-april-2020/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-senior-mts/",
+    "https://www.glassdoor.co.in/Interview/VMware-Member-of-Technical-Staff-III-Interview-Questions-EI_IE12830.0,6_KO7,36.htm",
+    "https://prachub.com/resources/broadcom-software-engineering-intern-interview-2027-c-c-networking-and-firmware"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Python file-processing assignment with modular classes (live, ~45 min)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Practical",
+    "Python",
+    "OOP"
+   ],
+   "statement": "Read a large text file, extract all digits and arrange them into an N x N matrix, validate the matrix is correctly ordered, transpose it, and emit a list of dictionaries. Interviewer required modular, edge-case-safe code and asked for a split into a custom Exception class, a FileReader, a Configuration holder and a main driver; followed by TCP vs UDP and HTTP vs HTTPS.",
+   "variant": "A similar 'read a list from an API, extract a field, sort and return strings' task appeared in a Java MTS-1 loop.",
+   "evidence": "VMware MTS-2 round 2 (LeetCode Discuss); MTS-1 off-campus 2021 round 1",
+   "recency": "2021-11",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1043784/vmware-mts-2",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-mts-1-off-campus-2021/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Debug a C++ program that compiles but produces wrong output",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Debugging",
+    "C++",
+    "Practical"
+   ],
+   "statement": "A dedicated debugging round: you are shown a syntactically valid C++ program whose output is wrong and must find and fix the flaw (typical culprits: off-by-one, integer overflow, dangling reference, copy vs reference, uninitialised member, operator precedence). Preceded by a discussion of your debugging habits and tools (GDB/WinDbg, sanitizers, logging).",
+   "variant": "Java variant: 'debug this Java code' rapid-fire in a 2021 campus loop; 'improve an existing piece of code' (sync -> async) for a C# team.",
+   "evidence": "VMware MTS-2 Pune 2024 round 4; MTS-3 Feb 2022 scenario round (GDB); MTS-1 on-campus 2021",
+   "recency": "2024-05",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/5216967/VMware-or-MTS-2-or-Pune-or-offer/",
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "CS fundamentals: processes vs threads, fork(), zombie/orphan, context switch",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Operating Systems",
+    "CS Fundamentals"
+   ],
+   "statement": "Explain what happens on fork() (copy-on-write address space, return values, what is shared), how threads differ from processes (shared heap/code vs private stack/registers, cost of creation and context switch), what a zombie and an orphan process are and how to avoid them, what a context switch saves/restores and why process->kernel context differs from process->process. Expect 'how do threads communicate and in what modes do they run' and 'extends Thread vs implements Runnable' in Java rounds.",
+   "variant": "",
+   "evidence": "Sr MTS Apr 2020 round 1; Intern+MTS 2021 round 1; Sr MTS Oct 2020 round 2; MTS-3 Dec 2020 round 1 (threads, processes); Interview Query Symantec reports",
+   "recency": "2025-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-sr-mts-april-2020/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-internmts-off-campus-2021/",
+    "https://www.glassdoor.co.in/Interview/VMware-Member-of-Technical-Staff-III-Interview-Questions-EI_IE12830.0,6_KO7,36.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "CS fundamentals: virtual memory, paging, page faults, TLB, malloc path, thrashing",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Operating Systems",
+    "Memory",
+    "CS Fundamentals"
+   ],
+   "statement": "Walk through what happens in user space vs kernel on malloc(4) (brk/mmap, allocator arenas, lazy physical backing, can malloc fail?), whether the returned address is virtual or physical, the page-table walk and why the TLB exists, what a page fault is and how it is handled (minor vs major), virtual memory layout of a process, thrashing, the memory hierarchy (registers/cache/RAM) and how data moves from RAM to registers, memory leaks and segmentation. Also 'stack vs heap' as a 1-minute answer.",
+   "variant": "",
+   "evidence": "Sr MTS Apr 2020 round 1; GFG 2023 technical round (paging, page fault, virtual memory); Intern+MTS 2021 (thrashing, memory leaks); MTS2 Jan 2023 (stack vs heap)",
+   "recency": "2023-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-sr-mts-april-2020/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-2/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-internmts-off-campus-2021/",
+    "https://leetcode.com/discuss/interview-experience/3101316"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "CS fundamentals: mutex vs semaphore vs spinlock, mutex internals, deadlock and mitigation",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Operating Systems",
+    "Concurrency",
+    "CS Fundamentals"
+   ],
+   "statement": "Define synchronization and critical sections; contrast mutex (ownership, sleeping), binary/counting semaphore (signalling, no ownership) and spinlock (busy-wait, when it wins); explain how a mutex is implemented internally (atomic test-and-set/CAS + futex-style wait queue) and critical-section APIs in C++ (std::mutex, lock_guard, condition_variable) and in Windows kernel mode; give a concrete deadlock example and the four conditions, then mitigation (lock ordering, try-lock with backoff, timeouts, lock hierarchy) and detection. Be ready to write deadlock-producing code on a whiteboard and then fix it.",
+   "variant": "",
+   "evidence": "MTS-3 Feb 2022 design round (deadlock, spinlock/mutex/semaphore, context switching); SMTS Bengaluru Jul 2024 rounds 1-2 (mutex internals, critical sections); Sr MTS Apr 2020; GFG on-campus (deadlock code); Broadcom Staff 2013 (semaphore vs mutex)",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-sr-mts-april-2020/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-on-campus-4/",
+    "https://www.glassdoor.com/Interview/Broadcom-Staff-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,32.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "CS fundamentals: system calls, user/kernel boundary, interrupts, file-system call path",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "Operating Systems",
+    "Kernel",
+    "File Systems",
+    "CS Fundamentals"
+   ],
+   "statement": "Explain how a system call works end to end using open() (trap, syscall table, VFS lookup, file descriptor), how the OS decides which file system implements the call (mount table, superblock ops) and what mount() does internally; interrupts and processing in kernel context; how user mode communicates with kernel mode and vice versa (ioctl, syscalls, signals, shared memory / on Windows IRPs). Windows-kernel teams add paged vs non-paged pool, critical sections in kernel mode and debugging a crash dump in WinDbg. Broadcom storage teams ask 'describe the I/O path of a file save'.",
+   "variant": "",
+   "evidence": "Sr MTS Apr 2020 round 2 (open(), mount()); SMTS Bengaluru Jul 2024 round 3 (kernel/user communication, pools, WinDbg); Broadcom Sr SWE storage (I/O path of file save, Glassdoor 2026)",
+   "recency": "2026-03",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-sr-mts-april-2020/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/",
+    "https://www.glassdoor.com/Interview/Broadcom-Senior-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,33.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "CS fundamentals: networking — TCP vs UDP, handshake, HTTP vs HTTPS, OSI, DNS/DHCP, URL-to-page",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Networking",
+    "CS Fundamentals"
+   ],
+   "statement": "Standard set asked after a coding problem: TCP vs UDP (3-way handshake, reliability, ordering, congestion control, when to pick UDP), HTTP vs HTTPS (TLS handshake, certificates), the OSI layers and which protocols sit at L3/L4, DNS resolution and DHCP, private vs public IPs and how a router/NAT assigns addresses (including two PCs joined by one Ethernet cable — link-local/APIPA), and 'what happens when you type a URL in the browser'. NSX/Brocade teams go deeper (routing protocols, L2/L3 in software vs hardware, Kubernetes networking).",
+   "variant": "",
+   "evidence": "GFG 2023 technical round (OSI, TCP vs UDP); MTS-2 round 2 (TCP/UDP, HTTP/HTTPS) and HLD round (L3/L4); Intern+MTS 2021 (DNS, DHCP, IP assignment, URL in browser); Broadcom Bengaluru AWS cloud engineer 2022-2026 (K8s networking)",
+   "recency": "2023-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-2/",
+    "https://leetcode.com/discuss/interview-experience/1043784/vmware-mts-2",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-internmts-off-campus-2021/",
+    "https://www.glassdoor.com/Interview/Broadcom-Interview-Questions-E6926.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "CS fundamentals: C++ internals — virtual functions/vptr, diamond problem, pointers, name mangling, extern \"C\", copies",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "C++",
+    "OOP",
+    "CS Fundamentals"
+   ],
+   "statement": "What a virtual function is and how the runtime reaches the derived implementation (vptr/vtable laid out per object, virtual destructor rules); the diamond problem and virtual inheritance; types of pointers (raw, unique/shared/weak, dangling, void, function) and when to use each; constructors/destructors order, RAII; private vs protected vs public and friend; name mangling and why extern \"C\" exists; deep vs shallow copy and the rule of three/five; how std::vector, std::list and a hash table are implemented and the cost of traversing a list vs an array (cache locality). Interviewers ask these as confusing follow-ups to test confidence.",
+   "variant": "",
+   "evidence": "MTS-2 Pune 2024 rounds 1-3; SMTS Bengaluru Jul 2024 round 2; MTS-1 2022 round 3; MTS-3 Feb 2022 round 3; MTS2 Jan 2023 round 1; Sr MTS Oct 2020 (deep vs shallow copy)",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/5216967/VMware-or-MTS-2-or-Pune-or-offer/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/",
+    "https://leetcode.com/discuss/interview-experience/2424437/",
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "CS fundamentals: Java concurrency and collections internals (control-plane / Symantec teams)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Java",
+    "Concurrency",
+    "CS Fundamentals"
+   ],
+   "statement": "How ConcurrentHashMap achieves concurrency (bucket-level CAS/synchronized bins) vs Hashtable; what ConcurrentModificationException is; how BlockingQueue blocks producers/consumers when full/empty; extends Thread vs implements Runnable; how synchronization is achieved (synchronized, locks, volatile); wait/notify; Streams API; wrapper classes and collections; garbage collection; serialization; final/static/abstract; write an immutable class; expose a List via a getter that callers cannot mutate (unmodifiable view, defensive copy) and how that changes for a String[].",
+   "variant": "",
+   "evidence": "Sr MTS Oct 2020 round 2; MTS2 Bangalore Apr 2022 HM screen and round 5; MTS-1 off-campus 2021; on-campus 2022 (GC, multithreading, serialization); Broadcom Hyderabad Jun 2023 (core Java, Kafka, microservices)",
+   "recency": "2023-09",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-senior-mts/",
+    "https://leetcode.com/discuss/interview-experience/1928536/vmware-mts2-bangalore-offer/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-mts-1-off-campus-2021/",
+    "https://static-pc.glassdoor.de/Interview/Broadcom-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,26_IP6.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "CS fundamentals: databases — ACID, indexes and their cost, read- vs write-heavy stores, sharding, replication",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Databases",
+    "CS Fundamentals"
+   ],
+   "statement": "ACID with a deep dive on durability (WAL, fsync) and an example; how indexes work (B-tree) and their drawbacks (write amplification, storage); query optimisation basics; choosing read-heavy vs write-heavy databases with use cases; can a relational DB scale horizontally — sharding strategies applied to your own project's schema, master-slave replication and failover; MySQL vs PostgreSQL differences; a few PostgreSQL commands; SQL/DBMS MCQs in OAs.",
+   "variant": "",
+   "evidence": "MTS-2 HLD round (LeetCode Discuss); on-campus 2021 (ACID durability); MTS2 Jan 2023 round 2 (master-slave); MTS-3 Jun 2021 HM round (database design)",
+   "recency": "2023-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1043784/vmware-mts-2",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-on-campus-2021-2/",
+    "https://leetcode.com/discuss/interview-experience/3101316"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "CS fundamentals: tooling — Git merge vs rebase, Linux CLI, Docker/Kubernetes, GDB, CI/CD",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Tooling",
+    "Linux",
+    "CS Fundamentals"
+   ],
+   "statement": "Rapid-fire practical questions: how Git works and merge vs rebase; pipe, su vs sudo, write a CLI file search with grep; Docker and Kubernetes experience (installation, day-2 operations, troubleshooting, storage and networking for K8s on cloud-engineer loops); debugging a running service with GDB; log levels and reconstructing an incident from logs; testing types (unit, smoke, black/white box) and what makes code production-ready; Jenkins/CI-CD; macOS/Linux/Windows familiarity.",
+   "variant": "",
+   "evidence": "MTS-2 HLD round (Git, Docker/K8s); MTS-1 on-campus 2021 round 2-3; MTS-3 Feb 2022 scenario round (GDB, logs); MTS-3 Dec 2020 (Jenkins, Docker); Broadcom Bengaluru AWS cloud engineer (K8s day-2 ops, Glassdoor 2026)",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1043784/vmware-mts-2",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-mts-1-on-campus-2021/",
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer",
+    "https://www.glassdoor.com/Interview/Broadcom-Interview-Questions-E6926.htm"
+   ],
+   "confidence": "medium"
+  }
+ ],
+ "design": [
+  {
+   "title": "Design a thread-pool library",
+   "prompt": "Design (and sketch the API of) a library that owns a pool of worker threads and assigns them to incoming jobs; then discuss how it can deadlock and how you would mitigate it.",
+   "probes": [
+    "work queue + condition variable vs lock-free queue",
+    "fixed vs dynamic pool size, idle thread reaping",
+    "job dependencies and deadlock when a pooled job waits on another pooled job",
+    "spinlock vs mutex vs semaphore for the queue, context-switch cost",
+    "graceful shutdown, exception propagation, futures/promises"
+   ],
+   "round": "System design (60 min, round 4 of 5)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "MTS-3 Bangalore Feb 2022; the same OS/concurrency probes recur in SMTS 2024 and Sr MTS 2020 rounds",
+   "recency": "2022-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design a memory-management subsystem",
+   "prompt": "Design the memory manager for a hypervisor/OS-like system: allocation and freeing of pages/blocks for many consumers with fairness and low fragmentation.",
+   "probes": [
+    "free-list / buddy / slab allocators and fragmentation",
+    "page tables, virtual vs physical, over-commit",
+    "per-VM fairness and reclamation (ballooning, swapping, page sharing)",
+    "concurrency of the allocator, per-CPU caches",
+    "metrics and how to debug leaks"
+   ],
+   "round": "System design (round 1 of technical loop)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "MTS-3 Bangalore loop (LeetCode Discuss); hypervisor memory allocator / dedup prompts also listed by prep sites for VMware-track roles",
+   "recency": "2021",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1320283/vmware-mts-3-bangalore-offer",
+    "https://www.cleverprep.com/companies/broadcom/software-engineer"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Rolling software upgrade of servers in a distributed system",
+   "prompt": "High-level design for upgrading the software on a fleet of servers (e.g., ESXi hosts in a cluster) with minimal downtime and safe rollback.",
+   "probes": [
+    "maintenance mode and evacuating workloads (live migration) before upgrade",
+    "canary / rolling batches, quorum preservation for control-plane nodes",
+    "version compatibility (N-1), mixed-version cluster",
+    "health checks, automatic rollback, idempotent upgrade steps",
+    "orchestrator state machine and failure mid-upgrade"
+   ],
+   "round": "Coding + design round (round 3)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "MTS-3 Bangalore loop (LeetCode Discuss); VM live migration / zero-downtime prompts echoed by prep guides",
+   "recency": "2021",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1320283/vmware-mts-3-bangalore-offer",
+    "https://www.codinginterview.com/guide/vmware-interview/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Load balancer design + scaling fundamentals (with an LRU cache opener)",
+   "prompt": "Starting from vertical vs horizontal scaling, design a load balancer for a web tier: algorithms, health checks, session handling, and where caching fits; often preceded by implementing an LRU cache.",
+   "probes": [
+    "round-robin vs least-connections vs consistent hashing; hot keys",
+    "L4 vs L7, TLS termination, sticky sessions",
+    "health checks and removing a bad backend",
+    "caching layers and master-slave DB behind the LB",
+    "how your design would have blunted the 2018 GitHub memcached-amplification DDoS (rate limiting, scrubbing, anycast)"
+   ],
+   "round": "Design / coding+design round",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "MTS-3 Bengaluru Mar 2022 round 3 (LRU + load balancer); MTS2 Bengaluru Jan 2023 round 2 (scaling, caching, LRU, microservices, LB, master-slave, GitHub DDoS follow-up); MTS-2 HLD round (LB + consistent hashing)",
+   "recency": "2023-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1950504/vmware-mts-3-bengaluru-march-2022-offer",
+    "https://leetcode.com/discuss/interview-experience/3101316",
+    "https://leetcode.com/discuss/interview-experience/1043784/vmware-mts-2"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Job and machine scheduling system (cluster scheduler)",
+   "prompt": "Design a system that schedules incoming jobs onto a pool of machines so that machines stay busy while jobs wait as little as possible; make it scalable.",
+   "probes": [
+    "data structures for the ready queue and machine capacity (heaps, bitmaps)",
+    "placement constraints, priorities, preemption, fairness across tenants",
+    "scheduler as single leader vs distributed; state store and HA",
+    "OS-level questions on how the machine actually runs the job (processes, cgroups)",
+    "failure of a machine mid-job, retries, idempotency"
+   ],
+   "round": "Design + managerial round (50 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "VMware MTS on-campus round 2 (GFG); 'multithreaded scheduler application' in Interview Query Symantec reports; VM fair-share scheduler listed by prep sites",
+   "recency": "2024",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-mts-on-campus-2/",
+    "https://www.interviewquery.com/interview-guides/broadcom-software-engineer",
+    "https://www.cleverprep.com/companies/broadcom/software-engineer"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Logging framework with log levels, log reconstruction, and snapshots",
+   "prompt": "Scenario round: design a small framework that lets a product emit logs at configurable levels to the console/files; explain how you would reconstruct an incident from logs, which product variables are 'critical' to log, and how snapshots are implemented.",
+   "probes": [
+    "level filtering at compile vs run time, per-module levels, hot reload",
+    "structured logs, correlation IDs, rotation and back-pressure",
+    "what to log for a crash: business vs technical state",
+    "snapshot semantics: copy-on-write, consistency point, incremental/delta chains",
+    "debugging a live process with GDB alongside logs"
+   ],
+   "round": "Scenario-based round (round 5 of 5)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "MTS-3 Bangalore Feb 2022",
+   "recency": "2022-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1763723/vmware-mts-3-bangalore-feb-2022-offer"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Telemetry ingestion: efficiently analyse a large volume of incoming telemetry",
+   "prompt": "Design a pipeline that ingests high-volume telemetry from many hosts/VMs and makes it queryable for analysis and alerting.",
+   "probes": [
+    "agent batching, back-pressure, at-least-once delivery",
+    "message bus partitioning (Kafka) and consumer scaling",
+    "time-series storage, downsampling, retention",
+    "hot vs cold paths, approximate aggregations",
+    "multi-tenant isolation and cost"
+   ],
+   "round": "Technical round (verbal design, MTS-3 loop)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "MTS-3 Bengaluru Jun 2021 (Glassdoor); 'log ingestion pipeline across data centers' listed as a VMware loop prompt by codinginterview.com (editorial)",
+   "recency": "2026-01",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/VMware-Member-of-Technical-Staff-III-Interview-Questions-EI_IE12830.0,6_KO7,36.htm",
+    "https://www.codinginterview.com/guide/vmware-interview/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "URL shortener with parameterised links and expiry",
+   "prompt": "A long URL carrying user parameters is shortened, emailed to the user, and on click expands back to the original URL with those parameters intact.",
+   "probes": [
+    "ID generation (counter + base62 vs hash) and collisions",
+    "storage, TTL/expiry, read-heavy caching",
+    "redirect semantics (301 vs 302) and analytics",
+    "abuse/rate limiting",
+    "scaling the lookup tier"
+   ],
+   "round": "Coding + design + principles round",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Sr MTS Oct 2020 round 3; listed as a VMware system-design staple by TechPrep",
+   "recency": "2026",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-senior-mts/",
+    "https://www.techprep.app/blog/vmware-interview-process"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Microservices: partitioning, 3-node deployment, scaling and HA",
+   "prompt": "Discussion-style design: how do you choose the first partition when breaking a monolith into microservices; a microservice is deployed on 3 cluster nodes — do the instances talk to each other, is that good design, how many database instances exist; when to scale vertically vs horizontally and how HA differs from scalability.",
+   "probes": [
+    "bounded contexts, data ownership, avoiding shared DB",
+    "stateless instances behind an LB vs stateful coordination",
+    "one DB per service, replication, connection pooling",
+    "HA (redundancy, failover) vs scalability (throughput)",
+    "API throttling and restricting access by domain (CORS/allow-lists)"
+   ],
+   "round": "Technical / design round (Java and C# control-plane teams)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "VMware MTS San Jose Oct 2022 (Glassdoor); Sr MTS Oct 2020 round 2; MTS-3 Jun 2021 (throttling, domain restriction); Blind 'microservices interview process' thread 2024",
+   "recency": "2024-04",
+   "sources": [
+    "https://www.glassdoor.com/Interview/VMware-Member-of-Technical-Staff-Interview-Questions-EI_IE12830.0,6_KO7,32.htm",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-senior-mts/",
+    "https://www.teamblind.com/post/broadcom-developer-role-microservices-interview-process-and-suggestion-0spthfy6"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Device inventory + employee directory: searchable API design",
+   "prompt": "Two independent systems exist — a device inventory (type, OS, current user, status, installed apps) and an employee system (user, department, org). Design an API layer with search such as 'all devices assigned to a username' and 'all devices in a department'.",
+   "probes": [
+    "joining across two systems: sync/ETL into a search index vs query-time fan-out",
+    "pagination, filtering, consistency lag",
+    "schema/indexing (Elasticsearch vs relational)",
+    "auth and multi-tenancy",
+    "caching and rate limits"
+   ],
+   "round": "Distributed system design round (Broadcom Bengaluru, EUC-legacy team)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Broadcom EM loop Bengaluru May 2024 (Taro) — described as 'fairly straightforward'",
+   "recency": "2024-05",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/engineering-manager-bengaluru-may-1-2024-no-offer-neutral-7320f220/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Device monitoring system",
+   "prompt": "Design a system that monitors a fleet of end-user devices (heartbeat, health metrics, compliance state) and surfaces status and alerts to admins.",
+   "probes": [
+    "agent push vs server pull, heartbeat intervals and offline detection",
+    "ingestion scale, time-series storage, alert rules",
+    "device identity and security",
+    "fan-out of policy/config changes",
+    "dashboards and query patterns"
+   ],
+   "round": "System design round 1 (Broadcom India, EUC/Omnissa team)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Broadcom EM loop India Jul 2024 (Taro)",
+   "recency": "2024-07",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/engineering-manager-india-july-1-2024-no-offer-negative-681e3bb2/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Public transportation admin system (routes, ETAs, vehicle locations, onboarding)",
+   "prompt": "Design the admin side of a public-transport platform: scheduling new routes, computing ETAs, tracking vehicle locations and onboarding operators.",
+   "probes": [
+    "location ingestion rate and geo-indexing",
+    "ETA computation and caching",
+    "schedule data model and versioning",
+    "notifications to riders",
+    "role-based admin access"
+   ],
+   "round": "Design round (Broadcom Bengaluru)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Broadcom EM loop Bengaluru May 2024 (Taro)",
+   "recency": "2024-05",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/engineering-manager-bengaluru-may-1-2024-no-offer-neutral-7320f220/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "API for blob/file storage, retrieval and modification",
+   "prompt": "Design the API and backend for storing large blobs/files, fetching them and modifying them in place; reported as a >1-hour, hard round.",
+   "probes": [
+    "chunking, multipart upload, resumability",
+    "metadata vs data separation, versioning for 'modify'",
+    "consistency and concurrent writers",
+    "replication/erasure coding and durability",
+    "range reads, CDN/caching, access control"
+   ],
+   "round": "System design round (final loop, MTS3 US; Symantec reports)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Broadcom MTS3 Palo Alto loop (Glassdoor, posted May 2026); Interview Query Symantec reports",
+   "recency": "2026-05",
+   "sources": [
+    "https://www.glassdoor.com/Interview/Broadcom-San-Jose-Interview-Questions-EI_IE6926.0,8_IL.9,17_IM761.htm",
+    "https://www.interviewquery.com/interview-guides/broadcom-software-engineer"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Travel website served from multiple geographic regions",
+   "prompt": "Design a travel-booking website accessed from several geographies with good latency and availability everywhere.",
+   "probes": [
+    "geo-DNS/anycast and regional deployments",
+    "data replication and where writes go (active-active vs primary region)",
+    "caching of search vs consistency of bookings",
+    "inventory double-booking and idempotent payments",
+    "failover between regions"
+   ],
+   "round": "System design round (one of 4 technical rounds, VMware US)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "VMware SWE Austin loop (Glassdoor, posted Mar 2024)",
+   "recency": "2024-03",
+   "sources": [
+    "https://static-pc.glassdoor.de/Interview/Broadcom-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,26_IP5.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Download a file efficiently and reliably over two internet providers",
+   "prompt": "You have one file to download and two ISPs/links; design a client that uses both to download faster and survive either link failing.",
+   "probes": [
+    "HTTP range requests, chunk scheduling across links",
+    "detecting a slow/dead link and re-assigning chunks",
+    "integrity (checksums) and resumability",
+    "congestion/fairness, TCP vs QUIC",
+    "how this generalises to multipath/SD-WAN"
+   ],
+   "round": "Technical round (network-oriented SMTS, Sofia)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "VMware SMTS Sofia Dec 2022 (Glassdoor)",
+   "recency": "2023-04",
+   "sources": [
+    "https://www.glassdoor.com/Interview/VMware-Senior-Member-of-Technical-Staff-Interview-Questions-EI_IE12830.0,6_KO7,39.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Data path of a distributed storage cluster (vSAN-style)",
+   "prompt": "Describe the overall write/read data path of a distributed storage cluster, from a VM's write to durable, replicated storage; often paired with 'describe the I/O path of a file save' on a single host.",
+   "probes": [
+    "ownership/placement (hashing, metadata service), replication vs erasure coding",
+    "write acknowledgement semantics and consistency",
+    "caching tiers (SSD write buffer), destaging",
+    "failure handling and resync/rebuild",
+    "single-host path: syscall -> VFS -> page cache -> block layer -> driver"
+   ],
+   "round": "Technical round (Broadcom Sr SWE, storage)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Broadcom Sr SWE Shanghai (Glassdoor, posted Mar 2026); 'distributed storage with strong consistency' listed by prep sites for VMware track",
+   "recency": "2026-03",
+   "sources": [
+    "https://www.glassdoor.com/Interview/Broadcom-Senior-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,33.htm",
+    "https://www.cleverprep.com/companies/broadcom/software-engineer"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Token system for a bank — design, then code it",
+   "prompt": "Design a token/queue-number system for a bank branch (issue tokens, call customers to counters, priorities), then implement the core in code in the same session.",
+   "probes": [
+    "data model: queues per service type, priority customers",
+    "fairness and starvation",
+    "concurrency across counters",
+    "persistence and recovery",
+    "turning the design into clean classes quickly"
+   ],
+   "round": "Staff Engineer round (VMware US)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "VMware Staff Engineer New York Jun 2023 (Glassdoor)",
+   "recency": "2023-06",
+   "sources": [
+    "https://www.glassdoor.com/Interview/VMware-Staff-Engineer-Interview-Questions-EI_IE12830.0,6_KO7,21.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Deep-dive your own system as the design round (flow diagram, resiliency, scale, redesign)",
+   "prompt": "Draw the architecture of a project you own, explain its resiliency and scale, identify pain points in the existing design and how you would improve it, and justify the design patterns and database design you used.",
+   "probes": [
+    "why this DB / queue / cache; what breaks at 10x",
+    "failure modes and how you detected/recovered",
+    "design patterns you applied and alternatives",
+    "what you would redesign today and why",
+    "your individual contribution vs team"
+   ],
+   "round": "Design round / hiring-manager round (recurring in Broadcom India 2021-2025)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Broadcom SDE-4 India Jun 2025 (design round = project deep dive + patterns); MTS-3 Jun 2021 HM round; VMware Staff 2021 (design based on current job); Interview Query Symantec reports (flow diagram, resiliency)",
+   "recency": "2025-06",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/sde-4-india-june-24-2025-accepted-offer-neutral-8ecf89b9/",
+    "https://www.glassdoor.co.in/Interview/VMware-Member-of-Technical-Staff-III-Interview-Questions-EI_IE12830.0,6_KO7,36.htm",
+    "https://www.interviewquery.com/interview-guides/broadcom-software-engineer"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Sort a huge array that does not fit in memory (external sort + multithreading)",
+   "prompt": "How would you sort an array far larger than RAM; can multithreading help; how would you synchronise the threads?",
+   "probes": [
+    "external merge sort: chunk, sort, k-way merge",
+    "I/O vs CPU bound, parallel chunk sorting",
+    "thread synchronisation primitives and language specifics",
+    "quicksort complexity recap",
+    "memory-mapped files"
+   ],
+   "round": "Managerial round (VMware on-campus 2021)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "VMware on-campus 2021 managerial round (GFG)",
+   "recency": "2021-11",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-on-campus-2021-2/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Hypervisor-flavoured prompts (prep-site editorial, not first-hand): VM scheduler, live migration, distributed storage, HA control plane",
+   "prompt": "Prep guides for the VMware track list: design a scheduler for fair CPU/memory allocation across VMs; explain how vMotion live migration works and design zero-downtime migration; design a strongly consistent distributed storage system; design the control plane for a cloud-native cluster; design a multi-tenant network virtualisation overlay.",
+   "probes": [
+    "pre-copy vs post-copy migration, dirty-page tracking, downtime window",
+    "shares/reservations/limits, NUMA, co-scheduling",
+    "quorum, leader election, reconciliation loops",
+    "VXLAN/Geneve overlays, distributed firewall",
+    "copy-on-write and memory deduplication"
+   ],
+   "round": "System design round (claimed for senior VMware roles)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Only from prep sites (CleverPrep Aug 2026, codinginterview.com Jan 2026, techinterview.org Jul 2026) — no first-hand report found; keep as background for ESXi/VCF teams",
+   "recency": "2026-08",
+   "sources": [
+    "https://www.cleverprep.com/companies/broadcom/software-engineer",
+    "https://www.codinginterview.com/guide/vmware-interview/",
+    "https://www.techinterview.org/companies/broadcom-interview-guide/"
+   ],
+   "confidence": "low"
+  }
+ ],
+ "lld": [
+  {
+   "title": "Implement an LRU cache (design-round opener)",
+   "prompt": "Design and implement an LRU cache with O(1) get/put (LC 146); used both as a standalone coding question and as the warm-up of the design round before scaling/caching discussion.",
+   "deliverable": "Working class (hash map + doubly linked list) in a shared editor with no run button, then discussion of eviction policy trade-offs.",
+   "probes": [
+    "why hash map + DLL and not an ordered map",
+    "thread safety / sharding the cache",
+    "TTL expiry and LFU variant",
+    "where this sits in a web tier (what to cache, invalidation)",
+    "generic key/value types in C++/Java"
+   ],
+   "round": "Coding or design round",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Broadcom SWE Bengaluru Feb 2024 (Taro, 'others reported the same'); MTS-3 Bengaluru Mar 2022 design round; MTS2 Jan 2023 design discussion; TechPrep lists it first",
+   "recency": "2024-02",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/software-engineer-bengaluru-february-18-2024-no-offer-negative-bea626f4/",
+    "https://leetcode.com/discuss/interview-experience/1950504/vmware-mts-3-bengaluru-march-2022-offer",
+    "https://leetcode.com/discuss/interview-experience/3101316"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Thread-safe Singleton (coded)",
+   "prompt": "Implement the Singleton pattern, then make it thread-safe; explain vptr/vtable and polymorphism along the way.",
+   "deliverable": "C++ (or Java) code: double-checked locking with memory ordering, or static local / call_once; discuss pros/cons of singletons.",
+   "probes": [
+    "why naive double-checked locking is broken without atomics",
+    "static local initialisation guarantees in C++11",
+    "testing and dependency injection vs singleton",
+    "name mangling / extern \"C\" tangents"
+   ],
+   "round": "C++ basics round",
+   "difficulty": "Easy",
+   "classic": true,
+   "evidence": "MTS-1 2022 round 3; VMware MTS2 Bengaluru 2015 (singleton, Windows internals)",
+   "recency": "2022",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/2424437/",
+    "https://www.glassdoor.com/Interview/VMware-Mts2-Interview-Questions-EI_IE12830.0,6_KO7,11.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Implement a Pub-Sub model",
+   "prompt": "Implement an in-process publish-subscribe system (topics, subscribers, publish, unsubscribe) in C#/.NET (or your language), with attention to concurrency.",
+   "deliverable": "Class design + working code: Topic registry, Subscriber interface, thread-safe dispatch, optional async delivery.",
+   "probes": [
+    "synchronous vs asynchronous delivery and ordering",
+    "slow subscriber back-pressure",
+    "thread safety of subscribe during publish",
+    "wildcard topics, unsubscribe semantics",
+    "how this maps to Kafka/RabbitMQ"
+   ],
+   "round": "Technical round (MTS-3 C#/.NET team, Bengaluru)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "VMware MTS-3 Bengaluru Jun 2021 (Glassdoor)",
+   "recency": "2021-06",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/VMware-Member-of-Technical-Staff-III-Interview-Questions-EI_IE12830.0,6_KO7,36.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "API request throttling / rate limiter",
+   "prompt": "How would you implement request throttling for an API in C#/Java; also how would you restrict certain domains from accessing the application.",
+   "deliverable": "Design and code sketch: token bucket or sliding window per client key, middleware placement, 429 handling.",
+   "probes": [
+    "token bucket vs leaky bucket vs sliding log",
+    "distributed limiter (Redis) vs per-instance",
+    "keys: user, IP, API key; burst handling",
+    "domain allow-list / CORS / origin validation",
+    "testing the limiter"
+   ],
+   "round": "Technical round (MTS-3 loop)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "VMware MTS-3 Bengaluru Jun 2021 (Glassdoor)",
+   "recency": "2021-06",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/VMware-Member-of-Technical-Staff-III-Interview-Questions-EI_IE12830.0,6_KO7,36.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Parking lot for an IT park: APIs and design patterns",
+   "prompt": "Design a parking lot system for a tech park — which APIs to expose and which design patterns you would use.",
+   "deliverable": "Class diagram / interfaces (ParkingLot, Level, Spot, Vehicle types, Ticket, Payment), strategy for allocation and pricing.",
+   "probes": [
+    "Strategy for spot allocation and pricing, Factory for vehicles, Observer for availability display",
+    "concurrency when two gates allocate the same spot",
+    "extensibility (EV charging, reservations)",
+    "SOLID (Liskov, DI) and MVC follow-ups asked in the same round"
+   ],
+   "round": "Core Java round (Sr MTS)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "VMware Sr MTS Oct 2020 round 1 (GFG); OOD question also reported in MTS-3 2020 (Glassdoor)",
+   "recency": "2020-12",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-senior-mts/",
+    "https://www.glassdoor.co.in/Interview/VMware-Member-of-Technical-Staff-III-Interview-Questions-EI_IE12830.0,6_KO7,36.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "LLD of an in-memory gaming module",
+   "prompt": "Low-level design of an in-memory game module (players, sessions, moves, leaderboard/state) — classes, interfaces and interactions.",
+   "deliverable": "Class design with clear responsibilities, state machine for game lifecycle, concurrency-safe in-memory stores.",
+   "probes": [
+    "separating rules engine from state storage",
+    "thread safety for concurrent moves",
+    "extensibility to new game types (Strategy/Template patterns)",
+    "persistence/recovery hooks",
+    "code review and database design asked in a sibling round"
+   ],
+   "round": "LLD round 3 (Broadcom India, EUC/Omnissa team)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Broadcom EM loop India Jul 2024 (Taro)",
+   "recency": "2024-07",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/engineering-manager-india-july-1-2024-no-offer-negative-681e3bb2/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Inter-process communication: Process A sends JSON, Process B responds",
+   "prompt": "Write a program where class/process A writes JSON to the standard input of process B, and B replies on its standard output; wire the two together.",
+   "deliverable": "Working code (C#/Java/Python): spawn child process, redirect stdin/stdout streams, serialise/deserialise JSON, handle EOF and errors.",
+   "probes": [
+    "deadlock when both pipes fill (read stdout while writing stdin)",
+    "framing messages (newline-delimited vs length prefix)",
+    "timeouts and process exit codes",
+    "alternatives: sockets, named pipes, shared memory"
+   ],
+   "round": "Coding round (Broadcom Bengaluru, May 2024)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Broadcom EM loop Bengaluru May 2024 (Taro) — hint was StreamReader/StreamWriter",
+   "recency": "2024-05",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/broadcom/experiences/engineering-manager-bengaluru-may-1-2024-no-offer-neutral-7320f220/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Pair-programming exercise: 'a ping-pong app that does 3 things'",
+   "prompt": "In a multi-hour pairing session with a team engineer (Tanzu Labs-style), incrementally build a small app (a ping-pong game/score tracker) that satisfies three requirements given one at a time, test-first.",
+   "deliverable": "Collaboratively written, tested code in the team's stack; emphasis on TDD, refactoring, communication, not algorithms.",
+   "probes": [
+    "writing the failing test first",
+    "small commits, naming, refactoring as requirements change",
+    "how you take feedback and pair",
+    "simple persistence/API if time allows"
+   ],
+   "round": "Pairing engineering exercise (recruiter -> HM -> pairing -> offer; ~6 hours over 2 weeks)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "VMware Software Engineer Feb 2025 (Glassdoor, declined offer)",
+   "recency": "2025-02",
+   "sources": [
+    "https://www.glassdoor.com/Interview/VMware-Software-Engineer-Interview-Questions-EI_IE12830.0,6_KO7,24.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Build an MP3 player (practical implementation round)",
+   "prompt": "Implement a small MP3 player: playlist management, play/pause/next, shuffle/repeat, and a clean class structure; graded on practical implementation rather than algorithms.",
+   "deliverable": "Working code or detailed class design (Player, Playlist, Track, PlaybackState) with a simple CLI/API.",
+   "probes": [
+    "state machine for playback",
+    "data structure for playlist (doubly linked list vs array) and shuffle without repeats",
+    "extensibility to new formats/sources (Strategy/Adapter)",
+    "threading between UI and decoder"
+   ],
+   "round": "Technical interview 2 of 2 (Broadcom, Israel)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Broadcom Software Engineer Sep 2026 (Glassdoor, accepted offer)",
+   "recency": "2026-09",
+   "sources": [
+    "https://www.glassdoor.com/Interview/Broadcom-Software-Engineer-Interview-Questions-EI_IE6926.0,8_KO9,26.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Immutable class and non-mutable getters (Java OOD)",
+   "prompt": "Implement an immutable class in Java; expose a class's list of strings through a getter so clients cannot modify it, and explain how the answer changes for a String[].",
+   "deliverable": "Code: final class, private final fields, defensive copies, Collections.unmodifiableList / List.copyOf; for arrays, clone on the way out.",
+   "probes": [
+    "shallow vs deep immutability of nested objects",
+    "why arrays cannot be made read-only",
+    "equals/hashCode and builders",
+    "thread-safety benefits"
+   ],
+   "round": "Coding + Java round (MTS2 round 5; Sr MTS round 1)",
+   "difficulty": "Easy",
+   "classic": true,
+   "evidence": "MTS2 Bangalore Apr 2022; Sr MTS Oct 2020",
+   "recency": "2022-04",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/1928536/vmware-mts2-bangalore-offer/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-senior-mts/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Take-home assignments: Windows Unicode wrapper (unicows) and 3-hour case study",
+   "prompt": "Kernel/Windows team: implement a 'unicows'-style wrapper that adds Unicode string API support on legacy Windows, due in one week and defended in round 3. Campus/Java teams: a 3-hour emailed case study — produce a class diagram and pseudocode for a major feature of a given system, discussed in later rounds.",
+   "deliverable": "Compilable project with README/tests (kernel team); class diagram + pseudocode document (case study).",
+   "probes": [
+    "every design decision in your submission, line by line",
+    "ANSI/Unicode conversion edge cases, error handling",
+    "how you would test and extend it",
+    "trade-offs you consciously skipped"
+   ],
+   "round": "Take-home before/parallel to technical rounds",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "VMware SMTS Bengaluru Jul 2024 (hypervisors/containers team, Windows kernel focus); VMware on-campus 2022 case-study round",
+   "recency": "2025-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-for-smts-staff-engineer/",
+    "https://www.geeksforgeeks.org/interview-experiences/vmware-interview-experience-on-campus-2022/"
+   ],
+   "confidence": "medium"
+  }
+ ]
+}

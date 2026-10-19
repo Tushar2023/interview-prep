@@ -1,0 +1,2217 @@
+{
+  "company": "Atlassian",
+  "slug": "atlassian",
+  "levelMapping": "Atlassian ladder: P30 = early-career SWE, P40 = 'Software Engineer II' / SDE-2 (≈ Google L4, Amazon SDE II), P50 = Senior Software Engineer (≈ L5), P60 = Principal. Older posts write P3/P4/P5 for the same bands. With ~3.3 YOE the realistic band is P40: 2025–26 India P40 offers went to candidates with 4–6 YOE, and 6–7 YOE candidates interviewing for P50 were routinely down-levelled to P40 after the loop (panel judges 'needs guidance to operate as a senior'). Interview loops are identical for P40 and P50; P50 adds depth/expectation in system design and the management round, and P60 adds a leadership-craft round. Ask the recruiter to confirm the band up front — the hiring committee can also offer one level lower than you interviewed for.",
+  "process": {
+    "summary": "Atlassian runs a company-wide, team-agnostic loop for backend P40/P50: recruiter screen → 60-min outsourced Karat screen (rapid-fire system-design scenarios + 1–2 DSA problems) → 'Stage 1' of two 60-min coding interviews (Data Structures, and Code Design/LLD) → 'Stage 2' of System Design (60), Management/'how you work' (60) and Values (45) → hiring committee → team matching → offer. Each stage is eliminatory and feedback is given as Hire/No-Hire with confidence per round. The coding rounds are machine-coding style on your own IDE with tests expected, and Atlassian is notorious for reusing a small bank of questions (snake game, rate limiter, agent ratings, tagging service, employee-directory LCA), so past write-ups are unusually predictive. Values and Management rounds carry real weight — several 2025 candidates with Hire in every technical round were rejected or down-levelled on Values.",
+    "rounds": [
+      {
+        "name": "Recruiter / exploratory call",
+        "type": "screen",
+        "duration": "15–30 min",
+        "what": "Background, why switching, compensation expectations, which band (P40/P50) you are being considered for, walkthrough of the loop. Recruiter emails a prep guide (role-specific 'candidate guide' PDF) and usually gives ~2 weeks before the first round.",
+        "probes": "Current tech stack vs. role stack; notice period; location/band (India band pays on India scale)."
+      },
+      {
+        "name": "Karat technical screen (pre-interview test)",
+        "type": "oa",
+        "duration": "60 min",
+        "what": "Outsourced to Karat (interviewer is a Karat 'Interview Engineer', not an Atlassian engineer; recorded). ~3 min intro, then ~20 min of 4–5 rapid-fire system-design/debugging scenarios (~4 min each, verbal only, no diagrams), then ~30 min with two DSA problems (one easy, one medium) in Karat's browser editor (Coderbyte/Karat Studio, 5–7 test cases per problem; Google allowed per several reports). Frontend/fullstack variant replaces DSA with HTML/CSS + vanilla-JS DOM tasks. Reported pass bar (2023–2025 India reports): fully solve ≥1 coding problem and explain an approach for the second, and get ~3/5 of the rapid-fire scenarios right (one candidate was told the rapid-fire pass mark was 3 of 5). A guide estimates ~50–60% of Karat takers advance; common fails are not comparing multiple approaches and slow reasoning on the scenarios. One redo is allowed and the better attempt counts (Karat may auto-cancel the redo if you already passed). Results typically arrive in 1–3 business days.",
+        "probes": "Rapid-fire scenarios seen 2025: consistent hashing by file-count for music servers (problems + fix); capacity estimation for an ML URL-parsing service over 6 months; file larger than one machine's RAM; going from one country to many; preload vs. server-fetch puzzle hints; friend-count on posts from User/UserRelationship tables at > Facebook scale; Google-Docs-like docs pinned to servers by round-robin — what breaks; strong vs. eventual consistency for video-metadata API / click analytics / banking; find request IDs missing from 500 servers' success logs (lost e-signature notifications); throughput of a 3-stage pipeline with capacities 10/20/50; walk through 'confirm ride' end to end; debugging a slow system; scaling x→y users."
+      },
+      {
+        "name": "Data Structures interview (Stage 1, coding #1)",
+        "type": "dsa",
+        "duration": "60 min",
+        "what": "One real-world-framed problem that unfolds in 2–4 stages (the interviewer adds requirements), solved in your own IDE in any language with tests you write. Expect to construct the data model first (e.g. build the org-hierarchy graph before finding the LCA). Topics skew to hash maps, heaps/TreeMaps, intervals/sweep line, trees/LCA, Dijkstra, and 'design a data structure' problems (All O'one / Stock Price Fluctuation style).",
+        "probes": "Clarifying questions before coding (explicit No-Hire reason in a Jan 2025 debrief), edge cases such as a non-existent employee, correct time/space complexity, why DFS/BFS won't do (Dijkstra), tie-breaking rules, concurrency (how would this behave with writers in other threads), and reaching the 'level 2' extension in time. Code quality and naming are scored here too, not only correctness."
+      },
+      {
+        "name": "Code Design interview (Stage 1, coding #2, a.k.a. LLD / machine coding)",
+        "type": "lld",
+        "duration": "60 min",
+        "what": "Build a small working system from a short spec, production-quality: classes/interfaces, SOLID, extensibility, exception handling and unit tests (recruiter prep guide explicitly suggests TDD). Historically on your own IDE/HackerRank CodePair; Atlassian's 2026 backend candidate guide (as read by third parties) describes the Code Design round as 'AI-enabled' — working in a HackerRank IDE with an AI assistant on an existing repository (add a feature / fix a bug / refactor), with testing part of the grade. 2026 reports mention 'fix a password bug in a small backend site' and MERN-project tasks, but the classic bank (snake game, rate limiter, agent ratings, cost explorer, router) was still being asked through 2025–Jan 2026.",
+        "probes": "Write the requirements as comments first; the follow-up stages (burst credits, per-month ratings, wildcard routes, trial periods, toroidal walls) test whether the first design was extensible. Debrief feedback cited 'no unit tests', 'no exception handling', 'corner cases not covered', 'did not justify approach', 'no logging or locks' as No-Hire reasons. Data-structure choice must be justified (deque vs linked list, list vs set, TreeMap vs heap)."
+      },
+      {
+        "name": "System Design interview (Stage 2)",
+        "type": "design",
+        "duration": "60 min",
+        "what": "One Jira/Confluence-flavoured HLD problem on a whiteboard tool, starting from functional requirements and escalating. The tagging service is asked so often that Blind posters say 'everyone gets this'. Interviewers go unusually deep on API contracts (request/response JSON, pagination) and DB schema before scaling.",
+        "probes": "API spec, DB schema and SQL-vs-NoSQL choice, per-user filtering/ranking schema, queue choice (SQS vs RabbitMQ vs Kafka), rate limiting, which component bottlenecks first and how to scale it, consistency, failure handling/retries for crawler jobs, time-window queries, real-time updates. At P40 a 'rushed' design still got Hire-low-confidence; at P50 expect capacity estimation and failure modes unprompted."
+      },
+      {
+        "name": "Management / 'How you work' interview (hiring-manager style)",
+        "type": "hm",
+        "duration": "60 min (some finish in ~40)",
+        "what": "Structured, scenario-based behavioural interview with an engineering manager (often not your eventual manager — team match comes later). Deep dive into one project you owned end to end, plus how your team plans, gathers requirements, tests and collaborates.",
+        "probes": "Owning a project end to end; handling vague requirements; scope expanding mid-project; pushing back on a colleague or senior engineer's decision; a team-mate repeatedly missing commitments; mentoring/helping someone grow; conflict with a manager; SDLC and how you split work among peers; why X over Y, what you learned, what you'd do differently. Weak leadership examples have caused 'Weak Hire/No Hire' here even with strong technicals."
+      },
+      {
+        "name": "Values interview",
+        "type": "values",
+        "duration": "45 min",
+        "what": "Interviewer from outside the hiring team asks roughly one STAR question per Atlassian value — 'Open company, no bullshit', 'Build with heart and balance', 'Don't #@!% the customer', 'Play, as a team', 'Be the change you seek' — each with 2–3 scenario follow-ups. Questions are indirect (they rarely name the value).",
+        "probes": "Time you initiated change at a company; mentoring someone; handling a conflict / giving hard feedback to a senior stakeholder; shipping a customer-facing bug and what you did; a project being deprioritised; putting the customer over short-term business interest; disagreeing with a lead's architecture decision. Clarify whether a question has one or two parts — one candidate was marked down for answering only option A of 'A or B'. A No-Hire here overrides Hire in all five other rounds."
+      },
+      {
+        "name": "Hiring committee, team matching, offer",
+        "type": "other",
+        "duration": "1–4 weeks after last round",
+        "what": "Interviewers' written feedback goes to a hiring committee separate from the panel, which decides hire and the level (down-levels P50→P40 are common; HC rejections despite all-Hire feedback were reported in Jul 2025). Then 1–2 team-matching calls with hiring managers, then offer. Headcount can disappear mid-loop ('positions filled, we'll keep you warm 2–3 weeks').",
+        "probes": "Team-match calls are conversational (project interests, team's stack); negotiation with competing offers (Microsoft) worked for India P40 candidates."
+      }
+    ],
+    "indiaNotes": "Bengaluru is Atlassian's main India engineering hub and hires heavily at P30/P40/P50 (remote-in-India roles exist too); the loop and the question bank are identical to US/ANZ — several India candidates were interviewed by Sydney panels and vice versa, and EU applicants have had their code-design round run by the India team. Differences: (1) comp is on the India band — reported 2025–Jan 2026 P40 offers were ₹47–58L base + ₹6.5L joining + 14–15% bonus + US$100–105k RSUs/4 yrs (≈₹78–100L TC yr 1); P50 India offers were ₹65–84L base + US$115–160k RSUs; (2) timelines in India ran ~6 weeks (Day 0 recruiter → Day 41 offer in one Aug 2025 report) but HC/headcount approvals stretched some loops to 2 months, and Dec–Jan hiring slows; (3) India candidates report more down-levelling P50→P40 and 'positions filled' holds; (4) on-campus India hiring uses a HackerRank OA (90 min, 3 problems) and, in 2026, an 'AI-enabled' debug-a-repo round — not relevant to lateral P40. Interviewers are frequently P40/P50 engineers from Bangalore teams (Jira Search, Cloud Migrations, Confluence).",
+    "timeline": "Typically 4–8 weeks end to end: Karat within a week of recruiter call; Stage 1 (two coding rounds, often same or consecutive days) a week later; Stage 2 (design + management + values) over the following 1–2 weeks; HC decision 1–4 weeks; team matching ~1 week; written offer ~1 week after verbal. Fastest India report: 41 days contact→offer; slowest: ~2 months with a month waiting on HC.",
+    "tips": [
+      "Treat the public question bank as the syllabus: snake game, per-customer rate limiter (+ credit/burst follow-up), support-agent ratings (+ per-month, tie-break, weighted), cost explorer, middleware router, employee-directory LCA, popularity tracker, files/collections top-N, tagging service, Confluence top-K feed, image crawler. 2025–26 candidates repeatedly say 'most questions came from LeetCode Discuss'.",
+      "In both coding rounds: write the requirements as comments, ask clarifying questions before typing, state complexity correctly, handle invalid input, and finish with runnable unit tests — every No-Hire debrief quoted one of these.",
+      "Practise Code Design under a 45-minute clock; multiple strong engineers ran 5–10 minutes over on snake game. Aim for a working core in ~25 minutes so the extension stage gets reached.",
+      "Design rounds reward API-first depth: write the endpoint list with request/response bodies and the table schema early, then scale. Confirm ambiguous metrics (what counts as 'engagement'/'popular') in the first 5 minutes.",
+      "Karat: ask the interviewer not to read the scenario text aloud (saves time in the 20-min rapid-fire), give a quick 'concern → fix' answer per scenario, and move on; one fully solved coding problem plus a clear approach for the second has been enough to pass.",
+      "Prepare 8–10 STAR stories mapped to the five values plus 'owned end to end', 'scope changed', 'pushed back', 'mentored'; Values/Management are graded as hard as the technical rounds and are the most common reason strong candidates fail.",
+      "Expect follow-ups that change the problem (variable increments, tie-break strategy, time windows, concurrency); design the first version so these are additive.",
+      "If the recruiter mentions AI-enabled Code Design, practise reading an unfamiliar small repo, adding a feature with tests, and narrating what you accept or reject from the assistant."
+    ],
+    "notes": "Pre-interview test: Karat (60 min, format above) for backend/fullstack laterals; a Feb 2026 Blind thread says some roles (P50 phone screen) moved off Karat to an Atlassian-run screen with the same shape (~20 min coding + ~15 min system design); a Feb 2025 US SF loop used a HackerRank OA (2–3 medium-hard) instead. Karat redo: one retake, best score counts. Coding rounds: any language, own IDE and test framework (CodePair fallback); Google allowed in Karat per reports. Code Design round is being migrated to an AI-enabled HackerRank IDE on an existing repo (2026 candidate guide) — confirm with your recruiter which variant you'll get. Feedback vocabulary: Strong Hire / Hire (high|medium|low confidence) / No Hire per round, with level recommendation (e.g. 'Hire at P40, P50 for system design'). Hiring is to the company, then team match; roles can close mid-loop. Cool-off after rejection is reportedly ~6–12 months (recruiter-stated, not verified here). Frontend/fullstack loops swap the DS round for JS/React rounds and may add a 'Fullstack Craft' project walkthrough; SRE-flavoured teams can add an 'SRE Craft' round at team match.",
+    "sources": [
+      {
+        "title": "LeetCode Discuss — Atlassian P40 Bangalore interview experience (offer; snake variant, n-ary LCA, Confluence engagement feed)",
+        "url": "https://leetcode.com/discuss/post/7196860/atlassian-p40-bangalore-interview-exp-of-xgp4/",
+        "date": "2025-09"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian P40 India [Offer], day-by-day timeline, Karat + all rounds",
+        "url": "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "date": "2025-08"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian P40 Aug 2025 [Hold] (positions filled; Values No-Hire)",
+        "url": "https://leetcode.com/discuss/post/7057047/",
+        "date": "2025-08"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian SWE-II P40 backend 5 YOE (Karat, LLD, sweep-line DSA, top-k Confluence)",
+        "url": "https://leetcode.com/discuss/post/7495920/atlassian-interview-experience-p40-5-yoe-4epp/",
+        "date": "2026-01"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian P50 interview experience Jul–Aug 2025",
+        "url": "https://leetcode.com/discuss/post/7099587/",
+        "date": "2025-08"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian P50 interview experience Jan 2025 (debrief reasons)",
+        "url": "https://leetcode.com/discuss/interview-experience/6399510/Atlassian-P50-Interview-Experienceor-Jan-2025/",
+        "date": "2025-01"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian SDE-2 backend: Hire in all rounds, rejected by hiring committee",
+        "url": "https://leetcode.com/discuss/interview-experience/6990017/",
+        "date": "2025-07"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian P60 Sept 2025 rejected / down-levelled (phone screen, scraper, cinema, LCA)",
+        "url": "https://leetcode.com/discuss/post/7246118/atlassian-p60-sept-2025-rejected-by-anon-m7ye/",
+        "date": "2025-09"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian P40 Karat interview (rapid-fire + teleporter board problems)",
+        "url": "https://leetcode.com/discuss/post/6483337/",
+        "date": "2025-03"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian Karat, P50 band (5 system-design scenarios + attendance violations)",
+        "url": "https://leetcode.com/discuss/interview-experience/7114235",
+        "date": "2025-08"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian Senior Software Engineer offer (Karat, files/collections, rate limiter credits, scraper)",
+        "url": "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/",
+        "date": "2024-12"
+      },
+      {
+        "title": "Roundz Substack — Atlassian SDE2 (P4) Bengaluru interview experience, offer",
+        "url": "https://roundz.substack.com/p/interview-experience-atlassian-sde2-p40",
+        "date": "2025-03"
+      },
+      {
+        "title": "Gagandeep Singh — Atlassian Senior SWE interview experience (Karat pass mark 3/5, snake game LLD)",
+        "url": "https://gagan93.me/blog/2024/05/04/atlassian-interview-experience.html",
+        "date": "2023-11"
+      },
+      {
+        "title": "GeeksforGeeks — Atlassian Senior Software Engineer interview experience (two code-design rounds, tagging HLD)",
+        "url": "https://www.geeksforgeeks.org/interview-experiences/atlassian-interview-experience-for-senior-software-engineer/",
+        "date": "2023-08"
+      },
+      {
+        "title": "Medium (Priya Bansal) — Atlassian SDE-2 interview Part 1 (Karat) and Part 2 (tag popularity DSA)",
+        "url": "https://medium.com/@priyabansal0919/atlassian-sde-2-interview-my-experience-takeaways-part-1-fb83929d0066",
+        "date": "2025-08"
+      },
+      {
+        "title": "PracHub — Atlassian SWE Jan 2026: agent-ratings coding round, system-design prep list",
+        "url": "https://prachub.com/interview-experiences/atlassian-software-engineer-interview-experience-passed-a-coding-round-id-seen-before-then-walked-away",
+        "date": "2026-01"
+      },
+      {
+        "title": "Taro — Atlassian Senior SWE Bengaluru, rejected at Karat (Aug 2025)",
+        "url": "https://www.jointaro.com/interviews/companies/atlassian/experiences/senior-software-engineer-bengaluru-august-1-2025-no-offer-negative-de5bfa85/",
+        "date": "2025-08"
+      },
+      {
+        "title": "FrontendLead — Atlassian full-stack Karat screen format",
+        "url": "https://discuss.frontendlead.com/t/atlassian-full-stack-karat/2360",
+        "date": "2025-08"
+      },
+      {
+        "title": "Intervue — Atlassian interview experience India round-by-round (Karat pass-rate estimate)",
+        "url": "https://www.intervue.io/blog/atlassian-interview-experience-india",
+        "date": "2025"
+      },
+      {
+        "title": "Interview Query — Atlassian SWE guide with Q2–Q3 2026 candidate reports (P40 loop incl. AI-assisted tasks, SRE craft)",
+        "url": "https://www.interviewquery.com/interview-guides/atlassian-software-engineer",
+        "date": "2026-09"
+      },
+      {
+        "title": "Verve Copilot — Atlassian LeetCode questions (summarises Atlassian backend candidate guide: two stages, AI-enabled Code Design in HackerRank IDE)",
+        "url": "https://www.vervecopilot.com/hot-blogs/atlassian-leetcode-interview-questions",
+        "date": "2026-10"
+      },
+      {
+        "title": "Blind — Atlassian P50 phone screen: 'stopped using Karat', 20 min coding + 15 min SD",
+        "url": "https://www.teamblind.com/post/atlassian-p50-phone-screen-2fa4wfxc",
+        "date": "2026-02"
+      },
+      {
+        "title": "Blind — Atlassian interview post listing (Nov 2025 rating-system, trie, P50 LLD with JUnit posts)",
+        "url": "https://www.teamblind.com/browse/Atlassian-Interview-73593",
+        "date": "2025-11"
+      },
+      {
+        "title": "Blind — Atlassian P40 India six-round loop; P50 round-by-round feedback",
+        "url": "https://www.teamblind.com/company/Atlassian/posts/atlassian-interview?page=34",
+        "date": "2025-09"
+      },
+      {
+        "title": "Blind — Atlassian P40 chances: round-by-round Hire confidences, Values No-Hire",
+        "url": "https://www.teamblind.com/company/Atlassian/posts/atlassian-interview?page=51",
+        "date": "2025-08"
+      },
+      {
+        "title": "Blind — Atlassian Karat: best of two attempts counts",
+        "url": "https://www.teamblind.com/company/Atlassian/posts/atlassian-interview?page=12",
+        "date": "2025-03"
+      },
+      {
+        "title": "Blind — Atlassian coding-design and system-design question bank",
+        "url": "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd",
+        "date": "2023"
+      },
+      {
+        "title": "Blind — Atlassian system design round for P4 ('everyone gets tagging')",
+        "url": "https://www.teamblind.com/post/atlassian-system-design-round-for-p4-rrttgr1u",
+        "date": "2023"
+      },
+      {
+        "title": "Glassdoor — Atlassian Senior Software Engineer interviews (2026 posts: Karat→DSA/LLD/HLD/behavioural/manager)",
+        "url": "https://www.glassdoor.co.in/Interview/Atlassian-Senior-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,34.htm",
+        "date": "2026-05"
+      },
+      {
+        "title": "Glassdoor — Atlassian Software Engineer interviews (6-round loop with file storage + rate limiter; SF HackerRank OA)",
+        "url": "https://www.glassdoor.com/Interview/Atlassian-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,27.htm",
+        "date": "2026-09"
+      },
+      {
+        "title": "Glassdoor — Atlassian Principal SWE interviews (Bengaluru Sept 2025: URL scraper, F1 fastest lap, most-popular content LLD)",
+        "url": "https://www.glassdoor.co.in/Interview/Atlassian-Principal-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,37.htm",
+        "date": "2025-11"
+      },
+      {
+        "title": "Glassdoor — Atlassian Senior Backend SWE interviews (Karat word-formation problem; code design by India team)",
+        "url": "https://www.glassdoor.com/Interview/Atlassian-Senior-Backend-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,42.htm",
+        "date": "2025-01"
+      },
+      {
+        "title": "Glassdoor — Atlassian interview overview (avg 28 days; 2026 Gurgaon campus AI-enabled debug round)",
+        "url": "https://www.glassdoor.com/Interview/Atlassian-Interview-Questions-E115699.htm",
+        "date": "2026-08"
+      },
+      {
+        "title": "LeetCode Discuss — New Atlassian SDE2 (P40) offer, India, Jan 2026 (comp)",
+        "url": "https://leetcode.com/discuss/post/7496550/",
+        "date": "2026-01"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian P40 India [Accepted] comp (negotiated vs Microsoft)",
+        "url": "https://leetcode.com/discuss/post/7069410/atlassian-p40-india-accepted-by-anonymou-p3qh/",
+        "date": "2025-08"
+      },
+      {
+        "title": "LeetCode Discuss — Atlassian P50 Senior SWE India offer (comp)",
+        "url": "https://leetcode.com/discuss/post/6326155/atlassian-p50-senior-software-engineer/",
+        "date": "2024-12"
+      },
+      {
+        "title": "CodingKaro — aggregator of 40 Atlassian LeetCode interview experiences",
+        "url": "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Atlassian",
+        "date": "2025-12"
+      },
+      {
+        "title": "TechScreen — The Atlassian technical interview process in 2026 (guide)",
+        "url": "https://techscreen.app/articles/atlassian-technical-interview-process-2026",
+        "date": "2026"
+      },
+      {
+        "title": "Dataford — Atlassian SWE interview guide (redo policy, question list)",
+        "url": "https://dataford.io/interview-guides/atlassian/software-engineer",
+        "date": "2026-08"
+      },
+      {
+        "title": "AceRound — Karat interview format incl. NextGen AI-enabled 2026",
+        "url": "https://www.aceround.app/blog/karat-interview-ai-guide/",
+        "date": "2026"
+      }
+    ]
+  },
+  "dsa": [
+    {
+      "title": "Closest common group in an employee directory (LCA on an org hierarchy)",
+      "lcId": 236,
+      "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "LCA",
+        "Graph",
+        "Hash Map",
+        "Concurrency"
+      ],
+      "statement": "You are given an organisation hierarchy: the company is the root, groups/departments contain sub-groups and employees are leaves. Stage (a): build the structure from the input and return the closest (deepest) group that contains every employee in a given target set. Stage (b): groups can be shared or an employee can sit in several groups, so the structure is a DAG — still return one closest common group. Stage (c): four mutation methods run on other threads while getCommonGroupForEmployees is called; keep results consistent with the latest hierarchy (read-write lock discussion). Stage (d) simplification: a single level of groups.",
+      "variant": "Asked as 'closest department for a list of employees' and 'LCA of a pair of leaves in an n-ary tree'. Interviewers push for a more efficient LCA than naive root-paths (precompute depth/parent pointers, or walk up from the deepest node) and insist you handle a non-existent employee; the Jan 2025 No-Hire cited no clarifying questions, a missed edge case and a wrong complexity.",
+      "evidence": "Reported in at least 5 Data Structures rounds: P50 Jan 2025, P50 Jul–Aug 2025, P40 Bangalore Sept 2025 (n-ary pair-of-leaves form), P60 Sept 2025, plus the Aug 2025 'DS question bank' post with all four stages. The single most repeated Atlassian DSA question of 2025.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/6399510/Atlassian-P50-Interview-Experienceor-Jan-2025/",
+        "https://leetcode.com/discuss/post/7099587/",
+        "https://leetcode.com/discuss/post/7196860/atlassian-p40-bangalore-interview-exp-of-xgp4/",
+        "https://leetcode.com/discuss/post/7246118/atlassian-p60-sept-2025-rejected-by-anon-m7ye/",
+        "https://leetcode.com/discuss/interview-experience/7078315",
+        "https://dataford.io/interview-guides/atlassian/software-engineer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Popularity tracker: increasePopularity / decreasePopularity / getMostPopular",
+      "lcId": 432,
+      "url": "https://leetcode.com/problems/all-oone-data-structure/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Hash Map",
+        "Doubly Linked List",
+        "Design",
+        "Heap"
+      ],
+      "statement": "Stream of content IDs with +1 / -1 popularity events; return the most popular ID at any time (or -1 when nothing is above 0). Same shape as All O'one.",
+      "variant": "Follow-ups reported: change popularity by an arbitrary amount x instead of 1 (breaks the O(1) bucket trick — discuss TreeMap/heap with lazy deletion), tie-breaking strategy when several IDs share the max, and thread-safety. Also framed as 'incPop/decPop/getMostPop for tags' and as a Principal LLD 'most popular content with thumbs-up/down counts'.",
+      "evidence": "P40 Aug 2025 (DSA round, Hire high-confidence), SDE-2 2025 Medium write-up (DSA round, Hire), Principal Bengaluru Sept 2025 (LLD round), Blind code-design bank, Aug 2025 DS bank post.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/7057047/",
+        "https://medium.com/@priyabansal0919/sde-2-interview-experience-at-atlassian-part-2-0da938a60258",
+        "https://leetcode.com/discuss/interview-experience/7078315",
+        "https://www.glassdoor.co.in/Interview/Atlassian-Principal-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,37.htm",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Support-agent ratings: record 1–5 ratings, list agents sorted by average",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Sorting",
+        "Design",
+        "Heap"
+      ],
+      "statement": "Implement addAgentRating(agentId, rating) and getSortedAgentRatingsList() for a customer-support tool: maintain each agent's running sum/count and return all agents ordered by average rating, highest first, with a defined tie-break.",
+      "variant": "Stages reported: (b) add month-aware ratings and return the best agents for a given month; (c) tie-breaking (more ratings wins / agent id); (d) weighted votes; (e) concurrency with many raters. Often graded as the Code Design round, but has also been asked as the DSA round, and candidates were expected to use TDD. Appears in LLD list too — practise it as code.",
+      "evidence": "Reported at least 7 times Nov 2024–Jan 2026: P40 India Aug 2025 (code design), P40 Aug 2025 Hold (code design), P50 Jul–Aug 2025 (code design), Senior Eng coding round (weighted-votes follow-up), SWE Jan 2026 coding round (no follow-up asked), Blind May 2025 and Nov 2025 LLD posts.",
+      "recency": "2026-01",
+      "sources": [
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://leetcode.com/discuss/post/7057047/",
+        "https://leetcode.com/discuss/post/7099587/",
+        "https://leetcode.com/discuss/post/7537985/atlassian-senior-eng-coding-by-anonymous-w7ab/",
+        "https://prachub.com/interview-experiences/atlassian-software-engineer-interview-experience-passed-a-coding-round-id-seen-before-then-walked-away",
+        "https://www.teamblind.com/browse/Atlassian-Interview-73593"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Stock Price Fluctuation / commodity price at a timestamp",
+      "lcId": 2034,
+      "url": "https://leetcode.com/problems/stock-price-fluctuation/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Heap",
+        "Ordered Map",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Atlassian variant: a stream of <timestamp, price> records arriving out of order and possibly repeating a timestamp (upsert the price); support getMaxCommodityPrice at any time, optimised for frequent reads and writes. Follow-ups: 'highest price at a given timestamp' and a checkpoint variant — after each insert a checkpoint is placed; given a timestamp and a checkpoint, return the max price up to that point (think persistent/segment structure or per-checkpoint snapshots).",
+      "evidence": "SDE-2 backend Jul 2025 (DSA round, Strong Hire), SDE2 reject post (checkpoint follow-up), Aug 2025 DS bank post ('Commodity Prices').",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/6990017/",
+        "https://leetcode.com/discuss/interview-question/5994275/Atalassian-or-SDE2-or-Reject/",
+        "https://leetcode.com/discuss/interview-experience/7078315"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Merge Intervals / overlapping time series",
+      "lcId": 56,
+      "url": "https://leetcode.com/problems/merge-intervals/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Intervals",
+        "Sorting",
+        "Sweep Line"
+      ],
+      "statement": "",
+      "variant": "Jan 2026 P40 report: merge-intervals with different wording, then follow-ups that required a sweep-line (count overlaps / find the busiest instant). Aug 2025 Glassdoor: 'discover overlapping time series from a set of start and end times' asked in the first round and the candidate was rejected for not knowing the sweep approach. Overlapping booking slots variant also reported.",
+      "evidence": "P40 Jan 2026 DSA round (Hire, high confidence); Senior SWE Aug 2025 Glassdoor; Dataford question list; interviewing reports mention interval problems repeatedly.",
+      "recency": "2026-01",
+      "sources": [
+        "https://leetcode.com/discuss/post/7495920/atlassian-interview-experience-p40-5-yoe-4epp/",
+        "https://www.glassdoor.co.in/Interview/Atlassian-Senior-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,34.htm",
+        "https://dataford.io/interview-guides/atlassian/software-engineer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Tennis court booking: assign bookings to the minimum number of courts",
+      "lcId": 253,
+      "url": "https://leetcode.com/problems/meeting-rooms-ii/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Intervals",
+        "Heap",
+        "Greedy",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Atlassian framing: BookingRecord{id, start, finish}; return a plan mapping each booking to a court using the fewest courts (unlimited courts). Stages: (b) each court needs a fixed maintenance gap X after every booking; (c) maintenance Y only after every X uses ('durability'); (d) simplified — just return the minimum number of courts; (e) helper that says whether two bookings conflict. Min-heap on court free-time.",
+      "evidence": "Aug 2025 DS question-bank post (all five stages), Dataford 'tennis court booking' LLD entry, GetSDEReady list.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7078315",
+        "https://dataford.io/interview-guides/atlassian/software-engineer",
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Cinema scheduling: can a new movie be scheduled without removing existing shows?",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Intervals",
+        "Sorting",
+        "Design"
+      ],
+      "statement": "A single-screen cinema is open 10:00–23:00 on one day; times are minutes from midnight. Given existing screenings (movie, start) and movie durations, implement canSchedule(movie, schedule) that returns whether the new movie's duration fits in some free gap (including before the first and after the last show, within opening hours). Sample data: LOTR 120 min at 660/840/1200, Back to the Future 90 min at 1020.",
+      "variant": "Natural extensions: return the earliest feasible start, multiple screens, cleaning buffers between shows.",
+      "evidence": "P60 Sept 2025 code-design round; GetSDEReady list ('Cinema Scheduling 10 AM–11 PM').",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/7246118/atlassian-p60-sept-2025-rejected-by-anon-m7ye/",
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Minimum latency between services (Dijkstra on a weighted service graph)",
+      "lcId": 743,
+      "url": "https://leetcode.com/problems/network-delay-time/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "Dijkstra",
+        "Shortest Path"
+      ],
+      "statement": "",
+      "variant": "Given N connected services with latency-weighted edges, answer Q queries for the minimum latency from service X to Y. Interviewer discussed why BFS/DFS are unsuitable, how Dijkstra works, alternatives (Floyd–Warshall / precomputation for many queries) and complexity.",
+      "evidence": "P40 India Aug 2025 Data Structures round (Hire, medium confidence); GetSDEReady list.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Files and collections: total size and top-N collections by size",
+      "lcId": 347,
+      "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Heap",
+        "Aggregation",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Atlassian framing: each file has a name, size and optional collectionId; produce a report with the total size of all files and the top N collections by total size. Stages: files belonging to multiple collections; nested collections (roll sizes up the tree); multithreaded ingestion. Sometimes labelled 'file storage system' and run as the DSA pair-programming round.",
+      "evidence": "Senior SWE offer (Dec 2024) Data Structures round; SDE-2 remote accepted (nested-collections follow-up); SDE2 P4 Bengaluru Mar 2025 (coding round 2, with List-vs-Set and time/space follow-ups); Glassdoor Melbourne 6-round loop ('design a file storage system', DSA pair-programming).",
+      "recency": "2025-03",
+      "sources": [
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/",
+        "https://leetcode.com/discuss/interview-experience/1859629/atlassian-sde-2-remote-accepted/",
+        "https://roundz.substack.com/p/interview-experience-atlassian-sde2-p40",
+        "https://www.glassdoor.com/Interview/Atlassian-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,27.htm",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Rank Teams by Votes / ballot ranking with custom tie-break",
+      "lcId": 1366,
+      "url": "https://leetcode.com/problems/rank-teams-by-votes/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Sorting",
+        "Hash Map",
+        "Custom Comparator"
+      ],
+      "statement": "",
+      "variant": "Variants: positional weights per ballot, a different tie-break rule than LeetCode's, interviewer changing requirements twice mid-round; the clean solution needed Ballot/Candidate classes and a comparator. Simpler form: given a vote stream {c1,c2,c1,...} return the winner and discuss tie-break strategies (earliest to reach the count, fewest later votes, weighted).",
+      "evidence": "Senior SWE Nov 2023 DS round (Gagandeep), 2023 experience with different tie-break, backend 3 YOE Bangalore 2021, voting-application question post, Blind bank 'voting system' variants, TechPrep list.",
+      "recency": "2024-11",
+      "sources": [
+        "https://gagan93.me/blog/2024/05/04/atlassian-interview-experience.html",
+        "https://leetcode.com/discuss/interview-experience/3563537/Atlassian-Interview-Experience/",
+        "https://leetcode.com/discuss/post/5923584/",
+        "https://leetcode.com/discuss/post/1509105/atlassian-backend-developer-3-yoe-bangalore-sept-2021-reject/",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Online Election / live leader of a vote stream",
+      "lcId": 911,
+      "url": "https://leetcode.com/problems/online-election/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Binary Search",
+        "Hash Map",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Interviewer started with basic requirements (who is leading now) and layered complexity (leader at time t, ties resolved by most recent vote). Related to the voting-system family.",
+      "evidence": "P5 Bengaluru May 2021 coding round 2 (offer); still listed in 2025 question banks as 'Voting System (live leader)'.",
+      "recency": "2021-05",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1271435/atlassian-senior-engineer-p5-bengaluru-may-2021-offer",
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Grocery shopping: department visits saved by grouping purchases",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Simulation",
+        "Counting"
+      ],
+      "statement": "Given a catalogue of (product → department) and a shopping list in purchase order, count a 'department visit' each time the department changes from the previous item. Return how many visits you save by buying everything in one department before moving to the next (i.e. in-order visits minus distinct departments). Example: [Blueberries, Milk, Coffee, Flour, Cheese, Carrots] → 5 in-order visits vs 3 grouped → answer 2.",
+      "variant": "Phone-screen style problem with a provided test table; follow-ups likely on unknown products and preserving first-visit order.",
+      "evidence": "Atlassian technical phone screen, Oct 2025.",
+      "recency": "2025-10",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7293656",
+        "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Atlassian"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Office attendance violations (consecutive enter/enter or exit/exit)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Map",
+        "Simulation",
+        "Strings"
+      ],
+      "statement": "Attendance records are [name, 'enter'|'exit'] pairs in time order. Correct behaviour alternates enter→exit. Return two lists: names with an entry violation (two enters in a row) and names with an exit violation (two exits in a row), each name at most once, in order of first violation.",
+      "variant": "Karat coding problem (second part of the screen); typical Karat follow-up adds a second part such as counting violations per person or handling a missing final exit.",
+      "evidence": "Karat screen for P50 band, Aug 2025.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7114235"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Board game with teleporters: positions reachable with one die roll / can the end be reached",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "BFS",
+        "Graph",
+        "Simulation"
+      ],
+      "statement": "A board is numbered 0..lastNumber with a start position, a die with faces 1..maxValue and teleporters given as 'from,to' strings. A roll past lastNumber lands on lastNumber. Part 1 (code): return all distinct final positions after exactly one roll (apply teleporters). Part 2 (approach only): decide whether lastNumber is reachable in any number of rolls (BFS over positions).",
+      "variant": "Karat two-part problem; cycles via backward teleporters must be handled with a visited set.",
+      "evidence": "Karat screen for P40, Mar 2025.",
+      "recency": "2025-03",
+      "sources": [
+        "https://leetcode.com/discuss/post/6483337/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Text Justification variant",
+      "lcId": 68,
+      "url": "https://leetcode.com/problems/text-justification/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Strings",
+        "Greedy",
+        "Simulation"
+      ],
+      "statement": "",
+      "variant": "Karat coding problem 'similar to LC 68' with one follow-up (candidate solved main part fully and described the follow-up). Word-wrap problem also listed in question banks.",
+      "evidence": "P40 India Aug 2025 Karat screen; appears in the LeetCode Atlassian tag.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Two Sum variation (Karat warm-up)",
+      "lcId": 1,
+      "url": "https://leetcode.com/problems/two-sum/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Map",
+        "Array"
+      ],
+      "statement": "",
+      "variant": "Karat first coding problem is frequently an easy variation (pairs summing to a target with constraints); the second problem was BFS-based and only the approach was discussed because time ran out.",
+      "evidence": "P50 Jul–Aug 2025 Karat screen.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/7099587/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Form a word from a dictionary word (letters multiset) — Karat",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Map",
+        "Strings",
+        "Counting"
+      ],
+      "statement": "Given a word list such as [baby, cat, dada, dog] and a query string, return the dictionary word whose letters can be formed from the query's letters without reusing a character ('ctay' → 'cat'; 'dad' → '-' because dada needs two d's and two a's). About 8 provided test cases. Second part (approach only): given a 2-D character grid, decide whether a word exists moving only down or right.",
+      "variant": "Second part is a constrained Word Search (LC 79) — DP/DFS with right/down moves only.",
+      "evidence": "Senior SWE offer loop (Karat, Dec 2024) and Senior Backend SWE Glassdoor Jan 2025 (same 'form a word without reusing characters' problem).",
+      "recency": "2025-01",
+      "sources": [
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/",
+        "https://www.glassdoor.com/Interview/Atlassian-Senior-Backend-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,42.htm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Word Search (grid) — right/down-only approach discussion",
+      "lcId": 79,
+      "url": "https://leetcode.com/problems/word-search/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Backtracking",
+        "Matrix",
+        "DFS"
+      ],
+      "statement": "",
+      "variant": "Karat part-2 'approach only' question: word exists in a character matrix moving only down or right. LeetCode Atlassian tag ranks Word Search in the top 5 for 2026.",
+      "evidence": "Senior SWE Karat screen (Dec 2024); LC company tag.",
+      "recency": "2024-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Middleware router: addRoute(path, result) / callRoute(path) with wildcards",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Trie",
+        "Strings",
+        "Design"
+      ],
+      "statement": "Implement a router where paths map to results (stand-ins for handlers): addRoute('/bar','result'); callRoute('/bar') → 'result'. Follow-up: wildcard segments — addRoute('/bar/*/baz','bar') must match callRoute('/bar/a/baz'). Then resolve ambiguity between '/foo/baz' and '/foo/*' for callRoute('/foo/baz') (prefer exact over wildcard; define priority) and discuss path parameters.",
+      "variant": "Graded as Code Design; rejection feedback demanded justification of the trie choice plus logging/locks. Also surfaces as 'Design File System (LC 1166) with * and ? wildcards in createPath/get'.",
+      "evidence": "SDE2 reject post (code design round); 2023 experience (LC 1166 + wildcards); Glassdoor 'design a sample router' (Senior SWE); Blind Nov 2025 'trie' coding round complaint; Dataford list.",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-question/5994275/Atalassian-or-SDE2-or-Reject/",
+        "https://leetcode.com/discuss/interview-experience/3563537/Atlassian-Interview-Experience/",
+        "https://www.glassdoor.com/Interview/Round-1-design-a-sample-router-Round-2-design-a-voting-system-QTN_5147655.htm",
+        "https://www.teamblind.com/browse/Atlassian-Interview-73593",
+        "https://dataford.io/interview-guides/atlassian/software-engineer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Design File System with wildcard paths",
+      "lcId": 1166,
+      "url": "https://leetcode.com/problems/design-file-system/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Trie",
+        "Hash Map",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Follow-up: support * and ? in createPath so get('/a/x/y/b') returns the value stored for '/a/*/b'; interviewer suggested pattern matching inside createPath.",
+      "evidence": "2023 LeetCode experience; LC Atlassian tag.",
+      "recency": "2023",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/3563537/Atlassian-Interview-Experience/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Sub-list search (find index of list B inside list A) → KMP",
+      "lcId": 28,
+      "url": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Strings",
+        "KMP",
+        "Two Pointers"
+      ],
+      "statement": "",
+      "variant": "Given two lists, return the 0-based start index where the second appears contiguously in the first, else -1: (2,3) in (1,2,3) → 1; (3,2) → -1. Follow-up: make it fast enough with KMP.",
+      "evidence": "Blind coding-design bank (coding task).",
+      "recency": "2023",
+      "sources": [
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "LRU Cache (approach discussion in phone screen / implement with TTL)",
+      "lcId": 146,
+      "url": "https://leetcode.com/problems/lru-cache/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Doubly Linked List",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "P60 phone screen asked for the approach only; campus rounds asked for a full implementation with vague requirements; guides report TTL / write-through extensions in code-design style.",
+      "evidence": "P60 Sept 2025 phone screen; GfG/LeetCode on-campus SDE reports; TechScreen 2026 guide.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/7246118/atlassian-p60-sept-2025-rejected-by-anon-m7ye/",
+        "https://www.geeksforgeeks.org/interview-experiences/atlassian-interview-experience-for-sde-on-campus/",
+        "https://leetcode.com/discuss/interview-experience/830656/atlassian-on-campus-sde-reject/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Logger Rate Limiter / per-customer rate limiter as a coding problem",
+      "lcId": 359,
+      "url": "https://leetcode.com/problems/logger-rate-limiter/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Map",
+        "Queue",
+        "Sliding Window",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "The 'boolean rateLimit(customerId)' question (X requests per Y seconds) is usually the Code Design round, but the 2021 Bangalore backend loop and the April 2021 Blind post had it in the coding round alongside priority queues. See lld for the full staged version.",
+      "evidence": "Backend 3 YOE Bangalore Sept 2021 (reference LC 359); Blind Apr 2021 virtual onsite; still asked 2024–2026 as code design.",
+      "recency": "2021-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/1509105/atlassian-backend-developer-3-yoe-bangalore-sept-2021-reject/",
+        "https://www.teamblind.com/company/Atlassian/posts/atlassian-interview?page=10"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Snake game as a DSA/implementation problem",
+      "lcId": 353,
+      "url": "https://leetcode.com/problems/design-snake-game/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Deque",
+        "Hash Set",
+        "Matrix",
+        "Simulation",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Several aggregators tag the snake game as the DSA round, but every first-hand report places it in Code Design — see lld. Know the deque + hash-set body representation and the 'grow every k-th food' / toroidal-wrap variants either way.",
+      "evidence": "P40 Bangalore Sept 2025, SDE-2 Jul 2025, SDE2 P4 Mar 2025, Senior Nov 2023, Senior 2023 GfG.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/7196860/atlassian-p40-bangalore-interview-exp-of-xgp4/",
+        "https://leetcode.com/discuss/interview-experience/6990017/",
+        "https://roundz.substack.com/p/interview-experience-atlassian-sde2-p40",
+        "https://gagan93.me/blog/2024/05/04/atlassian-interview-experience.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "F1 race: driver with the fastest lap ('last hero')",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Map",
+        "Sorting"
+      ],
+      "statement": "Given lap records (driver, lapNumber, lapTime) across a race, return the driver with the overall fastest lap; extensions ask for each driver's best lap sorted, or the fastest lap per stint. The candidate used a map driver→best lap then sorted; a bug cost the round.",
+      "variant": "Watch for ties and for drivers with no completed lap.",
+      "evidence": "Principal (P60) Bengaluru Sept 2025 Data Structures round.",
+      "recency": "2025-09",
+      "sources": [
+        "https://www.glassdoor.co.in/Interview/Atlassian-Principal-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,37.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Robot parts assembly / subset checks",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Set",
+        "Counting"
+      ],
+      "statement": "Given the parts each robot model needs and an inventory of available parts (with counts), decide which robots can be fully assembled, then maximise the number of robots assembled given shared parts.",
+      "variant": "Counting-map subset check; greedy/ordering discussion for the maximisation extension.",
+      "evidence": "Listed in the 2025 Atlassian question bank as 'Robot Parts Assembly'; related Blind entry 'control a robot arm'.",
+      "recency": "2025",
+      "sources": [
+        "https://getsdeready.com/interview/atlassian/",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Robot delivery routes (graph reachability from start nodes)",
+      "lcId": 797,
+      "url": "https://leetcode.com/problems/all-paths-from-source-to-target/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "DFS",
+        "BFS"
+      ],
+      "statement": "",
+      "variant": "Bank entry 'Robot Delivery Routes': find valid starting nodes and all reachable destinations in a directed graph.",
+      "evidence": "2025 Atlassian question bank (GetSDEReady).",
+      "recency": "2025",
+      "sources": [
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Group Anagrams",
+      "lcId": 49,
+      "url": "https://leetcode.com/problems/group-anagrams/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Strings",
+        "Sorting"
+      ],
+      "statement": "",
+      "variant": "Follow-up on space optimisation (count-array keys instead of sorted strings).",
+      "evidence": "Interview Query Q2–Q3 2026 candidate reports (live coding); LC Atlassian tag.",
+      "recency": "2026-06",
+      "sources": [
+        "https://www.interviewquery.com/interview-guides/atlassian-software-engineer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Critical Connections in a Network (bridges/articulation points)",
+      "lcId": 1192,
+      "url": "https://leetcode.com/problems/critical-connections-in-a-network/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Graph",
+        "Tarjan",
+        "DFS"
+      ],
+      "statement": "",
+      "variant": "Asked as 'articulation point in a graph' in a Bangalore SDE-3 round alongside a medium DP.",
+      "evidence": "SDE 3 Bangalore (LeetCode Discuss, 2021-era).",
+      "recency": "2021",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1652541/atlassian-sde-3-bangalore"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Bricks Falling When Hit (reverse union-find)",
+      "lcId": 803,
+      "url": "https://leetcode.com/problems/bricks-falling-when-hit/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Union Find",
+        "Grid"
+      ],
+      "statement": "",
+      "variant": "Not identical but required the same algorithm; paired with String to Integer (atoi) in one coding round.",
+      "evidence": "SDE 3 Bangalore (LeetCode Discuss).",
+      "recency": "2021",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1652541/atlassian-sde-3-bangalore"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Longest Consecutive Sequence",
+      "lcId": 128,
+      "url": "https://leetcode.com/problems/longest-consecutive-sequence/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Set",
+        "Array"
+      ],
+      "statement": "",
+      "variant": "Campus technical round 1; interviewer graded approach, debugging and corner cases.",
+      "evidence": "On-campus SDE (GfG / LeetCode Discuss).",
+      "recency": "2023",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/atlassian-interview-experience-for-sde-on-campus/",
+        "https://leetcode.com/discuss/interview-experience/830656/atlassian-on-campus-sde-reject/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Boats to Save People (variation) — campus OA",
+      "lcId": 881,
+      "url": "https://leetcode.com/problems/boats-to-save-people/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Greedy",
+        "Two Pointers"
+      ],
+      "statement": "",
+      "variant": "Campus HackerRank OA (90 min, 3 problems) also had: repeatedly delete every occurrence of string b from a until none remains; minimum insert/remove operations to build a sorted arrangement.",
+      "evidence": "On-campus SDE OA (GfG / LeetCode Discuss).",
+      "recency": "2023",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/atlassian-interview-experience-for-sde-on-campus/",
+        "https://leetcode.com/discuss/interview-experience/830656/atlassian-on-campus-sde-reject/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "High-Access Employees",
+      "lcId": 2933,
+      "url": "https://leetcode.com/problems/high-access-employees/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Sorting",
+        "Sliding Window"
+      ],
+      "statement": "",
+      "variant": "In the LC Atlassian tag top-15; fits the 'access logs / attendance records' family Karat and DS rounds draw from.",
+      "evidence": "LC company tag (July 2026 snapshot); no first-hand write-up found.",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/problems/high-access-employees/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Design Hit Counter / moving-window average over a stream",
+      "lcId": 362,
+      "url": "https://leetcode.com/problems/design-hit-counter/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Queue",
+        "Design",
+        "Sliding Window"
+      ],
+      "statement": "",
+      "variant": "Dataford lists 'moving window average over a stream'; the same sliding-window bookkeeping underlies the rate-limiter code-design question.",
+      "evidence": "Dataford guide; LC Atlassian tag.",
+      "recency": "2026",
+      "sources": [
+        "https://dataford.io/interview-guides/atlassian/software-engineer"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Time-Based Key-Value Store",
+      "lcId": 981,
+      "url": "https://leetcode.com/problems/time-based-key-value-store/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Binary Search",
+        "Hash Map",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "SpaceComplexity (Jun 2026) reports it in DSA and Code Design rounds with persistence/expiry follow-ups; also the natural data structure for the 'price at timestamp' commodity question.",
+      "evidence": "SpaceComplexity Jun 2026 guide (secondary).",
+      "recency": "2026-06",
+      "sources": [
+        "https://spacecomplexity.ai/blog/atlassian-coding-interview-problems"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Validate Binary Search Tree",
+      "lcId": 98,
+      "url": "https://leetcode.com/problems/validate-binary-search-tree/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "DFS",
+        "Recursion"
+      ],
+      "statement": "",
+      "variant": "Reported in Karat screen and DSA round (secondary source).",
+      "evidence": "SpaceComplexity Jun 2026 guide.",
+      "recency": "2026-06",
+      "sources": [
+        "https://spacecomplexity.ai/blog/atlassian-coding-interview-problems"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Number of Islands",
+      "lcId": 200,
+      "url": "https://leetcode.com/problems/number-of-islands/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Grid",
+        "BFS",
+        "DFS"
+      ],
+      "statement": "",
+      "variant": "Secondary guide says it is 'typically the first DSA problem'; Karat second problems are frequently BFS-based.",
+      "evidence": "SpaceComplexity Jun 2026 guide; P50 Jul–Aug 2025 Karat ('a BFS-based problem').",
+      "recency": "2026-06",
+      "sources": [
+        "https://spacecomplexity.ai/blog/atlassian-coding-interview-problems",
+        "https://leetcode.com/discuss/post/7099587/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Subsequence validation (is s a subsequence of t) with scaling follow-up",
+      "lcId": 392,
+      "url": "https://leetcode.com/problems/is-subsequence/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "Two Pointers",
+        "Strings"
+      ],
+      "statement": "",
+      "variant": "Follow-up: many queries against the same t (precompute next-occurrence table), and how to scale for high request volume.",
+      "evidence": "Dataford guide.",
+      "recency": "2026",
+      "sources": [
+        "https://dataford.io/interview-guides/atlassian/software-engineer"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Longest String Chain",
+      "lcId": 1048,
+      "url": "https://leetcode.com/problems/longest-string-chain/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "DP",
+        "Hash Map",
+        "Strings"
+      ],
+      "statement": "",
+      "variant": "LC Atlassian tag top-30; no first-hand report found.",
+      "evidence": "LC company tag (July 2026 snapshot).",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/problems/longest-string-chain/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Find Leaves of Binary Tree / Maximum Average Subtree",
+      "lcId": 366,
+      "url": "https://leetcode.com/problems/find-leaves-of-binary-tree/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "DFS"
+      ],
+      "statement": "",
+      "variant": "Secondary guide groups these tree-DFS problems as Atlassian favourites (with LC 1120).",
+      "evidence": "SpaceComplexity Jun 2026 guide.",
+      "recency": "2026-06",
+      "sources": [
+        "https://spacecomplexity.ai/blog/atlassian-coding-interview-problems"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Lowest Common Ancestor of a Binary Tree IV (LCA of a set of nodes)",
+      "lcId": 1676,
+      "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "LCA",
+        "DFS"
+      ],
+      "statement": "",
+      "variant": "Closest LeetCode analogue of the 'closest group for a set of employees' question; high in the LC Atlassian tag.",
+      "evidence": "LC company tag (July 2026 snapshot); maps to the employee-directory question.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7078315",
+        "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Knapsack variant / look-and-say / base-7 conversion / build a staircase (Karat-style small tasks)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "DP",
+        "Simulation",
+        "Math"
+      ],
+      "statement": "Grab-bag of short coding tasks reported from screens: a knapsack variant; convert a long to a base-7 string; generate the look-and-say sequence; print a staircase of given height; 'complete functions within an application' (fill in missing methods in a provided class).",
+      "variant": "These appear only in the Blind bank; treat as warm-ups.",
+      "evidence": "Blind Atlassian coding-design and system-design bank.",
+      "recency": "2023",
+      "sources": [
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "design": [
+    {
+      "title": "Product-agnostic tagging service for Jira, Confluence and Bitbucket",
+      "prompt": "Design a shared tagging system that any Atlassian product can use: add/remove/update tags on any content item (Jira issue, Confluence page, Bitbucket repo), list all content for a tag, search by tag, and show a dashboard of popular/trending tags. Must be highly available and fault tolerant.",
+      "probes": [
+        "REST API spec first: create tag, attach/detach to content, list content by tag, search, paginated responses",
+        "DB schema: tag table, content_tag mapping, indexes; SQL vs NoSQL; is a tag global or per-product/per-tenant",
+        "Popular tags: counting pipeline (Kafka/SQS vs RabbitMQ) and time-windowed top-K",
+        "Scaling tag-based search: inverted index / Elasticsearch, sharding by tenant, caching hot tags",
+        "Which component bottlenecks first and how you scale it; rate limiting abusive clients",
+        "Permissions: content visibility must apply to tag search results"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "The single most reported Atlassian HLD: P40 India Aug 2025, P50 Jan 2025 ('tags management', principal interviewer), P50 Jul–Aug 2025 ('popular tagging system'), SDE-2 Jul 2025, SDE2 P4 Mar 2025, Senior 2023 GfG, P4/P5 2021 Bangalore loops, Glassdoor Melbourne loop, Blind 'everyone gets this'.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://leetcode.com/discuss/interview-experience/6399510/Atlassian-P50-Interview-Experienceor-Jan-2025/",
+        "https://leetcode.com/discuss/post/7099587/",
+        "https://leetcode.com/discuss/interview-experience/6990017/",
+        "https://roundz.substack.com/p/interview-experience-atlassian-sde2-p40",
+        "https://www.geeksforgeeks.org/interview-experiences/atlassian-interview-experience-for-senior-software-engineer/",
+        "https://www.teamblind.com/post/atlassian-system-design-round-for-p4-rrttgr1u",
+        "https://www.glassdoor.com/Interview/Atlassian-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,27.htm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Confluence 'most engaged' / top-K popular pages feed",
+      "prompt": "Build a YouTube-style home page for Confluence that shows the most viewed/engaged-with documents across the organisation, excluding pages the user authored or has already read. Variant: 'popular K feeds' for Confluence; 'top-N posts on Confluence'.",
+      "probes": [
+        "Define the engagement metric up front (views, likes, comments, recency decay) — ambiguity ate one candidate's time",
+        "Ingest view events (Kafka) → count-min sketch / heavy-hitters vs exact counts in Redis sorted sets",
+        "Time-window queries (last hour/day/week) and real-time dashboard updates",
+        "Schema for per-user ranking and for filtering already-viewed pages: user_page_views table vs Bloom filter per user; Cassandra wide rows were accepted",
+        "Permission filtering (user must be allowed to see the page) and tenant isolation",
+        "Cold start, hot keys, cache invalidation"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "P40 Bangalore Sept 2025 (critical feedback on DB schema for per-user filtering), P40 Aug 2025 Hold ('popular K feeds', Hire at P50), P40 Jan 2026 (top-k heavy hitters with exclude-already-viewed twist), PracHub Jan 2026 prep list ('Top-N posts on Confluence'); Intervue 'Confluence popular feed'.",
+      "recency": "2026-01",
+      "sources": [
+        "https://leetcode.com/discuss/post/7196860/atlassian-p40-bangalore-interview-exp-of-xgp4/",
+        "https://leetcode.com/discuss/post/7057047/",
+        "https://leetcode.com/discuss/post/7495920/atlassian-interview-experience-p40-5-yoe-4epp/",
+        "https://prachub.com/interview-experiences/atlassian-software-engineer-interview-experience-passed-a-coding-round-id-seen-before-then-walked-away",
+        "https://www.intervue.io/blog/atlassian-interview-experience-india"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Web scraper / image fetcher (crawler with job API)",
+      "prompt": "Design a service that accepts a list of seed URLs, crawls each page and its nested links to depth n, collects image src URLs (no downloading), and exposes POST /jobs → job_id, GET /jobs/{id}/status (completed vs in-progress counts) and GET /jobs/{id}/results (images grouped by root URL).",
+      "probes": [
+        "Job/URL state machine and schema; BFS frontier in a queue; worker pool",
+        "Idempotency and retries for failed fetches; dedupe of URLs across jobs (Bloom filter)",
+        "Politeness / per-domain rate limiting; robots.txt",
+        "Status aggregation without hot counters; partial results",
+        "Storage of results (object store + metadata DB) and pagination of large result sets",
+        "Scaling to unlimited roots/depth; failure handling when workers die"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Senior SWE offer Dec 2024, P60 Sept 2025, Senior EM Dec 2025, Principal Bengaluru Sept 2025 ('URL scraping system for photos'), PracHub Jan 2026 prep list, Blind bank, Intervue.",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/",
+        "https://leetcode.com/discuss/post/7246118/atlassian-p60-sept-2025-rejected-by-anon-m7ye/",
+        "https://leetcode.com/discuss/interview-experience/7418629",
+        "https://www.glassdoor.co.in/Interview/Atlassian-Principal-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,37.htm",
+        "https://prachub.com/interview-experiences/atlassian-software-engineer-interview-experience-passed-a-coding-round-id-seen-before-then-walked-away",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Hierarchical data store (add node, get all children)",
+      "prompt": "Design a service that stores hierarchical data (e.g. Confluence page tree or org chart): add a node under a parent, move/delete nodes, return all descendants of a node, with heavy focus on API design, DB schema and edge cases.",
+      "probes": [
+        "Adjacency list vs materialised path vs closure table vs nested sets — trade-offs for reads vs moves",
+        "API shape for pagination of large subtrees; depth limits",
+        "Cycle prevention on move; concurrent edits",
+        "Caching subtree queries; sharding by tenant/root",
+        "Interviewers called the prompt deliberately ambiguous — clarify scale and operations first"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "PracHub Jan 2026 prep list, Interview Query 2026 reports ('storing hierarchical data, ambiguous prompt'), Intervue.",
+      "recency": "2026-01",
+      "sources": [
+        "https://prachub.com/interview-experiences/atlassian-software-engineer-interview-experience-passed-a-coding-round-id-seen-before-then-walked-away",
+        "https://www.interviewquery.com/interview-guides/atlassian-software-engineer",
+        "https://www.intervue.io/blog/atlassian-interview-experience-india"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Role-based + resource-based access control (permissions engine)",
+      "prompt": "Design the permission system for a Jira/Confluence-like product supporting both role-based access and per-resource grants (share this page with these users/groups), with fast 'can user X do action Y on resource Z' checks and 'list everything X can see'.",
+      "probes": [
+        "Policy model: roles, groups, resource ACLs, inheritance down the hierarchy",
+        "Check latency: precomputed effective permissions vs on-the-fly evaluation; caching and invalidation",
+        "Search integration: filtering results by permission at scale",
+        "Audit log, consistency after revocation"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "PracHub Jan 2026 prep list ('role access control, role-based and resource-based'); TechScreen 2026 'Jira-like permissions engine'; color-list access-control variant below.",
+      "recency": "2026-01",
+      "sources": [
+        "https://prachub.com/interview-experiences/atlassian-software-engineer-interview-experience-passed-a-coding-round-id-seen-before-then-walked-away",
+        "https://techscreen.app/articles/atlassian-technical-interview-process-2026"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Colour-list sharing site (favourite colours with sharing and ACL)",
+      "prompt": "Users pick colours and save them into named lists; support save/delete colour, share a list with several users by email, and access control so others can view (not edit) a user's list. Build for correctness first, then scale.",
+      "probes": [
+        "Schema for lists, items, shares; invitation by email for non-users",
+        "ACL checks on every read; share revocation",
+        "Scaling reads of popular shared lists; caching",
+        "Why this toy problem: it is the tagging/permissions skeleton in disguise"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "SDE-2 remote accepted (round 3), Blind bank ('design color picker — likely question'), Intervue ('color picker tool').",
+      "recency": "2024",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1859629/atlassian-sde-2-remote-accepted/",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd",
+        "https://www.intervue.io/blog/atlassian-interview-experience-india"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Scheduled HTTP request executor (cron-as-a-service)",
+      "prompt": "Let a consumer schedule an HTTP request (e.g. POST https://myservice.com/api/items/_delete) to run at a given time such as Sunday 01:00, and execute it reliably at that time. Initial load 10 schedules/min; discuss scaling, availability and reliability.",
+      "probes": [
+        "API + JSON request/response bodies for the GUI; how the GUI learns and displays timezones; what timezone the backend stores",
+        "Timer wheel / partitioned time-bucket table + workers polling due jobs",
+        "Exactly-once vs at-least-once: avoid duplicate execution after crash/restart (leases, idempotency keys)",
+        "Retries, dead-letter, observability"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Principal backend US first-round (reject), Blind Mar 2022 P4 full-stack screen (same problem), interviewing.io 'job scheduler'.",
+      "recency": "2022",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1938821/atlassian-first-round-interview-system-design-for-principal-software-engineer-backend-reject/",
+        "https://www.teamblind.com/company/Atlassian/posts/atlassian-interview?page=12"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Collaborative document editor (Google Docs / Confluence real-time editing)",
+      "prompt": "Design real-time multi-user editing of a Confluence page: conflict handling, presence, and the transport layer.",
+      "probes": [
+        "OT vs CRDT; server-side ordering",
+        "WebSockets, session affinity — and why round-robin pinning of a doc to one server breaks (hot docs, server loss, rebalancing)",
+        "Persistence/snapshots, offline edits, cursor presence",
+        "Permissions and audit"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "P60 Sept 2025 phone screen (discussion level), Karat rapid-fire 'Google Docs clone load balancing' (P40 Aug 2025, P50 Aug 2025), TechPrep 'collaborative editing layer like Confluence'.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/7246118/atlassian-p60-sept-2025-rejected-by-anon-m7ye/",
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://leetcode.com/discuss/interview-experience/7114235",
+        "https://www.techprep.app/companies/atlassian"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "File storage and search (by name and by content keyword)",
+      "prompt": "Design a file storage service where users upload files and later search by file name or by keywords inside the content.",
+      "probes": [
+        "Object storage for bytes + metadata DB; chunked/multipart upload for large files",
+        "Content extraction pipeline → Elasticsearch inverted index; async indexing and consistency lag",
+        "Permission-aware search; tenant sharding",
+        "Dedup/versioning"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "P60 Sept 2025 phone screen; Interview Query 2026 ('image upload service'); TechScreen 'file upload'.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/7246118/atlassian-p60-sept-2025-rejected-by-anon-m7ye/",
+        "https://www.interviewquery.com/interview-guides/atlassian-software-engineer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Distributed rate limiter at API-gateway scale (for Jira APIs)",
+      "prompt": "Design a rate limiter for Jira's public APIs across many gateway nodes and tenants: per-user and per-tenant limits, burst handling, and consistent decisions under node failure.",
+      "probes": [
+        "Token bucket vs sliding log/window; where counters live (Redis + Lua, local + sync)",
+        "Sharding by key, hot tenants, clock skew",
+        "Fail-open vs fail-closed; headers/retry-after",
+        "Credit/burst carry-over (same follow-up as the code-design version)"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Blind bank (listed under both system design and code design), TechPrep, Dataford 'distributed rate limiter in an API gateway'; recruiter prep notes for P40 India HLD listed 'rate limiting' as a focus.",
+      "recency": "2025-08",
+      "sources": [
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd",
+        "https://www.techprep.app/companies/atlassian",
+        "https://dataford.io/interview-guides/atlassian/software-engineer",
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Notification service for Jira (in-app, email, push fan-out)",
+      "prompt": "Design notifications for Jira issue activity: fan-out to watchers across in-app, email and push, with user preferences, batching/digests and real-time delivery to thousands of open browser tabs.",
+      "probes": [
+        "Event ingestion from issue updates (Kafka), fan-out on write vs read",
+        "Preference and dedupe/aggregation logic; digest scheduling",
+        "WebSocket/SSE delivery and presence; retries per channel",
+        "Idempotency and ordering per issue"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "TechPrep ('notification service for Jira'), Dataford follow-up ('Jira notification system pushing real-time updates to thousands of browser clients'), TechScreen 2026 list.",
+      "recency": "2026",
+      "sources": [
+        "https://www.techprep.app/companies/atlassian",
+        "https://dataford.io/interview-guides/atlassian/software-engineer",
+        "https://techscreen.app/articles/atlassian-technical-interview-process-2026"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Comments / threaded discussion sync with mentions and presence",
+      "prompt": "Design the comment system for Jira/Confluence: nested replies, @mentions, reactions, real-time sync to viewers.",
+      "probes": [
+        "Thread storage (adjacency vs path), pagination of deep threads",
+        "Mention resolution → notification events",
+        "Real-time updates, optimistic UI, conflict on edit/delete",
+        "Permissions inheritance from parent content"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "TechScreen 2026 guide list; aligns with the Jira/Confluence flavour of the loop but no first-hand report found.",
+      "recency": "2026",
+      "sources": [
+        "https://techscreen.app/articles/atlassian-technical-interview-process-2026"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Search across Jira and Confluence respecting per-user permissions",
+      "prompt": "Design unified search/autocomplete over issues and pages where every result must respect the searcher's permissions.",
+      "probes": [
+        "Indexing pipeline and freshness; per-tenant indexes",
+        "Permission filtering: pre-filter with ACL terms in the index vs post-filter; the 'few visible results' problem",
+        "Autocomplete: prefix tries / edge n-grams, ranking by recency and personal history",
+        "Latency budget, caching, multi-region"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "TechScreen 2026 guide ('search across Jira and Confluence that respects permissions'); Bangalore Jira Search team is a frequent hiring team (Blind Apr 2025).",
+      "recency": "2026",
+      "sources": [
+        "https://techscreen.app/articles/atlassian-technical-interview-process-2026"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Jira bug auto-categorisation / event-driven issue pipeline",
+      "prompt": "Design an event-driven system that ingests new bug reports and routes them to the right team queue (classification + routing), with an audit trail.",
+      "probes": [
+        "Event ingestion and ordering; classifier as async consumer",
+        "Human override and feedback loop; retraining data",
+        "Backpressure, DLQ, exactly-once routing"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Dataford guide ('Jira bug auto-categorization'); TechScreen 'event ingestion pipeline for issue activity'.",
+      "recency": "2026",
+      "sources": [
+        "https://dataford.io/interview-guides/atlassian/software-engineer",
+        "https://techscreen.app/articles/atlassian-technical-interview-process-2026"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Trello-style board / Jira project tracker",
+      "prompt": "Design a Kanban board product (boards, lists, cards, drag-and-drop ordering, real-time collaboration, activity feed).",
+      "probes": [
+        "Ordering of cards (fractional indexing / linked list) under concurrent moves",
+        "Real-time sync and conflict resolution",
+        "Activity/audit log, webhooks, permissions"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Named in the task brief and in HireStepX/Interview Query practice lists as Jira-like project tracker; no first-hand 2025 report found.",
+      "recency": "2026",
+      "sources": [
+        "https://hirestepx.com/blog/atlassian-india-software-engineer-guide-bengaluru-2026"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Hashtag / LinkedIn-style tagging feature",
+      "prompt": "Design a hashtag feature: attach hashtags to posts, browse posts by hashtag, show trending hashtags.",
+      "probes": [
+        "APIs, DB design, SQL vs NoSQL",
+        "Scaling DB: replicas, sharding, distributed cache, paging",
+        "Trending computation windows"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "P5 Bengaluru May 2021 (offer), GfG 2021 LinkedIn-style tagging; same family as the tagging service.",
+      "recency": "2021-05",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1271435/atlassian-senior-engineer-p5-bengaluru-may-2021-offer",
+        "https://systemdesignsim.com/interview/atlassian-system-design-interview"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "User status tracking service",
+      "prompt": "Design a system that keeps track of users' statuses (online/away/custom) across devices and exposes them to collaborators.",
+      "probes": [
+        "Heartbeats vs explicit updates; TTL expiry",
+        "Fan-out to watchers; pub/sub; presence at scale",
+        "Storage (Redis) and consistency"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Blind coding-design and system-design bank.",
+      "recency": "2023",
+      "sources": [
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Photo storage service / game machine with payment system",
+      "prompt": "Two one-off HLD prompts from the Blind bank: (a) a photo storage and sharing service; (b) an arcade/game machine with an integrated payment flow.",
+      "probes": [
+        "Upload pipeline, CDN, metadata, dedupe (photos)",
+        "Idempotent payments, state machine, reconciliation (game machine)"
+      ],
+      "round": "System Design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Blind coding-design and system-design bank; no 2025 confirmation.",
+      "recency": "2023",
+      "sources": [
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Karat: consistent hashing by file count for music upload/streaming servers",
+      "prompt": "Servers share songs using consistent hashing keyed to equalise the number of files per server. What concerns do you have, and how would you improve it?",
+      "probes": [
+        "File count ≠ load: hot songs, size skew",
+        "Node add/remove rebalancing, virtual nodes, replication",
+        "Separate upload from streaming; CDN/cache for hot content"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "P40 Karat Mar 2025, Senior SWE Karat Dec 2024, SDE-2 Karat 2025 (Medium write-up).",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/6483337/",
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/",
+        "https://medium.com/@priyabansal0919/atlassian-sde-2-interview-my-experience-takeaways-part-1-fb83929d0066"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Karat: capacity estimation for an ML URL-parsing / news-classification service",
+      "prompt": "Estimate the resources needed for the next 6 months for a service that ingests user-submitted URLs (or sports articles), parses them and runs ML models (e.g. bias detection). What information do you need?",
+      "probes": [
+        "Inputs: QPS, growth, payload size, model latency/CPU-GPU cost, retention",
+        "Storage and bandwidth math; peak vs average",
+        "Batch vs real-time"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "P40 Karat Mar 2025, Senior SWE Karat Dec 2024.",
+      "recency": "2025-03",
+      "sources": [
+        "https://leetcode.com/discuss/post/6483337/",
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Karat: process a file too large for one machine's RAM/disk",
+      "prompt": "How do you handle a file that cannot fit on a single machine?",
+      "probes": [
+        "Streaming/chunked processing, external sort",
+        "Chunk into distributed storage (S3/HDFS) with a manifest; parallel map-reduce",
+        "Reassembly and checksums"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "P40 Karat Mar 2025, Senior SWE Karat Dec 2024, SDE-2 Karat 2025.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/6483337/",
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/",
+        "https://medium.com/@priyabansal0919/atlassian-sde-2-interview-my-experience-takeaways-part-1-fb83929d0066"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Karat: taking a single-country app international",
+      "prompt": "What backend changes are needed when the app expands from one country to many?",
+      "probes": [
+        "Multi-region deployment, data residency, latency/CDN",
+        "i18n/l10n, currencies, timezones",
+        "Compliance, failover, replication"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "P40 Karat Mar 2025, Senior SWE Karat Dec 2024.",
+      "recency": "2025-03",
+      "sources": [
+        "https://leetcode.com/discuss/post/6483337/",
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Karat: preloaded vs server-fetched hints for a puzzle game",
+      "prompt": "Pros and cons of shipping hints with the app versus loading them from the server.",
+      "probes": [
+        "Offline/latency vs app size and spoiler risk",
+        "Updatability, A/B testing, cheating/extraction",
+        "Caching middle ground"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "P40 Karat Mar 2025, Senior SWE Karat Dec 2024.",
+      "recency": "2025-03",
+      "sources": [
+        "https://leetcode.com/discuss/post/6483337/",
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Karat: friend count on every post at beyond-Facebook scale",
+      "prompt": "Posts must show the author's friend count. You have a User table and a UserRelationship(user_id, user2_id) table with indexes. Design the DB side so it scales.",
+      "probes": [
+        "Denormalised friend_count column updated on relationship change vs COUNT per read",
+        "Cache per user; eventual consistency acceptable",
+        "Sharding of the relationship table"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "P40 India Karat Aug 2025, P50 band Karat Aug 2025.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://leetcode.com/discuss/interview-experience/7114235"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Karat: Google-Docs clone with documents pinned to servers by round-robin",
+      "prompt": "Each document lives on exactly one server, assigned round-robin by the load balancer. What is wrong and how do you fix the scalability problem?",
+      "probes": [
+        "Round-robin ignores document popularity/size → hot servers",
+        "Server failure loses sessions; need consistent hashing + replication/failover",
+        "Stateless front + shared state (pub/sub, OT/CRDT backend)"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "P40 India Karat Aug 2025, P50 band Karat Aug 2025.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://leetcode.com/discuss/interview-experience/7114235"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Karat: strong vs eventual consistency for three systems",
+      "prompt": "Pick strong or eventual consistency and justify for: a video-metadata API with a 20–30 s latency allowance, a web click-analytics platform, and a banking deposits/payments system.",
+      "probes": [
+        "Eventual for metadata and analytics (availability, throughput)",
+        "Strong for money movement (linearisable writes, idempotency)",
+        "Cost of strong consistency under partition"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "P40 India Karat Aug 2025, P50 band Karat Aug 2025.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://leetcode.com/discuss/interview-experience/7114235"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Karat: find request/notification IDs that failed (DB has all IDs, ~500 servers log only successes)",
+      "prompt": "A bug dropped some requests (or e-signature completion notifications). A DB lists every ID that should have been processed; ~500 production servers hold large logs of successful IDs only. Identify the missing IDs and resend after the fix, at tens-of-millions scale.",
+      "probes": [
+        "Collect/aggregate logs (log shipping, map-reduce) → set difference against the DB",
+        "Bloom filter / sorted-merge to fit in memory; dedupe",
+        "Idempotent resend; verify after replay"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "P40 India Karat Aug 2025, P50 band Karat Aug 2025.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://leetcode.com/discuss/interview-experience/7114235"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Karat: throughput of a three-stage pipeline (capacities 10/20/50)",
+      "prompt": "Documents pass through stages A, B and C with capacities 10, 20 and 50 docs per unit time. What is the system throughput and how would you improve it?",
+      "probes": [
+        "Bottleneck = min stage (10); queueing between stages",
+        "Scale A horizontally; batching; back-pressure"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": false,
+      "evidence": "P50 band Karat Aug 2025.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7114235"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Karat: walk through 'confirm ride' end to end (ride-share)",
+      "prompt": "From the moment a user taps Confirm Ride until a driver is confirmed, describe the front-end to back-end flow: networking, DNS/LB/gateway, matching service, persistence, scalability, security and error handling.",
+      "probes": [
+        "Request path and services involved",
+        "Idempotency of confirm; timeouts and retries",
+        "Driver matching and push notification"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "Full-stack Karat Aug 2025 (FrontendLead); Dataford guide.",
+      "recency": "2025-08",
+      "sources": [
+        "https://discuss.frontendlead.com/t/atlassian-full-stack-karat/2360",
+        "https://dataford.io/interview-guides/atlassian/software-engineer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Karat: debugging/scaling scenarios (slow system, scale x→y users, port code to a microcontroller)",
+      "prompt": "Troubleshooting-style prompts: a system is running very slowly — where do you look; upgrade a system from x to y users — what changes; move code from a desktop to a Raspberry-Pi-class controller in a smart freezer — what concerns.",
+      "probes": [
+        "Observability-first triage (golden signals, slow queries, saturation)",
+        "Horizontal scaling, caching, DB replicas, async",
+        "Resource constraints, power, OTA updates, security for embedded"
+      ],
+      "round": "Karat screen — rapid-fire scenario (~4 min, verbal)",
+      "difficulty": "Easy",
+      "classic": true,
+      "evidence": "Senior SWE Karat Nov 2023 (Gagandeep; 4/5 answered, pass mark 3/5); Intervue list ('slow system', 'API inconsistent under load').",
+      "recency": "2025",
+      "sources": [
+        "https://gagan93.me/blog/2024/05/04/atlassian-interview-experience.html",
+        "https://www.intervue.io/blog/atlassian-interview-experience-india"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "lld": [
+    {
+      "title": "Snake game (Nokia-style) core engine",
+      "prompt": "Implement the game logic for Snake: a board of W×H, a snake with an initial length/position, nextMove(direction) that returns the new state or 'game over', food that makes the snake grow, and self-collision detection. Interviewer variants change the rules mid-way: the snake grows only on every n-th food (or every k moves), walls are toroidal (wrap to the opposite side) instead of fatal, or the board is infinite.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide); interviewer wanted to see head/tail positions printed in the console and all requested cases run",
+      "probes": [
+        "Body as deque + hash set for O(1) collision; why deque beats a linked list",
+        "Toroidal wrap via modulo; wall-crash as an exception/game-over state",
+        "Decouple growth rule from movement (strategy); keep Board/Snake/Food/Game as separate classes",
+        "Concurrent input (up+right pressed together): synchronisation/queue of moves",
+        "Unit tests for collision, growth, wrap; exception handling for invalid direction (missing these cost a P50 the round)",
+        "Time: strong candidates ran 5–10 minutes over — get the core loop working in ~25 min"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Reported in at least 7 code-design rounds 2022–2025: P40 Bangalore Sept 2025 (grow every n-th food), SDE-2 Jul 2025 (Strong Hire), SDE2 P4 Bengaluru Mar 2025 (wrap-around variant), P50 Jan 2025 (No Hire: no tests/exceptions), Medium SDE-2 2025 part 1, Senior Nov 2023 (Sydney panel), Senior 2023 GfG, Blind bank 2023.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/7196860/atlassian-p40-bangalore-interview-exp-of-xgp4/",
+        "https://leetcode.com/discuss/interview-experience/6990017/",
+        "https://roundz.substack.com/p/interview-experience-atlassian-sde2-p40",
+        "https://leetcode.com/discuss/interview-experience/6399510/Atlassian-P50-Interview-Experienceor-Jan-2025/",
+        "https://gagan93.me/blog/2024/05/04/atlassian-interview-experience.html",
+        "https://www.geeksforgeeks.org/interview-experiences/atlassian-interview-experience-for-senior-software-engineer/",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Per-customer API rate limiter with credit/burst extension",
+      "prompt": "Many customers call your service; stop any one from overloading it. Rule: each customer may make X requests per Y seconds; the customer id is already extracted. Implement boolean rateLimit(int customerId) returning true if allowed. Stage 2: a credit system for bursty customers — unused capacity in each window converts to credits (capped at a maximum); when a customer exceeds the normal limit, credits are consumed; at zero credits they are limited. Stage 3: make it safe for many threads / many service instances.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide); run against a few test cases in your IDE",
+      "probes": [
+        "Sliding-window log (deque of timestamps) vs fixed window vs token bucket — justify; memory per customer",
+        "Pluggable limit config per customer/endpoint (strategy/interface) so stage 2 is additive",
+        "Credit accounting at window roll-over; cap; what counts as 'unused'",
+        "Concurrency: per-customer locks or atomic counters; distributed version → Redis with Lua (bridge to HLD)",
+        "Clock injection for testability; eviction of idle customers",
+        "Variant signature seen: boolean shouldPass(int timeBucket) optimised for memory and concurrency; 'local rate limiter multiple microservice handlers can instantiate'"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "The canonical Atlassian code-design question since 2021: P5→P4 Bangalore Oct 2021 (full text incl. credits), Senior SWE offer Dec 2024 (credits + multithreading), Glassdoor 6-round loop (Melbourne, 'build an API rate limiter from scratch'), SDE-2 remote accepted, P5 May 2021, Glassdoor Principal question text, Blind Aug 2022 ('same rate limiter question?'), Interview Query Q3 2026 P40 report, Dataford shouldPass variant.",
+      "recency": "2026-09",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1566225/atlassian-p5-bangalore-4th-oct-19th-oct-p4-offer/",
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/",
+        "https://www.glassdoor.com/Interview/Atlassian-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,27.htm",
+        "https://leetcode.com/discuss/interview-experience/1859629/atlassian-sde-2-remote-accepted/",
+        "https://www.glassdoor.com/Interview/Code-Design-%E2%80%93-Rate-Limiter-Here-is-the-exact-question-I-received-Problem-Title-Rate-Limiter-Problem-Description-Imagine-QTN_6634688.htm",
+        "https://www.interviewquery.com/interview-guides/atlassian-software-engineer",
+        "https://dataford.io/interview-guides/atlassian/software-engineer",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Customer-support agent rating tool (ratings → sorted leaderboard → per-month → weighted)",
+      "prompt": "Build the backend for a customer-satisfaction tool: addAgentRating(agentId, rating 1–5) and getSortedAgentRatingsList() returning agents by average rating, highest first. Stage (b): ratings carry a month; return the best agents for a given month (or per month). Stage (c): define tie-breaking (more ratings first, then id). Stage (d): weighted votes (by customer tier or recency). Stage (e): concurrency with many raters.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide); the P40 India candidate used TDD exactly as the recruiter guide suggested",
+      "probes": [
+        "Keep running sum/count per agent (no re-averaging); when to sort (on read vs maintain a TreeMap/heap keyed by average)",
+        "Month bucket as part of the key / nested map; API shape for 'per month' without breaking the first API",
+        "Tie-break comparator made explicit and tested",
+        "Weighted average extension — should weights live in a strategy object",
+        "Thread-safety: synchronised per agent vs lock-free; read-mostly structure",
+        "Validation: rating out of range, unknown agent → exceptions"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Most-reported code-design question of 2025: P40 India Aug 2025, P40 Aug 2025 Hold (month + tie-break + concurrency follow-ups), P50 Jul–Aug 2025, Senior Eng coding round (weighted votes), SWE Jan 2026, Blind May 2025 P50 LLD (top-rated overall and per month) and Nov 2025 posts, Blind 'Customer Satisfaction tool'.",
+      "recency": "2026-01",
+      "sources": [
+        "https://leetcode.com/discuss/post/7070747/atlassian-p40-india-offer-by-anonymous_u-6mbf/",
+        "https://leetcode.com/discuss/post/7057047/",
+        "https://leetcode.com/discuss/post/7099587/",
+        "https://leetcode.com/discuss/post/7537985/atlassian-senior-eng-coding-by-anonymous-w7ab/",
+        "https://prachub.com/interview-experiences/atlassian-software-engineer-interview-experience-passed-a-coding-round-id-seen-before-then-walked-away",
+        "https://www.teamblind.com/browse/Atlassian-Interview-73593",
+        "https://www.teamblind.com/post/atlassian-onsite-interview-wpj2ooer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Cost Explorer: monthly and annual subscription cost for Jira plans",
+      "prompt": "You are on the payments team. A customer subscribes to Jira on a plan (BASIC 9.99, STANDARD 49.99, PREMIUM 249.99 per month) starting on some date (YYYY-MM-DD). Implement CostExplorer with monthlyCostList() → 12 entries for the unit year (Jan–Dec, future months estimated) and annualCost(). A subscription started on any day of a month is charged for the whole month. Stage 2: incorporate a free trial period. Other stages seen: plan upgrades/downgrades mid-year, multiple products per customer, proration.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide); model classes (Plan, Subscription, Customer) plus a service class",
+      "probes": [
+        "Strategy/enum for plans so adding a plan is additive",
+        "Date handling: months before the start are 0; trial months are 0; year boundary",
+        "What 'estimate' means for future months; today's date injected for testability",
+        "Pedantic requirements capture — interviewers narrate the spec and grade how precisely you restate it",
+        "Candidates who could not run their code because of a build error asked whether they still pass — make it runnable early"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Glassdoor Senior EM question text, LeetCode 'Atlassian Code Design Round' post (trial-period follow-up), LeetCode onsite 'API to get monthly/annual subscription charges', Blind May 2023 code-design thread (subscription cost, edge cases), Blind 'Cost Explorations'.",
+      "recency": "2025",
+      "sources": [
+        "https://www.glassdoor.co.in/Interview/Cost-Explorer-Imagine-you-are-working-on-payments-team-at-Atlassian-A-customer-subscribes-to-Jira-and-is-interested-in-exp-QTN_8493988.htm",
+        "https://leetcode.com/discuss/post/6770783/atlassian-code-design-round-by-anonymous-nbga/",
+        "https://leetcode.com/discuss/interview-question/1976694/atlassian-onsite-api-to-get-monthlyannual-subscription-charges",
+        "https://www.teamblind.com/post/atlassian-code-design-interview-sr-swe-question-j0g7b7r8",
+        "https://www.teamblind.com/post/atlassian-onsite-interview-wpj2ooer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Middleware router with wildcard routes",
+      "prompt": "Implement a router: addRoute(path, result) and callRoute(path) → result ('/bar' → 'result'). Stage 2: wildcard segments, e.g. addRoute('/bar/*/baz','bar') must serve callRoute('/bar/a/baz'). Stage 3: precedence when both '/foo/baz' and '/foo/*' match; path parameters (':id'); 404 behaviour.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Segment trie vs regex list; complexity per lookup",
+        "Exact-match-over-wildcard priority rule and how it is tested",
+        "Thread-safety for concurrent addRoute/callRoute (feedback explicitly asked for 'locks')",
+        "Logging/observability hooks; justify the trie choice out loud"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "SDE2 reject post (full prompt + wildcard follow-up), Glassdoor 'design a sample router' (Senior SWE), Blind Nov 2025 trie coding-round complaint, Dataford 'middleware router'.",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-question/5994275/Atalassian-or-SDE2-or-Reject/",
+        "https://www.glassdoor.com/Interview/Round-1-design-a-sample-router-Round-2-design-a-voting-system-QTN_5147655.htm",
+        "https://www.teamblind.com/browse/Atlassian-Interview-73593",
+        "https://dataford.io/interview-guides/atlassian/software-engineer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "In-memory file system with directory sizes, top-N directories and filter chaining",
+      "prompt": "Design an in-memory file system: create directories/files with sizes, report the size of any directory (recursive). Stage 2: report the top-n directories by size. Stage 3: a find(dir, filters) API where filters (by extension, by min size, by name prefix) can be chained and combined with AND/OR. Variant: LC 1166 'Design File System' with * and ? wildcard paths.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Tree of nodes with cached vs on-demand sizes — trade-off discussed explicitly",
+        "Filter as an interface (Specification pattern) so new filters and composition are additive",
+        "Top-n with a heap over directory sizes; invalidation on write",
+        "Wildcard matching in createPath/get",
+        "Permissions extension (listed in question banks)"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Senior 2023 GfG (code-design round 1: directory sizes → top-n, upfront vs on-demand), 2023 LeetCode experience (LC 1166 + wildcards), Intervue 'file storage system in pair-programming style', GetSDEReady 'File System (permissions)'.",
+      "recency": "2025",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/atlassian-interview-experience-for-senior-software-engineer/",
+        "https://leetcode.com/discuss/interview-experience/3563537/Atlassian-Interview-Experience/",
+        "https://www.intervue.io/blog/atlassian-interview-experience-india",
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Content popularity tracker (thread-safe, multi-category)",
+      "prompt": "Class with increasePopularity(id), decreasePopularity(id) and getMostPopular() (-1 if none > 0) over a stream of content ids. Stages: change by arbitrary x; tie-break rules; per-category most-popular; thread safety; thumbs-up/thumbs-down counts per content.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "O(1) bucket structure (All O'one) vs TreeMap<count, set> — and why x≠1 breaks the former",
+        "Tie-break: most recent change / lowest id — make it a comparator",
+        "Lock granularity; read-mostly optimisation",
+        "Also asked as the DSA round — same code either way"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "P40 Aug 2025 (DSA round), Principal Bengaluru Sept 2025 (LLD round, thumbs up/down), SDE-2 2025 Medium part 2, Blind bank, TechPrep code-design entry.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/7057047/",
+        "https://www.glassdoor.co.in/Interview/Atlassian-Principal-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,37.htm",
+        "https://medium.com/@priyabansal0919/sde-2-interview-experience-at-atlassian-part-2-0da938a60258",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd",
+        "https://www.techprep.app/companies/atlassian"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Voting system: most-voted candidate / rank teams by votes / ballot ranking",
+      "prompt": "Design a voting module: record votes (or ranked ballots with positional weights), return the current winner / full ranking, with explicit tie-break strategies (first to reach the count, head-to-head, alphabetical, weighted). Variants: constant stream of up/down votes returning the most up-voted content id; choose a winner from a list of cast votes; LC 1366-style team ranking with a changed tie-break.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide); clean solution needs Ballot/Candidate classes and a custom comparator",
+      "probes": [
+        "Comparator encapsulating tie-break rules; swapping strategies",
+        "Requirements changed twice mid-round — keep the aggregation separate from ranking",
+        "Incremental winner maintenance vs sort-on-read",
+        "Weighted strategy implementation"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Glassdoor 'Round 2: design a voting system' (Senior SWE), Senior Nov 2023 DS round (ballot ranking), backend 3 YOE Bangalore 2021, voting-application question post, Blind bank (four variants), Blind Aug 2021 'voting and file tagging'.",
+      "recency": "2024-11",
+      "sources": [
+        "https://www.glassdoor.com/Interview/Round-1-design-a-sample-router-Round-2-design-a-voting-system-QTN_5147655.htm",
+        "https://gagan93.me/blog/2024/05/04/atlassian-interview-experience.html",
+        "https://leetcode.com/discuss/post/1509105/atlassian-backend-developer-3-yoe-bangalore-sept-2021-reject/",
+        "https://leetcode.com/discuss/post/5923584/",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Files, collections and tags report (top-N collections, nested collections)",
+      "prompt": "Given files with name, size and collection(s), produce a report: total size of all files and the top N collections by size. Stages: a file in multiple collections; nested collections (sizes roll up); add a 'tag' feature to collections; multithreaded ingestion.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Aggregation map + heap for top N; Counter and sorted insertion",
+        "Tree of collections for nesting; avoid double counting a file in nested parents",
+        "List vs Set for membership — justify",
+        "Speed vs storage trade-off for file info; concurrency"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Senior SWE offer Dec 2024 (DS round), SDE-2 remote (nested), SDE2 P4 Mar 2025 (round 2), Glassdoor Senior Backend Jul 2024 ('designing collections to support adding a tag feature', code-design run by India team), Blind bank 'tagging files and top N collections'.",
+      "recency": "2025-03",
+      "sources": [
+        "https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer/",
+        "https://leetcode.com/discuss/interview-experience/1859629/atlassian-sde-2-remote-accepted/",
+        "https://roundz.substack.com/p/interview-experience-atlassian-sde2-p40",
+        "https://www.glassdoor.com/Interview/Atlassian-Senior-Backend-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,42.htm",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Tennis club court assignment with maintenance rules",
+      "prompt": "assignCourts(List<BookingRecord{id,start,finish}>) → plan mapping each booking to a court using the minimum number of courts. Stages: fixed maintenance time X after every booking; maintenance Y only after every X uses (durability); return just the minimum court count; isConflict(bookingA, bookingB) helper.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Sort by start + min-heap keyed on court free-at time; where maintenance enters the free-at computation",
+        "Court as an object tracking uses since maintenance",
+        "Determinism/tie-break on equal free times; tests for boundary touching intervals"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Aug 2025 DS question-bank post (all stages), Dataford 'tennis court booking', GetSDEReady.",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7078315",
+        "https://dataford.io/interview-guides/atlassian/software-engineer",
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Cinema hall movie scheduling",
+      "prompt": "Implement canSchedule(Movie, MovieSchedule) for a single-screen cinema open 10:00–23:00 with existing screenings given as start minutes; decide whether a new movie of a given duration fits without moving existing shows. Extensions: earliest slot, multiple screens, cleaning buffer.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Sort screenings, compute gaps including opening/closing edges",
+        "Model Movie/Screening/Schedule cleanly; inclusive/exclusive boundaries tested",
+        "Extension to several screens = tennis-court problem"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "P60 Sept 2025 code-design round; GetSDEReady 'Cinema Scheduling'.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/post/7246118/atlassian-p60-sept-2025-rejected-by-anon-m7ye/",
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Employee directory: closest common group with concurrent updates",
+      "prompt": "Build the employee-directory model (groups contain groups and employees) with add/move/remove operations and getCommonGroupForEmployees(set). Stage: employees in several groups → still return one closest group. Stage: four mutating methods run on other threads — make reads consistent with the latest hierarchy.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide); interviewers expect the model to be constructed from input before the algorithm",
+      "probes": [
+        "Parent pointers + depth for LCA; iterative climb vs path intersection",
+        "DAG case: BFS upward from each employee, first node reached by all",
+        "ReadWriteLock vs copy-on-write snapshot; what 'latest' means under concurrent writes"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Aug 2025 DS question bank (stage c concurrency), P50 Jan/Aug 2025, P40 Sept 2025, P60 Sept 2025 — run as DS round but graded on code organisation.",
+      "recency": "2025-09",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7078315",
+        "https://leetcode.com/discuss/interview-experience/6399510/Atlassian-P50-Interview-Experienceor-Jan-2025/",
+        "https://leetcode.com/discuss/post/7099587/",
+        "https://leetcode.com/discuss/post/7246118/atlassian-p60-sept-2025-rejected-by-anon-m7ye/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Commodity price tracker (upsert by timestamp, max price, checkpoints)",
+      "prompt": "In-memory store for <timestamp, price> events arriving out of order; a repeated timestamp updates the price. getMaxCommodityPrice() at any time, optimised for frequent reads and writes. Follow-up: checkpoints after each insert; query max price up to a checkpoint.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Map timestamp→price + TreeMap/heap of prices with counts for upsert",
+        "Keep maxPrice variable if the language lacks an ordered structure; handle decrease on update",
+        "Checkpoint query → persistent structure or prefix-max snapshots"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Aug 2025 DS bank, SDE2 reject post (checkpoint follow-up), SDE-2 Jul 2025 (LC 2034 form).",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7078315",
+        "https://leetcode.com/discuss/interview-question/5994275/Atalassian-or-SDE2-or-Reject/",
+        "https://leetcode.com/discuss/interview-experience/6990017/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Feature-flag evaluator with targeting rules and percentage rollouts",
+      "prompt": "Implement a flag service: define flags with targeting rules (user attribute equals/in-list), percentage rollouts by stable hash of user id, default values; evaluate(flagKey, userContext). Extension: nested/combined rules, environments.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Rule as interface; composite AND/OR",
+        "Deterministic bucketing (hash % 100) and stickiness",
+        "Caching and hot reload of config"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "TechScreen 2026 guide lists it as a build-style prompt; Blind bank mentions 'feature flag system' as a tagging-system variant. No first-hand transcript found.",
+      "recency": "2026",
+      "sources": [
+        "https://techscreen.app/articles/atlassian-technical-interview-process-2026",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Logging library / logger framework",
+      "prompt": "Design a logging library: levels, multiple sinks (console/file/remote), formatters, async buffered writes, and configuration per module; keep it extensible and thread-safe.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Chain of responsibility or level filter; sink interface",
+        "Async queue and back-pressure; flush on shutdown",
+        "Thread-safety and ordering guarantees",
+        "Rate-limiting noisy logs (ties to LC 359)"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Named in the task brief and in question banks (GetSDEReady 'Logger Framework'); the rejection feedback 'did not write logging' in the router round shows interviewers value it. No first-hand transcript found.",
+      "recency": "2025",
+      "sources": [
+        "https://getsdeready.com/interview/atlassian/",
+        "https://leetcode.com/discuss/interview-question/5994275/Atalassian-or-SDE2-or-Reject/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "In-memory key-value store with transactions / TTL / wildcards",
+      "prompt": "Implement an in-memory KV store: get/put/delete, then begin/commit/rollback with nested transactions; alternative stages: TTL expiry, write-through persistence, wildcard key lookup.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Transaction log vs layered maps for rollback",
+        "Nested transaction semantics; isolation for concurrent readers",
+        "TTL via lazy expiry + min-heap; clock injection",
+        "Wildcard keys (trie) as in the router question"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "TechScreen 2026 ('LRU cache or key-value store extended with TTL or write-through'), GetSDEReady 'Key-Value Store with Wildcards', task brief. No first-hand transcript found.",
+      "recency": "2026",
+      "sources": [
+        "https://techscreen.app/articles/atlassian-technical-interview-process-2026",
+        "https://getsdeready.com/interview/atlassian/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Tag cloud / tag popularity tracker",
+      "prompt": "Maintain tags applied to content with incPop/decPop and return the most popular tag(s) or the top-k for a tag cloud; extension: per-space (tenant) clouds and time decay.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Same structure as popularity tracker; top-k via heap or bucket list",
+        "Decay: timestamped counts or periodic halving",
+        "Namespace per space"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "SDE-2 2025 Medium part 2 (incPop/decPop/getMostPop for tags, Hire), Blind bank 'tag files and find top N tags'.",
+      "recency": "2025-08",
+      "sources": [
+        "https://medium.com/@priyabansal0919/sde-2-interview-experience-at-atlassian-part-2-0da938a60258",
+        "https://www.teamblind.com/post/atlassian-coding-design-and-system-design-bank-gvuoncyd"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Structured file parser with in-memory report",
+      "prompt": "Parse a structured input (CSV/log lines of file or billing records) into objects and produce an aggregate report (totals, top-N); extension: a new field or a new report type without touching existing code.",
+      "deliverable": "Working, runnable code with classes/interfaces, exception handling and unit tests; narrate requirements as comments first (TDD encouraged by the prep guide)",
+      "probes": [
+        "Parser/record/report separation; open-closed for new fields",
+        "Validation and error handling for malformed lines",
+        "Streaming for large inputs"
+      ],
+      "round": "Code Design (60 min, own IDE, tests expected)",
+      "difficulty": "Easy",
+      "classic": false,
+      "evidence": "TechScreen 2026 guide; overlaps with files/collections report. No first-hand transcript found.",
+      "recency": "2026",
+      "sources": [
+        "https://techscreen.app/articles/atlassian-technical-interview-process-2026"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "AI-enabled code design: extend or fix an existing small repository",
+      "prompt": "2026 variant of the Code Design round (per Atlassian's backend candidate guide as reported): in a HackerRank IDE with an AI assistant, work on an existing codebase — add a feature, fix a bug (e.g. a password-handling bug in a small backend site), or refactor — with tests as part of the grade and a debugger encouraged.",
+      "deliverable": "Working change with tests in the provided repo; explain what you asked the AI, what you accepted and what you changed",
+      "probes": [
+        "Reading unfamiliar code quickly; locating the bug via tests",
+        "Narrating design choices after the task",
+        "Not blindly accepting AI output"
+      ],
+      "round": "Code Design (AI-enabled, 60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Interview Query Q2–Q3 2026 reports (password-bug fix, MERN task); Verve Copilot summary of the Atlassian backend guide (Oct 2026); Glassdoor Gurgaon campus Aug 2026 'debug a code repository'. Confirm with recruiter whether your loop uses it.",
+      "recency": "2026-09",
+      "sources": [
+        "https://www.interviewquery.com/interview-guides/atlassian-software-engineer",
+        "https://www.vervecopilot.com/hot-blogs/atlassian-leetcode-interview-questions",
+        "https://www.glassdoor.com/Interview/Atlassian-Interview-Questions-E115699.htm"
+      ],
+      "confidence": "medium"
+    }
+  ]
+}
