@@ -1,0 +1,2048 @@
+{
+ "company": "Nutanix",
+ "slug": "nutanix",
+ "levelMapping": "MTS-1 ≈ 0–2 YOE, MTS-2 ≈ 2–4, MTS-3 ≈ 4–6, MTS-4 ≈ 6–8 (SMTS above that). MTS-2/MTS-3 both map near Google L4; at ~3.3 YOE expect an MTS-2 req with MTS-3 possible on a strong loop — recruiters move candidates between MTS-2 and MTS-3 mid-process (one 2026 report was bumped MTS-2→MTS-3 after the first DSA round). 2024–26 India offers: MTS-2 ~30–40L base + ~$26k RSU, MTS-3 ~40–53L base + $38–75k RSU, MTS-4 ~58L + $67k RSU.",
+ "process": {
+  "summary": "A conventional but demanding infra-company loop: HackerRank OA (2–3 problems, medium→hard, sometimes CS-fundamentals MCQs), then 2–3 DSA rounds of LC medium/hard with follow-ups that tighten constraints, an LLD/machine-coding round where runnable, thread-safe, modular code is expected (job scheduler, sparse file, caches), an HLD round with infra-flavoured prompts (KV store, backup service, pub-sub, config propagation), and a techno-managerial/hiring-manager round that digs into OS and database internals. OS/concurrency fundamentals (mutex vs semaphore vs spinlock, malloc, fork/signals, kernel vs user mode) are asked inline in coding and debugging rounds rather than as a separate round. Rounds are elimination-style; design skill and code quality are explicit bars — candidates with strong DSA feedback have been rejected on 'low-level design not good enough' and 'code quality could have been better'.",
+  "rounds": [
+   {
+    "name": "Recruiter screen",
+    "type": "screen",
+    "duration": "15–30 min",
+    "what": "Background, YOE, why Nutanix, CTC expectation, notice period; explains the loop and schedules the OA or first round. Many loops start from LinkedIn outreach or referral; referrals and experienced candidates sometimes skip the OA.",
+    "probes": "Level fit (MTS-2 vs MTS-3 decided here and sometimes changed mid-process), availability for F2F drives."
+   },
+   {
+    "name": "Online assessment (HackerRank)",
+    "type": "oa",
+    "duration": "60–120 min",
+    "what": "2–3 coding problems, LC medium to hard, sometimes proctored. Recurring OA patterns: 0/1-knapsack variant needing meet-in-the-middle (power/quantity), MST (Min Cost to Connect All Points), DP with monotonic deque (Jump Game VI), sliding-window/frequency design, Dijkstra + heap, House Robber-style DP, text justification. Some OAs add MCQs on SQL, Linux, OS, networking and subjective OS questions (fork + SIGKILL process states).",
+    "probes": "Harder than typical OAs — multiple reports call 2–3 LC-hard-ish problems in 90–120 min 'tough for the timeline'. Cutoff appears to be most test cases on most problems."
+   },
+   {
+    "name": "DSA round(s) — usually 2, sometimes 3",
+    "type": "dsa",
+    "duration": "45–60 min each",
+    "what": "1–2 problems per round on HackerRank CodePair/CoderPad/Google Doc (one interviewer had the candidate code directly on LeetCode). Graphs/topological sort, trees, binary search on answer, DP, heaps, intervals, stacks/greedy-on-strings recur. Some rounds open with CS fundamentals (OS, Linux, networking) or 10–15 min of project discussion.",
+    "probes": "Complete, clean, runnable code including headers; dry-run on edge cases; time/space complexity unprompted; follow-ups that tighten constraints (O(1) space, no extra memory, restore the input, thread-safe version). Rejections cite code quality even when both problems are solved."
+   },
+   {
+    "name": "Debugging / practical round (some loops)",
+    "type": "practical",
+    "duration": "60 min",
+    "what": "Not universal but well-attested: fix a 2–3 page client-server program to make it thread-safe, find logical bugs in linked-list pseudo-code, or (2025 MTS-1 DevEx-style) clone an open-source database codebase and locate where features (connection pooling, indexing, execution) are implemented.",
+    "probes": "malloc internals, write a semaphore, mutex vs spinlock, deadlock conditions, Linux debugging; for codebase navigation — how fast you orient in unfamiliar code."
+   },
+   {
+    "name": "LLD / machine coding",
+    "type": "lld",
+    "duration": "60–90 min",
+    "what": "Design + working code for a focused module: distributed job scheduler, memory-backed sparse file, thread-safe LRU/LFU cache, student-score manager, tracing library, bookmark manager, seat booking. Runnable code in a shared doc/IDE; UML or class diagrams expected on some panels.",
+    "probes": "Thread safety, modularity/SOLID, choice of data structures, DB schema for the entities, concurrency follow-ups ('what if deleteNode is called from multiple threads'). Nutanix explicitly weighs this round heavily — a 'mild yes' with weak design feedback ends the loop."
+   },
+   {
+    "name": "System design (HLD)",
+    "type": "design",
+    "duration": "60 min",
+    "what": "Infra-flavoured prompts: key-value DB (CAP, master-slave), database backup service, Kafka-like pub-sub, config propagation across N servers without a central service, write-heavy storage, observability/tracing, Google Drive, chat app. Candidates draw on draw.io/whiteboard. Mostly for MTS-3/4; MTS-2 loops often merge HLD+LLD into one round.",
+    "probes": "SPOFs, scalability, replication and consistent hashing, caching strategy (incl. DB-integrated caches), CAP trade-offs, back-of-envelope estimates. The round label (HLD vs LLD) is frequently miscommunicated by recruiters — clarify beforehand."
+   },
+   {
+    "name": "Techno-managerial / hiring manager",
+    "type": "hm",
+    "duration": "45–60 min",
+    "what": "Project deep-dive with cross-questioning, plus technical depth: API design end-to-end (auth, OAuth, SSL), DB sharding and indexing, how Redis works as a distributed cache, Kafka/messaging, OS processes/memory. Standard behavioral questions; sometimes a quick coding exercise (delete node in a linked list, reader-writer code) and salary discussion.",
+    "probes": "Depth on your own systems — interviewers push into internals until you run out; leadership/ownership for MTS-3+. Weak answers here have sunk otherwise-positive loops."
+   }
+  ],
+  "indiaNotes": "Bengaluru is the main engineering hub, with Pune second (NDB and other teams hire in both); MTS-1 through SMTS are hired in India. The India loop matches the US loop in structure, but US (San Jose) reports skew more to Linux internals, file systems and distributed-storage troubleshooting, while India loops lean DSA-heavy with one design round. India-specific quirks: on-site F2F hiring drives in Bengaluru where 3+ elimination rounds happen in one day (seen Apr 2026); interviews scheduled on <24h notice; and chronic HR ghosting/holds — many 2023–26 reports of positive feedback followed by silence, positions closed without notice, or 'backup candidate' limbo for weeks.",
+  "timeline": "2–6 weeks end to end when it moves; F2F drives compress all technical rounds into one day. Budget extra weeks for post-loop holds — several candidates with all-positive feedback waited 2+ weeks or were ghosted.",
+  "tips": [
+   "Code quality is an explicit bar: a 2026 MTS-2 candidate solved Group Anagrams + LRU Cache cleanly and was rejected for code quality. Write modular, named, exception-safe code in one pass.",
+   "Practice thread-safe variants of everything you know: thread-safe LRU, job scheduler, reader-writer, fine-grained locking on linked lists — concurrency follow-ups are Nutanix's signature.",
+   "Revise topological sort cold — it is the single most repeated topic (Course Schedule II, alien dictionary, dependency graphs with cycle detection) across 2021–2026 reports.",
+   "Prepare OS inline answers: mutex vs semaphore vs spinlock, malloc internals, fork/SIGKILL semantics, kernel vs user mode, paging — they appear mid-coding-round, not in a dedicated round.",
+   "Ask the recruiter to pin down each round's format; HLD-vs-LLD mislabeling is the most common complaint in rejected loops.",
+   "For HLD, default to infra prompts: state CAP position, replication/leader-follower, SPOFs, and partitioning early; for LLD bring DB schema + UML, not just classes.",
+   "OA prep: meet-in-the-middle knapsack, MST, monotonic-deque DP, sliding window, House Robber; expect 2–3 problems in 90 min with little slack.",
+   "Don't treat silence as rejection — follow up, but also keep parallel processes; holds and 'position filled internally' endings are common."
+  ],
+  "notes": "OA platform is HackerRank (occasionally proctored); interviews on Zoom + HackerRank CodePair/CoderPad, some on Google Docs with dry-run-only execution. Language is normally your choice (C++/Java/Python/Go reported; Go/Python is the main stack on many teams) but isolated reports of an interviewer forcing Java, and Python-automation/DevEx roles get a Python-internals round (decorators, context managers, how dict/set work, Flask/FastAPI). MTS-2 loops sometimes merge LLD+HLD; MTS-3/4 get separate rounds plus heavier design weighting; a 6-round MTS-3 loop (extra KV-store design round) was run in Oct 2025 when the panel couldn't decide. A debugging round appears in some loops (client-server thread-safety, buggy pseudo-code, open-source codebase navigation). No bar-raiser or values round reported. Post-2024 climate: hiring is active in Bengaluru/Pune across MTS-1–4 with regular drives, but offers are negotiated hard (candidates report lowballs), HR communication is poor, and 2022-style offer rescissions are remembered — get the offer letter before resigning.",
+  "sources": [
+   {
+    "title": "Nutanix MTS-2 (DevEx) interview experience — rejected on code quality",
+    "url": "https://leetcode.com/discuss/post/8493262/",
+    "date": "2026-08"
+   },
+   {
+    "title": "Nutanix SDE OA 2026 — questions asked",
+    "url": "https://leetcode.com/discuss/post/8436391/",
+    "date": "2026-08"
+   },
+   {
+    "title": "Nutanix MTS 2 interview experience (array transform + design LeetCode)",
+    "url": "https://leetcode.com/discuss/post/8314146/",
+    "date": "2026-06"
+   },
+   {
+    "title": "MTS-2 Interview Experience Nutanix (LIP + MWS + inventory design)",
+    "url": "https://leetcode.com/discuss/post/8315354/",
+    "date": "2026-06"
+   },
+   {
+    "title": "MTS-2 Nutanix F2F drive, Bengaluru",
+    "url": "https://leetcode.com/discuss/post/8097444/",
+    "date": "2026-04"
+   },
+   {
+    "title": "Nutanix interview (MTS-3) — loop structure (2 DSA + debugging + HLD/LLD in one day)",
+    "url": "https://leetcode.com/discuss/post/7761085/",
+    "date": "2026-04"
+   },
+   {
+    "title": "India | Nutanix | MTS-2 Python | interview experience",
+    "url": "https://leetcode.com/discuss/post/7650412/",
+    "date": "2026-03"
+   },
+   {
+    "title": "Nutanix techno-managerial round MTS-3 (MTS-2 up-levelled)",
+    "url": "https://leetcode.com/discuss/post/7622047/",
+    "date": "2026-03"
+   },
+   {
+    "title": "Nutanix IC4/5 HackerRank assessment",
+    "url": "https://interviewexperiences.in/experience/nutanix/nutanix-hacker-rank-assesment",
+    "date": "2026-02"
+   },
+   {
+    "title": "Nutanix MTS-1 interview experience (DSA + LLD/HLD)",
+    "url": "https://interviewexperiences.in/experience/nutanix/nutanix-mts-1-interview-experience",
+    "date": "2026-04"
+   },
+   {
+    "title": "Nutanix interview experience | MTS 1 | 1.5 YoE (selected)",
+    "url": "https://leetcode.com/discuss/post/7429281/",
+    "date": "2025-12"
+   },
+   {
+    "title": "Nutanix | MTS3 | hiring-drive experience (cleared, 6 rounds)",
+    "url": "https://leetcode.com/discuss/post/7314812/",
+    "date": "2025-10"
+   },
+   {
+    "title": "Nutanix MTS-3 interview experience, Bangalore, Feb 2025 (offer)",
+    "url": "https://leetcode.com/discuss/post/6514235/",
+    "date": "2025-03"
+   },
+   {
+    "title": "Nutanix | MTS-2/MTS-3 | NDB | rejected",
+    "url": "https://leetcode.com/discuss/post/6591453/",
+    "date": "2025-03"
+   },
+   {
+    "title": "Nutanix MTS-4 interview experience (rejected)",
+    "url": "https://leetcode.com/discuss/post/6489221/",
+    "date": "2025-03"
+   },
+   {
+    "title": "Nutanix MTS-2 | Bangalore | Nov 2024",
+    "url": "https://leetcode.com/discuss/post/6144324/",
+    "date": "2024-12"
+   },
+   {
+    "title": "Nutanix | MTS-3 | rejected | November 2024",
+    "url": "https://leetcode.com/discuss/post/6072164/",
+    "date": "2024-11"
+   },
+   {
+    "title": "Nutanix | MTS-2 | Bangalore | offer (5 rounds incl. debugging)",
+    "url": "https://leetcode.com/discuss/post/5441752/",
+    "date": "2024-07"
+   },
+   {
+    "title": "Nutanix | MTS-3 | Bengaluru | Feb 2024",
+    "url": "https://leetcode.com/discuss/post/4815315/",
+    "date": "2024-03"
+   },
+   {
+    "title": "Nutanix MTS-3 reject — design weighted heavily",
+    "url": "https://leetcode.com/discuss/post/4806994/",
+    "date": "2024-03"
+   },
+   {
+    "title": "Glassdoor — Nutanix MTS-3 interview questions",
+    "url": "https://www.glassdoor.com/Interview/Nutanix-MTS-3-Interview-Questions-EI_IE429159.0,7_KO8,13.htm",
+    "date": "2026-06"
+   },
+   {
+    "title": "Glassdoor — Nutanix MTS3 Software Engineer interview questions",
+    "url": "https://www.glassdoor.com/Interview/Nutanix-MTS3-Software-Engineer-Interview-Questions-EI_IE429159.0,7_KO8,30.htm",
+    "date": "2026-07"
+   },
+   {
+    "title": "Nutanix MTS3 vs Earnin — MTS-3 Pune offer data",
+    "url": "https://leetcode.com/discuss/post/8425317/",
+    "date": "2026-07"
+   },
+   {
+    "title": "Uber L4 vs Nutanix MTS4 offer evaluation",
+    "url": "https://leetcode.com/discuss/post/6678289/",
+    "date": "2025-04"
+   }
+  ]
+ },
+ "dsa": [
+  {
+   "title": "Sliding-window frequency tracker",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Hash Map",
+    "Design"
+   ],
+   "statement": "Maintain a fixed-size window of N characters supporting a stream of operations: add a character (evicting the oldest when the window exceeds N), return the character with maximum frequency in the current window, and return all characters whose frequency is exactly 2. Design the structures so each operation is efficient.",
+   "variant": "",
+   "evidence": "Q1 of the 90-min SDE OA, Aug 2026.",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8436391/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Text Justification",
+   "lcId": 68,
+   "url": "https://leetcode.com/problems/text-justification/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "String",
+    "Simulation"
+   ],
+   "statement": "",
+   "variant": "Asked verbatim in the Aug 2026 SDE OA.",
+   "evidence": "Q2 of the 2026 SDE OA.",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8436391/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum Insertion Steps to Make a String Palindrome",
+   "lcId": 1312,
+   "url": "https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "DP",
+    "String"
+   ],
+   "statement": "",
+   "variant": "OA wording: a string 'lost characters'; find minimum insertions to restore a palindrome. Also asked as a full interview problem in a 2022 MTS loop.",
+   "evidence": "2026 SDE OA Q3; round 1 of a July 2022 Bangalore MTS loop.",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8436391/",
+    "https://leetcode.com/discuss/post/2420754/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Group Anagrams",
+   "lcId": 49,
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "String"
+   ],
+   "statement": "",
+   "variant": "Paired with LRU Cache in one coding round; candidate solved both and was still rejected on code quality.",
+   "evidence": "MTS-2 DevEx coding round, Aug 2026; also in Nutanix LC tag.",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8493262/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "LRU Cache",
+   "lcId": 146,
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Linked List",
+    "Design",
+    "Concurrency"
+   ],
+   "statement": "",
+   "variant": "Three distinct variants reported: plain (2026 MTS-2 DevEx), thread-safe implementation with a discussion of lock placement (Feb 2024 MTS-2, round 3), and a time/TTL-aware modification (San Jose phone screen). Be ready to extend to LFU and compare policies.",
+   "evidence": "Top Nutanix LC-tag problem (100% 6-mo window); reported 2026-08, 2024-02, 2023-10.",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8493262/",
+    "https://leetcode.com/discuss/post/4727158/",
+    "https://leetcode.com/discuss/post/4224801/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Transform array a into b with minimum operations",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "Greedy",
+    "DP",
+    "Array"
+   ],
+   "statement": "Given integer arrays a (length n) and b (length n+1), transform a into b using minimum operations: increment an element by 1, decrement an element by 1, or copy any current element of a to the end of a (done exactly once, since b is one longer). a[i] must end up equal to b[i] for every index. Examples: a=[1], b=[2,3] -> 3; a=[3,3,3], b=[3,3,3,3] -> 1; a=[5,2,1,4,6], b=[4,1,5,4,6,7] -> 8.",
+   "variant": "The appended element can be copied at any point, so you minimize |a[i]-b[i]| sums plus the best choice of when/what to copy for b[n]. Candidate failed on an edge case despite a hint.",
+   "evidence": "Round 1, MTS-2 loop, June 2026 (rejected).",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/8314146/",
+    "https://interviewexperiences.in/experience/nutanix/nutanix-mts-2-interview-experience"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Book allocation / Split Array Largest Sum",
+   "lcId": 410,
+   "url": "https://leetcode.com/problems/split-array-largest-sum/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Binary Search",
+    "Greedy"
+   ],
+   "statement": "",
+   "variant": "Asked in the classic Indian 'allocate books to students minimizing max pages' wording — binary search on the answer.",
+   "evidence": "Round 1, MTS-2 loop, June 2026; binary-search-on-answer also in 2018 campus OA (tailors/tasks).",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/8314146/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Longest Increasing Path in a Matrix",
+   "lcId": 329,
+   "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Graph",
+    "DP",
+    "Memoization"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Round 1, MTS-2 loop, June 2026; also in Nutanix LC tag and a Taro 'hard tree/graph' report.",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/8315354/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum Window Substring",
+   "lcId": 76,
+   "url": "https://leetcode.com/problems/minimum-window-substring/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Sliding Window",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Round 1, MTS-2 loop, June 2026; also in Nutanix LC tag hard list.",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/8315354/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Maximize quantity under power budget (knapsack, meet-in-the-middle)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "DP",
+    "Meet in the Middle",
+    "Bit Manipulation"
+   ],
+   "statement": "Given arrays power[i] and quantity[i] for machines/items and a maxPower budget, pick a subset with total power <= maxPower maximizing total quantity. Constraints are set so plain 0/1 knapsack DP is too slow or memory-heavy — the intended solution enumerates subsets of each half and merges (meet-in-the-middle with prefix-max + binary search).",
+   "variant": "Recurs across OAs since 2024 under different stories (manufacturing units, servers).",
+   "evidence": "Reported in OAs of Feb 2026 (IC4/5), Oct 2024 (MTS-3/4) and Aug 2024 (MTS, 4–6 YOE).",
+   "recency": "2026-02",
+   "sources": [
+    "https://interviewexperiences.in/experience/nutanix/nutanix-hacker-rank-assesment",
+    "https://leetcode.com/discuss/post/5896235/",
+    "https://leetcode.com/discuss/post/5714491/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Jump Game VI",
+   "lcId": 1696,
+   "url": "https://leetcode.com/problems/jump-game-vi/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Monotonic Queue"
+   ],
+   "statement": "",
+   "variant": "Plain O(n·k) DP TLEs — the monotonic-deque optimization is required.",
+   "evidence": "Q2 of the 2-hour IC4/5 HackerRank OA, Feb 2026.",
+   "recency": "2026-02",
+   "sources": [
+    "https://interviewexperiences.in/experience/nutanix/nutanix-hacker-rank-assesment"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Min Cost to Connect All Points",
+   "lcId": 1584,
+   "url": "https://leetcode.com/problems/min-cost-to-connect-all-points/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "MST"
+   ],
+   "statement": "",
+   "variant": "Disguised as a wiring/connection story; recognizing it as MST (Prim/Kruskal) is the whole problem.",
+   "evidence": "OAs of Feb 2026, Oct 2024 and Aug 2024.",
+   "recency": "2026-02",
+   "sources": [
+    "https://interviewexperiences.in/experience/nutanix/nutanix-hacker-rank-assesment",
+    "https://leetcode.com/discuss/post/5896235/",
+    "https://leetcode.com/discuss/post/5714491/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Cheapest Flights Within K Stops",
+   "lcId": 787,
+   "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "BFS",
+    "DP"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Round 1 of an MTS-1 loop reported Apr 2026 (with Candy and 132 Pattern).",
+   "recency": "2026-04",
+   "sources": [
+    "https://interviewexperiences.in/experience/nutanix/nutanix-mts-1-interview-experience"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Candy",
+   "lcId": 135,
+   "url": "https://leetcode.com/problems/candy/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Greedy",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Round 1 of an MTS-1 loop reported Apr 2026 (candidate needed one hint).",
+   "recency": "2026-04",
+   "sources": [
+    "https://interviewexperiences.in/experience/nutanix/nutanix-mts-1-interview-experience"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "132 Pattern",
+   "lcId": 456,
+   "url": "https://leetcode.com/problems/132-pattern/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Monotonic Stack"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Round 1 of an MTS-1 loop reported Apr 2026.",
+   "recency": "2026-04",
+   "sources": [
+    "https://interviewexperiences.in/experience/nutanix/nutanix-mts-1-interview-experience"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Course Schedule II / dependency ordering with cycle detection",
+   "lcId": 210,
+   "url": "https://leetcode.com/problems/course-schedule-ii/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "Topological Sort"
+   ],
+   "statement": "",
+   "variant": "Nutanix's most repeated topic. Variants: print execution order of dependent processes and throw on cycle (MTS-1 2024); minimum time units with infinite threads (= longest path in DAG, Feb 2020); plain Course Schedule II (2021, 2025); topological sort follow-up coding after a design round (2026).",
+   "evidence": "Reported 2026-04 (MTS-1 R2), 2026-07 (Glassdoor MTS3), 2025-02 (MTS-3 R2), 2024-07 (MTS-1), 2024-10 (MTS 4–6 YOE), 2021-10 (MTS-3 R1).",
+   "recency": "2026-07",
+   "sources": [
+    "https://interviewexperiences.in/experience/nutanix/nutanix-mts-1-interview-experience",
+    "https://leetcode.com/discuss/post/6514235/",
+    "https://leetcode.com/discuss/post/5900124/",
+    "https://leetcode.com/discuss/post/5943689/",
+    "https://leetcode.com/discuss/post/1568637/",
+    "https://www.glassdoor.com/Interview/Nutanix-MTS3-Software-Engineer-Interview-Questions-EI_IE429159.0,7_KO8,30.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Python internals gauntlet (DevEx / Python roles)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Python",
+    "Language Internals"
+   ],
+   "statement": "A 1-hour mixed round for Python-tagged roles: write a recursive string reverse, then a custom decorator that times the recursive function (tricky — the decorator wraps every recursive call); count 1..100 without a for loop; implement a custom context manager; explain how middleware would be implemented in Flask; SQL for 5th-highest salary; design a FastAPI endpoint returning a paginated response with valid/invalid page handling.",
+   "variant": "The FastAPI pagination question was re-asked in another round for the same role months later.",
+   "evidence": "MTS-2 Python round, reported Mar 2026 (rejected on the decorator + running out of time); Python hash-map internals also probed in a 2023 SDE loop.",
+   "recency": "2026-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/7650412/",
+    "https://www.jointaro.com/interviews/companies/nutanix/experiences/software-development-engineer-sde-india-september-1-2023-no-offer-positive-9430726a/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top-3 autocomplete over entries (trie)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Trie",
+    "String",
+    "Design"
+   ],
+   "statement": "Given a list of entries[] and a searchInput, return the top 3 matching words for the input prefix. Expected approach: build a trie over entries and walk it per query; discuss ranking and how to precompute top-k per node.",
+   "variant": "",
+   "evidence": "Same MTS-2 Python round, Mar 2026 (candidate ran out of time to implement).",
+   "recency": "2026-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/7650412/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Currying: multiply(3)(4)() and infinite currying",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "JavaScript",
+    "Closures",
+    "Recursion"
+   ],
+   "statement": "Implement multiply(3)(4)() in any language — a function that accumulates arguments across calls and returns the product when called with no argument. Follow-up: generalize to multiply(1)(2)(3)...(n)() (infinite currying with closures).",
+   "variant": "Asked to a backend-leaning SDE-2; candidate switched from C++ to JavaScript to express closures.",
+   "evidence": "SDE-2 round, Feb 2026.",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/7552936/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Find the Winner of the Circular Game",
+   "lcId": 1823,
+   "url": "https://leetcode.com/problems/find-the-winner-of-the-circular-game/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Math",
+    "Queue",
+    "Josephus"
+   ],
+   "statement": "",
+   "variant": "O(n·k) queue solution accepted; interviewer pushed for the O(n) Josephus recurrence before time ran out.",
+   "evidence": "SDE-2 round, Feb 2026; #3 in Nutanix LC tag 6-month window.",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/7552936/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "All Nodes Distance K in Binary Tree",
+   "lcId": 863,
+   "url": "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "BFS",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "Oct 2025 follow-up: solve without extra memory (no parent map — recursive distance-passing). Also round 2 of an Oct 2021 MTS-3 loop.",
+   "evidence": "R1 of the Oct 2025 MTS-3 hiring drive (cleared); 2021-10 MTS-3.",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7314812/",
+    "https://leetcode.com/discuss/post/1568637/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Remove Duplicate Letters / Smallest Subsequence of Distinct Characters",
+   "lcId": 316,
+   "url": "https://leetcode.com/problems/remove-duplicate-letters/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Monotonic Stack",
+    "Greedy",
+    "String"
+   ],
+   "statement": "",
+   "variant": "LC 316 == LC 1081. Oct 2025 follow-up: modify to return the lexicographically largest subsequence. Also asked May 2025 (MTS-2 C++/Go), Nov 2024 (MTS-3 R2) and as a Feb 2020 phone screen.",
+   "evidence": "Four reports 2020–2025 — a Nutanix staple.",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7314812/",
+    "https://leetcode.com/discuss/post/6723679/",
+    "https://leetcode.com/discuss/post/6072164/",
+    "https://leetcode.com/discuss/post/561796/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Asteroid Collision (modified)",
+   "lcId": 735,
+   "url": "https://leetcode.com/problems/asteroid-collision/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Stack",
+    "Simulation"
+   ],
+   "statement": "",
+   "variant": "OA used a reworded version of the collision rules.",
+   "evidence": "Q1 of the MTS-1 DevEx OA, Jul 2025 (plus a sliding-window Q2 and CS-fundamentals MCQs on SQL/Linux/DSA).",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6951560/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Increasing Triplet Subsequence",
+   "lcId": 334,
+   "url": "https://leetcode.com/problems/increasing-triplet-subsequence/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "Brute force → suboptimal → O(n) progression expected, then runnable code tested on edge cases.",
+   "evidence": "Only round of a June 2025 MTS-2 loop (positive feedback, then position filled).",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6817116/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Most-accessed resource in any 5-minute window",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Sorting",
+    "Sliding Window",
+    "Hash Map"
+   ],
+   "statement": "Given unsorted web-access logs [accessTimeSeconds, userId, resourceId] (all within one day), return the resource with the most accesses inside any 5-minute (300 s) window, with its count. E.g. accesses of resource_3 at 53760/54001/54060 → ('resource_3', 3); boundary case: window is inclusive of both ends (1199..1202 counts 4).",
+   "variant": "Group timestamps per resource, sort, two-pointer per resource; or global sort + windowed multiset.",
+   "evidence": "DSA round 1, May 2025.",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6742289/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Function-call graph: longest chain and longest cycle",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "DFS",
+    "Parsing"
+   ],
+   "statement": "Given user-defined functions where each function body calls others (a() calls b() and c()), build the adjacency list of call dependencies, find the longest call chain (deepest path), and if a cycle exists, return the longest cycle. Involves light parsing, DFS with memoization, and cycle detection.",
+   "variant": "",
+   "evidence": "Round 2 of a May 2025 MTS-1 loop (position later put on hold).",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6779511/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Aggressive cows / Magnetic Force Between Two Balls",
+   "lcId": 1552,
+   "url": "https://leetcode.com/problems/magnetic-force-between-two-balls/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search",
+    "Greedy"
+   ],
+   "statement": "",
+   "variant": "Asked in 'place cows in stalls maximizing minimum distance' form — binary search on the answer.",
+   "evidence": "Round 1 of the May 2025 MTS-2 (C++/Golang) loop, with Remove Duplicate Letters.",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6723679/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Longest Common Subsequence",
+   "lcId": 1143,
+   "url": "https://leetcode.com/problems/longest-common-subsequence/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "String"
+   ],
+   "statement": "",
+   "variant": "Same round also asked Sqrt(x) (LC 69) as a warm-up — binary search expected.",
+   "evidence": "MTS-2 DSA round, Aug 2025.",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7032276/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Rotate Array",
+   "lcId": 189,
+   "url": "https://leetcode.com/problems/rotate-array/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Array",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "Complete code including headers expected on CoderPad.",
+   "evidence": "R1 of the Mar 2025 NDB MTS-2/3 loop (Strong Hire round).",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6591453/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Best Time to Buy and Sell Stock III",
+   "lcId": 123,
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "DP",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "R1 of the Mar 2025 NDB MTS-2/3 loop.",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6591453/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Find Minimum in Rotated Sorted Array",
+   "lcId": 153,
+   "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "Worded as 'find the pivot'. Search in Rotated Sorted Array (LC 33) is also in the Nutanix tag; an 'enhanced binary search' question appears in a Jun 2024 Glassdoor MTS3 report.",
+   "evidence": "R2 of the Mar 2025 NDB loop.",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6591453/",
+    "https://www.glassdoor.com/Interview/Nutanix-MTS3-Software-Engineer-Interview-Questions-EI_IE429159.0,7_KO8,30.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "First Missing Positive",
+   "lcId": 41,
+   "url": "https://leetcode.com/problems/first-missing-positive/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Array",
+    "Index Hashing"
+   ],
+   "statement": "",
+   "variant": "Follow-ups: O(1) extra space (use indices as hash), then restore the array to its original state before returning — the candidate couldn't find the second optimization and the round went Neutral.",
+   "evidence": "R2 of the Mar 2025 NDB loop.",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6591453/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Rotting Oranges",
+   "lcId": 994,
+   "url": "https://leetcode.com/problems/rotting-oranges/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "Matrix"
+   ],
+   "statement": "",
+   "variant": "Oct 2023 version came 'similar but with follow-ups adding cases to make it harder'. A Nutanix multi-source-BFS staple.",
+   "evidence": "Reported Mar 2025 (NDB R3, Strong Hire), Feb 2024 (MTS-3 R1), Oct 2023 (MTS-2 R1).",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6591453/",
+    "https://leetcode.com/discuss/post/4815315/",
+    "https://leetcode.com/discuss/post/4515330/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Recursively delete leaf nodes matching a condition in a multi-tree",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "DFS",
+    "Recursion"
+   ],
+   "statement": "Given an n-ary tree, repeatedly delete leaf nodes (e.g., leaves with a target value), where deletions can turn parents into new leaves that must also be deleted — return the remaining tree. Discuss several approaches and their time/space complexity.",
+   "variant": "Interviewer noted it mirrors a known Google onsite question.",
+   "evidence": "Round 2 of the Mar 2025 MTS-4 loop (positive feedback).",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6489221/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Maximum distance between any two nodes of a binary tree (diameter)",
+   "lcId": 543,
+   "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Tree",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "Asked as 'max distance between any two nodes'; same single-pass DFS as diameter.",
+   "evidence": "R1 of the Feb 2025 MTS-3 onsite (offer).",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6514235/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Reverse-weighted level sum of a tree in one pass",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "DFS",
+    "Math"
+   ],
+   "statement": "Given an n-ary (or binary) tree of height h, compute sum(level-1 values)*h + sum(level-2 values)*(h-1) + ... in a single traversal. Trick: total = (sum of all nodes)*h - sum(node.val * (level-1)), both computable in one DFS.",
+   "variant": "Jul 2024 MTS-1 variant: multiply each node by its inverted level order and sum; follow-up pushed from per-level arrays to O(1) extra space.",
+   "evidence": "R2 of the Feb 2025 MTS-3 onsite (needed hints); R2 of a Jul 2024 MTS-1 loop.",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6514235/",
+    "https://leetcode.com/discuss/post/5900124/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Maximum Product Subarray",
+   "lcId": 152,
+   "url": "https://leetcode.com/problems/maximum-product-subarray/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "R1 of a Jan 2025 MTS-2 loop (with Trapping Rain Water).",
+   "recency": "2025-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/6331933/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Trapping Rain Water",
+   "lcId": 42,
+   "url": "https://leetcode.com/problems/trapping-rain-water/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Two Pointers",
+    "Stack"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "R1 of a Jan 2025 MTS-2 loop; also in Nutanix LC tag.",
+   "recency": "2025-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/6331933/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Reverse Nodes in k-Group (and reverse-in-pairs variants)",
+   "lcId": 25,
+   "url": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Linked List",
+    "Recursion"
+   ],
+   "statement": "",
+   "variant": "Appears across levels: full k-group (Feb 2024 MTS-2 R2; Oct 2024 interview per comment), an 'easy variation' (Oct 2024 MTS 4–6 YOE R1), and reverse-in-pairs with self-implemented list, multiple approaches, no extra memory (Jun 2024 Glassdoor MTS3, on HackerRank).",
+   "evidence": "Four reports 2024; a recurring linked-list screen.",
+   "recency": "2024-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/4727158/",
+    "https://leetcode.com/discuss/post/5943689/",
+    "https://leetcode.com/discuss/post/6817116/",
+    "https://www.glassdoor.com/Interview/Nutanix-MTS3-Software-Engineer-Interview-Questions-EI_IE429159.0,7_KO8,30.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Binary Tree Maximum Path Sum",
+   "lcId": 124,
+   "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Tree",
+    "DFS",
+    "DP"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "R1 of the Nov 2024 MTS-3 loop (selected for design rounds).",
+   "recency": "2024-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/6072164/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Max component sum after M edge additions (union-find)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Union Find",
+    "Graph"
+   ],
+   "statement": "Start with N disconnected nodes, each with value A[i]. Process M operations, each adding an edge (u,v); after every operation print the maximum component value (sum of node values in a component). N, M up to 1e5 — union-find with component sums and a running max.",
+   "variant": "",
+   "evidence": "Bonus question in R1 of the Nov 2024 MTS-3 loop.",
+   "recency": "2024-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/6072164/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum Cost to Make All Characters Equal",
+   "lcId": 2712,
+   "url": "https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "String"
+   ],
+   "statement": "",
+   "variant": "Coded directly on LeetCode during the interview.",
+   "evidence": "R1 of the Nov 2024 MTS-2 loop (with LC 1443).",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6144324/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum Time to Collect All Apples in a Tree",
+   "lcId": 1443,
+   "url": "https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "R1 of the Nov 2024 MTS-2 loop.",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6144324/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Maximum Subarray (Kadane) and House Robber-style DP",
+   "lcId": 53,
+   "url": "https://leetcode.com/problems/maximum-subarray/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "Kadane asked in Dec 2024 Senior SDE R1 and Feb 2024 MTS-3 whiteboard round; the same loops used House Robber-pattern DP (LC 198/213 skeleton) — Dec 2024 R2 ('similar to House Robber 2'), Oct 2023 OA and an Oct 2023 MTS-2 round ('similar to House Robber, made harder with follow-ups').",
+   "evidence": "Multiple 2023–2024 reports.",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6152905/",
+    "https://leetcode.com/discuss/post/4815315/",
+    "https://leetcode.com/discuss/post/4213852/",
+    "https://leetcode.com/discuss/post/4515330/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Buildings With an Ocean View",
+   "lcId": 1762,
+   "url": "https://leetcode.com/problems/buildings-with-an-ocean-view/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Monotonic Stack",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "LC premium problem; asked on HackerRank.",
+   "evidence": "R1 of the Feb 2024 MTS-3 Bengaluru loop (with Rotting Oranges).",
+   "recency": "2024-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/4815315/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "OA pair: rearrangement max of i*(arr2[i]-arr1[i]) and prefix 'score array'",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "Sorting",
+    "Prefix Sum"
+   ],
+   "statement": "Q1: given arrays arr1, arr2 (n up to 1e5, values to 1e9), rearrange each freely to maximize sum over i of i*(arr2[i]-arr1[i]), answer modulo 1e9+7 (sort one ascending, the other descending; watch the modulus). Q2: for each i build score[i] by repeatedly adding max(arr[1..i]) to successive prefix elements and summing — reduces to score[i] = i*max(arr[1..i]) + weighted prefix sums, O(n) with prefix arithmetic.",
+   "variant": "",
+   "evidence": "60-min HackerRank CodePair screen, Feb 2024 MTS-2.",
+   "recency": "2024-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/4727158/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum cost of connecting ropes/sticks",
+   "lcId": 1167,
+   "url": "https://leetcode.com/problems/minimum-cost-to-connect-sticks/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Greedy"
+   ],
+   "statement": "",
+   "variant": "Standard min-heap merge. Same ~50-min MTS-3 round then asked: given a grid of 0s/1s, find the shortest distance between any two 1s (multi-source BFS) — algorithm feedback was good but the loop ended because design signal was judged weak.",
+   "evidence": "R1 of an MTS-3 loop, posted Mar 2024.",
+   "recency": "2024-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/4806994/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Koko Eating Bananas / binary search on answer",
+   "lcId": 875,
+   "url": "https://leetcode.com/problems/koko-eating-bananas/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "Asked directly in a Jun 2024 MTS-3 loop, and 'similar to Koko' in a Mar 2022 SDE-2 round. The Jun 2024 round paired it with a priority-queue array problem; the loop later asked Serialize/Deserialize Binary Tree (LC 297) and next-greater-to-the-right (LC 496/503 pattern, also a Feb 2020 screen).",
+   "evidence": "MTS-3 Jun 2024 (all rounds cleared); SDE-2 Mar 2022 (Strong Hire R1).",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6854554/",
+    "https://leetcode.com/discuss/post/2001992/",
+    "https://leetcode.com/discuss/post/561796/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Serialize and Deserialize Binary Tree",
+   "lcId": 297,
+   "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Tree",
+    "Design",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "Discussed multiple encodings before coding the optimal one.",
+   "evidence": "MTS-3 Jun 2024 R4; MTS-4 2020 R1.",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6854554/",
+    "https://leetcode.com/discuss/post/953135/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "OS/concurrency fundamentals asked inline",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Operating Systems",
+    "Concurrency",
+    "Linux"
+   ],
+   "statement": "Recurring short questions inside coding/debugging/HM rounds: mutex vs semaphore vs spinlock (write a semaphore), how malloc works, fork() + SIGKILL process-state reasoning (zombie/orphan), kernel vs user mode, how an OS boots and lays out memory, debugging memory corruption with gdb from large logs, how a cloned VM gets a unique IP, processes vs threads, deadlock conditions, Linux networking commands. For DB-adjacent teams: indexing, normalization, sharding, how Redis works as a distributed cache.",
+   "variant": "",
+   "evidence": "Reported across 2024-07 (MTS-2 debugging round), 2024-04 OA subjective section, 2020-11 MTS-4, 2023-10 US onsite, Jul 2026 Glassdoor MTS-1 ('kernel vs user'), Jun 2025 Glassdoor Pune (multithreading with code), Sep 2023 Glassdoor San Jose (mutex/semaphore).",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/5441752/",
+    "https://leetcode.com/discuss/post/5079632/",
+    "https://leetcode.com/discuss/post/953135/",
+    "https://leetcode.com/discuss/post/4224801/",
+    "https://www.glassdoor.com/Interview/Nutanix-MTS-1-Interview-Questions-EI_IE429159.0,7_KO8,13.htm",
+    "https://www.glassdoor.com/Interview/Nutanix-MTS2-Software-Engineer-Interview-Questions-EI_IE429159.0,7_KO8,30.htm"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "design": [
+  {
+   "title": "Design a key-value database / distributed KV store",
+   "prompt": "Design a KV store: single-node to distributed. Discuss CAP trade-offs, master-slave replication, and how reads/writes behave under partition; a 2026 variant asked for the design plus how to handle threading/concurrent access.",
+   "probes": [
+    "CAP positioning and consistency levels",
+    "leader-follower vs leaderless replication",
+    "partitioning/consistent hashing",
+    "thread-safe access to the store",
+    "failure of the master; failover"
+   ],
+   "round": "System design (extra R6 in one loop)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "R6 of the Oct 2025 MTS-3 drive (added when panel couldn't decide); Jul 2026 Glassdoor MTS3 (Vancouver) 'KV store + threading'; Jun 2025 Glassdoor MTS3 notes Nutanix prefers KV-store/file-system-style problems over LC-150.",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7314812/",
+    "https://www.glassdoor.com/Interview/Nutanix-MTS3-Software-Engineer-Interview-Questions-EI_IE429159.0,7_KO8,30.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design MoveInSync (employee cab/transport platform)",
+   "prompt": "High-level design of a MoveInSync-like office transport system: routing, driver-employee matching, and recurring schedules.",
+   "probes": [
+    "route planning and stop clustering",
+    "matching riders to cabs under constraints",
+    "recurring schedule generation",
+    "live tracking and ETA updates"
+   ],
+   "round": "HLD (R4 of 6)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R4 of the Oct 2025 MTS-3 hiring drive (cleared).",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7314812/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design a chat application",
+   "prompt": "Classic chat-app HLD; the interviewer drove into trade-offs of delivery and storage choices.",
+   "probes": [
+    "message delivery semantics and ordering",
+    "online presence / fan-out",
+    "storage schema for conversations",
+    "scaling websockets"
+   ],
+   "round": "HLD (R3)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R3 of the Dec 2025 MTS-1 loop (selected); HM round followed with Kafka/messaging internals.",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/7429281/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design LeetCode (judge + contest leaderboard)",
+   "prompt": "Design an online-judge platform covering problem submissions and a contest leaderboard; the interviewer steered the discussion to how database entities interact rather than box-level architecture.",
+   "probes": [
+    "submission lifecycle and queueing",
+    "DB entity design: users/problems/submissions/contests",
+    "leaderboard computation and ranking",
+    "where consistency matters vs eventual"
+   ],
+   "round": "LLD + HLD (R2)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R2 of a Jun 2026 MTS-2 loop (rejected — candidate stayed too high-level on entities).",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/8314146/",
+    "https://interviewexperiences.in/experience/nutanix/nutanix-mts-2-interview-experience"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design an inventory management system",
+   "prompt": "Open-ended LLD+HLD of an inventory management system in a single combined design round.",
+   "probes": [
+    "entities and schema (SKUs, warehouses, stock movements)",
+    "concurrent stock updates / oversell prevention",
+    "APIs for reserve/commit/release",
+    "reporting queries"
+   ],
+   "round": "LLD + HLD (R2)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R2 of a Jun 2026 MTS-2 loop.",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/8315354/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design an online ticketing system",
+   "prompt": "Announced as LLD but drifted into HLD mid-round: design a ticket booking platform (think BookMyShow) covering both class design and scalable components.",
+   "probes": [
+    "seat locking / double-booking prevention",
+    "entities vs services split",
+    "scaling reads of showtimes",
+    "adapting when interviewer flips LLD→HLD"
+   ],
+   "round": "LLD/HLD (R2, offline)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R2 of an MTS-1 loop reported Apr 2026 (rejected); recruiter/interviewer format ambiguity called out explicitly.",
+   "recency": "2026-04",
+   "sources": [
+    "https://interviewexperiences.in/experience/nutanix/nutanix-mts-1-interview-experience"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design a database backup service",
+   "prompt": "HLD of a service that backs up databases (NDB — Nutanix Database Service team): scheduling backups, moving data, restore paths.",
+   "probes": [
+    "full vs incremental backups",
+    "scheduling and retention policies",
+    "throughput and parallelism of backup streams",
+    "restore RTO/RPO",
+    "metadata catalog"
+   ],
+   "round": "System design (R4)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R4 of the Mar 2025 NDB MTS-2/3 loop (Neutral/Lean-Hire; recruiter had mislabeled the round as HLD+LLD mix).",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6591453/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Propagate config updates across N servers without a central service",
+   "prompt": "N servers (2–50) each hold their own configuration file. An admin edits the file on one server and every other server must update automatically — and the interviewer forbids a central configuration service; state lives only in files on the servers.",
+   "probes": [
+    "peer-to-peer propagation (gossip/broadcast)",
+    "conflict resolution and versioning (vector clocks/timestamps)",
+    "detecting divergence; anti-entropy",
+    "bootstrap of a new server",
+    "failure during propagation"
+   ],
+   "round": "HLD (R4)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R4 of the Mar 2025 MTS-4 loop; constraint added live after the candidate proposed a config service.",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6489221/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Route DB clients to the active node among replicas",
+   "prompt": "Design a service that lets clients connect to the currently-active database node given many replicas (leader discovery / failover routing), asked as HLD+LLD.",
+   "probes": [
+    "health checking and leader election (zookeeper-style sessions/watches)",
+    "client library vs proxy approach",
+    "split-brain avoidance",
+    "failover latency and connection draining"
+   ],
+   "round": "Design R3 (HLD+LLD)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R3 of the Feb 2025 MTS-3 Bangalore onsite (offer).",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6514235/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design Google Drive",
+   "prompt": "HLD of a cloud file storage/sync product, followed by behavioral questions in the same round.",
+   "probes": [
+    "chunking and dedup",
+    "metadata vs blob storage split",
+    "sync protocol and conflicts",
+    "sharing/permissions"
+   ],
+   "round": "HLD + behavioral (R4)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R4 of the Feb 2025 MTS-3 Bangalore onsite (offer).",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6514235/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design a robust, scalable write-heavy storage system",
+   "prompt": "Open-ended: build a storage service optimized for heavy writes at scale.",
+   "probes": [
+    "LSM-style write path vs B-tree",
+    "batching, WAL, compaction",
+    "partitioning and hot-key mitigation",
+    "durability vs latency trade-offs",
+    "read-path compromises"
+   ],
+   "round": "System design (R3)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R3 of a Dec 2024 Senior-SDE loop (candidate 'could have done better'; HM round later no-showed).",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6152905/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design a Kafka-like pub-sub system",
+   "prompt": "HLD of a publish-subscribe/message-queue system, diagrammed on draw.io; interviewer probed single points of failure and distributed scaling.",
+   "probes": [
+    "partitions and consumer groups",
+    "SPOFs: broker/controller failure",
+    "replication and ISR-style consistency",
+    "ordering and delivery guarantees",
+    "backpressure"
+   ],
+   "round": "Design R1 (HLD)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "R3 of the Nov 2024 MTS-3 loop (went well); 'Kafka and messaging' also probed in Dec 2025 MTS-1 HM round.",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6072164/",
+    "https://leetcode.com/discuss/post/7429281/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "API design deep-dive (techno-managerial)",
+   "prompt": "Design an API end to end: request/response modeling, security (public/private keys, SSL certificates), authentication and authorization (OAuth, tokens), then internal workings — how data is stored, how sharding works, how Redis works as a distributed cache (replication, consistent hashing, hot partitions).",
+   "probes": [
+    "TLS handshake / certificates",
+    "OAuth flows and token validation",
+    "DB sharding and indexing",
+    "Redis as distributed cache: replication + consistent hashing",
+    "rate limiting/authz placement"
+   ],
+   "round": "Techno-managerial / HM",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "R4 of the Nov 2024 MTS-2 loop (rejected on this round); similar DB-internals grilling in 2023 MTS-2 R3.",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6144324/",
+    "https://leetcode.com/discuss/post/4130331/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Test-execution orchestration across user and worker machines",
+   "prompt": "N Linux user machines hold test binaries; M Linux worker machines execute them. Design the system so users can run their tests on workers with exactly one test running on a worker at a time. Interviewer scaled the problem stepwise: 1 user/1 test/1 worker → many users/many tests/many workers.",
+   "probes": [
+    "job queue and scheduling fairness",
+    "worker locking — one test at a time",
+    "binary distribution to workers",
+    "result collection and retries on worker death",
+    "scaling the scheduler itself"
+   ],
+   "round": "System design (R4)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R4 of the Jul 2024 MTS-2 Bangalore loop (offer). Very Nutanix-flavored (internal test infra).",
+   "recency": "2024-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/5441752/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Scale a read-heavy data service (DB-team flavor)",
+   "prompt": "Open-ended: many users request some data X — design and scale the serving system. Interviewer (DB dev team) kept pushing on database-side speedups beyond standard caching.",
+   "probes": [
+    "LB + horizontal API scaling",
+    "partitioning/replication of the DB",
+    "cache strategies: cache-aside vs read-through; LRU/LFU invalidation",
+    "DB-integrated caching (Uber CacheFront-style)",
+    "SQL vs NoSQL choice based on ACID/CAP"
+   ],
+   "round": "System design (R3, MTS-1!)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R3 of the Jul 2024 MTS-1 Bangalore loop (rejected despite strong answers); comments add interviewer wanted more DB-type/ACID/CAP framing.",
+   "recency": "2024-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/5900124/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design an employee expense reimbursement tool (SAP Concur)",
+   "prompt": "Employees submit receipts and get reimbursed; include interfaces for managers and the finance team. Full flow: requirements → API design → DB design → estimates → system flow.",
+   "probes": [
+    "approval workflow states",
+    "receipt storage",
+    "API + schema design",
+    "back-of-envelope sizing",
+    "reporting for finance"
+   ],
+   "round": "HLD (R3)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "R3 of the Feb 2024 MTS-3 Bengaluru loop; the same prompt ran as HLD+LLD in a Jul 2022 MTS-4 loop (selected).",
+   "recency": "2024-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/4815315/",
+    "https://leetcode.com/discuss/post/2349031/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design an observability system",
+   "prompt": "HLD of an observability/monitoring platform (metrics/logs/traces ingestion to dashboards and alerts).",
+   "probes": [
+    "ingestion pipeline and agents",
+    "time-series storage",
+    "alerting evaluation",
+    "retention and downsampling",
+    "very in-depth cross-questioning reported"
+   ],
+   "round": "System design (R4)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R4 of a 2023 MTS-2 Bangalore loop (ghosted after); interviewers expected depth across architecture, DB and monitoring.",
+   "recency": "2023-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/4130331/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Make an application highly concurrent and low latency",
+   "prompt": "General prompt: given an application, redesign it for high concurrency and low latency — focus on cache design, database type selection, and related HLD concepts.",
+   "probes": [
+    "cache placement and coherence",
+    "SQL vs NoSQL for the access pattern",
+    "connection pooling / async IO",
+    "measuring and attacking tail latency"
+   ],
+   "round": "HLD (R3)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R3 of the Jun 2024 MTS-3 loop (cleared all rounds).",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6854554/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Twitter feed with trending windows",
+   "prompt": "Design a Twitter-like feed where each user's feed surfaces trending tweets (by likes) over the last 10 minutes and last 24 hours.",
+   "probes": [
+    "sliding-window counting at scale",
+    "fan-out vs fan-in feed assembly",
+    "hot-key handling for viral tweets",
+    "freshness vs cost"
+   ],
+   "round": "System design",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Reported by a candidate in a 2022 thread asking about Nutanix's design round.",
+   "recency": "2022-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/2257017/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Petabyte-scale ETL pipeline",
+   "prompt": "Design an ETL pipeline that is scalable and fault tolerant and handles petabyte-scale ingestion.",
+   "probes": [
+    "batch vs streaming split",
+    "checkpointing and exactly-once-ish semantics",
+    "schema evolution",
+    "backfill strategy",
+    "failure isolation"
+   ],
+   "round": "R3 of MTS-3 loop",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "2021 MTS-3 Pune loop (offer); same loop's R2 asked a per-day sorted telemetry store + streaming top-K/bottom-K with heaps.",
+   "recency": "2021-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/1308141/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Count unique users connected across a distributed service",
+   "prompt": "A service runs on n distributed nodes; count users currently connected. Then: what data structure for uniqueness? Then the twist — no separate server/DB allowed, only the nodes users connect to.",
+   "probes": [
+    "set/HLL for uniqueness",
+    "central session store vs gossip/aggregation among nodes",
+    "RPC cost of master-based counting",
+    "eventual consistency of the count"
+   ],
+   "round": "R4 (DSA + distributed systems mix)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R4 of the Oct 2021 MTS-3 loop (rejected); paired with fine-grained-locking linked-list question.",
+   "recency": "2021-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/1568637/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design a UPI payment app",
+   "prompt": "HM-round design discussion: microservices, APIs, load balancing, user/transaction databases, encryption, security, caching for a UPI-style payment app.",
+   "probes": [
+    "idempotent transfers",
+    "transaction store consistency",
+    "security/encryption of payment data",
+    "service decomposition"
+   ],
+   "round": "Hiring manager (R5)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R5 of the 2020 MTS-4 Bangalore loop (offer).",
+   "recency": "2020-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/953135/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Troubleshoot latency in a distributed storage cluster",
+   "prompt": "Not a build-from-scratch design: users report rising latency but cluster health looks normal — walk through how you'd investigate a distributed storage cluster (very Nutanix-core; asked with Linux internals, file systems, Ceph and performance-bottleneck follow-ups).",
+   "probes": [
+    "metrics to pull first (disk, network, CPU steal)",
+    "hot spots vs cluster-wide degradation",
+    "storage path internals (oplog/extent-store analogies)",
+    "isolating noisy neighbors/VMs"
+   ],
+   "round": "Technical rounds of US MTS-3 loop",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Jun 2026 Glassdoor MTS-3 San Jose (accepted offer) — more common in US/storage-team loops; good prep for Bengaluru infra teams too.",
+   "recency": "2026-06",
+   "sources": [
+    "https://www.glassdoor.com/Interview/Nutanix-MTS-3-Interview-Questions-EI_IE429159.0,7_KO8,13.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design a distributed rate limiter",
+   "prompt": "Design a distributed rate limiter handling millions of requests/second across multiple data centers.",
+   "probes": [
+    "token bucket vs sliding window",
+    "local vs global budget sync",
+    "hot keys and fairness",
+    "degradation when the coordination layer fails"
+   ],
+   "round": "OA/early round (staff-level report)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Staff backend engineer write-up (Medium, 2024/25); single low-detail source.",
+   "recency": "2025-01",
+   "sources": [
+    "https://medium.com/@techrecruiter/nutanix-staff-backend-engineer-interview-experience-f27f4fa7c66b"
+   ],
+   "confidence": "low"
+  }
+ ],
+ "lld": [
+  {
+   "title": "Distributed job scheduler (machine coding)",
+   "prompt": "Build a job scheduler: jobs are submitted with a schedule/time, a pool of worker threads executes them when due. 'Distributed' framing, but the deliverable is single-process machine coding with clean interfaces (Job interface with run(), scheduler storing jobs in a time-indexed map or priority queue, dispatch loop).",
+   "deliverable": "Runnable, thread-safe, modular code (SOLID); discussion of how it would extend to distributed",
+   "probes": [
+    "thread-safe job store (ConcurrentMap/PQ + locks)",
+    "dispatch loop vs condition-variable wakeup",
+    "recurring jobs and misfires",
+    "how to shard/distribute it (follow-up)",
+    "singleton vs injectable scheduler"
+   ],
+   "round": "Machine coding (R3)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "R3 of the Oct 2025 MTS-3 hiring drive (cleared); commenters discussed thread-pool + epoch-ms TreeMap designs. Task-scheduler themes also in OA (cost-optimized two-server scheduling, Sep 2025).",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7314812/",
+    "https://leetcode.com/discuss/post/7220204/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Memory-backed sparse file class",
+   "prompt": "Implement a SparseFile class for a huge (100 GB), ~90% empty file held in memory: WriteData(offset, length, data_in), ReadData(offset, length) returning data with NUL for unwritten gaps, EraseData(offset, length). Memory use must stay close to actual data stored (chunked/interval storage, not byte maps). Caller owns buffers; data_in may die after Write.",
+   "deliverable": "Working class in a shared doc with dry-run tests; discuss storage layout before coding",
+   "probes": [
+    "chunk map vs interval/ordered map of extents",
+    "splitting/merging ranges on write/erase",
+    "memory overhead per structure (a map<char,int> blows up 4x)",
+    "concurrency on the extent map",
+    "follow-up they ran out of time for: compression of chunks"
+   ],
+   "round": "System-coding round (R2)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Three reports: MTS-2 C++/Go May 2025 R2; standalone Aug 2024 question post; Jul 2024 MTS-2 offer loop R2 (Google Doc, dry-run test cases).",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6723679/",
+    "https://leetcode.com/discuss/post/5705168/",
+    "https://leetcode.com/discuss/post/5441752/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Thread-safe LRU cache (and LFU variant)",
+   "prompt": "Implement an LRU cache, then make it thread-safe and defend the locking scheme. Variants: LFU cache design (Oct 2021 round), two-segment cache where part 1 holds untouched entries and part 2 holds entries touched at least once (sizes n/3 and 2n/3), with full working code for the replacement logic.",
+   "deliverable": "Fully functional code; lock-placement discussion",
+   "probes": [
+    "what the mutex protects (map + list together)",
+    "lock granularity vs a single global lock",
+    "LRU vs LFU trade-offs",
+    "segmented/2Q promotion rules",
+    "cache sizing"
+   ],
+   "round": "Coding/LLD round",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Feb 2024 MTS-2 R3 (thread-safe LRU); Nov 2024 MTS-2 R2 (two-segment variant, 'HLD' label but full code required); Oct 2021 MTS-3 R3 (LFU); 2018 campus design round (LRU→LFU).",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/4727158/",
+    "https://leetcode.com/discuss/post/6144324/",
+    "https://leetcode.com/discuss/post/1568637/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Command-line archive utility (mini tar)",
+   "prompt": "Build a CLI tool, no archive/compression libraries: create (recursively archive a folder preserving structure), extract (rebuild the tree), list (all paths in archive), extract-file (one file), and a --verbose flag. Standard library only; handle invalid paths and corrupt archives gracefully.",
+   "deliverable": "Working program; focus on FS traversal, binary IO, and designing the on-disk archive format",
+   "probes": [
+    "archive format: header/index layout",
+    "corrupt-archive detection",
+    "streaming vs loading whole files",
+    "error handling and partial extraction"
+   ],
+   "round": "R1 of MTS-1 loop (60–90 min)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "May 2025 MTS-1 loop (both rounds positive; role put on hold).",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6779511/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Student test-score manager",
+   "prompt": "Class-managing student records (id like UC11A345, name) and per-subject percentage marks; support entering students, entering marks, querying a student's marks in a subject, and finding the top scorer per subject. No DB — class variables only; a main() must load three specified students and answer two queries.",
+   "deliverable": "Complete runnable code (took ~1.5 h); interviewer happy with full implementation",
+   "probes": [
+    "data-structure choice for two access paths (by student, by subject)",
+    "handling students with missing subjects",
+    "clean modeling vs over-engineering",
+    "extensibility to new queries"
+   ],
+   "round": "LLD (R3)",
+   "difficulty": "Easy",
+   "classic": false,
+   "evidence": "R3 of the Nov 2024 MTS-2 Bangalore loop.",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6144324/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Multi-user paint application",
+   "prompt": "Design a Windows-Paint-style app: draw shapes (circle, rectangle, square, triangle...), persist a rectangle drawn inside another rectangle at its exact position in the DB, and let multiple users draw on the same canvas seeing each other's changes (Google-Docs-like). Running code expected within the hour.",
+   "deliverable": "Running code in ~60 min + schema",
+   "probes": [
+    "shape class hierarchy",
+    "how to store geometry in the DB",
+    "interviewer pushed back on frontend-heavy designs — keep processing on the backend",
+    "real-time sync between users"
+   ],
+   "round": "LLD / machine coding (R3)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R3 of the Mar 2025 MTS-4 loop — negative LLD feedback ended the process two days later.",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6489221/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Tracing library + trace backend service",
+   "prompt": "Design a tracing system to debug live services: (a) a low-overhead client library multiple services embed to record traces/spans, (b) a backend service with APIs to register traces and fetch the complete trace for a user request, viewable in a basic GUI. Must be reliable and persistent to an agreed degree; bonus: scalable.",
+   "deliverable": "LLD: entities (Trace/Span/method calls), library API, backend APIs, storage schema",
+   "probes": [
+    "trace/span data model and unique IDs across services",
+    "overhead budget in the client library (sampling, async buffers)",
+    "persistence and partial-trace assembly",
+    "query APIs: by id, by status, slowest requests",
+    "scalability (bonus)"
+   ],
+   "round": "Design R2 (LLD)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R4 of the Nov 2024 MTS-3 loop (unfriendly interviewer; candidate rejected).",
+   "recency": "2024-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/6072164/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Client-server thread-safety debugging",
+   "prompt": "Given ~3 pages of client-server code on a Google Doc, make it thread safe: dependencies between client and server on connection close, and a client may open many connections but only N may execute concurrently. Followed by OS grilling: how malloc works, write a semaphore, mutex vs spinlock, other Linux/OS questions.",
+   "deliverable": "Corrected, thread-safe code + verbal OS answers",
+   "probes": [
+    "where races live (shared connection state)",
+    "bounding concurrent executions (semaphore)",
+    "close-handshake ordering without deadlock",
+    "malloc internals, mutex vs spinlock"
+   ],
+   "round": "Debugging round (R3)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "R3 of the Jul 2024 MTS-2 Bangalore offer loop; debugging rounds also in Jul 2022 MTS-4 (fix error-ridden code), Jul 2024 MTS-1 (buggy palindrome-linked-list pseudo-code), Mar 2025 MTS-3 screen (debugging + graph), 2018 campus (mutex/semaphore bugs in producer-consumer).",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/5441752/",
+    "https://leetcode.com/discuss/post/2349031/",
+    "https://leetcode.com/discuss/post/5900124/",
+    "https://leetcode.com/discuss/post/6531308/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Open-source codebase navigation (DevEx debugging round)",
+   "prompt": "Clone a real open-source database driver repo live, then locate where features are implemented down to the code block/line: connection pooling, connection logic; then clone the database itself and find the indexing implementation and query execution logic.",
+   "deliverable": "Live code navigation + explanation; no writing required",
+   "probes": [
+    "how fast you orient in unfamiliar code (grep/tags/tests)",
+    "mapping features to modules",
+    "explaining execution flow",
+    "prior open-source experience helps"
+   ],
+   "round": "Problem-solving & debugging (R2)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R2 of the Dec 2025 MTS-1 loop (selected).",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/7429281/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Bookmark manager across browsers (UML expected)",
+   "prompt": "LLD of a system managing a user's bookmarks across multiple browsers on a laptop; interviewer expected UML diagrams and interaction flows.",
+   "deliverable": "UML class + interaction diagrams, design-pattern discussion",
+   "probes": [
+    "sync/merge across browsers",
+    "design patterns used and why",
+    "storage format",
+    "conflict handling"
+   ],
+   "round": "HM round LLD (R4)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R4 of the Feb 2024 MTS-3 Bengaluru loop (candidate felt it went poorly; loop ended on hold).",
+   "recency": "2024-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/4815315/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Office seat-management app (Robin-like)",
+   "prompt": "Design a seat-booking/desk-management app: data models, services, user roles, then full DB schema including how relations map to tables.",
+   "deliverable": "Entity/service design + DB schema on whiteboard/doc (1.5–2 h onsite)",
+   "probes": [
+    "booking conflicts",
+    "role-based access (admin/employee/facilities)",
+    "schema normalization and relations",
+    "design decisions from your own past projects"
+   ],
+   "round": "Onsite LLD (R3)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R3 of the Oct 2023 MTS-2 Bengaluru loop (very positive feedback; HM no-show ended it).",
+   "recency": "2023-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/4515330/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design Stack Overflow (LLD with code)",
+   "prompt": "LLD of Stack Overflow discussed thoroughly, with sample Python code written for the core classes.",
+   "deliverable": "Class design + sample code",
+   "probes": [
+    "question/answer/vote/comment modeling",
+    "reputation rules placement",
+    "API surface",
+    "which patterns apply"
+   ],
+   "round": "System design LLD (R2)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "R2 of a Mar 2022 SDE-2 Bangalore loop (Hire; candidate left mid-process for Rubrik).",
+   "recency": "2022-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/2001992/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Write code for how malloc() works",
+   "prompt": "Implement a simplified malloc: manage a heap region, allocate/free blocks, track metadata (free lists/headers), handle fragmentation at least conceptually.",
+   "deliverable": "Working simplified allocator / detailed walkthrough",
+   "probes": [
+    "block headers and free-list design",
+    "splitting and coalescing",
+    "alignment",
+    "fragmentation"
+   ],
+   "round": "LLD round (R3)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R3 of a Jul 2022 Bangalore MTS loop (selected; offer later rescinded in cost cuts). malloc internals re-asked verbally in the Jul 2024 debugging round.",
+   "recency": "2022-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/2420754/",
+    "https://leetcode.com/discuss/post/5441752/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Multiple readers-writers problem (working code)",
+   "prompt": "Write working multi-reader/single-writer synchronization code; focus on functionality and modularity. Same round also asked delete-nth-node from a linked list.",
+   "deliverable": "Runnable concurrency code",
+   "probes": [
+    "reader-writer lock from mutex+condvar",
+    "writer starvation",
+    "modularity of the API"
+   ],
+   "round": "Technical-managerial round (R4)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "R4 of the Jul 2022 Bangalore MTS loop; reader/writer-style concurrency also in the 2018 campus debugging round and Jun 2025 Pune Glassdoor report (multithreading discussion with code implementation and execution).",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/2420754/",
+    "https://www.glassdoor.com/Interview/Nutanix-Software-Engineer-Interview-Questions-EI_IE429159.0,7_KO8,25.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Thread-safe linked-list operations with fine-grained locking",
+   "prompt": "Delete duplicate-valued nodes from an unsorted linked list recursively and iteratively; follow-up: make deleteNode safe when called from multiple threads — interviewer hinted at per-node (fine-grained/hand-over-hand) locking, then probed what belongs in the critical section and which lock type to use (spinlock vs semaphore vs mutex).",
+   "deliverable": "Code + concurrency reasoning",
+   "probes": [
+    "hand-over-hand locking order",
+    "critical-section minimization",
+    "lock choice trade-offs",
+    "deadlock avoidance on neighboring nodes"
+   ],
+   "round": "R4 (coding + concurrency)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R4 of the Oct 2021 MTS-3 loop (rejected minutes after).",
+   "recency": "2021-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/1568637/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "O(1) read/write/delete store with order-statistics extension",
+   "prompt": "Build a data structure with read, write (insert) and delete all in O(1); then extend it to also return, for a given element, how many stored elements are smaller — in (near-)constant time, and code both versions.",
+   "deliverable": "Working code for both stages",
+   "probes": [
+    "hashmap + array swap-delete for O(1)",
+    "what breaks when adding order statistics (BIT/bucket trade-offs)",
+    "amortized vs worst case honesty"
+   ],
+   "round": "R2 (OS discussion + coding)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "R2 of the 2020 MTS-4 Bangalore loop (offer); round opened with OS boot/memory internals.",
+   "recency": "2020-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/953135/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Airport runway scheduler (OOD)",
+   "prompt": "OOP design of a single runway serving arrival flights (which hover and can wait only until fuel runs out) and departure flights (with departure times); schedule landings/takeoffs to minimize delay without starving either.",
+   "deliverable": "Class design + scheduling policy",
+   "probes": [
+    "priority rule: fuel deadline vs departure time (EDF-style)",
+    "queue data structures",
+    "starvation and tie-breaks",
+    "edge case the candidate missed: simultaneous deadlines"
+   ],
+   "round": "Onsite R1 (OOD + design)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "US onsite, Oct 2023 (no offer; candidate fumbled an edge case).",
+   "recency": "2023-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/4224801/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "UI-component machine coding (frontend/full-stack MTS only)",
+   "prompt": "Frontend MTS loops replace LLD with 3 rounds of building UI components live on CodeSandbox in any framework or vanilla JS (Mar 2024 MTS-3 frontend offer); a 2026 full-stack loop had one DSA round + one machine-coding round in JavaScript/React, then a design round.",
+   "deliverable": "Working component; think aloud; modular, performant code",
+   "probes": [
+    "component state design",
+    "performance (re-renders)",
+    "modularity",
+    "vanilla-JS fallback skills"
+   ],
+   "round": "Frontend machine coding",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Mar 2024 frontend MTS-3 (offered, declined); Apr 2026 full-stack loop. Only relevant if interviewing for UI-tagged reqs.",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/5616844/",
+    "https://leetcode.com/discuss/post/7967680/"
+   ],
+   "confidence": "medium"
+  }
+ ]
+}

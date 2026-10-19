@@ -1,0 +1,2036 @@
+{
+ "company": "Adobe",
+ "slug": "adobe",
+ "levelMapping": "MTS-1 (0-2 YOE) -> MTS-2 (2-4 YOE) -> Computer Scientist 1 (~4-7 YOE, but 3-5 YOE offers are common) -> CS-2 (6-9 YOE). CS1/CS2 ≈ Google L4; with ~3.3 YOE expect MTS-2 or CS-1 depending on team and interview performance — confirm the level with the recruiter, and note at least one report of the role being changed from CS-1 to MTS-2 mid-process.",
+ "process": {
+  "summary": "Recruiter call, then (mostly for campus/early-career, occasionally for laterals) a HackerRank OA, then 3-5 strictly eliminatory one-hour rounds: 1-2 DSA rounds that mix in C++/Java/OS/DBMS fundamentals, a design round (LLD/OOD is more common than HLD at MTS-2/CS-1; HLD appears for CS-2), a hiring-manager/techno-managerial round (projects + more coding), and a final Director round (behavioral + a puzzle and/or an open-ended design/implementation task) that is the real decision point. India (Noida/Bengaluru) loops often run as single-day hiring drives with the next round scheduled within minutes of clearing the previous one. The loop's character: easy-medium LeetCode coding but deep language internals — C++ teams (Illustrator, Acrobat, Photoshop) grill smart pointers, move semantics, vtables, singletons and mutexes in every round; Java/backend teams run a dedicated concurrency round.",
+  "rounds": [
+   {
+    "name": "Recruiter screen",
+    "type": "screen",
+    "duration": "15-30 min",
+    "what": "Background, notice period, CTC, team mapping; recruiters often cannot say what later rounds cover because panels decide round content at runtime based on previous-round feedback (confirmed by an Adobe employee on Blind).",
+    "probes": "Ask explicitly for the level (MTS-2 vs CS-1) and the team's primary language — C++ teams and Java teams run very different loops; also ask whether the design round is LLD or HLD."
+   },
+   {
+    "name": "Online assessment",
+    "type": "oa",
+    "duration": "60-90 min",
+    "what": "HackerRank. For campus/early-career: aptitude + technical MCQs (C/C++/Java output, OOP, OS, DBMS) + 1-2 coding problems. Laterals usually skip it, but one 2025 CS-2 candidate got a HackerRank OA with 2 medium DSA (sliding window, graph traversal) plus a small design-coding task (implement an LRU cache).",
+    "probes": "Clean modular code; medium array/string/graph problems."
+   },
+   {
+    "name": "DSA round 1",
+    "type": "dsa",
+    "duration": "60 min",
+    "what": "1-2 LeetCode easy-medium problems (arrays, strings, trees, sliding window, DP) coded in your own IDE or HackerRank CodePair, usually run against the interviewer's test cases. Several interviewers demand the optimal solution directly and bug-free code on the first attempt; some accept pseudo-code (team dependent). 10-15 min of C++/Java fundamentals are commonly mixed in (vector vs list, map internals, vtable, smart pointers; or Java threads/locks).",
+    "probes": "Multiple approaches for the same problem (brute -> better -> optimal, and for DP: recursion -> memo -> tabulation -> space-optimized, all coded); variants and follow-ups on the same code; dry runs and complexity."
+   },
+   {
+    "name": "DSA round 2",
+    "type": "dsa",
+    "duration": "60 min",
+    "what": "Second coding round, often heavier on language internals: C++ smart pointers/move-semantics code snippets to fix, memory-leak examples, OS questions (virtual memory, paging, mutex vs semaphore), DBMS (indexing, sharding, SQL vs NoSQL, JDBC) — plus 1-2 more coding problems.",
+    "probes": "'Will this compile and why', output-prediction and debugging snippets; concurrency scenarios (two functions printing in order using mutexes, reader-writer); for Java roles a dedicated concurrency round (implement schedulers/concurrent structures with wait/notify)."
+   },
+   {
+    "name": "Design round (LLD, sometimes HLD)",
+    "type": "lld",
+    "duration": "60-90 min",
+    "what": "At MTS-2/CS-1 mostly LLD/OOD: class diagrams + partial working code for things like a notification service, in-memory file system, train/movie booking, elevator, chess, autocomplete, config service, rate limiter, garbage collector. Some loops ask schema-first design (DB tables + SQL queries). CS-2 loops add a separate HLD round (file storage, content filter, large-scale services).",
+    "probes": "Design patterns by name (strategy, observer, factory, singleton), SOLID, right abstraction (interviewer iterates until satisfied), thread safety, extensibility follow-ups ('add retries', 'change the data type', 'add another channel')."
+   },
+   {
+    "name": "Hiring manager / techno-managerial",
+    "type": "hm",
+    "duration": "45-60 min",
+    "what": "Project deep dive (challenges, tradeoffs, your exact role, impact), behavioral (conflict with management, why Adobe, why switch), and almost always 1-2 more coding questions or a small design task — this round is NOT purely behavioral at Adobe.",
+    "probes": "Rate-yourself-in-C++/Java and justify it; everything on your resume is fair game; story-framed coding (LRU as a real-world scenario); occasional puzzle."
+   },
+   {
+    "name": "Director round",
+    "type": "other",
+    "duration": "30-60 min",
+    "what": "Final decision round with a BU director: behavioral (motivation, academics — some directors ask 10th/12th/graduation marks), plus a puzzle (priests & devils, 25 horses, poisoned wine bottles) and/or an open-ended technical task: design/implement a feature of the product (e.g. an Illustrator feature, Acrobat file system), an HLD discussion, or deep infra questions (e.g. RabbitMQ failure handling with repeated 'what if this also fails').",
+    "probes": "Senior-engineer judgment: what you look for in a PR or design-doc review; working code is sometimes expected even here (LRU in C++, Dutch national flag in an IDE). Several rejections reported at this stage after 4 positive technical rounds."
+   }
+  ],
+  "indiaNotes": "Noida is the main hub (Acrobat/Document Cloud and many platform teams), Bengaluru second (Illustrator, Creative Cloud, SDET). India loops are sequential elimination rounds, frequently compressed into one-day drives with results within minutes-hours; US loops are recruiter screen -> tech phone screen -> 4-5 round virtual onsite block with debrief. India rounds leans harder on C++/Java internals, OS/DBMS theory and puzzles than US reports do. Recurring India complaints (2025): interviewer no-shows and multiple reschedules, unresponsive HR after rounds, rejection via feedback that contradicts the candidate's recollection, and offers lost to internal candidates after positive feedback — keep other pipelines warm.",
+  "timeline": "Fast by big-tech standards: 1-3 weeks end-to-end is typical in India (several 2025 offers in 1-2 weeks; single-day drives common); 2 months reported for one 6-round C++ loop. US: 3-6 weeks.",
+  "tips": [
+   "Prepare the C++ pack if the team is C++ (Illustrator/Acrobat/Photoshop): unique_ptr/shared_ptr internals, move semantics, vtable/vptr, singleton (thread-safe + variants), mutex/condition-variable coding, diamond problem, memory leaks — asked in nearly every round.",
+   "For every DP problem be ready to code recursive, memoized AND tabulated versions; interviewers explicitly ask for all approaches and for bug-free first-attempt code.",
+   "Expect LeetCode-easy/medium difficulty but with variants: interviewers mutate the standard problem (N-ary cousins, negative jumps, k-group with alternating sizes) and expect you to adapt existing code.",
+   "Practice story-framed problems: Adobe wraps standard problems (Minimum Height Trees, Top-K Frequent, LRU) in long business narratives — extract the underlying problem fast.",
+   "LLD >> HLD for MTS-2/CS-1: drill notification service, file system, booking systems, parking lot, elevator with design patterns named out loud; write runnable class code, not just diagrams.",
+   "Prepare the HM/Director rounds like technical rounds: coding and design tasks appear there too, plus puzzles (25 horses, poisoned wine, river crossing) and engineering-judgment questions (what do you check in a PR review).",
+   "Know your own project's HLD cold — almost every round opens with it, and one round may be entirely 'draw your project's architecture and defend it'.",
+   "State assumptions and clarify output format before coding (one candidate's feedback claimed an unsolved problem over a print-vs-return misunderstanding)."
+  ],
+  "notes": "OA platform: HackerRank (campus/early-career; occasionally laterals). Live coding: own IDE with screen share, HackerRank CodePair, or shared editor; most interviewers want compiled, tested code. No bar-raiser; no fixed values round — culture fit is assessed in HM/Director rounds. Round content is decided by panels at runtime, so recruiters genuinely can't tell you what's next. Language: C++ teams effectively require C++; Java/backend and frontend (JS/React) loops exist and test those stacks deeply. Role/level can change mid-process (CS-1 -> MTS-2, or a generic 'SDE' posting turning out to be release engineering). Puzzles are a real, recurring component in India manager/director rounds. Lots of 2025 reports of process chaos (reschedules, ghosting, internal-candidate losses) — treat positive feedback as nothing until the offer letter.",
+  "sources": [
+   {
+    "title": "Adobe CS-1 | Interview experience | Selected (5 rounds)",
+    "url": "https://leetcode.com/discuss/post/6924065/",
+    "date": "2025-07"
+   },
+   {
+    "title": "Adobe MTS 2 | Noida | Offer (4 rounds, Acrobat)",
+    "url": "https://leetcode.com/discuss/post/6805427/",
+    "date": "2025-06"
+   },
+   {
+    "title": "Adobe CS2 | Interview Experience 2025 | Noida (OA + 5 rounds)",
+    "url": "https://leetcode.com/discuss/post/6956865/",
+    "date": "2025-07"
+   },
+   {
+    "title": "Adobe | CS1 | Reject (ALM org drive, 3 rounds)",
+    "url": "https://leetcode.com/discuss/post/7354389/",
+    "date": "2025-11"
+   },
+   {
+    "title": "Adobe MTS-2 Interview Nov'25 (DSA + LLD rounds)",
+    "url": "https://leetcode.com/discuss/post/7376948/",
+    "date": "2025-11"
+   },
+   {
+    "title": "Adobe | Computer Scientist 1 | Bangalore | Illustrator (4 rounds + puzzle)",
+    "url": "https://leetcode.com/discuss/post/6819770/",
+    "date": "2025-06"
+   },
+   {
+    "title": "Adobe | CS-1 | 4.5 YOE | director-round reject (RabbitMQ grilling)",
+    "url": "https://leetcode.com/discuss/post/6974116/",
+    "date": "2025"
+   },
+   {
+    "title": "Adobe | CS-1 | Noida | Dec 2024 | Reject (DP all approaches, director academics)",
+    "url": "https://leetcode.com/discuss/interview-experience/6159717/Adobe-or-CS-1-or-Noida-or-Dec-2024-or-Reject/",
+    "date": "2024-12"
+   },
+   {
+    "title": "Roundz: Adobe MTS-2 Noida offer (4 rounds, puzzle, content-filter HLD)",
+    "url": "https://roundz.substack.com/p/interview-experience-109-adobe-mts2-l2",
+    "date": "2025-06"
+   },
+   {
+    "title": "TechScreen: Adobe SWE interview process 2026 (OA platform, level mapping, India vs US)",
+    "url": "https://techscreen.app/articles/adobe-technical-interview-process-2026",
+    "date": "2026-08"
+   },
+   {
+    "title": "Glassdoor: Adobe Computer Scientist interview questions (2025-2026 reports)",
+    "url": "https://www.glassdoor.co.in/Interview/Adobe-Computer-Scientist-Interview-Questions-EI_IE1090.0,5_KO6,24.htm",
+    "date": "2026-08"
+   },
+   {
+    "title": "Blind: Adobe Computer Scientist-1 upcoming loop (DSA + Java concurrency rounds)",
+    "url": "https://www.teamblind.com/post/adobe-computer-scientist-1-igrmd5me",
+    "date": "2026-04"
+   },
+   {
+    "title": "Blind: Adobe India has no fixed round structure (Adobe employee comment)",
+    "url": "https://www.teamblind.com/post/need-help-on-adobe-interview-process-b8f0amgd",
+    "date": "2021-09"
+   },
+   {
+    "title": "CodingKaro aggregation of 48 Adobe LeetCode-Discuss experiences",
+    "url": "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Adobe",
+    "date": "2025-11"
+   },
+   {
+    "title": "GfG: Adobe CS1 Noida June 2022 (5 rounds incl. two HM rounds)",
+    "url": "https://www.geeksforgeeks.org/interview-experiences/adobe-interview-experience-for-cs1-noida-june-2022/",
+    "date": "2022-06"
+   }
+  ]
+ },
+ "dsa": [
+  {
+   "title": "Subarray Sum Equals K",
+   "lcId": 560,
+   "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Array",
+    "Prefix Sum",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Asked as 'find ALL subarrays whose sum equals K' in a Jul 2026 Noida Computer Scientist screening; interviewer gave no hints.",
+   "evidence": "Jul 2026 Noida CS screening round (Glassdoor, posted 2026-08)",
+   "recency": "2026-07",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/Adobe-Computer-Scientist-Interview-Questions-EI_IE1090.0,5_KO6,24.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Binary Tree Maximum Path Sum",
+   "lcId": 124,
+   "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Binary Tree",
+    "DFS",
+    "DP"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "US tech phone screen 2026-03 (1point3acres); also #8 in Adobe's July-2026 LeetCode tag snapshot",
+   "recency": "2026-03",
+   "sources": [
+    "https://www.1point3acres.com/interview/company/adobe"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Active users in a sliding time window",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Hash Map",
+    "Stream"
+   ],
+   "statement": "Process a stream of log entries (timestamp, userId, eventType) arriving in increasing time order. At any point, report the number of unique users who generated at least one event in the last 5 minutes relative to the current event's timestamp. Design the data structures so updates and queries stay efficient as old events expire.",
+   "variant": "",
+   "evidence": "CS1 ALM-org drive round 1, Nov 2025",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7354389/",
+    "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Adobe"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Most Stones Removed with Same Row or Column",
+   "lcId": 947,
+   "url": "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Union Find",
+    "Graph"
+   ],
+   "statement": "",
+   "variant": "Followed by Java concurrency questions (multiple threads modifying a shared list/map) and SQL internals in the same round.",
+   "evidence": "CS1 ALM-org drive round 2, Nov 2025",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7354389/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Time Needed to Inform All Employees (+ sequential variant)",
+   "lcId": 1376,
+   "url": "https://leetcode.com/problems/time-needed-to-inform-all-employees/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "DFS",
+    "BFS"
+   ],
+   "statement": "",
+   "variant": "Part 2 variant: messages are passed sequentially to children with +1 time per successive child (CEO at t=0, first child t=1, second t=2 ...) — recompute minimum time.",
+   "evidence": "MTS-2 round 1, Nov 2025 — both versions coded",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7376948/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimize array sum after K ceil-halving operations",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Heap",
+    "Greedy"
+   ],
+   "statement": "Given an array of integers, you may perform the following operation K times: remove an element, replace it with ceil(element/2), and put it back. Minimize the final sum of the array. Expected solution: max-heap, always halve the current maximum, O(N log N).",
+   "variant": "Variant family of LC 2530 (Maximal Score After Applying K Operations).",
+   "evidence": "MTS-2 round 1, Nov 2025; paired with a knapsack-variation DP",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7350002/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "K Closest Points to Origin",
+   "lcId": 973,
+   "url": "https://leetcode.com/problems/k-closest-points-to-origin/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "Round also covered smart pointers (unique/shared), memory management, constructors/destructors in C++.",
+   "evidence": "MTS-2 C++ round 1, Aug 2025",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7150342/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Trapping Rain Water",
+   "lcId": 42,
+   "url": "https://leetcode.com/problems/trapping-rain-water/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Array",
+    "Two Pointers",
+    "Stack"
+   ],
+   "statement": "",
+   "variant": "Asked as a 'max water trapped' variation (CS1 Aug 2025: brute -> optimal with dry run, then edge-case nitpicking); straight version in MTS-2 Noida Jun 2025 round 1.",
+   "evidence": "2 reports: CS1 round 1 (2025-08), MTS-2 Noida offer round 1 (2025-06); also #2-ranked classic in Adobe's LC tag history",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7128297/",
+    "https://leetcode.com/discuss/post/6805427/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Reverse Words in a String",
+   "lcId": 151,
+   "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "With careful multi-space handling, O(n) expected (CS1 2025); also asked for very long strings in an MTS-2 frontend loop (2024); older GfG variant bans loops/length functions.",
+   "evidence": "CS1 round 2 (2025-08); MTS-2 frontend round 4 (2024-08); GfG Computer Scientist round 4 (2019)",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7128297/",
+    "https://leetcode.com/discuss/post/5616563/",
+    "https://www.geeksforgeeks.org/adobe-interview-experience-computer-scientist/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Find Median from Data Stream",
+   "lcId": 295,
+   "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Heap",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Two priority queues; pseudo-code accepted; same 70-min round then covered CAP theorem, DB locking, SQL vs NoSQL, normalization, OS locks and an LRU-cache implementation.",
+   "evidence": "Release-engineer-track round 1, Jul 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6999129/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "LRU Cache",
+   "lcId": 146,
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Linked List",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Recurring in many forms: pseudo-code after median-of-stream (2025-07); in Java with follow-up 'make the eviction algorithm pluggable (LRU/LFU) via strategy pattern' (MTS-2 Noida 2025-06); story-framed real-world scenario in a CS-2 Director round with working C++ code expected (2025-04); LFU-design discussion after a DSA round (CS1 2025); OA design task (CS2 2025-07); thread-safe LRU (SDE2 2023).",
+   "evidence": "6+ reports 2023-2025 across levels and rounds",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6999129/",
+    "https://leetcode.com/discuss/post/6813581/",
+    "https://leetcode.com/discuss/post/6689087/",
+    "https://leetcode.com/discuss/post/6974116/",
+    "https://leetcode.com/discuss/post/6956865/",
+    "https://leetcode.com/discuss/post/3980899/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Friends Of Appropriate Ages",
+   "lcId": 825,
+   "url": "https://leetcode.com/problems/friends-of-appropriate-ages/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Array",
+    "Two Pointers",
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Release-engineer-track round 2, Jul 2025; full code + outputs on interviewer's inputs",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6999129/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Jobs on two schedulers + dependency follow-up",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "Heap",
+    "Topological Sort"
+   ],
+   "statement": "Given an array of job durations and two schedulers that each run one job at a time, compute the minimum time to finish all jobs. Follow-up: jobs now have dependencies — explain how you would schedule them (topological sort) and what happens if the dependency graph has a cycle.",
+   "variant": "",
+   "evidence": "HM round, Jul 2025 (release-engineering flavor, but pure DSA)",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6999129/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Fruit Into Baskets",
+   "lcId": 904,
+   "url": "https://leetcode.com/problems/fruit-into-baskets/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Optimized time AND space expected; explain your approach aloud while coding.",
+   "evidence": "CS-1 round 3 (tie-breaker DSA round), Jul 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://medium.com/@priyabansal0919/adobe-interview-experience-computer-scientist-1-round-3-dsa-7ed37280a86e"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Russian Doll Envelopes",
+   "lcId": 354,
+   "url": "https://leetcode.com/problems/russian-doll-envelopes/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Binary Search",
+    "DP",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "Expected approach: sort by width asc / height desc, LIS on heights.",
+   "evidence": "CS-1 round 2 Jul 2025 (Medium post); also GfG Computer Scientist round 1 (2019)",
+   "recency": "2025-07",
+   "sources": [
+    "https://medium.com/@priyabansal0919/adobe-interview-experience-cs-1-r2-dsa-design-patterns-c-internals-489f8e110372",
+    "https://www.geeksforgeeks.org/adobe-interview-experience-computer-scientist/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Longest Substring Without Repeating Characters",
+   "lcId": 3,
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Hash Map",
+    "String"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "CS-1 DSA round 1, 2025 (Medium post); MTS-2 2022 round 1; in Adobe's LC tag top-20",
+   "recency": "2025-07",
+   "sources": [
+    "https://medium.com/@priyabansal0919/my-adobe-interview-experience-for-cs-1-cracking-dsa-with-calm-clarity-r-1-4bade5afb8a9",
+    "https://leetcode.com/discuss/post/1913501/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Valid Palindrome II (change-one-char variants)",
+   "lcId": 680,
+   "url": "https://leetcode.com/problems/valid-palindrome-ii/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "String",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "CS-2 round 1 asked the standard delete-one version (2025-04); a CS-1 loop asked 'can the string become a palindrome by CHANGING at most one character' (2025-07).",
+   "evidence": "CS2 Noida round 1 (2025-04); CS-1 loop-2 round 1 (2025-07)",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6689087/",
+    "https://medium.com/@priyabansal0919/adobe-computer-scientist-1-role-my-interview-journey-loop-2-273c94239253"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count sentences formed by anagram replacements",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "String",
+    "Sorting"
+   ],
+   "statement": "Given a word set and a list of sentences, two words are interchangeable if they are anagrams. For each sentence, count how many distinct sentences can be formed by replacing any word with one of its anagrams from the word set (multiply the anagram-group sizes of each word). Canonicalize each word (sorted chars) and count group sizes.",
+   "variant": "HackerRank-style long statement; classic 'Sentence Count' problem.",
+   "evidence": "MTS-2 hiring-drive round 1, May 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6789642/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum Height Trees (org-hierarchy story)",
+   "lcId": 310,
+   "url": "https://leetcode.com/problems/minimum-height-trees/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "Topological Sort",
+    "Tree"
+   ],
+   "statement": "",
+   "variant": "Framed as a long story: pick the department(s) that minimize the longest reporting chain in a company tree; O(n) leaf-trimming expected. Asked in BOTH round 1 and round 2 of the same drive by different interviewers.",
+   "evidence": "MTS-2 hiring drive rounds 1-2, May 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6789642/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top K Frequent Elements (product-views story)",
+   "lcId": 347,
+   "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Hash Map",
+    "Bucket Sort"
+   ],
+   "statement": "",
+   "variant": "Framed as 'k most-viewed product IDs for a recommendation system'.",
+   "evidence": "MTS-2 hiring drive round 2, May 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6789642/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Majority Element",
+   "lcId": 169,
+   "url": "https://leetcode.com/problems/majority-element/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Array",
+    "Divide and Conquer"
+   ],
+   "statement": "",
+   "variant": "Interviewers push for multiple approaches (sorting-middle including writing the sort yourself, then O(N) counting / Boyer-Moore) and the details of each.",
+   "evidence": "MTS-2 Java round 1 (2025-06, elimination round); CS all-rounds round 2 (2025)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6827304/",
+    "https://leetcode.com/discuss/interview-question/6148547/Adobe-Computer-Scientist-Interview-Experience-or-ALL-Rounds/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count Unreachable Pairs of Nodes in an Undirected Graph",
+   "lcId": 2316,
+   "url": "https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "DFS",
+    "Union Find"
+   ],
+   "statement": "",
+   "variant": "Optimal space & time + runnable code passing tests was the bar; this round eliminated the candidate before the other scheduled rounds.",
+   "evidence": "MTS-2 Java round 1, Jun 2025",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6827304/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Best Time to Buy and Sell Stock I/II/III (series)",
+   "lcId": 121,
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Array",
+    "DP",
+    "Greedy"
+   ],
+   "statement": "",
+   "variant": "Asked as an escalating series I -> II -> III in one round (CS1 Illustrator 2025-06); III alone in MTS-2 2022 round 4; 'at most k transactions' (LC 188) in SDE2 2023 round 1.",
+   "evidence": "3 reports: CS1 Bangalore round 1 (2025-06), MTS-2 Noida round 4 (2022), SDE2 round 1 (2023)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6819770/",
+    "https://leetcode.com/discuss/post/1913501/",
+    "https://leetcode.com/discuss/post/3980899/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "House Robber I/II",
+   "lcId": 198,
+   "url": "https://leetcode.com/problems/house-robber/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP"
+   ],
+   "statement": "",
+   "variant": "I + circular variant II asked back-to-back (CS1 2025-06); House Robber alone with a string-to-integer problem (CS1 Noida 2025-07). A Dec-2024 CS1 round asked an unnamed 'maximize amount' DP and required recursive, tabulated AND memoized versions all coded.",
+   "evidence": "CS1 Bangalore round 1 (2025-06); CS1 Noida round 1 (2025-07); CS1 Dec-2024 round 1 (DP all-approaches)",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6819770/",
+    "https://leetcode.com/discuss/post/6943130/",
+    "https://leetcode.com/discuss/interview-experience/6159717/Adobe-or-CS-1-or-Noida-or-Dec-2024-or-Reject/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Single Number I/III",
+   "lcId": 136,
+   "url": "https://leetcode.com/problems/single-number/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Bit Manipulation"
+   ],
+   "statement": "",
+   "variant": "I then III (two unique numbers, XOR partition by lowest set bit) — 'hard to derive without bit-manipulation practice'; plain XOR-unique also in an MTS-2 round 3 (2025-06).",
+   "evidence": "CS1 Bangalore round 1 (2025-06); MTS-2 Noida round 3 (2025-06, Roundz)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6819770/",
+    "https://roundz.substack.com/p/interview-experience-109-adobe-mts2-l2"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Cousins in Binary Tree (return all cousins)",
+   "lcId": 993,
+   "url": "https://leetcode.com/problems/cousins-in-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Tree",
+    "BFS"
+   ],
+   "statement": "",
+   "variant": "Adobe's version: given the tree and a target node pointer, RETURN all cousins. Follow-up: optimize two-pass BFS to one pass tracking parent+level. N-ary tree variant asked in an MTS-2 loop (2025-04).",
+   "evidence": "3 reports in 2025: CS1 round 2 (2025-05), CS1 Illustrator round 2 (2025-06), MTS-2 round 4 N-ary variant (2025-04)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6743598/",
+    "https://leetcode.com/discuss/post/6819770/",
+    "https://leetcode.com/discuss/post/6650780/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimize the maximum 'beauty' over K subarray splits",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "DP",
+    "Binary Search"
+   ],
+   "statement": "Split an array into k contiguous non-empty subarrays. A subarray's beauty = (max element) x (length). For a given split, take the maximum beauty across its subarrays; over all possible splits, return the minimum such value. Relative of LC 410 (Split Array Largest Sum) with a max*len cost.",
+   "variant": "Candidate explained approach + partial code; interviewer accepted the thought process.",
+   "evidence": "CS1 round 1, May 2025 (same round covered vector/list/map internals, vtable, thread-safe singleton, virtual memory, paging)",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6722120/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Spiral Matrix II / spiral print",
+   "lcId": 59,
+   "url": "https://leetcode.com/problems/spiral-matrix-ii/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Matrix",
+    "Simulation"
+   ],
+   "statement": "",
+   "variant": "Clarify print-vs-generate: one candidate generated then printed and later got feedback claiming the problem was 'not solved'. Spiral print also reported in an Oct 2025 Bangalore CS loop.",
+   "evidence": "CS1 Noida round 1 (2025-04, reject); Bangalore CS (2025-10, Glassdoor)",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/6616618/",
+    "https://www.glassdoor.co.in/Interview/Adobe-Computer-Scientist-Interview-Questions-EI_IE1090.0,5_KO6,24.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Implement Queue using Stacks",
+   "lcId": 232,
+   "url": "https://leetcode.com/problems/implement-queue-using-stacks/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Stack",
+    "Queue",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Working solution judged 'unoptimized'; the amortized O(1) two-stack version was expected immediately.",
+   "evidence": "CS1 Noida round 1, Apr 2025",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6616618/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "String to Integer (atoi) with strict edge cases",
+   "lcId": 8,
+   "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "Implementation"
+   ],
+   "statement": "",
+   "variant": "Adobe's spec: ignore leading/trailing spaces, accept only digits or a leading '-', return INT_MAX on invalid input, don't assume fixed int size.",
+   "evidence": "CS1 Noida round 1, 2025 (with House Robber); C++ theory (pointers vs references, stack overflow, heap) in the same round",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6943130/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count of Smaller Numbers After Self",
+   "lcId": 315,
+   "url": "https://leetcode.com/problems/count-of-smaller-numbers-after-self/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "BIT",
+    "Merge Sort",
+    "Stack"
+   ],
+   "statement": "",
+   "variant": "The interviewer insisted on a stack-based solution and would not accept alternatives — be ready to discuss multiple approaches diplomatically.",
+   "evidence": "CS1 Noida round 2, 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6943130/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Container With Most Water",
+   "lcId": 11,
+   "url": "https://leetcode.com/problems/container-with-most-water/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Two Pointers",
+    "Greedy"
+   ],
+   "statement": "",
+   "variant": "Standard two-pointer accepted.",
+   "evidence": "CS1 Noida round 2, 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6943130/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Nested List Weight Sum",
+   "lcId": 339,
+   "url": "https://leetcode.com/problems/nested-list-weight-sum/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DFS",
+    "BFS"
+   ],
+   "statement": "",
+   "variant": "Full statement given since it's LC-premium: sum of each integer times its nesting depth.",
+   "evidence": "CS2 Noida round 1 (7 YOE, selected), Apr 2025",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6689087/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "String Compression",
+   "lcId": 443,
+   "url": "https://leetcode.com/problems/string-compression/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "HM round; full runnable program (main, I/O, imports) required in the compiler.",
+   "evidence": "CS2 Noida HM round, Apr 2025",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6689087/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Compare Version Numbers",
+   "lcId": 165,
+   "url": "https://leetcode.com/problems/compare-version-numbers/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "Variant: number of dots fixed to 2.",
+   "evidence": "CS2 Noida HM round, Apr 2025",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6689087/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Zero Array Transformation I",
+   "lcId": 3355,
+   "url": "https://leetcode.com/problems/zero-array-transformation-i/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Difference Array",
+    "Prefix Sum"
+   ],
+   "statement": "",
+   "variant": "Described verbally: given positive array + range queries each decrementing a range by 1, can the array become all zeros.",
+   "evidence": "MTS-2 round 1, Apr 2025 (with AWS S3 and ML questions from resume)",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6650780/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "The Celebrity Problem",
+   "lcId": 277,
+   "url": "https://leetcode.com/problems/find-the-celebrity/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Two Pointers",
+    "Graph"
+   ],
+   "statement": "",
+   "variant": "Given via a Naukri Code360 link in the interview; paired with 'design a universal query maker'.",
+   "evidence": "MTS-2 round 2, Apr 2025",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6650780/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Coin Change",
+   "lcId": 322,
+   "url": "https://leetcode.com/problems/coin-change/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "MTS 2 Noida round 2 (offer), Jun 2025; also in Adobe's LC tag top list",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6805427/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Intersection of Two Linked Lists (+ many-lists variant)",
+   "lcId": 160,
+   "url": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Linked List",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Follow-up: a LARGE number of linked lists that can merge anywhere — group them by intersection in O(n) time and O(n) space (trick: hash each list's tail).",
+   "evidence": "MTS 2 Noida managerial round, Jun 2025",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6805427/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "O(1) get/insert/delete for huge numeric keys without unordered_map",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Trie",
+    "Design"
+   ],
+   "statement": "Keys are object IDs too long for any primitive integer type. Implement a structure with get/insert/delete in guaranteed constant time per digit-length; unordered_map is banned because its worst case is O(n). Expected answer: a digit-Trie keyed on the ID's digits.",
+   "variant": "",
+   "evidence": "MTS 2 Noida round 1, Jun 2025 (after Trapping Rain Water)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6805427/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Word Break",
+   "lcId": 139,
+   "url": "https://leetcode.com/problems/word-break/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Trie",
+    "String"
+   ],
+   "statement": "",
+   "variant": "DP solution expected; same round covered virtual functions, thread-safe singleton and race conditions.",
+   "evidence": "MTS-2 Noida round 1 (offer), Jun 2025 (Roundz)",
+   "recency": "2025-06",
+   "sources": [
+    "https://roundz.substack.com/p/interview-experience-109-adobe-mts2-l2"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Binary Search Tree Iterator",
+   "lcId": 173,
+   "url": "https://leetcode.com/problems/binary-search-tree-iterator/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BST",
+    "Stack",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Implement next()/hasNext() with lazy inorder via explicit stack; also asked in a 2022 CS1 HM round as 'design an iterator for a BST'.",
+   "evidence": "MTS-2 Noida round 2 (2025-06, Roundz); CS1 Noida HM round (2022-06, GfG)",
+   "recency": "2025-06",
+   "sources": [
+    "https://roundz.substack.com/p/interview-experience-109-adobe-mts2-l2",
+    "https://www.geeksforgeeks.org/interview-experiences/adobe-interview-experience-for-cs1-noida-june-2022/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Sort a k-sorted (nearly sorted) array",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap"
+   ],
+   "statement": "Each element is at most k positions away from its sorted position; sort the array in O(n log k) using a min-heap of size k+1. Recurs across years at Adobe.",
+   "variant": "",
+   "evidence": "MTS-2 Noida round 2 (2025-06, Roundz); GfG Hyderabad drive round 2 (2017)",
+   "recency": "2025-06",
+   "sources": [
+    "https://roundz.substack.com/p/interview-experience-109-adobe-mts2-l2",
+    "https://www.geeksforgeeks.org/interview-experiences/adobe-interview-experience-set-45-2-5years-experienced/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Binary Tree Zigzag Level Order Traversal",
+   "lcId": 103,
+   "url": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "Binary Tree"
+   ],
+   "statement": "",
+   "variant": "Working code on the first attempt with no errors was demanded (Dec 2024); also in a 2021 Noida CS loop with left/top view of binary tree.",
+   "evidence": "CS1 Noida round 1 (2024-12); Computer Scientist Noida round 2 (2021-01, offer)",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6159717/Adobe-or-CS-1-or-Noida-or-Dec-2024-or-Reject/",
+    "https://leetcode.com/discuss/post/1072402/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Two non-overlapping increasing subarrays of length k",
+   "lcId": 3349,
+   "url": "https://leetcode.com/problems/adjacent-increasing-subarrays-detection-i/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Array",
+    "DP"
+   ],
+   "statement": "",
+   "variant": "Part 1: do at least 2 non-overlapping increasing length-k subarrays exist; part 2: maximize k (LC 3350).",
+   "evidence": "MTS-2 Java Noida round 1, Nov 2024",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6181134/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Step-By-Step Directions From a Binary Tree Node to Another",
+   "lcId": 2096,
+   "url": "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Tree",
+    "LCA",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "Asked as 'print the path between two nodes'; candidate gave graph+DFS and stack+DFS approaches with dry runs.",
+   "evidence": "CS1 Noida mixed round (2023)",
+   "recency": "2023",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/4222082/Adobe-CS1-Interview/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Puzzle: poisoned wine bottle (1000 bottles, rats)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Puzzle",
+    "Bit Manipulation"
+   ],
+   "statement": "1000 wine bottles, exactly one poisoned; poison kills in 24 hours. Find the minimum number of rats needed to identify the poisoned bottle in one 24-hour window. Answer: 10, binary-encode bottle numbers, each rat drinks from bottles whose number has its bit set.",
+   "variant": "",
+   "evidence": "MTS-2 Noida round 3 (technical round, not director), Jun 2025",
+   "recency": "2025-06",
+   "sources": [
+    "https://roundz.substack.com/p/interview-experience-109-adobe-mts2-l2"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Puzzle: 25 horses / fastest-3 with limited race tracks",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Puzzle"
+   ],
+   "statement": "25 horses, race at most 5 at a time, no stopwatch; find the minimum races to determine the top 3 (answer: 7). Also appears as 'top 3 fastest horses with limited tracks' in managerial rounds.",
+   "variant": "",
+   "evidence": "MTS-2 Noida round 2 (approach only); SDE-3 FE managerial round (2025-04)",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/2904343/Adobe-or-Mts-2-or-Noida/",
+    "https://leetcode.com/discuss/post/6669334/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Puzzle: 3 priests and 3 devils river crossing",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Puzzle"
+   ],
+   "statement": "Three priests and three devils must cross a river in a two-seat boat; devils may never outnumber priests on either bank. Give the exact sequence of crossings. The Adobe director wanted only the steps, with no intermediate state narration.",
+   "variant": "",
+   "evidence": "CS1 Bangalore (Illustrator) Director round, Jun 2025",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6819770/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Puzzles: camel & bananas; 3 ants on a triangle",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Puzzle"
+   ],
+   "statement": "(a) A camel must transport 3000 bananas 1000 km, carries 1000 max, eats 1 per km travelled — maximize bananas delivered (answer 533). (b) 3 ants at triangle corners each pick a random direction — probability of no collision (2/8 = 1/4). Both asked in an Adobe MTS-2 HM round.",
+   "variant": "",
+   "evidence": "MTS-2 HM round (GfG, 2021); similar probability puzzles (biased dice, Lucky-7 game, 50 red/50 blue balls) in other Adobe loops",
+   "recency": "2021",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/adobe-interview-experience-for-mts-2-2/",
+    "https://leetcode.com/discuss/post/956903/",
+    "https://www.geeksforgeeks.org/interview-experiences/adobe-interview-experience-set-45-2-5years-experienced/"
+   ],
+   "confidence": "medium"
+  }
+ ],
+ "design": [
+  {
+   "title": "Serverless thumbnail generation service",
+   "prompt": "Design a serverless service that generates thumbnails for uploaded images/documents.",
+   "probes": [
+    "event-driven flow (upload -> queue -> lambda/worker)",
+    "storage layout for originals vs thumbnails",
+    "scaling and cold starts",
+    "retry/failure handling"
+   ],
+   "round": "Design round 2 of a 4-round Noida CS loop",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Noida Computer Scientist, Aug 2025 (Glassdoor); also listed as an Adobe staple in TechScreen's 2026 guide",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/Adobe-Computer-Scientist-Interview-Questions-EI_IE1090.0,5_KO6,24.htm",
+    "https://techscreen.app/articles/adobe-technical-interview-process-2026"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Scalable file storage (Dropbox/Drive-lite)",
+   "prompt": "Design a file storage service with upload/download, link sharing and optional versioning.",
+   "probes": [
+    "chunked uploads",
+    "dedup via content hashes",
+    "metadata store (RDS) + Redis caching",
+    "signed URLs for security",
+    "consistency, retries, monitoring",
+    "trade-offs and scaling pushed hard but collaboratively"
+   ],
+   "round": "HLD round (CS-2 level)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "CS2 Noida offer, Jul 2025, round 4",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6956865/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "BookMyShow: schema + concurrent seat booking",
+   "prompt": "Design a movie-ticket platform end to end: walk the whole user flow of finding and booking a ticket, writing the step-by-step table schema needed at each step; separately, handle many users booking the same seat concurrently.",
+   "probes": [
+    "detailed relational schema per flow step",
+    "seat-level locking / concurrency control for simultaneous booking",
+    "navigating from search to checkout"
+   ],
+   "round": "Round 3 / HM round; also a final-round concurrency question",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "CS1 ALM drive round 3 (2025-11, schema version); GfG CS1 Bangalore final round (2021, concurrency version)",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7354389/",
+    "https://www.geeksforgeeks.org/adobe-interview-experience-for-computer-scientist-1/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Meeting scheduler across N users' calendars",
+   "prompt": "N users each have vacant slots; schedule a meeting so all (or the maximum number of) users can attend — Google-Calendar style.",
+   "probes": [
+    "use cases first, then schema design",
+    "SQL queries powering each use case",
+    "merge-intervals algorithm at the core",
+    "HLD+LLD hybrid expectations"
+   ],
+   "round": "Managerial round (HLD/LLD mix)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "CS-1 selected, Jul 2025, round 4",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6924065/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design Goodreads (books/reviews platform)",
+   "prompt": "Design Goodreads focusing on entity relationships, DB schema, and query patterns.",
+   "probes": [
+    "entities and relationships",
+    "schema + querying",
+    "ran out of time — scope early"
+   ],
+   "round": "DSA + design round 2",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "CS-1 4.5 YOE loop, 2025, round 2 (with a balanced-parentheses variation and multithreading scenario questions)",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/6974116/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "E-commerce inventory management (admin side)",
+   "prompt": "Design inventory management for an e-commerce site, admin side only: add, remove, search products.",
+   "probes": [
+    "functional + non-functional requirements",
+    "entities/attributes/relationships, SQL choice justified",
+    "APIs for add/update/delete/search",
+    "scaling: caching, read replicas, sharding by product ID",
+    "hot-key handling / shard rebalancing"
+   ],
+   "round": "HM / design round 3",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Computer Scientist all-rounds experience, 2025",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/interview-question/6148547/Adobe-Computer-Scientist-Interview-Experience-or-ALL-Rounds/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Offensive-content filter (text/image/video)",
+   "prompt": "Design a system that flags hateful or inappropriate content across text, images and video.",
+   "probes": [
+    "multi-layered architecture: NLP toxicity models for text, CV pipelines for images/video",
+    "microservices + message queues for async processing",
+    "scalability, latency, false positives"
+   ],
+   "round": "Director round HLD",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "MTS-2 Noida offer, Jun 2025, director round (Roundz)",
+   "recency": "2025-06",
+   "sources": [
+    "https://roundz.substack.com/p/interview-experience-109-adobe-mts2-l2"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Acrobat Desktop file system",
+   "prompt": "Design the file system of the Acrobat desktop application.",
+   "probes": [
+    "clarify scope first",
+    "product-feature design, not classic distributed HLD",
+    "quick implementation sketch accepted"
+   ],
+   "round": "Director round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "MTS 2 Noida offer, Jun 2025, round 4",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6805427/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Universal query maker",
+   "prompt": "Design a 'universal query maker' — a component that can construct/execute queries across heterogeneous data sources.",
+   "probes": [
+    "abstraction over data sources",
+    "query building API design"
+   ],
+   "round": "Round 2 (with Celebrity Problem)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "MTS-2, Apr 2025",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6650780/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Webinar platform with license tiers",
+   "prompt": "Design a webinar platform where Silver/Gold/Platinum licenses cap participants per webinar and total concurrent participants per user, with a 60K global active-user limit.",
+   "probes": [
+    "enforcing per-license and global concurrency limits",
+    "where the counters live and their consistency",
+    "admission control"
+   ],
+   "round": "System design round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Sr. SWE Noida offer (7 YOE), 2024 — same loop level-adjacent to CS1/CS2",
+   "recency": "2024-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/5784907/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Scale an unmodifiable monolith from 100K to 1M users",
+   "prompt": "A legacy monolith supports at most 100K users and cannot be modified; scale the product to 1M users.",
+   "probes": [
+    "run N instances, each owning a user shard",
+    "routing microservice with consistent hashing on user email",
+    "globally unique IDs by combining instance number + local ID"
+   ],
+   "round": "Hiring-manager round (real problem from the team)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Sr. SWE Noida offer, 2024, HM round",
+   "recency": "2024-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/5784907/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design WhatsApp",
+   "prompt": "Design WhatsApp-scale messaging.",
+   "probes": [
+    "message queues",
+    "scalability challenges",
+    "grounded in the candidate's OS/current-work discussion"
+   ],
+   "round": "EM round",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "MTS-2 Noida selected, Mar 2024, round 3",
+   "recency": "2024-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/4945272/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Airline / flight reservation system",
+   "prompt": "Design an airline system (director round, graph-theoretic flavor: routes, complexity); or a flight reservation service with search-by-date, booking, and my-bookings APIs.",
+   "probes": [
+    "graph modeling of routes + complexity analysis",
+    "caching",
+    "search/book/retrieve API design",
+    "find all direct & indirect flights source->destination (coding version, 2024)"
+   ],
+   "round": "Director round / manager round",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "MTS-2 director round (2024-03); GfG CS1 Bangalore round 3 (2021); flights-connectivity coding version in MTS-2 frontend loop (2024)",
+   "recency": "2024-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/4945272/",
+    "https://www.geeksforgeeks.org/adobe-interview-experience-for-computer-scientist-1/",
+    "https://leetcode.com/discuss/post/5616563/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Netflix-like video platform (HLD)",
+   "prompt": "High-level design of a Netflix-style streaming service, followed by cross-questioning.",
+   "probes": [
+    "component justification",
+    "load testing experience",
+    "built-from-scratch war stories"
+   ],
+   "round": "Director (BU) round",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "CS1 (6.5 YOE Java) cleared loop, GfG (published 2022-02)",
+   "recency": "2022",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/adobe-interview-experience-5/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Online music playlist service",
+   "prompt": "Design a playlist service: search by artist/song/genre/year/album, sort by year or likes, recommend similar playlists, resume from last position.",
+   "probes": [
+    "schema for multi-attribute search",
+    "sorting/ranking",
+    "resume-state persistence"
+   ],
+   "round": "System design round 2",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "GfG CS1 Bangalore hiring drive (2021), round 2",
+   "recency": "2021",
+   "sources": [
+    "https://www.geeksforgeeks.org/adobe-interview-experience-for-computer-scientist-1/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "URL metadata extraction service",
+   "prompt": "HLD for a service that takes a URL and returns metadata associated with it.",
+   "probes": [
+    "fetch/parse pipeline",
+    "caching",
+    "API shape"
+   ],
+   "round": "Round 3",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "GfG Computer Scientist experience (2019)",
+   "recency": "2019",
+   "sources": [
+    "https://www.geeksforgeeks.org/adobe-interview-experience-computer-scientist/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Cricbuzz live-score mobile plugin",
+   "prompt": "Design a mobile plugin that continuously fetches the live score of a given match from the Cricbuzz website.",
+   "probes": [
+    "polling vs push",
+    "battery/network efficiency",
+    "client-server contract"
+   ],
+   "round": "Round 4 (tech + behavioral mix)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "CS1 SDET Bangalore offer, Nov 2022",
+   "recency": "2022-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/2811268/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Walk through the HLD of your most complex project",
+   "prompt": "Draw and defend the architecture of the most complex system you have built: components, data flow, storage, and every technology choice.",
+   "probes": [
+    "justify each DB/queue/component choice",
+    "how data is stored",
+    "design conflicts with seniors and how you resolved them",
+    "follow-up 'what would you change'"
+   ],
+   "round": "HLD/EM/HM rounds — appears in nearly every Adobe loop",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "CS1 ALM round 3 (2025-11); CS1 Dec-2024 HLD round (90 min, verbal custom problem); MTS-2 frontend round 5 (2024); 1point3acres Senior CS onsite (2026-02)",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7354389/",
+    "https://leetcode.com/discuss/interview-experience/6159717/Adobe-or-CS-1-or-Noida-or-Dec-2024-or-Reject/",
+    "https://leetcode.com/discuss/post/5804645/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Very-large-file processing designs",
+   "prompt": "Classic Adobe large-data prompts: (a) find common lines between two 1-billion-line files; (b) sort a file that doesn't fit in memory; (c) efficient word storage + lookup over a huge file.",
+   "probes": [
+    "external sort / chunking",
+    "hashing vs trie for word lookup",
+    "disk I/O and caching"
+   ],
+   "round": "Mid-loop technical rounds",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Computer Scientist Noida offer (2021-01) round 3; MTS-2 Roundz round 3 (2025-06, trie + disk I/O version)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/1072402/",
+    "https://roundz.substack.com/p/interview-experience-109-adobe-mts2-l2"
+   ],
+   "confidence": "medium"
+  }
+ ],
+ "lld": [
+  {
+   "title": "Notification service (Email/SMS/WhatsApp/Push)",
+   "prompt": "Design a notification service that delivers to multiple channels.",
+   "deliverable": "interfaces + class design; discussion of patterns; sometimes partial code",
+   "probes": [
+    "strategy pattern for channels, central orchestrating service",
+    "retries, rate limiting, async execution (ExecutorService)",
+    "user activity tracking on notifications",
+    "how a queue (Kafka) would slot in later",
+    "unit testing + dependency injection"
+   ],
+   "round": "LLD round",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "2 reports: CS2 Noida round 3 (2025-07), MTS-2 drive round 3 (2025-05)",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6956865/",
+    "https://leetcode.com/discuss/post/6789642/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "In-memory file system / Linux commands",
+   "prompt": "Implement an in-memory file system with ls, mkdir, addFile, getFile; a sibling report asked for Linux directory commands (mkdir, ls, delete, navigation) in Java.",
+   "deliverable": "working code",
+   "probes": [
+    "tree data structure for the hierarchy",
+    "follow-up: file content data type changes -> make it generic (Java generics)",
+    "finish more than one operation in time"
+   ],
+   "round": "LLD (+DSA) round",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "MTS-2 round 2 (2025-11, in-memory FS) and MTS-2 round 3 (2025-11, Linux commands) — two separate Nov-2025 loops; relative of LC 588",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7376948/",
+    "https://leetcode.com/discuss/post/7350002/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Autocomplete with top-K frequency predictions",
+   "prompt": "Design an autocomplete/search-suggestion system returning the top K predictions ranked by search frequency.",
+   "deliverable": "class design + core code (Trie)",
+   "probes": [
+    "trie with frequency aggregation",
+    "top-K per prefix",
+    "2024 coding version: top-3 product names matching a prefix sorted by frequency"
+   ],
+   "round": "LLD round / coding round",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "MTS-2 round 3 (2025-11); Sr SWE coding round (2024-09)",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7350002/",
+    "https://leetcode.com/discuss/post/5784907/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Configuration management service",
+   "prompt": "Design a configuration management service: class design, attributes, methods, applicable design patterns.",
+   "deliverable": "class diagram + patterns discussion",
+   "probes": [
+    "versioning/overrides",
+    "pattern choices justified"
+   ],
+   "round": "LLD round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "MTS-2 round 2, Nov 2025",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7350002/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Warehouse space-rental system",
+   "prompt": "A warehouse contains multiple spaces rented to firms; design optimal space allocation and order processing for stored items.",
+   "deliverable": "class design",
+   "probes": [
+    "allocation strategy",
+    "order processing flow"
+   ],
+   "round": "LLD round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "MTS-2 round 3, Nov 2025 (candidate attributes rejection to this round)",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7376948/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Garbage collector for C/C++",
+   "prompt": "Design (and partially implement) a garbage collector for C/C++.",
+   "deliverable": "design + core logic discussion",
+   "probes": [
+    "reference counting vs mark-sweep",
+    "cycles",
+    "integration with C++ memory model"
+   ],
+   "round": "LLD round on C++ loops",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "MTS 2 C++ round 3 (2025-11); CS1 Bangalore Illustrator round 2 (2022, 'went poorly' -> extra round added)",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7350917/",
+    "https://leetcode.com/discuss/interview-experience/1831061/adobe-cs-1-bangalore-offer/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "IRCTC train ticket booking",
+   "prompt": "LLD of train ticket booking: search trains between stations, book, seat/route assignment, re-sell a vacated seat after an intermediate station drop-off.",
+   "deliverable": "DB-schema-first design + SQL queries per use case",
+   "probes": [
+    "schema design",
+    "seat assignment logic",
+    "partial-journey seat reuse"
+   ],
+   "round": "Design round 2 of 5",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "CS-1 selected, Jul 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6924065/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Cart checkout system with authN/authZ",
+   "prompt": "Design the checkout flow after items are in the cart; every API call must pass authentication and authorization.",
+   "deliverable": "production-ready modular code: services, interfaces, abstractions",
+   "probes": [
+    "design patterns (asked for MORE patterns to improve it)",
+    "entity modeling",
+    "modularity/abstraction quality"
+   ],
+   "round": "Design round 3 of 5",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "CS-1 selected, Jul 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6924065/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Elevator system (time + energy efficient)",
+   "prompt": "Design an elevator system optimizing both wait time and energy use — logic-focused, not distributed HLD.",
+   "deliverable": "requirements, use cases/scenarios, scheduling logic",
+   "probes": [
+    "requirement gathering first",
+    "scheduling/dispatch algorithm",
+    "efficiency trade-offs"
+   ],
+   "round": "Technical round 2",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "CS1 Bangalore Illustrator round 2, Jun 2025",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6819770/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Chess game",
+   "prompt": "LLD of chess: classes and structure (code optional).",
+   "deliverable": "class diagram + method signatures",
+   "probes": [
+    "piece/board/move abstractions",
+    "right level of abstraction"
+   ],
+   "round": "LLD round",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "CS2 Noida round 2 (2025-04); CS1 Bangalore round 1 (2022); GfG Computer Scientist round 4 (2019)",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6689087/",
+    "https://leetcode.com/discuss/interview-experience/1831061/adobe-cs-1-bangalore-offer/",
+    "https://www.geeksforgeeks.org/adobe-interview-experience-computer-scientist/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Multithreaded task scheduler",
+   "prompt": "Build a task scheduler supporting one-shot execution at a start time and periodic execution with fixed delay and iteration count.",
+   "deliverable": "working concurrent code",
+   "probes": [
+    "min-heap of tasks + worker threads",
+    "interviewer required wait()/notify()/notifyAll() instead of busy polling",
+    "volatile and synchronized semantics"
+   ],
+   "round": "Dedicated concurrency round (Adobe runs one for Java/backend loops)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Sr SWE Noida offer, 2024, concurrency round",
+   "recency": "2024-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/5784907/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Concurrent HashMap + tree node lock/unlock",
+   "prompt": "(a) Implement a concurrent hashmap (get/put/delete). (b) Given a tree whose nodes have left/right/parent pointers, implement lock(node)/unlock(node) where a node can be locked only if no ancestor or descendant is locked — O(h) expected.",
+   "deliverable": "working code",
+   "probes": [
+    "segment/bucket locking",
+    "race conditions, reader-writer problem",
+    "O(h) lock/unlock via parent pointers + locked-descendant counts"
+   ],
+   "round": "Concurrency-focused round 2",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "MTS-2 Java Noida round 2 (2024-11); lock/unlock also in Computer Scientist Noida round 5 (2021-01, offer)",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6181134/",
+    "https://leetcode.com/discuss/post/1072402/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Thread-safe read-write lock",
+   "prompt": "Design a read-write lock allowing concurrent reads but exclusive writes.",
+   "deliverable": "code in editor, SOLID-checked",
+   "probes": [
+    "SOLID adherence",
+    "requirement completeness",
+    "follow-ups on SQL vs NoSQL and design principles"
+   ],
+   "round": "System design round 2",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "GfG CS1 (6.5 YOE Java), cleared loop (published 2022-02)",
+   "recency": "2022",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/adobe-interview-experience-5/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Client-side rate limiter library",
+   "prompt": "LLD of a client-side rate-limiting library keyed by client id.",
+   "deliverable": "complete thread-safe code + driver class",
+   "probes": [
+    "rate-limiting algorithm implementation",
+    "thread safety",
+    "how to test it, incl. threaded clients"
+   ],
+   "round": "System design round 3",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "CS1 4.8 YOE loop (2022); related 'design get/add/delete APIs all O(1)' probe in CS1 round 1 (2025-08, interviewer rejected plain hashing over collision worst case)",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/1914558/",
+    "https://leetcode.com/discuss/post/7128297/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Parking lot with concurrent slot assignment",
+   "prompt": "Single-entry single-floor parking lot with OO principles; part 2 adds multithreading: concurrent slot assignment to multiple vehicles.",
+   "deliverable": "class design + concurrency discussion",
+   "probes": [
+    "concurrent data structures",
+    "synchronized/locks",
+    "OO modeling"
+   ],
+   "round": "LLD round 2",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "CS Bengaluru loop, 2022",
+   "recency": "2022",
+   "sources": [
+    "https://leetcode.com/discuss/post/1793430/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Movie booking system (classes only)",
+   "prompt": "Design a movie booking system: which classes and how they interact.",
+   "deliverable": "class-interaction sketch",
+   "probes": [
+    "separation of concerns",
+    "paired with 'print last n lines of a file' and memory-management questions"
+   ],
+   "round": "Round 3",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "MTS-2 Noida loop, 2022",
+   "recency": "2022",
+   "sources": [
+    "https://leetcode.com/discuss/post/1913501/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "File explorer of an IDE",
+   "prompt": "Design the file-explorer component of an IDE.",
+   "deliverable": "skeleton classes until the abstraction satisfied the interviewer",
+   "probes": [
+    "relevant design patterns probed one by one",
+    "interviewer iterated until the right abstraction emerged"
+   ],
+   "round": "LLD round with hiring manager (~90 min)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "CS2 Noida offer, Oct 2021, round 3",
+   "recency": "2021-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/1585856/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Kafka-like message queue",
+   "prompt": "LLD of a message queue: publisher, subscriber, topic classes.",
+   "deliverable": "working classes (observer pattern)",
+   "probes": [
+    "observer pattern",
+    "offset management for multiple subscribers of a topic (the follow-up that sank the candidate)"
+   ],
+   "round": "Round 3",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "SDE2 reject, 2023 (also asked Redis USPs in the same round)",
+   "recency": "2023-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/3980899/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Singleton and its variants",
+   "prompt": "Implement Singleton (thread-safe, with a real use case like a Logger); variants: a class limited to exactly 2 instances returned alternately per getInstance() call; delete the copy constructor; design a Logger class.",
+   "deliverable": "working C++/Java code",
+   "probes": [
+    "double-checked locking / thread safety",
+    "two-instance variant under threads",
+    "why/when singleton; composition vs inheritance"
+   ],
+   "round": "Appears inside DSA, HM and C++ rounds alike",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "CS1 round 1 (2025-05); SDE-2 C++ round 1 (2025-04); CS1 Bangalore 2022 rounds 1+3; CS2 2020 round 2 (2-object variant); CS1 2023 mixed round",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6722120/",
+    "https://leetcode.com/discuss/post/6603811/",
+    "https://leetcode.com/discuss/interview-experience/1831061/adobe-cs-1-bangalore-offer/",
+    "https://leetcode.com/discuss/post/956903/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Class with unique IDs under copy/assignment",
+   "prompt": "Design a C++ class where every object — including copies and assignments — gets a unique ID.",
+   "deliverable": "working C++ (copy ctor/assignment operator)",
+   "probes": [
+    "rule of three/five",
+    "static counter + correct copy semantics"
+   ],
+   "round": "Manager (techno-managerial) round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "CS1 Bangalore Illustrator round 3, Jun 2025",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6819770/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design a water bottle (OOP drill)",
+   "prompt": "Model a water bottle in OO terms: shape, color, material, cap mechanism, capacity — show encapsulation and inheritance in your classes.",
+   "deliverable": "class sketch",
+   "probes": [
+    "encapsulation/inheritance applied to a mundane object",
+    "intentionally open-ended HM curveball"
+   ],
+   "round": "HM round",
+   "difficulty": "Easy",
+   "classic": false,
+   "evidence": "MTS-2 drive HM round, May 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6789642/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Snake game (HLD + class diagram)",
+   "prompt": "Design the classic snake game: both high-level and low-level (class diagrams).",
+   "deliverable": "class diagrams",
+   "probes": [
+    "game loop, board, snake growth",
+    "clean class responsibilities"
+   ],
+   "round": "Round 1 (CS2)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "CS2 Noida, 2020",
+   "recency": "2020-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/956903/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Meeting-room intervals class",
+   "prompt": "Design a class managing meeting rooms over intervals: addInterval (allocate a room if meetings overlap), deleteInterval, getNumRoom() overall and getNumRoom(start,end).",
+   "deliverable": "API + data structure design",
+   "probes": [
+    "interval overlap bookkeeping (sweep/heap)",
+    "API edge semantics (-1 when no meetings)"
+   ],
+   "round": "Round 2 (CS2)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "CS2 Noida, 2020 (alongside move vs forward, variadic templates, copy-on-write)",
+   "recency": "2020-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/956903/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Producer-consumer with wait/notify",
+   "prompt": "Implement producer-consumer to production quality using wait/notify (Java) or condition variables (C++); frontend variant: a channel class with send/subscribe and cancelSubscription(id).",
+   "deliverable": "production-quality working code",
+   "probes": [
+    "spurious wakeups (while-loop guard)",
+    "bounded buffer",
+    "subscription cancellation follow-up"
+   ],
+   "round": "Technical / concurrency rounds",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "GfG Computer Scientist round 3 (2018); CS1 frontend round 2 (2022-12); std::promise/std::future implementation asked in a 5-YOE C++ loop (2019)",
+   "recency": "2022-12",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/adobe-interview-questions-computer-scientist/",
+    "https://leetcode.com/discuss/interview-experience/3277266/Adobe-or-CS1-(SDE3)-or-Noida-or-Frontend-or-Offer/",
+    "https://www.geeksforgeeks.org/adobe-interview-experience-computer-scientist-5-yr-experience/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Thread-safe chat box",
+   "prompt": "Design a chat box where only one user can add a comment at a time; implement the LLD in C++ with mutexes and condition variables.",
+   "deliverable": "working C++",
+   "probes": [
+    "mutex + condition variable usage",
+    "Photoshop-team adjacents: LRU cache, image scaling/translation"
+   ],
+   "round": "HM round (Photoshop team)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "GfG Computer Scientist loop (2021)",
+   "recency": "2021",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/adobe-computer-scientist-interview-experience/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Dictionary backed by a Trie (production quality)",
+   "prompt": "Design a dictionary: APIs, storage structure (Trie), then implement add/delete handling all corner cases, with enum error codes and multiple definitions per word.",
+   "deliverable": "production-quality C++ code in a bare editor",
+   "probes": [
+    "error-code design (enums)",
+    "corner cases in add/delete",
+    "class structure"
+   ],
+   "round": "Technical round 1 (5-YOE C++ loop)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "GfG Computer Scientist 5-YOE experience (2019)",
+   "recency": "2019",
+   "sources": [
+    "https://www.geeksforgeeks.org/adobe-interview-experience-computer-scientist-5-yr-experience/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "DB connection pool",
+   "prompt": "Write a connection-pool class that acquires a connection and releases it automatically around query execution.",
+   "deliverable": "working code",
+   "probes": [
+    "RAII / auto-release",
+    "pool sizing, thread safety"
+   ],
+   "round": "Round 4",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "GfG Computer Scientist experience (2018)",
+   "recency": "2018",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/adobe-interview-questions-computer-scientist/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Airport management system",
+   "prompt": "LLD of an airport management system (paired in the same loop with an HLD of a 'secret service' system).",
+   "deliverable": "class design",
+   "probes": [
+    "entity modeling",
+    "scheduling"
+   ],
+   "round": "Design round (Noida CS1)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Noida Computer Scientist I, Aug 2026 (Glassdoor review)",
+   "recency": "2026-08",
+   "sources": [
+    "https://www.glassdoor.com.hk/Interview/Adobe-Interview-E1090-RVW68497927.htm"
+   ],
+   "confidence": "medium"
+  }
+ ]
+}

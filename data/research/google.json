@@ -1,0 +1,1638 @@
+{
+ "company": "Google",
+ "slug": "google",
+ "levelMapping": "L4 = Software Engineer III (\"SWE III\", written SDE-2 / SDE-II in most India posts) ≈ Amazon SDE II / Uber L4. Band is roughly 2–5 YOE; 2025–2026 India L4 reports cluster at 3.5–5 YOE, and a 3.0–3.5 YOE candidate is routinely opened as L3 and has to ask to be moved to the L4 pipeline (a Feb-2026 IIT grad with 3 YOE did exactly that and cleared L4). Down-levelling L4→L3 after the loop is common when one coding round is weak. L5 (Senior) is 5–8+ YOE and is the first level with a dedicated system design round.",
+ "process": {
+  "summary": "Google's L4 loop is almost entirely algorithmic coding: a 45-minute technical phone screen (sometimes preceded by the Google Hiring Assessment and, in some 2025–26 loops, a 2-question proctored DSA OA), then an onsite of 3 (increasingly) or 4 coding rounds plus one 'Googleyness & Leadership' behavioral round — all 45 minutes, coded in Google's plain shared editor with no autocomplete or execution. Interviewers give one deliberately under-specified, story-wrapped problem and stack follow-ups ('now it's a stream', 'now it doesn't fit in memory', 'now with k instead of 2', 'now O(1) space'); hints taken and edge cases the interviewer had to point out are explicitly penalised. Each round is written up as SH/H/LH/LNH/NH and read by a Hiring Committee that never meets you; a team-match (hiring-manager chat) happens before or after HC and the offer only follows a matched team. There is no dedicated system design round at L4 in the vast majority of 2025–2026 reports, and no LLD/machine-coding round at all.",
+  "rounds": [
+   {
+    "name": "Recruiter call",
+    "type": "screen",
+    "duration": "20–40 min",
+    "what": "Background, YOE, notice period, expected CTC, language preference, how much prep time you want (2–6 weeks is routinely granted; recruiters share Google's prep PDF). Recruiter explains the loop.",
+    "probes": "Some India recruiters ask you to rate your DSA out of 10 or ask basic complexity trivia. Ask explicitly: 3 or 4 coding rounds, any design round (recruiters have offered '4 coding' vs '3 coding + 1 system design' as a choice), virtual or in-person, and whether a mock interview is available for first-time candidates."
+   },
+   {
+    "name": "Google Hiring Assessment (GHA) / Googleyness OA (+ optional DSA OA)",
+    "type": "oa",
+    "duration": "30–45 min (GHA); 60 min if a DSA OA is bundled",
+    "what": "Online work-style questionnaire (~50–100 Likert / situational items). Some loops add a proctored 2-question DSA OA with webcam (India L4 Aug 2026; US L4 Nov 2025 and Dec 2025). Experienced referrals often skip straight to the phone screen.",
+    "probes": "Answer consistently across inverted items and avoid neutral midpoints — failing the GHA means a 6-month cooldown. Reported L4 DSA OA problems: a Medium string problem + a Hard DP (count ways to pick K coins with sum divisible by M; min town-sum difference after deleting one tree edge)."
+   },
+   {
+    "name": "Technical phone screen (TPS)",
+    "type": "dsa",
+    "duration": "45 min (occasionally 60)",
+    "what": "One Google engineer on Google Meet with Google's interview doc (no syntax highlighting, no running code). Usually one medium problem with a harder follow-up, or two shorter problems. Eliminatory and effectively pass/fail; borderline candidates are sometimes offered a second TPS instead of a reject.",
+    "probes": "Clarify the vague (often verbally dictated) statement, give brute force then optimal, state complexity before coding, dry-run without being asked. Representative 2025–26 TPS problems: dedup messages in a 10-second window, top-K users from a chat stream, first failing commit with parallel-API follow-ups, dice-win counting, equal-area cake cut (Separate Squares), nth license plate, evaluate add(mul(pow(...))), graph→binary-tree root, secure hashed linked list."
+   },
+   {
+    "name": "Onsite coding rounds ×3 (sometimes 4)",
+    "type": "dsa",
+    "duration": "45 min each (≈35 min of problem time; 5 min intro, 5 min your questions)",
+    "what": "Virtual over Google Meet in India and most of the EU; US loops since 2025 increasingly require at least one in-person coding round. Each round: one story-wrapped problem + 1–3 escalating follow-ups, or two medium problems. Several 2025 India reports say HR confirmed the loop moved from 4 to 3 coding rounds; HC may add a 4th 'tie-breaker' coding round when the packet is mixed.",
+    "probes": "Graphs dominate (BFS/multi-source BFS/0-1 BFS, Dijkstra variants, topological sort, union-find), then intervals/line-sweep, heaps/top-K, binary search on the answer, tries, sliding window, matrix geometry, and small OOD-flavoured 'implement this class/API' problems (RLE class, BookManager, restaurant waitlist, image-gallery iterator). Follow-up probes: 'what if the input is a stream', 'what if it doesn't fit in memory / is distributed (MapReduce)', 'reduce space to O(1)', 'write test cases', 'will this work in production'. Needing more than one hint, a missed edge case, or wrong complexity analysis each cost a full grade."
+   },
+   {
+    "name": "Googleyness & Leadership (G&L)",
+    "type": "behavioral",
+    "duration": "30–45 min",
+    "what": "6–10 behavioral/situational questions from a senior Googler, often in another office/timezone. Themes: disagreement with a colleague or manager, ambiguous requirements, a project deprioritised mid-way, missing a deadline, influencing another team, helping a struggling teammate, going beyond your role for the user, receiving hard feedback, cultural diversity. Scored like a technical round — an NH here has sunk otherwise strong packets.",
+    "probes": "STAR/CARL answers under ~2 minutes with real metrics; expect 'what would you do differently?' and 'how did the team react?'. Most 2025–26 candidates say the questions came straight from the LeetCode 'Googlyness frequently asked questions' thread. Mid-2026 US pilot loops add a short technical-design discussion of a past project to this round."
+   },
+   {
+    "name": "Hiring Committee (HC)",
+    "type": "other",
+    "duration": "1–3 weeks, no candidate contact",
+    "what": "Engineers who did not interview you read the packet (per-round written feedback and ratings, resume, recruiter notes, often an HM statement of support) and decide hire / no hire / down-level / 'need more signal' (one extra coding round). For L4, coding consistency weighs most; a single NH with otherwise strong rounds produced rejections in several 2025 reports.",
+    "probes": "Recruiters sometimes request an updated resume/marksheets before HC. A borderline packet can be rescued by a strong hiring-manager write-up from team match."
+   },
+   {
+    "name": "Team match / Hiring manager call",
+    "type": "hm",
+    "duration": "30–45 min per team; days to months to find a team",
+    "what": "Conversation with a hiring manager about your past work and their team's stack and scope; both sides must say yes. In India it often happens before HC (a 'soft team alignment' can even precede onsites); in the US/EU it is usually after HC. Scarce L4 non-ML openings made this the slowest stage in 2025 India (weeks to 3+ months); 'no interested HM' is a de-facto rejection.",
+    "probes": "Link your past projects to the team's roadmap; expect a few technical-depth questions on your resume. The offer and compensation call follow within days of a match."
+   }
+  ],
+  "indiaNotes": "Bengaluru and Hyderabad (plus Pune/Gurgaon for some teams) hire L3/L4/L5; India L4 reports in 2025–26 cluster at 3.5–5 YOE and 3-YOE candidates are frequently opened at L3. The India loop has the same DSA-only shape (TPS + 3–4 coding + G&L) but is almost always fully virtual over Google Meet, with onsite rounds on consecutive days or within one week and interviewers drawn globally (US interviewers in night-IST slots, EU interviewers in the afternoon, or Indian interviewers) — several candidates deliberately chose late-evening slots to get non-Indian interviewers. Scheduling churn is the norm: multiple reports of 2–4 interviewer no-shows and reschedules, recruiter handoffs, and 1–3 month feedback gaps. India recruiters in 2025 told candidates the loop moved from 4 to 3 coding rounds. HC commonly down-levels L4→L3, and several India L4 packets got an extra 'tie-breaker' coding round at HC's request. A proctored 60-min DSA OA + Googleyness OA preceded the India L4 phone screen in an Aug 2026 report. Team match in India can precede HC and is slow because L4 non-ML openings are scarce (many 2025 L4 openings were ML-only). Design: a few India L4 candidates were offered '4 coding' vs '3 coding + 1 system design' (recruiter called the design round 'architect level'); most chose all-coding. Cooldown is 12 months after a failed loop and 6 months after a failed OA; recruiters sometimes shorten it to 6 months for strong-but-failed candidates.",
+  "timeline": "6–16 weeks is typical end to end; 2025–26 reports range from ~3 weeks (referral with an interested HM) to 5+ months (recruiter churn, no-shows, long team match). Recruiter→TPS 2–6 weeks (you pick prep time), TPS→onsite 3–6 weeks, onsite rounds within 1–7 days, G&L often a week or two later, HC 1–3 weeks, team match days to 3 months, offer within a week of a match.",
+  "tips": [
+   "Treat every problem as under-specified: spend the first 3–5 minutes asking about input type, sortedness, duplicates, size, stream vs batch, and write your own example — candidates lost rounds because the interviewer's single example hid a constraint (dice arrays were sorted; favourites were not in order; 'screenshot' meant a 2D grid).",
+   "Say the brute force out loud, then the optimal; several rejections came from skipping brute force (some interviewers want it coded first) or from refusing to code it when stuck.",
+   "State time and space complexity before coding and re-state after; wrong Big-O (O(V·E) vs O(V+E), O(n log k) vs O(n)) is explicitly recorded in feedback.",
+   "Dry-run your own code on two inputs unprompted; 'missed edge case the interviewer had to point out' and 'testing/debugging could be better' are the two most common negative notes relayed by recruiters.",
+   "Take at most one hint. Recruiters in 2025 told candidates hints 'stall the HC review'; two hints in a round usually means LNH.",
+   "Write class/helper-method structure even for small problems: 2025 reports got 'expected an API design, not just a function' feedback, and OOD-flavoured problems (gallery iterator, RLE class, BookManager, waitlist, chat-log processor) are common.",
+   "Finish the base problem in ~15–20 minutes so 15+ minutes remain for the real test: the follow-up ('now as a stream', 'now O(1) space', 'now distributed', 'now k instead of 2').",
+   "Graphs are the single most common topic (grid/teleporter/router BFS, multi-source BFS, Dijkstra with modified cost, 0-1 BFS, topological sort, union-find); binary-search-on-answer and interval line-sweep are next. DP appears but less than at other FAANGs.",
+   "Practice in a plain text editor (Google Docs) with a timer; Google's platform has no syntax highlighting, autocomplete or execution, and in 2025 some interviewers asked candidates to share their screen because of AI-cheating concerns.",
+   "Prepare 6–8 STAR stories covering conflict, ambiguity, deprioritised work, missed deadlines, cross-team influence, user focus and diversity; G&L is scored and an NH there has blocked packets.",
+   "Ask the recruiter explicitly about 3 vs 4 coding rounds, any design round, virtual vs in-person, and whether your loop uses the 2026 'code comprehension (Gemini)' pilot format; also ask for the free mock interview Google offers first-time candidates.",
+   "Mine LeetCode Discuss for 2024–2026 Google reports: multiple 2025–26 candidates say 2–3 of their 4 problems were already posted (equal-area cake cut, graph→binary-tree root, chat-log most-active user, dedup messages in 10 s, Alice & Bob shared path, player rankings from match results)."
+  ],
+  "notes": "No LLD/machine-coding/OOD-design round exists in the Google SWE L4 loop (India, US or EU) — design thinking only appears inside coding rounds as 'implement this class/API' problems and as scale follow-ups, so the lld section is intentionally empty. System design: Google reserves a dedicated HLD round for L5+. Of ~90 L4-tagged 2025–2026 reports reviewed, only a handful mention any design: a Jul-2026 Sunnyvale L4 'bill cars on a tolled highway' design round, a Feb-2026 loop with 'Design Snapchat' after a coding question, a Nov-2025 India loop where an interviewer abandoned a confusing coding problem for a system design discussion, a US L4 round that was effectively a 'restaurant ordering system' LLD, and ML-track L4 loops that replace one coding round with an ML system design round (QnA bot/RAG, recommendation). If a recruiter offers '3 coding + 1 design', most L4 candidates decline; if you accept, prep the classics in the design section. Coding platform: Google's own browser editor (no run, no autocomplete); Python, Java, C++ and Go are all fine, and language trivia (C++ containers, Java comparator syntax, 'Java intricacies') is occasionally asked. Ratings: SH/H/LH/LNH/NH per round; TPS is pass/fail. Cooldowns: 12 months after a failed loop, 6 months after a failed OA/GHA; recruiters sometimes offer a second TPS or one more coding round instead of rejecting. 2026 change: Google confirmed (Business Insider, May 2026; Google VP of recruiting quoted) a 'code comprehension' pilot for early- and mid-career SWE roles on select US teams (Cloud, Platforms & Devices) starting H2 2026 — candidates read and debug an existing multi-file codebase with Gemini available and are scored on prompting, validating and debugging AI output, and the G&L round adds a technical-design discussion of past work. It had not reached India/EU loops in any report as of Oct 2026; standard coding rounds remain strictly no-AI, and US loops increasingly require one in-person round.",
+  "sources": [
+   {
+    "title": "Google L4, Cleared (IIT, 3 YOE, Feb–Apr 2026 loop; asked for L4 instead of L3)",
+    "url": "https://leetcode.com/discuss/post/8306526/",
+    "date": "2026-04"
+   },
+   {
+    "title": "Google L4 Software Engineer India Aug 2026 (OA + Googlyness OA + DSA + G&L; cooldown rules)",
+    "url": "https://leetcode.com/discuss/post/8551877/google-l4-software-engineer-india-aug-20-zgn1/",
+    "date": "2026-08"
+   },
+   {
+    "title": "Google Software Engineer (L4) Interview Experience 2026 (US, offer; GHA, phone, 2 onsite, G&L)",
+    "url": "https://www.tryexponent.com/experiences/google-software-engineer-interview-597223",
+    "date": "2026-05"
+   },
+   {
+    "title": "Google SWE-3 Frontend Interview Exp [80LPA / 4YOE] (India, 5 rounds)",
+    "url": "https://shubhamjangle.medium.com/google-swe-iii-interview-the-round-by-round-breakdown-nobody-wrote-fd2c10fe52ff",
+    "date": "2026-04"
+   },
+   {
+    "title": "Hello Interview — Google L4 guide (no SD at L4, in-person trend, May-2026 code-comprehension pilot)",
+    "url": "https://www.hellointerview.com/guides/google/l4",
+    "date": "2026-05"
+   },
+   {
+    "title": "Google tests AI assistants (Gemini) in SWE interviews — Business Insider report, Google spokesperson",
+    "url": "https://theoutpost.ai/news-story/google-tests-ai-assistants-in-software-engineering-interviews-to-mirror-real-world-development-26105/",
+    "date": "2026-05"
+   },
+   {
+    "title": "Google coding interviews in 2026: what changed and what didn't",
+    "url": "https://levelop.dev/blog/google-coding-interviews-in-2026-what-changed-and-what-didnt",
+    "date": "2026-05"
+   },
+   {
+    "title": "Glassdoor — Google Software Engineer L4 interview questions (Jul–Aug 2026 reports incl. toll-highway design)",
+    "url": "https://www.glassdoor.com/Interview/Google-Software-Engineer-L4-Interview-Questions-EI_IE9079.0,6_KO7,27.htm",
+    "date": "2026-08"
+   },
+   {
+    "title": "Google L4 Interview Experience & Timeline (OA → 3 coding → behavioral → team match)",
+    "url": "https://leetcode.com/discuss/interview-experience/7466881",
+    "date": "2026-01"
+   },
+   {
+    "title": "Google Interview Experience L4 Onsite Mountain View (moved to TM)",
+    "url": "https://leetcode.com/discuss/interview-experience/7571793",
+    "date": "2026-02"
+   },
+   {
+    "title": "Google L4 Interview Experience | India | Fullstack (HR: loop moved to 3 DSA rounds)",
+    "url": "https://leetcode.com/discuss/interview-experience/7126128",
+    "date": "2025-08"
+   },
+   {
+    "title": "Google L4 India Interview Experience (HC extra round, down-level to L3, rejection)",
+    "url": "https://leetcode.com/discuss/interview-experience/7164554",
+    "date": "2025-09"
+   },
+   {
+    "title": "Google | L4 | Reject (India, Aug 2025; 'design round' that pivoted to system design)",
+    "url": "https://leetcode.com/discuss/interview-experience/7332689",
+    "date": "2025-11"
+   },
+   {
+    "title": "Google Poland L4 Interview experience (screen + 2 DSA + G&L; 12-month cooldown)",
+    "url": "https://leetcode.com/discuss/interview-experience/7392327",
+    "date": "2025-12"
+   },
+   {
+    "title": "Google SWE3 Interview Result – 2SH/2H/1NH → No Hire (restaurant ordering LLD-style round)",
+    "url": "https://leetcode.com/discuss/interview-experience/7044181",
+    "date": "2025-08"
+   },
+   {
+    "title": "My Detailed Google SDE-III (L4) Interview Journey | Hyderabad | Timelines (offer)",
+    "url": "https://leetcode.com/discuss/interview-experience/6891914",
+    "date": "2025-06"
+   },
+   {
+    "title": "Google | L4 | India | May 2025 [Offer]",
+    "url": "https://leetcode.com/discuss/interview-experience/6752754",
+    "date": "2025-05"
+   },
+   {
+    "title": "Google India L4 Interview Experience (Oracle SDE2, 3.5 YOE; team match for L4)",
+    "url": "https://leetcode.com/discuss/interview-experience/6634286",
+    "date": "2025-04"
+   },
+   {
+    "title": "Google L4 Bangalore 2025 (rescheduled 4×, logger rate limiter, rejected)",
+    "url": "https://leetcode.com/discuss/post/7240829/google-l4-bangalore-2025-by-anonymous_us-vo8z/",
+    "date": "2025-10"
+   },
+   {
+    "title": "Google | L4 | Interview Experience (Bengaluru, offer; top-K users, teleporters, Beautiful Path)",
+    "url": "https://leetcode.com/discuss/post/6749979/google-l4-interview-experience-by-anonym-fwdh/",
+    "date": "2025-05"
+   },
+   {
+    "title": "Google | L4 | Hyderabad | Jan 2025 [Offer]",
+    "url": "https://leetcode.com/discuss/interview-experience/6426991",
+    "date": "2025-02"
+   },
+   {
+    "title": "Google (India) | L4 | 4YOE | Rejected (1 TPS + 3 tech + 1 G&L briefing)",
+    "url": "https://leetcode.com/discuss/interview-experience/6719511",
+    "date": "2025-05"
+   },
+   {
+    "title": "Interview Experience: Google SWE III (Bay Area, 8 rounds incl. 3 extra for 'more signal')",
+    "url": "https://roundz.substack.com/p/interview-experience-google-swe-iii",
+    "date": "2025-03"
+   },
+   {
+    "title": "Interview Experience: Google Software Engineer L4 (Bay Area, offer, 3 DSA + behavioral)",
+    "url": "https://roundz.substack.com/p/interview-experience-google-software-engineer-l4",
+    "date": "2025-04"
+   },
+   {
+    "title": "Blind — how to crack Google L4 (India: choice of 4 coding vs 3 coding + 1 design)",
+    "url": "https://www.teamblind.com/post/how-to-crack-google-l4-uabaxbga",
+    "date": "2025"
+   },
+   {
+    "title": "Blind — rockstars who cleared Google India interviews (Jan 2025 thread; no SD at L4)",
+    "url": "https://www.teamblind.com/post/rockstars-who-cleared-google-india-interviews-did-you-only-do-leetcode-yy1arfnv",
+    "date": "2025-01"
+   },
+   {
+    "title": "Googlyness frequently asked questions (LeetCode Discuss; cited by many 2025–26 candidates as the actual pool)",
+    "url": "https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-by-55sh/",
+    "date": "2025"
+   },
+   {
+    "title": "CodingKaro mirror of LeetCode Google interview experiences (313 reports, 2025–2026)",
+    "url": "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Google",
+    "date": "2026-02"
+   },
+   {
+    "title": "SystemCraft — Google L4/L5 prep guide (no SD at L4; 2024–26 variant list)",
+    "url": "https://systemcraft.in/companies/google",
+    "date": "2026"
+   },
+   {
+    "title": "InterviewPilot — Google SWE L4/L5 experiences 2025–2026",
+    "url": "https://interviewpilot.dev/interview-experiences/google",
+    "date": "2026"
+   },
+   {
+    "title": "Prepfully — Google SWE coding interview guide (scale follow-ups, 2026 Gemini pilot)",
+    "url": "https://prepfully.com/interview-guides/google-software-engineer-coding-interview",
+    "date": "2026"
+   }
+  ]
+ },
+ "dsa": [
+  {
+   "title": "Equal-area horizontal/vertical cut through cakes or rectangles (Separate Squares I/II)",
+   "lcId": 3453,
+   "url": "https://leetcode.com/problems/separate-squares-i/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search",
+    "Geometry",
+    "Line Sweep"
+   ],
+   "statement": "Story-wrapped: square cakes / rectangles are placed on a table (given as (x, y, size) or corner pairs); find the y (or x) of a horizontal (or vertical) line that splits the total area exactly in half. Coordinates can be huge (10^100 in one report) and the answer is a float.",
+   "variant": "Follow-ups: rectangles may overlap (→ Separate Squares II, LC 3454, line sweep over the union); Y is enormous or precision must be many decimals (candidate who proposed ternary search / event-based sweep got 'that's what I expected'); Hyderabad version asked for a vertical line; another wanted the position as a double with a tolerance.",
+   "evidence": "7+ reports: L4 India phone May 2025 (offer), L4 onsite round 2 Jun 2025, L4 onsite Jul 2025, L4 Bangalore pre-screen (offer), L4 Hyderabad onsite Mar 2025, L4 SWE-III India 2026 (frontend loop), L3 India Apr–May 2025",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6752754",
+    "https://leetcode.com/discuss/interview-experience/6911910",
+    "https://leetcode.com/discuss/interview-experience/6826135",
+    "https://leetcode.com/discuss/post/6567819/google-l4-interview-experience-by-anonym-bewh/",
+    "https://leetcode.com/discuss/post/6526906/google-interview-experience-sde-2-l4-hyd-ch61/",
+    "https://shubhamjangle.medium.com/google-swe-iii-interview-the-round-by-round-breakdown-nobody-wrote-fd2c10fe52ff"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Root that turns an acyclic graph (degree ≤ 3) into a binary tree, then with alternating colors",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "Tree",
+    "BFS",
+    "DFS"
+   ],
+   "statement": "Given an undirected connected acyclic graph where every node has at most 3 edges, pick a node that, used as the root, makes the graph a valid binary tree (any node of degree ≤ 2 works). Follow-up: nodes are Black or White; find a root such that every level alternates color (either color may start) — the O(V+E) insight is that every edge must join different colors, after which any degree ≤ 2 node works. Second follow-up: three colors R/B/W that must follow a fixed repeating sequence by depth.",
+   "variant": "Asked as an L3/L4 phone screen (India, 2025), an L5 onsite (Jan 2025, with the 3-color follow-up) and an L4 onsite in 2026 where the input was an edge list + colors array and the candidate also had to validate tree structure and the ≤2-children constraint. Interviewers reject the O(N²) 'BFS from every candidate root' solution.",
+   "evidence": "5 reports (2025-01 L5, 2025-02 L5 reject, 2025-03 L4 India phone, 2025-05 L4 US phone, 2026-04 L4 India onsite)",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6508934/google-l4-phone-screen-interview-experie-56un/",
+    "https://leetcode.com/discuss/post/6522571/google-l5-interview-january-2025-by-anon-v92c/",
+    "https://leetcode.com/discuss/post/6479105/google-l5-interview-experience-rejected-trdso/",
+    "https://shubhamjangle.medium.com/google-swe-iii-interview-the-round-by-round-breakdown-nobody-wrote-fd2c10fe52ff"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Who is present in each time interval (shift / on-call / employee logs with names)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Intervals",
+    "Line Sweep",
+    "Sorting",
+    "Hash Map"
+   ],
+   "statement": "Given rows of (name, start, end) for people entering and leaving, output the disjoint time intervals and, for each, the set of people present (Abby 10–100, Ben 50–70 → 10–50 {Abby}, 50–70 {Abby, Ben}, 70–100 {Abby}); skip empty intervals. Framed as an on-call schedule, employee shifts, or a train/platform problem.",
+   "variant": "Follow-ups: several people entering/leaving at the same timestamp; identical start and end; 'for each query time, how many are present' (sweep + binary search); millions of events. One L5 candidate was marked No Hire for running out of time on the follow-up and fumbling complexity.",
+   "evidence": "7 reports: L4 India phone Jul 2025, L4 Hyderabad onsite Apr 2025, L4 May 2025, L5 Jan 2025, L3 London phone Jan 2026, L3/L4 Taipei Jun 2025, L4 Bangalore Aug 2024",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7490325",
+    "https://leetcode.com/discuss/interview-experience/6968844",
+    "https://leetcode.com/discuss/post/6522571/google-l5-interview-january-2025-by-anon-v92c/",
+    "https://leetcode.com/discuss/interview-experience/6806755",
+    "https://leetcode.com/discuss/interview-experience/5741664",
+    "https://leetcode.com/discuss/interview-experience/6900849"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Suppress duplicate status messages within a 10-second window (Logger Rate Limiter variants)",
+   "lcId": 359,
+   "url": "https://leetcode.com/problems/logger-rate-limiter/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Queue",
+    "Sliding Window",
+    "Design"
+   ],
+   "statement": "A robot/vehicle emits (timestamp, message) in non-decreasing order; display a message only if the same text was not shown in the previous 10 (or 5 / 18) seconds. Often framed as pulling from a blocking getRawMessage() stream.",
+   "variant": "Follow-ups: 'will this run in production for billions of messages?' → unbounded map, evict stale keys with a deque; suppress a message if the same text appears in the previous AND next 10 seconds (needs lookahead buffering — many failed this in time); 'drop any message arriving within 10 s of the previous one'; count unique phone numbers in the last K minutes with background cleanup.",
+   "evidence": "8 reports: L4 India onsite Jun 2025, L4 screening May 2025, L4 Warsaw Jun 2025, L4 Bangalore 2025 (reject), SWE III Jun 2025, SDE3 Jun 2025, L4 Bangalore Apr 2025, SWE-3 'chances' post",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6803694",
+    "https://leetcode.com/discuss/post/7240829/google-l4-bangalore-2025-by-anonymous_us-vo8z/",
+    "https://leetcode.com/discuss/interview-experience/6780029",
+    "https://leetcode.com/discuss/interview-experience/6819963",
+    "https://leetcode.com/discuss/interview-experience/6945470",
+    "https://leetcode.com/discuss/post/6812909/chances-of-swe-3-at-google-by-anonymous_-2wwd/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Alice and Bob reach a common destination with minimum combined cost / fewest distinct roads",
+   "lcId": 2203,
+   "url": "https://leetcode.com/problems/minimum-weighted-subgraph-with-the-required-paths/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Graph",
+    "BFS",
+    "Dijkstra",
+    "Shortest Path"
+   ],
+   "statement": "In an undirected graph of cities, Alice starts at A and Bob at B and both must reach D; an edge they share is paid once. Minimise total distinct edges (unweighted → 3 BFS; weighted → Dijkstra from A, from B, and from D on the reversed graph, then min over meeting nodes).",
+   "variant": "Follow-ups: three friends (consider pairwise meeting orders); disconnected graph edge case; interviewer rejects 'enumerate all paths'. Also phrased as 'minimum edges two sources must cover to reach D' and 'two travellers minimise combined cost'. Called a repeated Google question by several posters.",
+   "evidence": "10+ reports in 2025: L4 US onsite Apr 2025 (HC passed), L4 India Feb 2025 (offer), L4 US Jun 2025, L4 Apr 2025, L3 India Apr–May 2025, L5 Jun 2025, L3 TPS Mar 2025, four-round loop Aug 2025",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6678522",
+    "https://leetcode.com/discuss/interview-experience/6775581",
+    "https://leetcode.com/discuss/interview-experience/7001176",
+    "https://leetcode.com/discuss/interview-experience/6701519",
+    "https://leetcode.com/discuss/interview-experience/6848596",
+    "https://leetcode.com/discuss/interview-experience/7079297",
+    "https://leetcode.com/discuss/post/6560219/google-l3-tps-and-onsite-interview-exper-ax35/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Which players' ranks can be precisely inferred from match results",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "Topological Sort",
+    "DFS",
+    "Transitive Closure"
+   ],
+   "statement": "N players have distinct ranks 1..N and the better-ranked player always wins. Given M results (winner, loser), return the players whose exact rank is determined: fixed iff (players that transitively beat them) + (players they transitively beat) = N-1. Build winner→loser and reversed graphs and count reachable nodes per player.",
+   "variant": "Simpler variant: 'A beats B, B beats C, A beats C → full ranking; with a cycle nothing can be determined' (modified topological sort). Probes: cost of N traversals, cycles / inconsistent results.",
+   "evidence": "5 reports: L4 India Fullstack Aug 2025 (Hire), L4 India Pune/Hyd Mar 2025, L4 India May 2025 (offer), onsite Apr 2025, virtual interview Jun 2025",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7126128",
+    "https://leetcode.com/discuss/interview-experience/6799421",
+    "https://leetcode.com/discuss/interview-experience/6887031",
+    "https://leetcode.com/discuss/interview-experience/6752754"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top-K users / words / products from a chat log, document or CSV stream",
+   "lcId": 692,
+   "url": "https://leetcode.com/problems/top-k-frequent-words/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Hash Map",
+    "Quickselect",
+    "Streaming"
+   ],
+   "statement": "Given a stream of (user, message) pairs, a document as a word array, or a CSV string of orders, return the K users/words/products with the highest counts. The 'talkative users' version requires writing the parser and including everyone tied at the K-th place.",
+   "variant": "Google's follow-ups: input is a stream, not an array; k = 0; quickselect vs heap trade-off (a Hyderabad L4 was marked slow for not knowing quickselect); frequencies update as new data arrives; configurable top-K on a stream of maxima. Min-heap vs max-heap mix-ups sank two candidates.",
+   "evidence": "10+ reports: L4 India screening Nov 2024, L4 Bengaluru onsite 2025 (offer), L4 ML onsite May 2025, L4 Hyd onsite Apr 2025, SE-3 India screen Jan 2025, L5 India 2025, round 1 Feb 2026 (CSV products)",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6634286",
+    "https://leetcode.com/discuss/post/6749979/google-l4-interview-experience-by-anonym-fwdh/",
+    "https://leetcode.com/discuss/interview-experience/6743081",
+    "https://leetcode.com/discuss/interview-experience/6713084",
+    "https://leetcode.com/discuss/interview-experience/7550756",
+    "https://leetcode.com/discuss/interview-experience/6434501"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Chat-log processor: registerEvent(sender, receiver, ts) + getMostActiveUser() / deleteUser()",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Set",
+    "Heap",
+    "Design"
+   ],
+   "statement": "Implement a log-stream processor for a chat app with registerEvent(timestamp, sender, receiver, text) and getMostActiveUser(), where activity = number of distinct other users someone has exchanged any message with (many messages with one person count once). Map user → set of partners; track the max.",
+   "variant": "Follow-ups: top K most active users (heap vs quickselect); registerEvent is called millions of times a day but getMostActiveUser once a day — what changes; deleteUser(u) must remove u from everyone else's sets; conversations in the last K minutes.",
+   "evidence": "5+ reports: L4 Bangalore onsite May 2025, L4 onsite Jul 2025 ('chat APIs'), L3 London Jan 2026, May 2025 coding round, India L4 Jun 2025",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6734621",
+    "https://leetcode.com/discuss/interview-experience/7490325",
+    "https://leetcode.com/discuss/interview-experience/6958796",
+    "https://leetcode.com/discuss/interview-experience/6775982"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum threshold / minimum starting health path (binary search on answer + BFS, or Dijkstra on max-edge)",
+   "lcId": 1631,
+   "url": "https://leetcode.com/problems/path-with-minimum-effort/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "Binary Search",
+    "BFS",
+    "Dijkstra"
+   ],
+   "statement": "Given a weighted graph: (a) decide whether source reaches target using only edges with weight ≤ T, then (b) find the minimum T for which target is reachable; or 'minimum starting health to traverse edges each requiring health ≥ l'; or 'path whose security level (max edge) is minimised'. Expected: binary search on T with BFS/DFS per check, O((V+E) log S), or Dijkstra minimising the path maximum.",
+   "variant": "Also seen as Path With Maximum Probability (LC 1514) 'kind of similar' (L4 India Aug 2025) and 'minimum health required to reach destination' (L4 onsite 2025). Grid form = LC 1631.",
+   "evidence": "6 reports: L4 India Pune/Hyd screen Feb 2025, onsite Mar 2025 (unfinished), L4 India Aug 2025, Europe L3 Dec 2025, L3 phone 2025",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6799421",
+    "https://leetcode.com/discuss/post/6558845/google-onsite-round-1-by-abhishekmittal5-bto6/",
+    "https://leetcode.com/discuss/interview-experience/7332689",
+    "https://leetcode.com/discuss/interview-experience/7406634"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Simplify an algebraic expression with nested parentheses: a-(b-c) → a-b+c",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Stack",
+    "String Parsing",
+    "Hash Map"
+   ],
+   "statement": "Given a formula of lowercase variables, '+', '-' and nested parentheses, remove the parentheses and simplify, combining like terms with coefficients: (a+b)-(b+c) → a-c, (a-b)-b-b → a-3b, a+b-(c+(d-b)) → a+2b-c-d. Push the effective sign on a stack as you enter each parenthesis and accumulate coefficients per variable.",
+   "variant": "Follow-ups: integer constants mixed with variables; canonical output order; multiplication by a constant.",
+   "evidence": "5 reports: L4 Bangalore phone Aug 2024, L4 Hyd onsite Mar 2025, L4 onsite Apr 2025, SWE-3 Apr 2025, L4 India phone Aug 2025",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/5660936",
+    "https://leetcode.com/discuss/post/6526906/google-interview-experience-sde-2-l4-hyd-ch61/",
+    "https://leetcode.com/discuss/interview-experience/6686200",
+    "https://leetcode.com/discuss/interview-experience/7040816"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Evaluate a nested function-call string: add(5, mul(2, pow(5,2))) → 55",
+   "lcId": 736,
+   "url": "https://leetcode.com/problems/parse-lisp-expression/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Recursion",
+    "Stack",
+    "String Parsing"
+   ],
+   "statement": "Parse and evaluate a plain string of nested binary functions add/sub/mul/div/pow over positive integers (div returns a double; spaces may appear). Recursive descent or two stacks. Also seen as MULT(4,ADD(1,SUB(10,3))) → 32, in the style of Parse Lisp Expression.",
+   "variant": "Follow-ups: negative numbers; variables bound to values; malformed input. Candidates repeatedly note it 'gets messier the more you code' — design the tokenizer first.",
+   "evidence": "5 reports: L4 onsite Dec 2024, L4 India phone May 2025 (reject), phone Apr 2025, L4 Hyd onsite Jan 2025 (offer), L4 Bangalore Mar 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6251197",
+    "https://leetcode.com/discuss/interview-experience/6740465",
+    "https://leetcode.com/discuss/interview-experience/6628533",
+    "https://leetcode.com/discuss/post/6567819/google-l4-interview-experience-by-anonym-bewh/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count how many ways dice A beats dice B (two N-sided dice with arbitrary faces)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Sorting",
+    "Binary Search",
+    "Two Pointers"
+   ],
+   "statement": "Two N-sided dice have arbitrary (possibly duplicate) integer faces. Count outcome pairs where A's face is strictly greater than B's (A=[2,2,4], B=[1,2,3] → 5). O(n log n) with sort + binary search; O(n) two pointers once you learn the arrays are already sorted — which the interviewer withholds until you ask.",
+   "variant": "Follow-ups: count B wins and ties; K dice of N faces — which die wins most (heap of (value, die) + counts); interviewer wants O(n) once sortedness is known.",
+   "evidence": "5 reports: L4 AI/ML phone Apr 2025, L4 ML phone May 2025, L4 Mountain View onsite Jun 2025, L4 India onsite 2025, L3 phone Mar 2025",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6819840",
+    "https://leetcode.com/discuss/interview-experience/6743081",
+    "https://leetcode.com/discuss/interview-experience/6615322",
+    "https://leetcode.com/discuss/post/6560219/google-l3-tps-and-onsite-interview-exper-ax35/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "String template substitution with %VAR% references, nested variables and cycle detection",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Recursion",
+    "Hash Map",
+    "Graph",
+    "Memoization"
+   ],
+   "statement": "Given a map like {USER: admin, HOME: /%USER%/home} and an input 'I am %USER% My home is %HOME%', replace every %KEY% with its value, where values may themselves contain %KEY% references. Resolve recursively.",
+   "variant": "Follow-ups: a key referenced many times inside a value → memoize; keys that reference each other in a cycle → DFS visited set, throw; missing key → error; escaped '%'. An easy-looking onsite that candidates lose on cycle handling.",
+   "evidence": "4 reports: L4 India onsite Feb 2025, L4 onsite Apr 2025, L4 onsite Jul 2025, SWE-2 onsite Aug 2025",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6634286",
+    "https://leetcode.com/discuss/interview-experience/6685598",
+    "https://leetcode.com/discuss/interview-experience/6911910"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Teleporter / space-station network with broken nodes — shortest path, then 0-1 BFS with partially fixed nodes",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "BFS",
+    "0-1 BFS",
+    "Dijkstra"
+   ],
+   "statement": "Nodes are teleporters (or space stations), edges are connections; some nodes are broken and cannot be used to continue. Return the shortest path (node sequence) from A to B avoiding broken nodes, or empty if none. Follow-up: some broken teleporters are 'partially fixed' — leaving one costs 1 day while working ones cost 0; minimise days (0-1 BFS with a deque, or Dijkstra).",
+   "variant": "Also 'minimum teleportations avoiding defective stations' (plain BFS) and 'minimum cost with broken teleporters costing 1 to fix' (Dijkstra, Hyderabad L4 DS/MLE). One interviewer steered the candidate from Dijkstra to 0-1 BFS as the better answer.",
+   "evidence": "4 reports: L4 Bengaluru onsite 2025 (offer), SDE3 Bengaluru Mar 2025, L4 Hyd MLE May 2025, SystemCraft L4 2025 list",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6749979/google-l4-interview-experience-by-anonym-fwdh/",
+    "https://leetcode.com/discuss/interview-experience/6737844",
+    "https://leetcode.com/discuss/interview-experience/6772984"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Routers with transmission radius: can A reach B / minimum time for all routers to turn on",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "BFS",
+    "Geometry"
+   ],
+   "statement": "N routers at (x, y) each broadcast within radius R (same R, or per-router radius in the follow-up). Build the implicit graph (edge if distance ≤ R) and BFS: (a) can router A's message reach router B, (b) starting from one router, in how many hops do all routers turn on. Structure it as a class so the per-router-radius follow-up is a one-line change.",
+   "variant": "Follow-ups: per-router radius; weighted edges → Dijkstra; 3D lattice version with union-find (L5); interviewer criticised rebuilding the adjacency list per query — expect many queries. Described as 'repeated multiple times'.",
+   "evidence": "6 reports: L4 India onsite Jan 2025 (positive), L4 onsite Jul 2025, L4 Jun 2025, L5 Bangalore 2025, L3 phone Oct 2024, New Grad India Nov 2025",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6634286",
+    "https://leetcode.com/discuss/interview-experience/6911910",
+    "https://leetcode.com/discuss/interview-experience/6853840",
+    "https://leetcode.com/discuss/interview-experience/6349651"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Range Module variant: insertRange(start, end) and query(point)",
+   "lcId": 715,
+   "url": "https://leetcode.com/problems/range-module/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Intervals",
+    "Ordered Map",
+    "Binary Search",
+    "Design"
+   ],
+   "statement": "Implement insertRange(start, end) (half-open, merging overlaps) and query(point) → whether the point is covered; e.g. insert [2,3), [2,5), [9,13) → {[2,5), [9,13)}, query(10) = true. Google's version drops removeRange and queries a single number instead of a range.",
+   "variant": "Follow-ups: query a whole range (full Range Module); union-only queries; 'is the runtime still the same after fixing that bug?'.",
+   "evidence": "5 reports: L4 onsite Dec 2024 (SH), L4 India onsite Jul 2025, L5 Jan 2025, L5 India Apr 2025, L5 screening May 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6251197",
+    "https://leetcode.com/discuss/interview-experience/6968844",
+    "https://leetcode.com/discuss/post/6522571/google-l5-interview-january-2025-by-anon-v92c/",
+    "https://leetcode.com/discuss/interview-experience/6634542"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "LR pieces on a line / 'linear chess' — can start reach target (Swap Adjacent in LR String)",
+   "lcId": 777,
+   "url": "https://leetcode.com/problems/swap-adjacent-in-lr-string/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Two Pointers",
+    "String",
+    "Greedy"
+   ],
+   "statement": "A string of 'L', 'R' and '_' where L pieces move only left and R only right, with no jumping or capturing. Given start and target, decide if target is reachable (R__L → _RL_ true). Two pointers over non-blank characters: order must match, each L must not move right, each R must not move left.",
+   "variant": "Worded as pawns/linear chess or sliding pieces; the follow-up asked for corner cases and test cases rather than new constraints.",
+   "evidence": "4 reports: L4 India onsite Jan 2025, L4 phone Apr 2025, L4 India onsite Jul 2025, New Grad Aug 2025",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6634286",
+    "https://leetcode.com/discuss/interview-experience/6626770",
+    "https://leetcode.com/discuss/interview-experience/6968844"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Secure / tamper-proof linked list where each node stores hash(data + next.hash)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Linked List",
+    "Recursion",
+    "Hashing",
+    "Design"
+   ],
+   "statement": "Each node holds data, next and hashValue = hash(data + next.hashValue) (last node: hash(data)). Implement prepend, insertAtPosition(k) (must recompute hashes from position k back to the head — naturally recursive), buildFromArray, and isChainValid() that detects a node inserted or modified without recomputing hashes.",
+   "variant": "Follow-up: validate the whole list and return false on tampering; why insertion is O(n); a Poland L4 interviewer also expected unit tests.",
+   "evidence": "5 reports: L4 Hyderabad phone Apr 2025, SDE3 Bengaluru Mar 2025, phone Jun 2025, L4 Poland onsite Dec 2025, L3 India Apr–May 2025",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6661793",
+    "https://leetcode.com/discuss/interview-experience/6737844",
+    "https://leetcode.com/discuss/interview-experience/6854114",
+    "https://leetcode.com/discuss/interview-experience/7392327"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count / group 'buddy' strings with the same shift gap (Group Shifted Strings)",
+   "lcId": 249,
+   "url": "https://leetcode.com/problems/group-shifted-strings/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "String",
+    "Hashing"
+   ],
+   "statement": "Two equal-length lowercase strings are buddies if every character differs by the same circular gap (abc ↔ def, aab ↔ bbc). Given a list, count buddy pairs (or group the strings): normalise each string to its shift from 'a' and count with a hash map, O(nL).",
+   "variant": "Follow-ups: duplicates in the input; integer key via polynomial rolling hash and a discussion of collisions / double hashing; group rotations instead of shifts (Hyderabad DS/MLE phone).",
+   "evidence": "6 reports: L4 India onsite round 3 Jun 2025, L4 May 2025, L3 Bangalore Apr 2025, onsite Jul 2025 (SH), L4 Hyd phone May 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6832161",
+    "https://leetcode.com/discuss/interview-experience/6927848",
+    "https://leetcode.com/discuss/interview-experience/6763229",
+    "https://leetcode.com/discuss/interview-experience/6772984"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Merge intervals with a twist (car rentals, gaps on a half-line, Meeting Rooms III, max-of-mins, float set difference)",
+   "lcId": 56,
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Intervals",
+    "Sorting",
+    "Heap",
+    "Line Sweep"
+   ],
+   "statement": "Google rarely asks plain Merge Intervals; it is wrapped as car-rental bookings to merge, free gaps on a half-line, a Meeting-Rooms-III style room assignment (LC 2402), or 'maximum among the minimums' over merged groups. Sort by start, sweep, keep a heap when rooms/resources are involved.",
+   "variant": "Follow-ups: duplicates/identical ranges (a Bangalore L4 was told this was a 'design change'); dynamic insertions with a query after each; max-of-mins with a deque; 2D version via line sweep (L6). Separate hard variant reported 4–5 times at L3/L4: set difference a−b of floating-point intervals with open/closed endpoints, sorted output keeping bracket notation.",
+   "evidence": "12+ reports 2025–26: L4 Zurich phone Aug 2025, L4 Jan 2026 round 1, L4 Dec 2025, L4 Hyd onsite Apr 2025, L4 India Feb 2025 offer (car rental), SWE-3 Apr 2025 (float set difference), L4 Bangalore 2025",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7466881",
+    "https://leetcode.com/discuss/interview-experience/7419200",
+    "https://leetcode.com/discuss/interview-experience/7096636",
+    "https://leetcode.com/discuss/interview-experience/6775581",
+    "https://leetcode.com/discuss/post/6538567/google-question-difference-of-sets-of-fl-uukk/",
+    "https://leetcode.com/discuss/post/7240829/google-l4-bangalore-2025-by-anonymous_us-vo8z/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Merge several ordered sublists into one order / topological-sort story problems",
+   "lcId": 444,
+   "url": "https://leetcode.com/problems/sequence-reconstruction/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "Topological Sort",
+    "BFS"
+   ],
+   "statement": "Given M sequences (checkpoints each marathon runner passed, sublists whose internal order must be preserved, storage parts deletable only when childless), produce one global order, return empty if a cycle makes it impossible, or report that no unique order exists. Kahn's algorithm; interviewers ask you to justify why it works.",
+   "variant": "Follow-ups: 'if two items are deletable at the same time, delete them together' (level-by-level Kahn); report the cycle; minimum time to finish tasks with prerequisites and durations (longest path in a DAG); Alien Dictionary / Course Schedule II skins.",
+   "evidence": "10+ reports: L4 Bangalore onsite Apr 2025 (Kahn's), L4 India Mar 2025 (marathon checkpoints), L4 Hyd MLE May 2025 (storage parts), L4 Bangalore Apr 2025 (topo + min time), L3 phone Mar 2025, SDE-3 India Jul 2025, L4 Bangalore Jan 2024",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7240829/google-l4-bangalore-2025-by-anonymous_us-vo8z/",
+    "https://leetcode.com/discuss/interview-experience/6719511",
+    "https://leetcode.com/discuss/interview-experience/6772984",
+    "https://leetcode.com/discuss/interview-experience/6602615",
+    "https://leetcode.com/discuss/interview-experience/6934898",
+    "https://leetcode.com/discuss/post/6567819/google-l4-interview-experience-by-anonym-bewh/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "First failing commit / version in a range (binary search), then parallel and batched checks",
+   "lcId": 278,
+   "url": "https://leetcode.com/problems/first-bad-version/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search",
+    "Concurrency"
+   ],
+   "statement": "Versions a..b where a passes, b fails and failures are monotonic; given an isBad(version) API, find the first failing version. The base is binary search; the round is really about the follow-ups.",
+   "variant": "Follow-ups: the range is huge — split into K sub-ranges searched in parallel threads (O(K log M)); the API can test many versions at once → binary search over sub-ranges (O(log K · log M)); K could be as large as N; minimise expensive API calls. One candidate was rejected then offered a second phone screen.",
+   "evidence": "3 reports: L4 phone Apr 2025 (SWE III), L4 Bangalore onsite Mar 2025 (multi-threaded follow-up), SystemCraft 2025 list",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6625737",
+    "https://leetcode.com/discuss/post/6584641/google-l4-interview-experience-by-anonym-hiv2/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Nested rectangles / Russian Doll Envelopes (maximum nesting depth)",
+   "lcId": 354,
+   "url": "https://leetcode.com/problems/russian-doll-envelopes/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Sorting",
+    "Binary Search",
+    "LIS",
+    "DP"
+   ],
+   "statement": "Given (length, width) rectangles, find the deepest chain where each fits strictly inside the next. Sort by one dimension (descending tie-break) and run LIS with binary search on the other; a memoised DFS also passed a phone screen.",
+   "variant": "Phrased as 'maximum level of nesting' or 'box stacking'; paired with Remove All Adjacent Duplicates (LC 1047) in an Aug 2025 India screening.",
+   "evidence": "4 reports: L4 phone 14 Mar 2025, L4 India screening Aug 2025 (SH), L4 India 2025 ('modified Russian Doll / box stacking'), L5 India Apr 2025",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/6543286/google-phone-screen-l4-14-mar-2025-by-ph-1uuc/",
+    "https://leetcode.com/discuss/interview-experience/7332689",
+    "https://leetcode.com/discuss/interview-experience/7164554"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Number of islands in a binary tree (connected components of 1-valued nodes)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "DFS",
+    "Connected Components"
+   ],
+   "statement": "A binary tree's nodes hold 0 or 1. Count the 'islands': maximal groups of 1-nodes connected through parent-child edges. One DFS that starts a new island whenever a 1-node's parent is 0 (or null). Follow-ups: size of the largest island; count in an N-ary tree; the same idea on a grid (LC 200).",
+   "variant": "Paired with an Accounts Merge (LC 721) variation in a Bangalore L4 TPS; the Hyderabad L4 onsite linked the classic 'Number of Islands in a Tree' phone-screen post.",
+   "evidence": "4 reports: L4 Bangalore TPS Apr 2025, L4 Hyd onsite Apr 2025, L4 May 2025 post, New Grad India Nov 2025; also Hello Interview's L4 example list",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6688364",
+    "https://leetcode.com/discuss/interview-experience/6661793",
+    "https://leetcode.com/discuss/interview-experience/6714071",
+    "https://www.hellointerview.com/guides/google/l4"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count freshwater lakes inside an island (grid with 8-connected land, 4-connected water)",
+   "lcId": 1254,
+   "url": "https://leetcode.com/problems/number-of-closed-islands/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Grid",
+    "BFS",
+    "DFS",
+    "Multi-source BFS"
+   ],
+   "statement": "A huge 0/1 ocean grid; given one land cell, count the lakes (water regions fully enclosed by that island, not connected to the ocean). Trick revealed only by clarifying: land connects in 8 directions, water in 4, and the ocean surrounds the grid. Flood-fill the ocean from the border (or treat out-of-grid as ocean), then BFS the island and start a new lake-BFS at each unvisited enclosed water cell.",
+   "variant": "Probe: the grid is too large to pre-mark the whole ocean — can you decide ocean-vs-lake lazily while exploring only the given island's boundary. One interviewer called the full-grid pre-pass 'acceptable but not optimal'.",
+   "evidence": "3 reports: L4 India onsite Mar 2025 (reject), onsite Jun 2025 (NH, missed edge cases), US onsite Sep 2025",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6719511",
+    "https://leetcode.com/discuss/interview-experience/7187394",
+    "https://leetcode.com/discuss/interview-experience/6815862"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Largest solid square of 1s in a 0/1 matrix (book tag in a video frame) in sub-quadratic time",
+   "lcId": 221,
+   "url": "https://leetcode.com/problems/maximal-square/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Matrix",
+    "Binary Search",
+    "Prefix Sum",
+    "Geometry"
+   ],
+   "statement": "An m×n frame is mostly 0s with at most one solid square of 1s (the 'tag'), guaranteed to be at least sqrt(n) wide if present. Return the top-left corner and side length, or size 0. Because the square is large, sample every ⌊sqrt(n)⌋-th row/column to hit it, then expand to find its bounds in O(m+n) rather than running the full Maximal Square DP.",
+   "variant": "Variant asked Jan 2026: 'largest square whose cells all contain the same character' with a 'slight modification' follow-up. Phone-screen version: discuss output data structure and how to go below O(mn).",
+   "evidence": "4 reports: L4 Bangalore screening Mar 2025 (pass), L4 onsite Aug 2025 (sqrt(n) constraint), L4 onsite Jan 2026 (SH), L3 phone May 2025",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7074446",
+    "https://leetcode.com/discuss/interview-experience/6734621",
+    "https://leetcode.com/discuss/interview-experience/7497189"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count squares formed by a set of 2D points (axis-parallel, then any orientation)",
+   "lcId": 2013,
+   "url": "https://leetcode.com/problems/detect-squares/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hashing",
+    "Geometry",
+    "Math"
+   ],
+   "statement": "Given a list of (x, y) points, return all squares whose four corners are present (as top-left corner + side), or just the count. Put points in a hash set; for each pair of points treat them as one side (or one diagonal) and look up the other two corners — O(n²) instead of O(n⁴).",
+   "variant": "Follow-ups: squares not aligned with the axes (use the diagonal/rotation trick); an L5 Feb 2026 version counted squares in a grid of connected points with edge constraints; L4 US phone Sep 2025 candidate was rejected for stopping at O(n·m).",
+   "evidence": "4 reports: L4 US phone Sep 2025 (reject), TPS Jun 2025, coding round Aug 2025, L5 US Feb 2026",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7221863",
+    "https://leetcode.com/discuss/interview-experience/7140293",
+    "https://leetcode.com/discuss/interview-experience/6808508",
+    "https://leetcode.com/discuss/interview-experience/7558860"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "N CPUs, M tasks: minimum completion time, then fewest CPUs that still achieve it",
+   "lcId": 1834,
+   "url": "https://leetcode.com/problems/single-threaded-cpu/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Greedy",
+    "Binary Search",
+    "Scheduling"
+   ],
+   "statement": "Tasks have start times (or durations) and each takes a fixed length (e.g. 6 units); C CPUs each run one task at a time. Return the earliest time all tasks finish (time=[1,3,6], C=2 → 13). Simulate with a min-heap of CPU free-times (or an array when tasks are identical); a task freed CPU before its start still begins at its own start time — the edge case most candidates miss.",
+   "variant": "Follow-ups: given the minimum makespan, find the least number of CPUs that still achieves it (binary search on C calling the simulator); interviewer asked 'do you really need a heap?'; a candidate's O(n) binary-search range was called inefficient.",
+   "evidence": "4 reports: L4 AI/ML phone Nov 2025, SDE3 phone Mar 2025, L3 onsite Mar 2025, DSA question Jan 2026",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7370210",
+    "https://leetcode.com/discuss/interview-experience/6623144",
+    "https://leetcode.com/discuss/post/6560219/google-l3-tps-and-onsite-interview-exper-ax35/",
+    "https://leetcode.com/discuss/interview-experience/7516532"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Next-word prediction API from a corpus of sentences (most frequent follower; weighted random follower)",
+   "lcId": 528,
+   "url": "https://leetcode.com/problems/random-pick-with-weight/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Design",
+    "Prefix Sum",
+    "Randomization"
+   ],
+   "statement": "Given sentences as word lists, design an API predict(word) that returns the most frequent word immediately following the input word across all sentences ('I' → 'AM'), with O(1) prediction. Preprocess into map word → (follower → count) and cache the argmax.",
+   "variant": "Follow-ups: update frequencies as new sentences stream in; return the top-2 followers; sample the follower randomly in proportion to frequency (Random Pick with Weight); interviewers stress that it says 'design an API', not 'write a function' — one candidate's Lean Hire was for ignoring that wording.",
+   "evidence": "5 reports: L4 phone May 2025 (partial), L4 India MLE onsite Jun 2025, L4 SWE III phone 2025 (LH), L4 Hyd onsite Mar 2025, MLE-III Hyd Aug 2025",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6713135",
+    "https://leetcode.com/discuss/interview-experience/6910405",
+    "https://leetcode.com/discuss/interview-experience/7101763",
+    "https://leetcode.com/discuss/post/6526906/google-interview-experience-sde-2-l4-hyd-ch61/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top-N highest-rated similar movies via a similarity graph",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "BFS",
+    "Heap",
+    "Union-Find"
+   ],
+   "statement": "Movies have ratings; 'similar' edges are transitive (A~B, B~C ⇒ A~C). Given a movie and N, return the N highest-rated movies in its connected component (excluding itself). BFS/DFS the component while keeping a size-N min-heap, O(V+E + V log N).",
+   "variant": "Follow-ups: movies and similarity edges are added dynamically → union-find with per-component top-N structure; space optimisation (hint-taken → LH); a candidate was rejected for using a max-heap where a min-heap was needed.",
+   "evidence": "5 reports: L4 phone Apr 2025 (reject), L4 India onsite May 2025 (LH, offer overall), L4 India onsite May 2025 (second), onsite Jul 2025 (H/LH)",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6657228",
+    "https://leetcode.com/discuss/interview-experience/6796476",
+    "https://leetcode.com/discuss/interview-experience/6793213",
+    "https://leetcode.com/discuss/interview-experience/6927848"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Run-length-encoding class: encode, value at original index, first index of a value in a sorted original",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Design",
+    "Binary Search",
+    "Prefix Sum"
+   ],
+   "statement": "Design an RLE class over a huge integer list with many repeats: encode [2,1,1,2,5,5,3,3] → (2,1),(1,2),(2,1),(5,2),(3,2). Then: given the encoded list and an index, return the original value at that index (prefix sums + binary search). Then: if the original list was sorted, return the first index of a given value using only the encoded list.",
+   "variant": "Interviewer feedback in one offer loop: the candidate's code 'focused on one data type' — generics/scoping were expected; a second report added a scale follow-up they were asked to explain rather than code.",
+   "evidence": "2 reports: L4 India onsite Apr 2025 (offer), L4 Bengaluru onsite Nov 2024 (offer)",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6752754",
+    "https://leetcode.com/discuss/interview-experience/6425855"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Birthday-reminder iterator over a family tree (alarmNextBirthday)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "Heap",
+    "Design",
+    "Comparator"
+   ],
+   "statement": "A genealogical tree rooted at you (each Person has name, birthdayMonth, birthdayDay, parentA, parentB). Implement alarmNextBirthday() that returns the next upcoming birthday from today; each subsequent call returns the following one. Naive: traverse the tree per call, O(n). Follow-up: don't rely on the system clock — build a min-heap (or sorted list) of all birthdays once with a custom circular-date comparator, then pop per call, O(log n).",
+   "variant": "Interviewer asked the candidate to test the comparator and produced a failing scenario (year wrap-around); recursion stack space was part of the complexity discussion.",
+   "evidence": "4 reports: L4 phone Apr 2025, L4 India onsite round 2 Jun 2025, question post May 2025, L3 Bangalore Nov 2025",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6816551",
+    "https://leetcode.com/discuss/interview-experience/6676028",
+    "https://leetcode.com/discuss/interview-experience/6786705"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Restaurant waitlist: joinWaitlist(group), leaveWaitlist(group), allocateTable(size)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Design",
+    "Ordered Map",
+    "Hash Map",
+    "Linked List"
+   ],
+   "statement": "Implement a waitlist where parties join and leave at any time, and when a table of a given size frees up it is given to the earliest-joined party whose size fits (exactly size, else size-1, size-2, …). Map size → ordered queue of parties plus a party → node index for O(1) leave; one candidate rated it 'between LRU and LFU cache'.",
+   "variant": "Follow-ups: serve the earliest party among all fitting sizes (merge heads of several queues / global arrival order); a separate 'restaurant ordering system' LLD-style round (multi-waiter/customer scenario) produced a No Hire for a candidate who scoped it as two actors.",
+   "evidence": "4 reports: L4 pre-screen Jul 2025 ('very good'), phone Oct 2025, L3 India Apr 2025, Early Career Apr 2025",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6958796",
+    "https://leetcode.com/discuss/interview-experience/7291489",
+    "https://leetcode.com/discuss/interview-experience/7044181"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "IP-range → city lookup (binary search over sorted ranges; batch queries)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search",
+    "Intervals",
+    "Sorting"
+   ],
+   "statement": "Given rows (ipStart, ipEnd, city) with non-overlapping ranges and a query IP, return the city it belongs to (or none). Sort by start and binary-search the last start ≤ query, then check the end. Convert dotted IPs to integers first.",
+   "variant": "Follow-ups: many queries (sort queries too and sweep); overlapping ranges; candidate feedback 'missed 2 edge cases, quoted wrong complexity' → Bad. Described as asked 'several times' at Google.",
+   "evidence": "3 reports: L4 onsite Jul 2025 (Bad), New Grad India May 2025, L3 US phone Sep 2025",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6958796",
+    "https://leetcode.com/discuss/interview-experience/6742543",
+    "https://leetcode.com/discuss/interview-experience/7156286"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Piano with one hand spanning 5 keys: minimum hand lifts to play a note sequence",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Greedy",
+    "Sliding Window"
+   ],
+   "statement": "Your hand covers 5 consecutive keys (thumb position p covers p..p+4). Given a sequence of keys to play, find the minimum number of times you must lift and re-place the hand. Greedy: extend the current window while max-min ≤ 4, else lift; a 2D DP over (index, thumb position) also works.",
+   "variant": "Follow-up: return the list of thumb positions actually used per segment; prove greedy optimality.",
+   "evidence": "3 reports: L4 onsite Apr 2025 (offer), L4 ML onsite May 2025, L5 India Apr 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6701549",
+    "https://leetcode.com/discuss/interview-experience/6743081",
+    "https://leetcode.com/discuss/interview-experience/6634542"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "File system size with nested directories: get_size(key), then caching, then invariants",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "DFS",
+    "Memoization",
+    "Design"
+   ],
+   "statement": "A file system is given as a dict of nodes (directory with children ids, or file with size). Write get_size(id) returning total bytes under a node (recursive DFS). Follow-ups: cache subtree sizes and keep them correct when files are added; 'the service is timing out on boot' (lazy computation / incremental updates); state the invariants a valid FS must satisfy (no cycles, single parent, existing children).",
+   "variant": "SRE variants: implement du/ls/delete-directory-tree utilities; detect cycles in the dict.",
+   "evidence": "4 reports: L4 ML onsite May 2025, Nov 2025 'Filesystem Handling', L3 Jul 2025, SRE onsite Dec 2025",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6743081",
+    "https://leetcode.com/discuss/interview-experience/7346486",
+    "https://leetcode.com/discuss/interview-experience/7402832"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Autocomplete / prefix search with popularity ranking (trie + top-K)",
+   "lcId": 642,
+   "url": "https://leetcode.com/problems/design-search-autocomplete-system/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Trie",
+    "Heap",
+    "String",
+    "Design"
+   ],
+   "statement": "Given known street names (or dictionary words) each with a popularity counter, return at most K best matches for a typed prefix ('ste' → stevenson st, steven rd). Trie with per-node candidate lists or DFS + heap; discuss space vs query-time trade-offs.",
+   "variant": "Follow-ups: empty prefix; stream of target words (why a trie beats scanning); 'hierarchical strings with values where each entry contributes to all its ancestors — total per leaf' (reverse-trie, Aug 2025); prefix/suffix tries to test whether a word is prefix(w1)+suffix(w2) (L4 phone Jun 2025).",
+   "evidence": "6 reports: L4 onsite Apr 2025 (offer, autocomplete), onsite Apr 2025, L4 ML onsite May 2025 (prefix search), L4 phone Jun 2025, round 1 Aug 2025 (hierarchical strings), onsite Apr 2025 trie + hard follow-up",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6701549",
+    "https://leetcode.com/discuss/interview-experience/6659499",
+    "https://leetcode.com/discuss/interview-experience/6743081",
+    "https://leetcode.com/discuss/interview-experience/6836258",
+    "https://leetcode.com/discuss/interview-experience/7101066"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count people visible from the end / ocean-view buildings (monotonic stack)",
+   "lcId": 1944,
+   "url": "https://leetcode.com/problems/number-of-visible-people-in-a-queue/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Monotonic Stack",
+    "Array"
+   ],
+   "statement": "Given heights in a line, count how many people the last person can see (or which buildings have an ocean view, LC 1762). Base is a right-to-left scan keeping the running max; the follow-up — 'for every person, how many can they see' — needs a monotonic stack, O(n).",
+   "variant": "Reported as a 'basic problem whose follow-ups make it hard' and as the 'heights problem' in a Jun 2025 US L4 loop; both candidates rated H/SH.",
+   "evidence": "4 reports: L4 onsite Apr 2025 (offer), L4 US onsite Jun 2025 ('heights/stack'), L4 onsite Jun 2025 (ocean view), L3 Apr 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6701549",
+    "https://leetcode.com/discuss/interview-experience/7001176",
+    "https://leetcode.com/discuss/interview-experience/6827609",
+    "https://www.interviewtruth.fyi/blog/google-swe-interview-questions"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Encode and decode a directed graph (DAG first, then with cycles)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "Serialization",
+    "DFS",
+    "Hash Map"
+   ],
+   "statement": "Design encode(graph) → string and decode(string) → graph for a directed graph given as adjacency. Start with a DAG (DFS pre-order with child counts or an edge list with node ids); then extend so cycles survive the round trip (assign ids on first visit, emit back-references). Interviewers grade clean method decomposition and a dry run.",
+   "variant": "Asked as a 45-min screen in Poland (Dec 2025) with 'now include cycles' as the follow-up; also in a Feb-2025 India L4 offer loop and an Apr-2025 onsite.",
+   "evidence": "3 reports: L4 Poland screen Dec 2025, L4 India Feb 2025 (offer), onsite Apr 2025",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7392327",
+    "https://leetcode.com/discuss/interview-experience/6775581",
+    "https://leetcode.com/discuss/interview-experience/6685484"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "12 cards from a 108-card deck: can they split into 4 valid groups of 3 (same number+color, or same-color run)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "Backtracking",
+    "DP",
+    "Bitmask"
+   ],
+   "statement": "Cards have a number 1–9 and a colour (R/G/B); the deck has 4 copies of each. Given 12 cards, decide if they can be partitioned into 4 groups of 3 where each group is either three identical (number, colour) cards or a consecutive same-colour run. Backtracking over groups with pruning, or bitmask DP over the 12 cards. A standard-deck version (rank/suit, sets of ≥3 same rank or same-suit runs) was asked the same month.",
+   "variant": "Follow-ups: groups of size ≥3 instead of exactly 3; return the grouping; count the number of valid partitions.",
+   "evidence": "3 reports: L4 India Pune/Hyd onsite Mar 2025, L4 India onsite May 2025 (standard deck), Early Career phone Apr 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6799421",
+    "https://leetcode.com/discuss/interview-experience/6793213"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Merge two overlapping screenshots (2D grids) into one — row hashing / KMP",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "String Matching",
+    "Hashing",
+    "KMP",
+    "Matrix"
+   ],
+   "statement": "Two h×w screenshots of the same page may overlap vertically; return the merged long screenshot with the overlap removed. Find the largest k such that the last k rows of A equal the first k rows of B. Brute force O(h²·w); hash each row then run KMP over the row-hash sequences for O(h·w).",
+   "variant": "Interviewer refused to let the candidate code brute force before an optimisation was named; the thread consensus was KMP on row hashes.",
+   "evidence": "2 reports: L4 phone Jul 2025 (reject), compilation mention Apr 2025",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6927378",
+    "https://leetcode.com/discuss/post/6185127/2024-google-interview-questions-compilat-mjrf/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Nth license plate in a 6-range scheme (5 digits → 1 letter+4 digits → … → 5 letters)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Math",
+    "Base Conversion",
+    "Enumeration"
+   ],
+   "statement": "Plates are issued in order: 00000–99999, then A0000–Z9999, AA000–ZZ999, …, AAAAA–ZZZZZ. Given 0-indexed n, return the nth plate (n=100000 → 'A0000'). Compute each range's size 26^L·10^(5−L), subtract ranges until n fits, then split the remainder into a base-10 digit part and base-26 letter part.",
+   "variant": "Follow-up: inverse (plate → index); very large n (use 64-bit); generic k-length plates.",
+   "evidence": "2 reports: L4 India Fullstack onsite Aug 2025 (Hire), SWE-3 Apr 2025",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7126128",
+    "https://leetcode.com/discuss/interview-experience/6615664"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum removals to make a mountain array (DP via LIS both directions)",
+   "lcId": 1671,
+   "url": "https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "DP",
+    "LIS",
+    "Binary Search"
+   ],
+   "statement": "Remove the fewest elements so the array becomes strictly increasing then strictly decreasing. Compute LIS ending at i and LDS starting at i (O(n log n) with patience sorting), take the best peak with both sides ≥ 1.",
+   "variant": "Asked onsite in Feb 2026 (Mountain View L4) as the only problem in a 40-minute round with frequent interruptions; candidate initially missed the 'peak needs both sides' edge case. Earlier 2024 Hyderabad L4 onsite: find a peak in a mountain array with duplicates.",
+   "evidence": "2 reports: L4 Mountain View onsite Feb 2026, L4 Hyderabad Aug 2024 (peak with duplicates)",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7571793",
+    "https://leetcode.com/discuss/interview-experience/5741664"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Pac-Man-style grid pursuit / Rotting Oranges with two competing sources",
+   "lcId": 994,
+   "url": "https://leetcode.com/problems/rotting-oranges/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Grid",
+    "Multi-source BFS",
+    "Simulation"
+   ],
+   "statement": "Grid BFS skins Google uses: two diseases spread from two sources where the stronger one blocks the weaker — can the weaker reach a target cell (compare BFS distances with tie rules); 'minimal maximum distance to a café' (multi-source BFS); a Pac-Man maze with custom constraints (Feb 2026 onsite); 'farthest nodes from multiple sources'.",
+   "variant": "Follow-ups: walls that cost extra (0-1 BFS), obstacles that can be removed k times, 'what if the grid is unbounded' (BFS on hashed coordinates).",
+   "evidence": "5 reports: L4 Mountain View Feb 2026 (Pac-Man), L4 Hyd/Pune Apr 2025 (café), L4 India Aug 2024 (two diseases), SWE III Jun 2025 (farthest from sources), L4 India onsite May 2025 (unbounded BFS)",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7571793",
+    "https://leetcode.com/discuss/interview-experience/6713084",
+    "https://leetcode.com/discuss/interview-experience/5741664",
+    "https://leetcode.com/discuss/interview-experience/6830063",
+    "https://leetcode.com/discuss/interview-experience/6767439"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Maximum-sum subarray whose first and last elements are equal (hash map + prefix sums)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Prefix Sum",
+    "Hash Map",
+    "Kadane"
+   ],
+   "statement": "Given an array, find indices i < j with a[i] == a[j] maximising sum(a[i..j]); variants ask for the max 'good' subarray sum where |a[i]−a[j]| = k (LC 3026 shape) and to return the pair of indices rather than the sum. Keep, per value, the minimum prefix sum seen at a matching left endpoint.",
+   "variant": "Follow-ups: negatives allowed; endpoints may differ; O(1) extra space. A 2024 Hyderabad L4 was asked exactly this chain.",
+   "evidence": "4 reports: L4 Hyderabad Apr 2024, L3/L4 Taipei Jun 2025, L3 India 2026 (indices variant), L4 Bangalore onsite 2025 (Kadane + hash map optimisation)",
+   "recency": "2026",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/5117851",
+    "https://leetcode.com/discuss/interview-experience/6806755",
+    "https://leetcode.com/discuss/post/8543506/google-india-l3-interview-experience-off-1uw5/",
+    "https://leetcode.com/discuss/post/8319665/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Partnered / related users: areConnected(x, y) vs areRelated(x, y) with O(1) queries (union-find)",
+   "lcId": 721,
+   "url": "https://leetcode.com/problems/accounts-merge/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Union-Find",
+    "Graph",
+    "Hash Map"
+   ],
+   "statement": "Given pairwise partnerships, implement areConnected(x, y) (direct partners) and areRelated(x, y) (same network via a chain but not direct). With preprocessing allowed, answer both in O(1): a hash set of direct edges plus a DSU with path compression built over all pairs. Accounts Merge variants ask to merge accounts sharing any email.",
+   "variant": "Follow-ups: online insertions of new partnerships; 'retroactive' deletions (hard — discuss offline/rebuild); count of components.",
+   "evidence": "3 reports: L4 Bangalore onsite Mar 2025 (full DSU implemented), L4 Bangalore TPS Apr 2025 (Accounts Merge variant), circle-groups screening 2022–23",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6584641/google-l4-interview-experience-by-anonym-hiv2/",
+    "https://leetcode.com/discuss/interview-experience/6688364",
+    "https://leetcode.com/discuss/interview-experience/4999647"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Stream of integers: divisibility array of a huge digit string (prefix mod m)",
+   "lcId": 2575,
+   "url": "https://leetcode.com/problems/find-the-divisibility-array-of-a-string/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Math",
+    "Modular Arithmetic",
+    "Streaming"
+   ],
+   "statement": "Digits of a very large number arrive one at a time; after each digit report whether the prefix is divisible by m. Keep prefix mod m: r = (r*10 + d) mod m, O(1) per digit — the number itself must never be materialised.",
+   "variant": "Framed as a 'streaming payment validator'; interviewer was unimpressed by brute-force big-integer parsing.",
+   "evidence": "2 reports: L4 screen Mar 2025, 'most asked' post Jun 2025 (divisibility-by-3 cost puzzle)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6592887/google-l4-_-screen-round-by-anonymous_us-v3wf/",
+    "https://leetcode.com/discuss/interview-experience/6867869"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum window substring (asked verbatim) and longest-substring escalations",
+   "lcId": 76,
+   "url": "https://leetcode.com/problems/minimum-window-substring/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Sliding Window",
+    "Hash Map",
+    "String"
+   ],
+   "statement": "One of the few problems Google pasted verbatim with LeetCode's own test cases (L4 India onsite, Hire). Two-pointer window with character counts; candidates lost points for implementation slips caught only in the dry run.",
+   "variant": "Common escalation: start from Longest Substring Without Repeating Characters (LC 3, phone) → Unicode input → Minimum Window Substring. A Bangalore 2025 onsite was 'a LeetCode Hard sliding window with a precomputation follow-up' (H/SH).",
+   "evidence": "3 reports: L4 India onsite 2025 (verbatim), L4 Bangalore onsite 2025, LastRound aggregate 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6796476",
+    "https://leetcode.com/discuss/post/8319665/",
+    "https://lastroundai.com/interview-questions/google-l4"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Huffman-encoding variant (greedy merge with a heap)",
+   "lcId": 1167,
+   "url": "https://leetcode.com/problems/minimum-cost-to-connect-sticks/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "Heap",
+    "Tree"
+   ],
+   "statement": "Given symbol frequencies, build the optimal prefix code / minimum total merge cost by repeatedly combining the two smallest weights (heap), then produce codes by walking the tree. Google's version wraps it in a story and asks for the brute force first; the greedy proof is probed.",
+   "variant": "Asked as a 2026 L4 onsite ('variation of Huffman encoding', brute force → greedy, ran short on time) and a 2025 L5 Bangalore round 1 (Hire).",
+   "evidence": "2 reports: L4 Feb–Mar 2026 (cleared), L5 Bangalore Jun 2024/Jan 2025 post",
+   "recency": "2026-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/8306526/",
+    "https://leetcode.com/discuss/interview-experience/6349651"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Train / flight schedule: earliest arrival at destination (time-dependent Dijkstra)",
+   "lcId": 787,
+   "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "Dijkstra",
+    "Scheduling"
+   ],
+   "statement": "Trains/flights have (from, to, departure, arrival). Starting at a city and time, find the sequence that reaches the destination earliest; you can only board a train departing at or after your arrival. Dijkstra over cities keyed by arrival time, relaxing only departures ≥ current time. Clarify the objective (earliest arrival vs fewest hops) before coding.",
+   "variant": "A 2026 US L4 onsite problem (offer); 2024 Bangalore L4 round was 'similar to Cheapest Flights Within K Stops' solved with Dijkstra; a 2025 screening asked for the maximum number of cities visitable within H hours along the shortest path (Dijkstra + binary search on cumulative times).",
+   "evidence": "3 reports: L4 US onsite 2026 (offer), L4 Bangalore onsite Jan 2024 (Hire), screening Jun 2025",
+   "recency": "2026-05",
+   "sources": [
+    "https://www.tryexponent.com/experiences/google-software-engineer-interview-597223",
+    "https://leetcode.com/discuss/post/6492044/google-l4-swe-3-bangalore-india-3-yoe-by-jox8/",
+    "https://leetcode.com/discuss/interview-experience/6905591"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "design": [
+  {
+   "title": "Design a system to bill cars on a tolled highway",
+   "prompt": "Design end-to-end tolling: detect cars (plate/transponder reads at gantries), match entries/exits, price the trip, bill the owner, handle disputes.",
+   "probes": [
+    "sensor/read deduplication and missed reads",
+    "matching entry-exit events at scale",
+    "billing pipeline and idempotent charging",
+    "late-arriving data and reconciliation"
+   ],
+   "round": "Onsite design round (rare for L4; Sunnyvale Jul 2026 loop had GHA + 2 virtual + 2 onsite)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "1 report (Glassdoor, Jul 2026, declined offer)",
+   "recency": "2026-07",
+   "sources": [
+    "https://www.glassdoor.com/Interview/Google-Software-Engineer-L4-Interview-Questions-EI_IE9079.0,6_KO7,27.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design Snapchat (ephemeral messaging)",
+   "prompt": "Design a Snapchat-like app: send photo/video messages that expire after viewing; stories; delivery at scale.",
+   "probes": [
+    "media upload/storage and CDN",
+    "message expiry and deletion guarantees",
+    "fan-out for stories",
+    "notification delivery"
+   ],
+   "round": "Asked as Q2 of a 2-question round after a coding problem (Feb 2026)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "1 report (LeetCode, Feb 2026; candidate's first-ever SD question, struggled)",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7550756"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design Google's employee cab transportation service",
+   "prompt": "End-to-end system for employee cab allocation, routing and scheduling: optimise wait time, travel time and utilisation at scale.",
+   "probes": [
+    "cab allocation algorithm and routing",
+    "scheduling/batching riders",
+    "real-time location updates",
+    "scale and fairness/efficiency trade-offs"
+   ],
+   "round": "System design round (level not stated; posted Jan 2026)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "1 report (LeetCode, Jan 2026)",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7469970"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design a distributed cache optimised for a given workload",
+   "prompt": "A specific task/workload is pasted on screen; design a distributed cache tuned for it (eviction, partitioning, consistency).",
+   "probes": [
+    "consistent hashing / partitioning",
+    "eviction policy for the given access pattern",
+    "replication and consistency",
+    "hot keys; interviewer gives little steer on where to go deep"
+   ],
+   "round": "L5 system design round (L4 candidates: only if you accept the optional design round)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "L5 Bangalore Jan 2025 (selected); 'distributed key-value cache' also in 2025 aggregate lists",
+   "recency": "2025-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6349651",
+    "https://lastroundai.com/interview-questions/google-l4"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design a TikTok-style feed for Google News",
+   "prompt": "Short-form, swipeable news feed: ranking, ingestion of articles, personalisation, infinite scroll.",
+   "probes": [
+    "feed ranking and freshness",
+    "ingestion pipeline",
+    "personalisation signals",
+    "interviewer modified the statement mid-round once the first design was done"
+   ],
+   "round": "Additional L5 system design round (asked during team-match delays)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "1 report (L5 Bangalore, Dec 2024 round, posted Jan 2025)",
+   "recency": "2025-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6349651"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design an image/GIF/video hosting platform with no sign-up",
+   "prompt": "Anonymous media hosting (imgur-like): upload, shareable links, views at scale.",
+   "probes": [
+    "requirement gathering first (interviewer graded it)",
+    "back-of-envelope storage/bandwidth estimation",
+    "CDN and hot-object handling",
+    "abuse/expiry without accounts"
+   ],
+   "round": "L5 India system design round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "1 report (L5 India, hired, Apr 2025)",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6668243"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "ML system design: QnA bot / RAG pipeline (ML-track L4 only)",
+   "prompt": "Design a question-answering bot: retrieval + generation pipeline, data flow, evaluation.",
+   "probes": [
+    "baseline pipeline vs RAG extensions",
+    "going deep early is rewarded — a 'standard' answer got 'recommended for L3'",
+    "serving latency and evaluation",
+    "content moderation / video recommendation are the other common ML-SD prompts"
+   ],
+   "round": "ML round replacing one coding round in SWE III (L4) ML loops",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "3 reports: L4 ML Jul 2025 (QnA bot), India L4 MLE Jun 2025 (topo-sort+ML research problem; says content moderation / video recommendation are the usual asks), SWE III/MLE Jul 2025 (ML SD 'very good')",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7016988",
+    "https://leetcode.com/discuss/interview-experience/6910405",
+    "https://leetcode.com/discuss/interview-experience/6946749"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Scale-up follow-ups inside coding rounds (the real 'design' test at L4)",
+   "prompt": "Not a separate round: after your coding solution, the interviewer asks how it behaves at scale — 'billions of messages', 'input doesn't fit in memory', 'count node-chains across RemoteNodes where fetches are RPC calls (MapReduce)', 'Collatz as a scalable service with overflow handling', 'dedupe/timeout detection when events live in multiple files'.",
+   "probes": [
+    "memory eviction for unbounded maps",
+    "chunking/partitioning/streaming when input exceeds memory",
+    "minimising RPC fan-out; batching",
+    "when to reach for MapReduce-style aggregation",
+    "thread-safe counters (ConcurrentHashMap, AtomicInteger)"
+   ],
+   "round": "Inside L3/L4 coding rounds",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Many 2025 reports: L4 India Jun 2025 (production follow-up), L3 India Mar 2025 (RemoteNode/MapReduce), phone May 2025 (Collatz scale), Europe L3 Dec 2025 (events in files), L5 round-3 concurrency counter",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/6803694",
+    "https://leetcode.com/discuss/post/6574940/google-onsite-round-1-l3-india-by-anonym-clbd/",
+    "https://leetcode.com/discuss/interview-experience/6770932",
+    "https://leetcode.com/discuss/interview-experience/7406634",
+    "https://leetcode.com/discuss/interview-experience/6900849"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design a URL shortener",
+   "prompt": "Classic: shorten URLs, redirect fast, analytics.",
+   "probes": [
+    "key generation and collisions",
+    "read-heavy scaling and caching",
+    "analytics pipeline"
+   ],
+   "round": "Only if an optional design round is in an L4 loop; standard at L5",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Aggregate/prep sources list it for Google L4/L5 2024–25; GfG SDE-2 Jan 2025 Bangalore report had it as a round",
+   "recency": "2025-01",
+   "sources": [
+    "https://lastroundai.com/interview-questions/google-l4",
+    "https://www.geeksforgeeks.org/interview-experiences/google-interview-experience-for-software-engineer-sde-2-2025/",
+    "https://systemcraft.in/companies/google"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design a distributed rate limiter",
+   "prompt": "Rate-limit requests per user/service across many servers.",
+   "probes": [
+    "token bucket vs sliding window",
+    "distributed coordination (Redis, local + global limits)",
+    "race conditions and clock skew"
+   ],
+   "round": "Reported in 2025 L4-adjacent onsites (aggregate source); classic L5 prompt",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Aggregate source (2025 L4 onsites); SystemCraft lists it as a Google beginner SD prompt",
+   "recency": "2025",
+   "sources": [
+    "https://lastroundai.com/interview-questions/google-l4",
+    "https://systemcraft.in/companies/google"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Design Google Search autocomplete / typeahead",
+   "prompt": "Suggest completions as the user types, ranked by popularity, at Google scale.",
+   "probes": [
+    "trie vs precomputed top-k per prefix",
+    "update pipeline for trending queries",
+    "latency budget per keystroke",
+    "personalisation"
+   ],
+   "round": "Listed for both L4 and L5 2025 onsites (aggregate); the DSA version (trie + top-k) is a confirmed L4 coding question",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Aggregate 2025 reports; coding-round twin confirmed in 3 first-hand 2025 reports",
+   "recency": "2025",
+   "sources": [
+    "https://lastroundai.com/interview-questions/google-l4",
+    "https://leetcode.com/discuss/interview-experience/6659499"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Design Google Docs-style collaborative editing / a key-value store / a web crawler / a notification system",
+   "prompt": "The rest of the L5 rotation per prep guides: real-time collaborative editor (OT vs CRDT), KV store, polite web crawler, notification fan-out, news aggregator, video streaming.",
+   "probes": [
+    "OT vs CRDT and offline merge",
+    "crawl politeness and dedup",
+    "fan-out and delivery guarantees",
+    "back-of-envelope estimation — Bengaluru L6 round was 'heavy on resource estimation'"
+   ],
+   "round": "L5+ system design; L4 only if opted in",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "SystemCraft/InterviewTruth prep guides 2026; L6 Bengaluru report confirms estimation-heavy SD rounds; one L5 Bengaluru Dec 2025 candidate said their prepped Hello-Interview system came up verbatim",
+   "recency": "2025-12",
+   "sources": [
+    "https://systemcraft.in/companies/google",
+    "https://www.interviewtruth.fyi/blog/google-swe-interview-questions",
+    "https://leetcode.com/discuss/post/6535469/google-interview-experience-l6-bengaluru-dl55/",
+    "https://leetcode.com/discuss/interview-experience/7434719"
+   ],
+   "confidence": "low"
+  }
+ ],
+ "lld": []
+}

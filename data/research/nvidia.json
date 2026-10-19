@@ -1,0 +1,1772 @@
+{
+ "company": "NVIDIA",
+ "slug": "nvidia",
+ "levelMapping": "NVIDIA uses an internal IC1-IC9 ladder. An NVIDIA employee on Blind (Jan 2025): IC3 = 3-5 YOE, IC4 = 5-8, IC5 = 8-12; external 'Senior Software Engineer' postings fill at IC3 or IC4 depending on interview performance (IC3->IC4 takes 3-4 years internally). At ~3.3 YOE expect IC3 (~Google L4); a 10-YOE India senior system-software candidate was told IC4. Some prep sites show a shifted table (IC2 = 2-5 YOE), so confirm the req's level with the recruiter - final level is partly set by loop performance.",
+ "process": {
+  "summary": "Team-led and deliberately unstandardised: recruiters are vague, there is no central rubric, and each interviewer asks what their team cares about. Common skeleton for software roles: recruiter screen -> HackerRank OA (most India and early-career reqs) -> 1-2 technical phone screens (resume deep-dive plus live coding with constraint-tightening follow-ups) -> virtual onsite of 3-6 back-to-back 45-60 min rounds (coding, C/C++/OS fundamentals and domain deep dive, system design for mid-level+ backend/infra reqs, behavioral/manager) -> an in-person visit, which policy requires before any offer. Coding skews LC easy-medium but must compile and run: several 2026 rounds were practical tasks on a live VM or debugging provided buggy code, and interviewers often refuse library shortcuts and ask you to hand-roll the data structure. The real bar is depth: your own projects (probed 15-45 min in almost every round), C/C++ memory behaviour, concurrency, and the team's domain (CUDA/GPU, drivers, networking, Kubernetes/cloud).",
+  "rounds": [
+   {
+    "name": "Recruiter screen",
+    "type": "screen",
+    "duration": "20-30 min",
+    "what": "Background, why NVIDIA/this team, location, notice period, comp. NVIDIA encourages applying to up to five matching roles; parallel team loops are normal but feedback may be shared across teams.",
+    "probes": "Resume-vs-req fit. Recruiters usually cannot say what rounds will cover ('all interviews are technical in nature') - ask the hiring manager instead."
+   },
+   {
+    "name": "Online assessment (HackerRank)",
+    "type": "oa",
+    "duration": "60-120 min (75-90 typical)",
+    "what": "2-3 coding problems (LC easy-medium, occasionally one harder) plus MCQs on C/C++ output, pointers, OS (threads, deadlock, memory, scheduling) and sometimes aptitude/probability. Video-proctored; unapproved AI tools disqualify. India on-campus variants: ~28-50 MCQs + 2 coding in 60-90 min.",
+    "probes": "Speed and from-scratch implementation; MCQ section is often rated harder than the coding. Some senior/experienced loops skip the OA and go straight to a screen."
+   },
+   {
+    "name": "Technical phone screen (x1-2)",
+    "type": "dsa",
+    "duration": "45-60 min (one 2-hour C screen reported)",
+    "what": "10-15 min resume/project deep dive, then live coding on HackerRank CodePair or CoderPad: one LC easy-medium problem or a C/C++-flavoured implementation task (string class, hash map without STL, memcpy, KV store). Some teams run it as 90 min with two interviewers.",
+    "probes": "Follow-ups tighten constraints: make it thread-safe, make it faster, input no longer fits in memory, complexity stated unprompted. C/C++ roles probe memory layout, cache effects, pointers."
+   },
+   {
+    "name": "Hiring manager round",
+    "type": "hm",
+    "duration": "30-60 min",
+    "what": "Behavioral plus high-level technical: walk through your most complex project, trade-offs, role expectations. In India this often lands at the END of the loop as a 'managerial round' and can include a DSA/DP question and scenario questions.",
+    "probes": "Scope of ownership, why this team, career plans. Good moment to ask what the onsite rounds will cover - the HM sets the agenda."
+   },
+   {
+    "name": "Onsite: coding",
+    "type": "dsa",
+    "duration": "45-60 min (1-2 rounds)",
+    "what": "1-2 problems per session, LC easy-medium with hard follow-ups; arrays/strings, linked lists, trees/graphs, sliding window, heaps. Some teams swap one coding round for a debugging exercise on provided buggy code.",
+    "probes": "Hand-rolled data structures over std:: shortcuts, clean compilable code, edge cases, narrated reasoning. Verbal-only answers to follow-ups are often scored as not done."
+   },
+   {
+    "name": "Onsite: fundamentals / domain deep dive",
+    "type": "other",
+    "duration": "45-60 min",
+    "what": "C/C++ (output questions, virtual functions, smart pointers, std::move, alignment, structure padding), OS (mutex vs semaphore, deadlock, virtual memory, scheduling, interrupts), architecture (cache hierarchy, endianness, RISC vs CISC), and team domain: CUDA/GPU basics, drivers, networking (ARP/STP/LAG for Mellanox-side teams), Kubernetes/Docker/CI-CD for cloud/infra teams.",
+    "probes": "Depth on whatever you claim: 'prove you have done this'. India loops also mix in puzzles (torch-and-bridge, 10-coins heads/tails split, ants on a triangle, ABCD x 4 = DCBA)."
+   },
+   {
+    "name": "Onsite: system design",
+    "type": "design",
+    "duration": "45-60 min",
+    "what": "For mid-level+ backend/infra/cloud reqs. Performance-flavoured prompts (inference serving, cluster control plane, telemetry, CI pipelines, artifact stores) rather than design-Twitter. Several teams, including some 2026 loops, run NO system design at all - driver/embedded loops replace it with domain discussion.",
+    "probes": "Throughput, latency, memory budget, GPU utilisation, failure recovery, back-of-envelope numbers; defending trade-offs under pushback."
+   },
+   {
+    "name": "Onsite: practical coding",
+    "type": "practical",
+    "duration": "45-60 min",
+    "what": "Some teams (2026 reports): a live VM inside HackerRank where you write a real program (collect CPU/memory/disk metrics, POST JSON to the interviewer's server, debug a 403; fetch a paginated HTTP API and filter records). Googling basics was tolerated; running out of time was not.",
+    "probes": "Working end-to-end code within 45 min; HTTP/JSON handling, /proc parsing, methodical debugging of the failing request."
+   },
+   {
+    "name": "Onsite: behavioral",
+    "type": "behavioral",
+    "duration": "30-60 min",
+    "what": "STAR stories mapped to NVIDIA values (intellectual honesty, speed and agility, one team): a mistake and what changed, cross-team conflict, negative feedback, tight deadline. Often folded into the HM/director round; one 2026 loop opened with a director doing BQ plus deep dives across ALL past jobs.",
+    "probes": "Honest ownership of errors (no hero endings), cross-functional examples, mentorship for senior band."
+   }
+  ],
+  "indiaNotes": "India hires SWE/Senior SWE across Bengaluru, Pune and Hyderabad (networking/Mellanox and infra teams concentrated in Bengaluru, graphics/QA presence in Pune). The India loop leans harder on the HackerRank OA, C/C++/OS fundamentals, aptitude MCQs and puzzles than US loops; system design appears mainly for backend/cloud reqs. Round counts vary wildly: a Nov 2025 Bengaluru SWE reported EIGHT rounds (binary search, distributed task scheduler, priority queue, Python fundamentals, concurrency, managerial last); a GFG SDE-2 loop had 5 rounds including a logic/probability round; a Pune Mar 2025 candidate was rejected after solving everything, suspecting partial code written only verbally. A Bengaluru networking loop (Aug 2026) was almost entirely ARP/LAG/STP/MLAG/TCP-UDP plus C array drills. Expect slow HR: offer letters delayed ~2 months for budget approval (2024 report), positions put on hold mid-pipeline (Feb 2025), and ghosting between rounds.",
+  "timeline": "Official line: decision within weeks of first interview. Reports: 1-2 weeks (fast teams, one 'offer in five days, five back-to-back rounds') to 2 months (Tel Aviv home-exam loop); 4-8 weeks typical; silence of 3-5+ weeks after onsite is normal; senior offers need director/VP sign-off and committee review every ~2 weeks.",
+  "tips": [
+   "Prep the team, not the company: read the JD line by line, ask the HM what each onsite round covers - they usually tell you.",
+   "Expect to hand-roll data structures in C/C++/Python without library shortcuts (LRU without OrderedDict, hash map without STL).",
+   "Write code that compiles and runs; finish follow-ups in code - verbal-only answers were counted as failures in 2026 reports.",
+   "Know your resume cold: every round starts with a project deep dive, and senior loops probe older jobs too.",
+   "Drill OS + C/C++ fundamentals (mutex vs semaphore, deadlock, virtual memory, vtables, std::move, alignment, cache lines) even for application-level roles.",
+   "For backend/cloud reqs (DGX Cloud, NGC, GeForce NOW), be fluent in Kubernetes, Docker, CI/CD image flow and distributed-systems basics.",
+   "Practice performance-flavoured design (inference serving, schedulers, telemetry) instead of design-Twitter templates.",
+   "Prepare value-mapped behavioral stories: a real mistake (intellectual honesty), cross-team work (one team), shipping fast.",
+   "Do not use AI tools in any round - stated grounds for disqualification.",
+   "Interviewing with multiple NVIDIA teams at once is fine and common; a reject lets you re-interview with another team immediately."
+  ],
+  "notes": "OA platform is HackerRank (video-proctored; CodePair for live rounds, CoderPad on some teams). Company policy requires an in-person onsite before an offer. No bar-raiser or central committee per team - scorecards go to a hiring committee meeting ~biweekly, and any single weak round can sink the loop. No team-matching phase: you interview with the exact team. The LeetCode NVIDIA tag is only loosely predictive - a Feb 2026 candidate reported grinding it 'didn't help'; fundamentals and the practical 'must compile and run' bar matter more. LLD exists but as C++/concurrency implementation rounds (ring buffer, shared_ptr, allocator, string class) rather than a formal machine-coding round; see lld[].",
+  "sources": [
+   {
+    "title": "NVIDIA - How We Hire (official)",
+    "url": "https://www.nvidia.com/en-us/about-nvidia/careers/how-we-hire/",
+    "date": "2026"
+   },
+   {
+    "title": "PracHub - NVIDIA interview experiences (24 reports)",
+    "url": "https://prachub.com/interview-experiences?company=NVIDIA",
+    "date": "2026-10"
+   },
+   {
+    "title": "PracHub - SWE onsite, three rounds, practical VM task",
+    "url": "https://prachub.com/interview-experiences/nvidia-software-engineer-interview-experience-three-onsite-rounds-rejected-three-days-later",
+    "date": "2026-10"
+   },
+   {
+    "title": "PracHub - GPU search-engine team phone screen",
+    "url": "https://prachub.com/interview-experiences/nvidia-software-engineer-interview-experience-gpu-search-engine-team-phone-screen-on-counting-distinct-strings",
+    "date": "2026-07"
+   },
+   {
+    "title": "PracHub - two unstructured screens (Workday, no format)",
+    "url": "https://prachub.com/interview-experiences/nvidia-software-engineer-interview-experience-two-unstructured-screens-and-no-follow-up",
+    "date": "2026-06"
+   },
+   {
+    "title": "Glassdoor India - NVIDIA SWE interview questions",
+    "url": "https://www.glassdoor.co.in/Interview/NVIDIA-Software-Engineer-Interview-Questions-EI_IE7633.0,6_KO7,24.htm",
+    "date": "2026-08"
+   },
+   {
+    "title": "SpaceComplexity - NVIDIA Senior SWE loop guide",
+    "url": "https://spacecomplexity.ai/blog/nvidia-senior-software-engineer-interview",
+    "date": "2026-05"
+   },
+   {
+    "title": "OphyAI - NVIDIA interview process 2026",
+    "url": "https://ophyai.com/blog/company-guides/nvidia-interview-guide",
+    "date": "2026-08"
+   },
+   {
+    "title": "TechPrep - NVIDIA interview process and question pools",
+    "url": "https://www.techprep.app/companies/nvidia",
+    "date": "2026"
+   },
+   {
+    "title": "Codemia - NVIDIA SWE guide",
+    "url": "https://codemia.io/guides/nvidia-software-engineer",
+    "date": "2026"
+   },
+   {
+    "title": "Blind - NVIDIA SWE interview (no standard rubric)",
+    "url": "https://www.teamblind.com/post/nvidia-software-engineer-interview-xrq6ekjg",
+    "date": "2024-01"
+   },
+   {
+    "title": "Blind - NVIDIA interview process (GPU cloud, screens)",
+    "url": "https://www.teamblind.com/post/nvidia-interview-process-boskwsfj",
+    "date": "2023-11"
+   },
+   {
+    "title": "Blind - Systems SWE process (1 screen + 5 rounds)",
+    "url": "https://www.teamblind.com/post/systems-software-engineer-interview-process-at-nvidia-xkr2gr1r",
+    "date": "2023-10"
+   },
+   {
+    "title": "Blind - NVIDIA Senior SWE IC leveling",
+    "url": "https://www.teamblind.com/post/nvidia-senior-swe-ic-leveling-bpfm4cb3",
+    "date": "2025-01"
+   },
+   {
+    "title": "Blind - NVIDIA India offer level (IC4 at 10 YOE), hiring pause",
+    "url": "https://www.teamblind.com/post/expecting-offer-at-nvidia-india-5bffshrn",
+    "date": "2025-02"
+   },
+   {
+    "title": "Blind - SW onsite: 4 back-to-back technicals, system software",
+    "url": "https://www.teamblind.com/post/nvidia-sw-onsites-helpp-s3gkhvur",
+    "date": "2026-02"
+   },
+   {
+    "title": "GeeksforGeeks - NVIDIA recruitment process",
+    "url": "https://www.geeksforgeeks.org/interview-experiences/nvidia-recruitment-process/",
+    "date": "2026-07"
+   },
+   {
+    "title": "GeeksforGeeks - NVIDIA SWE experience (selected; 4 rounds)",
+    "url": "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-software-engineer/",
+    "date": "2024-08"
+   },
+   {
+    "title": "Taro - SWE Bengaluru OA report",
+    "url": "https://www.jointaro.com/interviews/companies/nvidia/experiences/software-engineer-bengaluru-november-5-2024-no-offer-neutral-c8c03977/",
+    "date": "2024-11"
+   },
+   {
+    "title": "Dataford - NVIDIA SWE experiences",
+    "url": "https://dataford.io/interview-guides/nvidia/software-engineer/experiences",
+    "date": "2026-08"
+   },
+   {
+    "title": "Aced/Exponent - NVIDIA SWE experience + question pool",
+    "url": "https://www.aced.io/experiences/nvidia-software-engineer-interview-90647e",
+    "date": "2026"
+   }
+  ]
+ },
+ "dsa": [
+  {
+   "title": "Sliding Window Maximum",
+   "lcId": 239,
+   "url": "https://leetcode.com/problems/sliding-window-maximum/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Deque",
+    "Sliding Window"
+   ],
+   "statement": "",
+   "variant": "O(n) deque solution expected; candidate had accepted offer.",
+   "evidence": "Glassdoor SWE report (2026-05, offer); also high in NVIDIA LC tag 6-mo window.",
+   "recency": "2026-05",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW103790644.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "LRU Cache",
+   "lcId": 146,
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Linked List",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Recurs with twists: thread-safe follow-up, serialization + evolving constraints, eviction-order twist in a 90-min OA, and no-STL/hand-rolled DLL versions.",
+   "evidence": "Aced phone-screen pool, Career Drill OA report (2025-08), PracHub listing (2026-02), OphyAI/SpaceComplexity guides.",
+   "recency": "2026-02",
+   "sources": [
+    "https://www.aced.io/experiences/nvidia-software-engineer-interview-90647e",
+    "https://medium.com/career-drill/software-engineer-nvidia-interview-experience-c96ba7cabc96",
+    "https://prachub.com/coding-questions/design-and-implement-an-lru-cache"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top K Frequent Elements",
+   "lcId": 347,
+   "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Bucket Sort",
+    "Streaming"
+   ],
+   "statement": "",
+   "variant": "Asked as streaming top-K: interviewer rejected the heap answer and pushed for O(1) add via count buckets; also as top-N from a log stream, and in a 90-min OA.",
+   "evidence": "PracHub screen report (2026-06), PracHub onsite listing (2026-09), Career Drill OA (2025-08).",
+   "recency": "2026-09",
+   "sources": [
+    "https://prachub.com/interview-experiences/nvidia-software-engineer-interview-experience-two-unstructured-screens-and-no-follow-up",
+    "https://prachub.com/interview-questions/streaming-top-k-frequent-elements-with-o-1-updates-instead-of-a-heap",
+    "https://prachub.com/coding-questions/find-top-k-frequent-elements"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Merge Intervals",
+   "lcId": 56,
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sorting",
+    "Intervals"
+   ],
+   "statement": "",
+   "variant": "Also asked to a senior data-infra candidate; TechPrep lists it among most-reported NVIDIA problems.",
+   "evidence": "PracHub listing (2026-05), Aced pool, TechPrep guide.",
+   "recency": "2026-05",
+   "sources": [
+    "https://prachub.com/coding-questions/merge-overlapping-time-intervals-3",
+    "https://www.techprep.app/companies/nvidia"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Longest Substring Without Repeating Characters",
+   "lcId": 3,
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Strings"
+   ],
+   "statement": "",
+   "variant": "Paired with bracket validation and a small HTTP/API task in one screen; 100% of NVIDIA LC-tag votes in the 6-mo window.",
+   "evidence": "PracHub screen listing (2026-02).",
+   "recency": "2026-02",
+   "sources": [
+    "https://prachub.com/coding-questions/solve-small-string-and-api-tasks"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Valid Parentheses",
+   "lcId": 20,
+   "url": "https://leetcode.com/problems/valid-parentheses/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Stack",
+    "Strings"
+   ],
+   "statement": "",
+   "variant": "Asked alongside LC 3 in the same screen.",
+   "evidence": "PracHub screen listing (2026-02).",
+   "recency": "2026-02",
+   "sources": [
+    "https://prachub.com/coding-questions/solve-small-string-and-api-tasks"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Count substrings with no repeated characters",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Combinatorics"
+   ],
+   "statement": "Count all non-empty contiguous substrings of a lowercase string (up to 1e5 chars) that contain no repeated character. Counting variant of LC 3: for each right end, add the window length; handle equal characters correctly.",
+   "variant": "Senior+ round; brute force rejected for the 1e5 bound.",
+   "evidence": "PracHub senior listing (2026-07).",
+   "recency": "2026-07",
+   "sources": [
+    "https://prachub.com/coding-questions/count-substrings-with-no-repeated-characters"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Group Anagrams",
+   "lcId": 49,
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Strings"
+   ],
+   "statement": "",
+   "variant": "Asked in a two-part round with an in-place memory-allocator task; also 87.5% in LC-tag 3-mo window.",
+   "evidence": "PracHub listing (2025-12).",
+   "recency": "2025-12",
+   "sources": [
+    "https://prachub.com/coding-questions/solve-anagram-grouping-and-in-place-allocator"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Reverse Linked List",
+   "lcId": 206,
+   "url": "https://leetcode.com/problems/reverse-linked-list/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Linked List"
+   ],
+   "statement": "",
+   "variant": "Asked with robustness/edge-case grilling and the k-group (LC 25) extension; firmware/embedded screens love it.",
+   "evidence": "PracHub listings (2025-10), GFG FW-developer round 1 (2024-03), Aced pool.",
+   "recency": "2025-10",
+   "sources": [
+    "https://prachub.com/interview-questions/reverse-linked-lists-including-k-group",
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-fw-developer/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Copy List with Random Pointer",
+   "lcId": 138,
+   "url": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Linked List",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "O(n)-time requirement stated; older system-software round demanded the O(1)-space interleaving trick.",
+   "evidence": "Glassdoor firmware round, Haifa (2026-09); GFG system-software experience.",
+   "recency": "2026-09",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW105067495.htm",
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-system-software-engineer/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Linked List Cycle II",
+   "lcId": 142,
+   "url": "https://leetcode.com/problems/linked-list-cycle-ii/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Linked List",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "Find the first node inside the loop - appeared in a 75-min Bengaluru OA (10 MCQs + 2 coding).",
+   "evidence": "Taro SWE Bengaluru OA report (2024-11).",
+   "recency": "2024-11",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/nvidia/experiences/software-engineer-bengaluru-november-5-2024-no-offer-neutral-c8c03977/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Add Two Numbers",
+   "lcId": 2,
+   "url": "https://leetcode.com/problems/add-two-numbers/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Linked List",
+    "Math"
+   ],
+   "statement": "",
+   "variant": "Round-2 question in a 4-round India loop that ended in an offer.",
+   "evidence": "GFG SWE experience (2024-08).",
+   "recency": "2024-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-software-engineer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Build a tree from parent-child pairs and find the root",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Trees",
+    "Hash Map"
+   ],
+   "statement": "Given a list of (parent, child) node pairs, identify the root and construct the tree by linking all nodes; then answer traversal follow-ups.",
+   "variant": "",
+   "evidence": "GFG SWE experience round 2 (2024-08).",
+   "recency": "2024-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-software-engineer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Construct Binary Tree from Inorder and Postorder Traversal",
+   "lcId": 106,
+   "url": "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Trees",
+    "Recursion"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "PracHub listing (2025-08).",
+   "recency": "2025-08",
+   "sources": [
+    "https://prachub.com/coding-questions/construct-tree-from-inorder-and-postorder"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Vertical Order Traversal of a Binary Tree",
+   "lcId": 987,
+   "url": "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Trees",
+    "BFS",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "Reported in recent onsites; the simpler 'top view of binary tree' variant also appears.",
+   "evidence": "TechPrep recent reports (2025-26).",
+   "recency": "2025",
+   "sources": [
+    "https://www.techprep.app/companies/nvidia"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Convert Sorted List to Binary Search Tree",
+   "lcId": 109,
+   "url": "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Linked List",
+    "BST",
+    "Recursion"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "TechPrep recent reports (2025-26).",
+   "recency": "2025",
+   "sources": [
+    "https://www.techprep.app/companies/nvidia"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Word Pattern",
+   "lcId": 290,
+   "url": "https://leetcode.com/problems/word-pattern/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Hash Map",
+    "Strings"
+   ],
+   "statement": "",
+   "variant": "The single coding question of a 45-min distributed-systems phone screen; candidate rejected two days later despite solving it.",
+   "evidence": "Glassdoor System SWE Distributed Systems screen (2025-01).",
+   "recency": "2025-01",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW94738744.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Isomorphic Strings",
+   "lcId": 205,
+   "url": "https://leetcode.com/problems/isomorphic-strings/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Hash Map",
+    "Strings"
+   ],
+   "statement": "",
+   "variant": "One of five problems in a 90-min OA.",
+   "evidence": "Career Drill OA report (2025-08).",
+   "recency": "2025-08",
+   "sources": [
+    "https://medium.com/career-drill/software-engineer-nvidia-interview-experience-c96ba7cabc96"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Longest Palindromic Subsequence",
+   "lcId": 516,
+   "url": "https://leetcode.com/problems/longest-palindromic-subsequence/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Strings"
+   ],
+   "statement": "",
+   "variant": "Same 90-min OA.",
+   "evidence": "Career Drill OA report (2025-08).",
+   "recency": "2025-08",
+   "sources": [
+    "https://medium.com/career-drill/software-engineer-nvidia-interview-experience-c96ba7cabc96"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Course Schedule",
+   "lcId": 207,
+   "url": "https://leetcode.com/problems/course-schedule/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graphs",
+    "Topological Sort"
+   ],
+   "statement": "",
+   "variant": "Framed as 'detect a cycle in a directed graph' in the OA; topological-sort pseudocode also asked live in older loops.",
+   "evidence": "Career Drill OA report (2025-08).",
+   "recency": "2025-08",
+   "sources": [
+    "https://medium.com/career-drill/software-engineer-nvidia-interview-experience-c96ba7cabc96"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Continuous Subarray Sum",
+   "lcId": 523,
+   "url": "https://leetcode.com/problems/continuous-subarray-sum/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Prefix Sum",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Subarray of length >= 2 summing to a multiple of k.",
+   "evidence": "Aced NVIDIA SWE phone-screen pool (2026).",
+   "recency": "2026",
+   "sources": [
+    "https://www.aced.io/experiences/nvidia-software-engineer-interview-90647e"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Encode and Decode Strings",
+   "lcId": 271,
+   "url": "https://leetcode.com/problems/encode-and-decode-strings/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Strings",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Serialize/deserialize a list of strings that may contain digits and symbols; asked in both screens and onsites.",
+   "evidence": "PracHub listing (2026-02), Aced pool.",
+   "recency": "2026-02",
+   "sources": [
+    "https://prachub.com/coding-questions/implement-encode-decode-for-list-of-strings",
+    "https://www.aced.io/experiences/nvidia-software-engineer-interview-90647e"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Valid Palindrome",
+   "lcId": 125,
+   "url": "https://leetcode.com/problems/valid-palindrome/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Two Pointers",
+    "Strings"
+   ],
+   "statement": "",
+   "variant": "One of three take-home HackerRank problems before a Yoqne'am onsite.",
+   "evidence": "Glassdoor SWE Yoqne'am (2025-11).",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW101986297.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Reorganize String",
+   "lcId": 767,
+   "url": "https://leetcode.com/problems/reorganize-string/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Greedy",
+    "Strings"
+   ],
+   "statement": "",
+   "variant": "Asked as 'shuffle a playlist so no two consecutive songs share an artist', ordering by artist frequency.",
+   "evidence": "Glassdoor SWE Yoqne'am (2025-11).",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW101986297.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "O(1) init/get/set/reset array",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Design",
+    "Arrays"
+   ],
+   "statement": "Design a data structure over an array supporting constant-time initialization, get(i), set(i, v) and reset-all. Classic constant-time-initialization trick with a generation counter or stack of touched slots.",
+   "variant": "Asked verbally at the end of an onsite day.",
+   "evidence": "Glassdoor SWE Yoqne'am (2025-11).",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW101986297.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Maximize Greatness of an Array",
+   "lcId": 2592,
+   "url": "https://leetcode.com/problems/maximize-greatness-of-an-array/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "Sorting",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "Named OA problem in a 2025 on-campus drive (plus a custom bitwise recurrence problem); also in the NVIDIA LC tag.",
+   "evidence": "GFG system-software intern on-campus drive (2025-03).",
+   "recency": "2025-03",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-system-software-engineer-intern-on-campus-drive-experience/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Find The Original Array of Prefix Xor",
+   "lcId": 2433,
+   "url": "https://leetcode.com/problems/find-the-original-array-of-prefix-xor/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Bit Manipulation"
+   ],
+   "statement": "",
+   "variant": "OAs repeatedly feature XOR/bitwise subarray problems (IGNITE and intern OAs); this tag problem matches the reports.",
+   "evidence": "Glassdoor IGNITE OA reports (2026-04); NVIDIA LC tag.",
+   "recency": "2026-04",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW104894219.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Missing Number",
+   "lcId": 268,
+   "url": "https://leetcode.com/problems/missing-number/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Bit Manipulation",
+    "Math"
+   ],
+   "statement": "",
+   "variant": "Asked with 'optimize it' follow-up in a firmware round; also in the NVIDIA LC tag.",
+   "evidence": "GFG FW-developer round 1 (2024-03).",
+   "recency": "2024-03",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-fw-developer/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Number of 1 Bits",
+   "lcId": 191,
+   "url": "https://leetcode.com/problems/number-of-1-bits/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Bit Manipulation"
+   ],
+   "statement": "",
+   "variant": "Count set bits two ways and compare trade-offs (loop vs n&(n-1) vs lookup).",
+   "evidence": "GFG FW-developer manager round (2024-03).",
+   "recency": "2024-03",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-fw-developer/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Min Stack",
+   "lcId": 155,
+   "url": "https://leetcode.com/problems/min-stack/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Stack",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "NVIDIA variant demands O(1) getMin with O(1) EXTRA space (encoded-difference trick), not the easy two-stack version.",
+   "evidence": "GFG SDE-2 loop (2022); still 75% in NVIDIA LC-tag 6-mo window (2026).",
+   "recency": "2026",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-sde-2/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Search in Rotated Sorted Array",
+   "lcId": 33,
+   "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "Also asked as find-minimum (LC 153) with binary search expected; binary-search variants recur across India loops.",
+   "evidence": "GFG SDE-2 loop (2022), GFG system-software experience, TechPrep guide, Glassdoor Bengaluru 8-round loop mention of binary search (2025-11).",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-sde-2/",
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Software-Engineer-Interview-Questions-EI_IE7633.0,6_KO7,24.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Matrix transpose + key-value store with setAll",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Arrays",
+    "Design",
+    "Hash Map"
+   ],
+   "statement": "Phone screen for a Linux-oriented role, multiple tasks: (1) transpose an n x n matrix; (2) design an OO key-value store with set(key, v), get(key) and setAll(v) where setAll updates every existing key - expected average O(1) per op via a global timestamp/generation instead of touching every key; (3) spot bugs in a short C snippet.",
+   "variant": "",
+   "evidence": "PracHub screen report (2026-02).",
+   "recency": "2026-02",
+   "sources": [
+    "https://prachub.com/coding-questions/implement-matrix-transpose-and-kv-store"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count distinct strings with a hand-built hash table, then parallelize",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Concurrency",
+    "GPU"
+   ],
+   "statement": "GPU search-engine team screen: count distinct strings in an array with NO library containers (write the hash table yourself), then make it parallel-safe. Candidate used atomic counters plus a shared/exclusive lock on miss; interviewer steered toward open addressing (GPU-friendly). Follow-up: how to split 1M keys across threads with memory-adjacent access.",
+   "variant": "",
+   "evidence": "PracHub screen report (2026-07).",
+   "recency": "2026-07",
+   "sources": [
+    "https://prachub.com/interview-experiences/nvidia-software-engineer-interview-experience-gpu-search-engine-team-phone-screen-on-counting-distinct-strings"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Collect CPU/memory/disk metrics and POST as JSON",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Practical",
+    "Linux",
+    "HTTP"
+   ],
+   "statement": "Onsite on a live VM inside HackerRank: write a real program that reads the machine's CPU, memory and disk usage (/proc etc.), packs it into JSON and POSTs it to the interviewer's server; debug the 403 the server returns. Follow-up: check readings against a threshold before sending (framed as a simple sliding-window check). Googling basics was allowed; unfinished code counted against the candidate.",
+   "variant": "",
+   "evidence": "PracHub onsite report (2026-10).",
+   "recency": "2026-10",
+   "sources": [
+    "https://prachub.com/interview-experiences/nvidia-software-engineer-interview-experience-three-onsite-rounds-rejected-three-days-later",
+    "https://prachub.com/interview-questions/collect-cpu-memory-and-disk-metrics-post-them-as-json-and-add-a-threshold-check"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Fetch paginated medical records and filter by rules",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "Practical",
+    "HTTP",
+    "Data Wrangling"
+   ],
+   "statement": "45-min screen: pull all records from a paginated HTTP endpoint (10 per page, unknown page count), apply a long list of field-comparison conditions, and one condition comparing each record's weight against the patient's historical average, which you must compute from the data. Spec is long; working code expected; handle missing/badly-typed fields and retries.",
+   "variant": "",
+   "evidence": "PracHub screen listing (2026-10).",
+   "recency": "2026-10",
+   "sources": [
+    "https://prachub.com/interview-questions/fetch-paginated-medical-records-and-filter-by-field-rules-and-historical-average-weight"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Merge sorted arrays, then external-sort N huge files",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Sorting",
+    "External Memory",
+    "Distributed"
+   ],
+   "statement": "Onsite: start with the easy two-pointer merge of two sorted integer sequences, then scale twice - (1) both inputs and the output are files too big for memory (streaming merge, bounded buffers, crash safety), (2) N such files must be globally sorted and stored (k-way merge / external sort, range partitioning across machines, skew handling).",
+   "variant": "",
+   "evidence": "PracHub onsite listing (2026-09).",
+   "recency": "2026-09",
+   "sources": [
+    "https://prachub.com/interview-questions/merge-sorted-arrays-then-scale-to-huge-files-and-a-global-sort-of-n-files"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Implement memcpy and memmove",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "C",
+    "Memory"
+   ],
+   "statement": "Write memcpy from scratch, then explain and handle overlapping ranges (memmove semantics, copy direction). Follow-ups: word-at-a-time copying, alignment.",
+   "variant": "",
+   "evidence": "GFG FW-developer round 2 (2024-03); Aced phone-screen pool.",
+   "recency": "2024-03",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-fw-developer/",
+    "https://www.aced.io/experiences/nvidia-software-engineer-interview-90647e"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design a simple hash map without STL",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "C++",
+    "Design"
+   ],
+   "statement": "Implement a hash map from scratch (buckets, collision policy, resize) without library containers; discuss load factor and complexity.",
+   "variant": "",
+   "evidence": "Aced phone-screen pool (2026).",
+   "recency": "2026",
+   "sources": [
+    "https://www.aced.io/experiences/nvidia-software-engineer-interview-90647e"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Aligned allocation: align_malloc / UP_ALIGN macro",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "C",
+    "Memory",
+    "Bit Manipulation"
+   ],
+   "statement": "Two reported forms: implement align_malloc(size, align) returning a pointer rounded to the alignment (e.g. malloc returns 123, align 10 -> 120/130), with the bookkeeping needed to free it; and write an UP_ALIGN(size, align) macro rounding up to the next power-of-two multiple (UP_ALIGN(10, 8) = 16).",
+   "variant": "",
+   "evidence": "GFG SDE-2 round 3 (2022); Aced pool (2026).",
+   "recency": "2026",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-sde-2/",
+    "https://www.aced.io/experiences/nvidia-software-engineer-interview-90647e"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Convert 4D tensor layout NCHW to NHWC in a flat array",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Arrays",
+    "Math",
+    "ML"
+   ],
+   "statement": "A 4-D tensor is stored in a 1-D array in NCHW order; write code to rewrite it in NHWC order (index arithmetic between the two layouts), e.g. N=1, C=3, H=2, W=2.",
+   "variant": "",
+   "evidence": "GFG SDE-2 round 3 (2022).",
+   "recency": "2022",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-sde-2/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "32-bit multiplication on a 16-bit ALU",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "C",
+    "Bit Manipulation",
+    "Architecture"
+   ],
+   "statement": "Write a C program that multiplies two 32-bit integers on a processor whose ALU only supports 16-bit multiplication - split operands into high/low halves, combine partial products with shifts and carries. The candidate who could not finish it was rejected.",
+   "variant": "",
+   "evidence": "GFG system-software off-campus round 3 (2023-08).",
+   "recency": "2023-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-system-software-off-campus/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "In-order traversal with explicit stack, then optimize",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Trees",
+    "Stack"
+   ],
+   "statement": "Implement iterative in-order traversal using a stack (LC 94 without recursion), state time/space complexity, then discuss optimizing space (Morris traversal direction).",
+   "variant": "",
+   "evidence": "GFG system-software off-campus round 3 (2023-08).",
+   "recency": "2023-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-system-software-off-campus/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "All file paths in an in-memory file-system tree (DFS)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Trees",
+    "DFS"
+   ],
+   "statement": "Given an in-memory file-system tree (nodes with name, isFile, children), return the full path of every file via DFS.",
+   "variant": "",
+   "evidence": "PracHub listing (2026-03).",
+   "recency": "2026-03",
+   "sources": [
+    "https://prachub.com/coding-questions/return-all-file-paths-via-dfs"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "nth prime number",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Math",
+    "Sieve"
+   ],
+   "statement": "Return the n-th prime (1-indexed), efficient for moderately large n - sieve with an upper-bound estimate rather than trial division. Related: LC 204 Count Primes is in the NVIDIA tag.",
+   "variant": "",
+   "evidence": "PracHub listing (2026-02).",
+   "recency": "2026-02",
+   "sources": [
+    "https://prachub.com/coding-questions/find-the-nth-prime-number"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "SQL: total city population across joined tables",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "SQL"
+   ],
+   "statement": "Given country/state/city/zip relational tables, write SQL to sum population per city name across joins. One screen also asked the candidate to design a SQL table schema outright.",
+   "variant": "",
+   "evidence": "PracHub listing (2026-02); PracHub screen report (2026-06).",
+   "recency": "2026-06",
+   "sources": [
+    "https://prachub.com/interview-questions/write-sql-to-sum-city-population-by-name",
+    "https://prachub.com/interview-experiences/nvidia-software-engineer-interview-experience-two-unstructured-screens-and-no-follow-up"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "C/C++ output and language-internals drill",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "C++",
+    "Fundamentals"
+   ],
+   "statement": "Rapid-fire, reported across many rounds: predict output of snippets with constructors/destructors, copy constructors, virtual functions (and how vtables work), ++/-- expressions; static vs dynamic libraries; static variables and where they live; delete vs free; std::vector internals; std::move and smart pointers; structure padding and offsetof; function pointers; abstract classes and pure virtual functions.",
+   "variant": "",
+   "evidence": "GFG SDE-2 (2022), GFG FW developer (2024-03), GFG internship drives, TechPrep guide (2025-26).",
+   "recency": "2025",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-sde-2/",
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-fw-developer/",
+    "https://www.techprep.app/companies/nvidia"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "OS and concurrency fundamentals drill",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "OS",
+    "Concurrency"
+   ],
+   "statement": "Reported across screens, onsites and MCQs: mutex vs semaphore; the four deadlock conditions and avoidance; race conditions; user vs kernel mode and system calls; paging, logical vs physical addresses, page/frame math; thread vs process switching; scheduling (preemptive SJF Gantt chart); interrupts; DMA; VM/hypervisor basics vs containers; debugging a production concurrency bug.",
+   "variant": "",
+   "evidence": "GFG internship/system-software reports (2023-25), PracHub screen listing (2026-01), Glassdoor Bengaluru 8-round loop (2025-11).",
+   "recency": "2026-01",
+   "sources": [
+    "https://prachub.com/interview-questions/explain-virtual-machines-and-concurrency-basics",
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-software-interview-experience-internship/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Bit/memory tricks drill",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "C",
+    "Bit Manipulation",
+    "Architecture"
+   ],
+   "statement": "Set/toggle a given bit; detect little vs big endian in C; determine which way the stack grows; swap two numbers without a temp; reverse bits; convert hex string to decimal; minimum of three numbers without comparison operators.",
+   "variant": "",
+   "evidence": "GFG system-software and FW-developer reports (2023-24); PracHub firmware listing (2026-07).",
+   "recency": "2026-07",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-fw-developer/",
+    "https://prachub.com/interview-questions/reason-about-endianness-ring-buffers-and-stack-behavior-in-firmware"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Remove duplicates from an array in C (networking team)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Arrays",
+    "C"
+   ],
+   "statement": "Bengaluru networking (Mellanox-side) round: remove duplicates from an array in plain C and print the remaining data; the rest of the round was ARP, switch MAC learning, LAG, STP, MLAG and TCP vs UDP.",
+   "variant": "",
+   "evidence": "Glassdoor SWE Bengaluru (2026-08).",
+   "recency": "2026-08",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Software-Engineer-Interview-Questions-EI_IE7633.0,6_KO7,24.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Debug the provided program",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Debugging",
+    "C",
+    "Python"
+   ],
+   "statement": "A recurring round format: you get working-looking code and must find and fix the bugs. Reported forms: a ~250-line C program converting a binary tree to a doubly linked list in spiral order (missing pass-by-reference, stack overflow/underflow checks, bad casts); a Python helper class reading an HTTP stream with concurrency bugs; 'find the error in this Python code' on a screen.",
+   "variant": "",
+   "evidence": "GFG compiler-intern round 2 (2024), PracHub listing (2025-08), Glassdoor screen (2025-10, interviewed 2023-01), TechPrep 2025 reports of debugging-only rounds.",
+   "recency": "2025-10",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-compiler-intern-6-months/",
+    "https://prachub.com/interview-questions/analyze-and-debug-python-utilities",
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW100389051.htm"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "design": [
+  {
+   "title": "Design a distributed GPU inference serving system",
+   "prompt": "Serve model inference at ~10,000 RPS with sub-100ms P99 across a fleet of H100 GPUs.",
+   "probes": [
+    "request batching vs latency",
+    "load balancing across heterogeneous GPUs",
+    "keeping GPUs saturated",
+    "autoscaling and warm pools",
+    "failure handling mid-request"
+   ],
+   "round": "System design (45-60 min)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Named in Codemia's question list and SpaceComplexity's senior-loop guide as a recent-report staple; Blind Triton/DL-team posters confirm design+performance rounds.",
+   "recency": "2026-05",
+   "sources": [
+    "https://codemia.io/guides/nvidia-software-engineer",
+    "https://spacecomplexity.ai/blog/nvidia-senior-software-engineer-interview"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design distributed training for a model that does not fit on one GPU",
+   "prompt": "Train a very large model across a cluster; it cannot fit on a single GPU.",
+   "probes": [
+    "data vs tensor vs pipeline parallelism",
+    "all-reduce/NCCL communication patterns",
+    "checkpointing and node-failure recovery",
+    "keeping GPUs busy during I/O",
+    "cost of a checkpoint and of a failure"
+   ],
+   "round": "System design (45-60 min)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Framework answer given in OphyAI's 2026 guide; SpaceComplexity lists tensor-vs-pipeline-parallelism probes; PracHub has a matching ML-system-design listing.",
+   "recency": "2026-08",
+   "sources": [
+    "https://ophyai.com/blog/company-guides/nvidia-interview-guide",
+    "https://prachub.com/interview-questions/explain-optimization-and-tensor-vs-pipeline-parallelism"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Control plane for a compute cluster: host monitoring + job dispatch",
+   "prompt": "Design the control plane that tracks live host/GPU state across a large fleet under high write concurrency and dispatches jobs to healthy hosts.",
+   "probes": [
+    "heartbeat vs push telemetry at fleet scale",
+    "write-heavy state store",
+    "scheduler consistency when hosts flap",
+    "fault tolerance and failover",
+    "stale-state races on dispatch"
+   ],
+   "round": "Technical screen / design round",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "PracHub NVIDIA SWE listing (2026-06) with 200+ practice solves; matches GPU-cloud/DGX team focus.",
+   "recency": "2026-06",
+   "sources": [
+    "https://prachub.com/interview-questions/design-the-control-plane-for-a-compute-cluster-host-monitoring-plus-job-dispatch"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design a distributed task scheduler",
+   "prompt": "Design a distributed task scheduler (asked alongside binary search and priority-queue coding in an 8-round Bengaluru loop).",
+   "probes": [
+    "priority queues and fairness",
+    "exactly-once execution",
+    "worker failure and retries",
+    "scaling the queue"
+   ],
+   "round": "Onsite design (Bengaluru)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Glassdoor SWE Bengaluru, interviewed 2025-11 (8 rounds, rejected after managerial).",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Software-Engineer-Interview-Questions-EI_IE7633.0,6_KO7,24.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "GPU telemetry collection and analytics platform",
+   "prompt": "Collect GPU telemetry from a large compute environment; expose high-level trend analytics plus low-level per-device drilldowns.",
+   "probes": [
+    "agent vs pull collection",
+    "time-series storage and rollups",
+    "cardinality control",
+    "trend queries vs drilldown queries",
+    "alerting"
+   ],
+   "round": "System design (senior data/infra)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub listing (2026-05, senior data-engineering loop, SWE-relevant).",
+   "recency": "2026-05",
+   "sources": [
+    "https://prachub.com/interview-questions/design-a-gpu-telemetry-collection-and-analytics-platform"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Artifact store on Kubernetes + Cassandra with exactly-once create",
+   "prompt": "A Java API on K8s stores artifacts by user-provided unique name on Cassandra. Ensure each name is created exactly once under concurrency; later add Delete; design the read path.",
+   "probes": [
+    "LWT / IF NOT EXISTS vs reservation rows vs locks",
+    "idempotency keys and retry semantics",
+    "soft deletes, tombstones, TTL and name reuse",
+    "read consistency levels, caching, hot partitions"
+   ],
+   "round": "Technical screen (NGC/registry-flavoured)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "PracHub listing (2025-09); matches NGC container-registry team domain.",
+   "recency": "2025-09",
+   "sources": [
+    "https://prachub.com/interview-questions/design-an-artifact-store-on-k8s-and-cassandra"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "First-time Kubernetes deployment in a new cloud",
+   "prompt": "Stand up a first Kubernetes deployment in a brand-new cloud account: bootstrapping, networking, images, CI/CD, secrets, observability.",
+   "probes": [
+    "account/cluster bootstrap order",
+    "image registry and pull auth",
+    "ingress and service exposure",
+    "secret management",
+    "rollout strategy"
+   ],
+   "round": "System design (cloud/DGX teams)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub senior SWE listing (2026-01); Blind GPU-cloud microservices posters confirm K8s/Docker focus.",
+   "recency": "2026-01",
+   "sources": [
+    "https://prachub.com/interview-questions/design-first-time-kubernetes-deployment-in-new-cloud",
+    "https://www.teamblind.com/post/nvidia-interview-process-boskwsfj"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Container image flow through CI/CD",
+   "prompt": "Walk through how a container image is built, tagged, pushed, pulled and secured in a CI/CD pipeline.",
+   "probes": [
+    "layers, cache, build context",
+    "tags vs digests",
+    "registry auth and node pull caching",
+    "scanning, SBOM, signing",
+    "common failure modes"
+   ],
+   "round": "Technical screen (infra teams)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub listing (2026-01).",
+   "recency": "2026-01",
+   "sources": [
+    "https://prachub.com/interview-questions/explain-container-image-flow-in-ci-cd"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Bidirectional data sync dashboard",
+   "prompt": "Design reliable two-way data synchronization behind a dashboard: event ingestion, conflict resolution, idempotent writes.",
+   "probes": [
+    "conflict resolution policy",
+    "idempotency and dedupe",
+    "ordering and causality",
+    "backfill and replay"
+   ],
+   "round": "System design",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub listing (2026-02).",
+   "recency": "2026-02",
+   "sources": [
+    "https://prachub.com/interview-questions/design-a-bidirectional-data-sync-dashboard"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "URL shortening service",
+   "prompt": "Classic URL shortener: generation scheme, storage, redirect latency, scale.",
+   "probes": [
+    "ID generation vs hashing",
+    "cache for hot links",
+    "availability vs consistency",
+    "analytics"
+   ],
+   "round": "System design",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub listing (2026-02); the one generic-web prompt that recurs at NVIDIA.",
+   "recency": "2026-02",
+   "sources": [
+    "https://prachub.com/interview-questions/design-a-url-shortening-service-2"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design a rate limiter",
+   "prompt": "Design a rate limiter for an API service.",
+   "probes": [
+    "token bucket vs sliding window",
+    "distributed counters",
+    "hot keys",
+    "what to do on limit"
+   ],
+   "round": "System design",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Codemia NVIDIA SWE question list.",
+   "recency": "2026",
+   "sources": [
+    "https://codemia.io/guides/nvidia-software-engineer"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Dockerized GPU test pipeline",
+   "prompt": "Design a Docker-based environment and pipeline for running automated graphics tests across NVIDIA/AMD GPUs.",
+   "probes": [
+    "GPU passthrough in containers",
+    "driver/runtime matrix",
+    "test isolation and flake handling",
+    "artifact and result storage"
+   ],
+   "round": "Design round (tooling/QA teams)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "PracHub listing (2025-08), from a graphics-testing-flavoured loop that also asked a Jenkins CI matrix take-home and a Git workflow design.",
+   "recency": "2025-08",
+   "sources": [
+    "https://prachub.com/interview-questions/design-a-dockerized-gpu-test-pipeline",
+    "https://prachub.com/interview-questions/build-a-jenkins-ci-for-graphics-tests"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "IR for graphics test workflows as a DAG",
+   "prompt": "Design an intermediate representation for a graphics testing workflow modeled as a DAG: node/edge types, metadata, scheduling; follow-up coding on topo sort/BFS/Dijkstra over it.",
+   "probes": [
+    "DAG schema design",
+    "dependency-aware test scheduling under hardware constraints",
+    "incremental re-runs"
+   ],
+   "round": "Design round (tooling teams)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub listings (2025-08).",
+   "recency": "2025-08",
+   "sources": [
+    "https://prachub.com/interview-questions/design-an-ir-for-test-workflows",
+    "https://prachub.com/coding-questions/design-algorithms-for-test-scheduling"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Autonomous-vehicle camera/perception pipeline",
+   "prompt": "Design the onboard camera pipeline and the perception system consuming it: synchronized capture, calibrated inference, multi-camera fusion, bounded latency, safe degradation.",
+   "probes": [
+    "frame sync across cameras",
+    "latency budget end to end",
+    "fusion strategy",
+    "degraded-mode behavior",
+    "on-vehicle vs offboard split"
+   ],
+   "round": "System design (DRIVE teams, senior)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub senior+ listings (2026-09 and 2026-08).",
+   "recency": "2026-09",
+   "sources": [
+    "https://prachub.com/interview-questions/design-an-autonomous-vehicle-camera-pipeline-and-its-perception-system"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "High-performance log ingestion / processing pipeline",
+   "prompt": "Design a high-throughput log ingestion and processing pipeline (NVIDIA-flavoured alternative to design-Twitter).",
+   "probes": [
+    "throughput vs latency",
+    "partitioning and ordering",
+    "backpressure",
+    "storage tiering"
+   ],
+   "round": "System design",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "TechPrep names it a representative NVIDIA design prompt alongside 'GPU job scheduler'; corroborated by top-N-from-log-stream coding reports.",
+   "recency": "2026",
+   "sources": [
+    "https://www.techprep.app/companies/nvidia"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Model-to-GPU execution / inference optimization stack",
+   "prompt": "Explain or design the path from model definition to GPU execution, and how you would accelerate PyTorch inference (TorchDynamo/TensorRT-style compilation, kernel fusion, quantization), plus how you would benchmark it.",
+   "probes": [
+    "graph capture and compilation",
+    "kernel fusion and launch overhead",
+    "quantization (an int8 scale/zero-point coding task also reported)",
+    "benchmark design"
+   ],
+   "round": "Domain/design round (ML infra)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub listings (2025-07); Glassdoor 2026-09 offer loop probed kernel fusion, launch overhead and an MoE implementation.",
+   "recency": "2026-09",
+   "sources": [
+    "https://prachub.com/interview-questions/design-and-benchmark-optimized-inference-pipelines",
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW103790644.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design a video streaming platform",
+   "prompt": "Classic large-scale video streaming design.",
+   "probes": [
+    "CDN and edge caching",
+    "transcoding pipeline",
+    "live vs VOD"
+   ],
+   "round": "System design",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Codemia NVIDIA SWE question list.",
+   "recency": "2026",
+   "sources": [
+    "https://codemia.io/guides/nvidia-software-engineer"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Real-time fraud detection under 50ms",
+   "prompt": "Score millions of daily payment transactions for fraud with a <50ms per-transaction budget.",
+   "probes": [
+    "feature store lookups within budget",
+    "model serving",
+    "degradation when dependencies are slow"
+   ],
+   "round": "ML system design",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub NVIDIA SWE listing (2026-01).",
+   "recency": "2026-01",
+   "sources": [
+    "https://prachub.com/interview-questions/design-real-time-fraud-detection-under-50ms"
+   ],
+   "confidence": "low"
+  }
+ ],
+ "lld": [
+  {
+   "title": "Multi-producer multi-consumer circular buffer",
+   "prompt": "Design a fixed-capacity circular buffer for multiple concurrent producers and consumers with blocking put/take and close-and-drain semantics.",
+   "deliverable": "Working thread-safe code (mutex + condition variables) and reasoning about invariants",
+   "probes": [
+    "blocking vs failing when full/empty",
+    "close-and-drain behavior",
+    "spurious wakeups",
+    "lock granularity"
+   ],
+   "round": "Onsite LLD/concurrency",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "PracHub senior+ listing (2026-07), the most-practiced NVIDIA LLD item there (280+ solves); ring-buffer invariants also probed in firmware rounds.",
+   "recency": "2026-07",
+   "sources": [
+    "https://prachub.com/interview-questions/design-a-multi-producer-multi-consumer-circular-buffer"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Thread-safe reference-counted smart pointer",
+   "prompt": "Implement a shared_ptr-style class template from scratch: shared ownership, atomic refcount, copy/move semantics, destruction of the last owner.",
+   "deliverable": "Compilable C++ class with correct copy/move/destructor behavior",
+   "probes": [
+    "atomic refcount vs mutex",
+    "control block layout",
+    "weak_ptr follow-up",
+    "unique vs shared ownership choice"
+   ],
+   "round": "Onsite C++ round (senior)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Two PracHub senior+ listings (2026-08, 2025-09); TechPrep lists it among common NVIDIA LLD prompts.",
+   "recency": "2026-08",
+   "sources": [
+    "https://prachub.com/interview-questions/implement-a-thread-safe-reference-counted-smart-pointer-in-cplusplus",
+    "https://prachub.com/interview-questions/implement-and-explain-a-cplusplus-smart-pointer"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Fixed-pool memory allocator (my_malloc / my_free)",
+   "prompt": "Given a 32-bit hardware register as a bitmap and a pool of 32 rows x 64 bits, write my_malloc and my_free managing allocations. Part 2: pool grows to 64 rows - manage it with 32-bit registers.",
+   "deliverable": "Working C code with bit-level bookkeeping",
+   "probes": [
+    "bitmap scan for free rows",
+    "multi-register bitmaps",
+    "fragmentation",
+    "alignment"
+   ],
+   "round": "Firmware/system coding round",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Glassdoor firmware rounds (2026-10 and 2026-08, one 'declined offer'); TechPrep lists Memory Allocator for systems teams; aligns with align_malloc asked in the SDE-2 loop.",
+   "recency": "2026-10",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW105067495.htm",
+    "https://www.techprep.app/companies/nvidia"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Disk-space manager with size-based LRU eviction",
+   "prompt": "Implement an in-memory disk-space manager storing datasets by id with sizes against a fixed total capacity: put() evicts LRU datasets until the new one fits (error if impossible), get() returns size and refreshes recency; updates adjust used space.",
+   "deliverable": "Working class/API in any language; LRU by bytes, not count",
+   "probes": [
+    "evicting multiple victims for one put",
+    "update-in-place accounting",
+    "O(1) operations",
+    "what makes an op 'recent'"
+   ],
+   "round": "Technical screen",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub NVIDIA SWE listing (2026-03); cache-with-capacity twists on LRU recur across reports.",
+   "recency": "2026-03",
+   "sources": [
+    "https://prachub.com/coding-questions/implement-a-disk-space-manager-with-eviction"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "In-memory VM manager with CRUD API",
+   "prompt": "Implement a small VM manager: create/list/update/delete VMs (id, name, cpu_cores, memory_gb, status) with unique-id enforcement and consistent error signalling.",
+   "deliverable": "Working code with data-structure and API-shape justification",
+   "probes": [
+    "storage choice and lookup complexity",
+    "error surfacing convention",
+    "deterministic list ordering"
+   ],
+   "round": "Technical screen (cloud/virtualization teams)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub listing (2025-11).",
+   "recency": "2025-11",
+   "sources": [
+    "https://prachub.com/coding-questions/implement-simple-vm-manager-with-crud-operations"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "High-performance string class (small-string optimization)",
+   "prompt": "Phone screen: implement a string class with cmp/cat/substr over a fixed inline buffer plus heap fallback. Probes: why memcpy beats strncpy, word-at-a-time copies, why short strings compare faster (cache), sizeof the class on 32/64-bit, shrinking the class with a union over buffer/pointer.",
+   "deliverable": "C++ class written live, constructor first",
+   "probes": [
+    "memcpy vs strncpy",
+    "CPU cache effects",
+    "object layout and padding",
+    "union-based SSO"
+   ],
+   "round": "Phone screen (C++ roles)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "PracHub screen report (2025-12) and matching listing; classic NVIDIA C++ screen.",
+   "recency": "2025-12",
+   "sources": [
+    "https://prachub.com/interview-experiences/nvidia-software-engineer-interview-experience-phone-screen-on-a-high-performance-string-class",
+    "https://prachub.com/interview-questions/optimize-a-small-string-cplusplus-class"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Thread-safe / producer-consumer queue",
+   "prompt": "Implement a thread-safe queue, then a bounded producer-consumer variant with blocking semantics.",
+   "deliverable": "Working code with mutex/condvar; discuss lock-free option",
+   "probes": [
+    "condition-variable predicates",
+    "bounded vs unbounded",
+    "shutdown semantics"
+   ],
+   "round": "Onsite LLD/concurrency",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "TechPrep lists both among common NVIDIA LLD prompts; a 2023 phone screen was 'code a multi-core problem using threads' (Blind).",
+   "recency": "2026",
+   "sources": [
+    "https://www.techprep.app/companies/nvidia",
+    "https://www.teamblind.com/post/interview-help-nvidia-senior-swe-questions-iiymbe4j"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Two threads print numbers in sequence (odd/even)",
+   "prompt": "Write multithreaded C where one thread prints even and the other odd numbers so output is 0,1,2,3...; interviewer focuses on threads, mutexes and condition variables.",
+   "deliverable": "Working C code with correct synchronization",
+   "probes": [
+    "condvar vs busy-wait",
+    "missed-signal bugs",
+    "generalize to N threads"
+   ],
+   "round": "Onsite fundamentals round (India)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "GFG SDE-2 round 4 (2022); concurrency-primitive coding still reported in 2025-26 loops.",
+   "recency": "2022",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-sde-2/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Cinema ticket reservation system (OOD)",
+   "prompt": "Model a ticket reservation system for a cinema: entities, seat holds, booking flow.",
+   "deliverable": "Class design discussion (no full implementation reported)",
+   "probes": [
+    "seat-hold expiry",
+    "concurrent booking of one seat",
+    "pricing/showtimes modeling"
+   ],
+   "round": "Virtual interview (Tel Aviv SWE)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Glassdoor SWE Tel Aviv (2026-08).",
+   "recency": "2026-08",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/NVIDIA-Interview-E7633-RVW103790644.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Debugging round: fix the provided program",
+   "prompt": "You receive a buggy program and must find and fix all issues: a ~250-line C binary-tree-to-DLL-in-spiral converter (call-by-value bug, missing stack overflow/underflow checks, bad casts), or a Python HTTP-stream helper with concurrency bugs.",
+   "deliverable": "All bugs identified and fixed; code runs",
+   "probes": [
+    "reading unfamiliar code fast",
+    "pointer/reference semantics",
+    "avoiding overflow checks via dynamic structures"
+   ],
+   "round": "Dedicated debugging round (some teams)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "GFG compiler-intern round 2 (2024), PracHub listing (2025-08), TechPrep notes 2025 candidates got debugging-only rounds.",
+   "recency": "2025-08",
+   "sources": [
+    "https://www.geeksforgeeks.org/interview-experiences/nvidia-interview-experience-for-compiler-intern-6-months/",
+    "https://prachub.com/interview-questions/analyze-and-debug-python-utilities"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Python test harness for graphics validation",
+   "prompt": "Design a pytest-style harness for graphics validation: fixtures, parametrization across GPU/driver matrix, dependency handling, parallel execution.",
+   "deliverable": "Design + code sketch",
+   "probes": [
+    "flaky-test strategy",
+    "device allocation across parallel workers",
+    "result reporting"
+   ],
+   "round": "Design/coding round (QA/tooling teams)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "PracHub listing (2025-08).",
+   "recency": "2025-08",
+   "sources": [
+    "https://prachub.com/interview-questions/implement-a-python-test-harness"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "In-memory file system",
+   "prompt": "Design an in-memory file system (mkdir, addFile, ls, read) - LC 588 territory; pairs with the reported 'all file paths via DFS' warm-up.",
+   "deliverable": "Class design + code",
+   "probes": [
+    "path parsing",
+    "trie-like directory nodes",
+    "listing order"
+   ],
+   "round": "Onsite LLD",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "TechPrep lists it for systems-focused NVIDIA teams.",
+   "recency": "2026",
+   "sources": [
+    "https://www.techprep.app/companies/nvidia"
+   ],
+   "confidence": "low"
+  }
+ ]
+}

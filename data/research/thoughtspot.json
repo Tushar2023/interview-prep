@@ -1,0 +1,846 @@
+{
+  "company": "ThoughtSpot",
+  "slug": "thoughtspot",
+  "levelMapping": "India ladder: MTS-1 (fresher) -> MTS-2 -> MTS-3 (~2-4 YOE, the SE2 band, ~Google L4) -> MTS-4 (~3.5-5 YOE; offers reported at 3.8-4 YOE) -> SMTS (~5-7 YOE) -> LMTS / Staff (8+). Hyderabad reqs often use the title 'Senior Software Engineer' (offers reported at 3.5-4.3 YOE). At 3.3 YOE target MTS-3 and ask the recruiter if the req can be levelled MTS-4; the interview content is nearly identical (MTS-4 adds a real HLD round). Comp datapoints: MTS-1 fresher ~20-22L base (2022); MTS-4 Bengaluru 42L base + 76L RSUs/4y + 3L joining (May 2024); 52L base + ~20L ESOP/yr at 5 YOE (Dec 2024); SMTS 55L base + 6000 RSUs (Nov 2023); Staff Hyderabad 50L all-fixed (2025 — no variable pay per that report). RSUs are pre-IPO paper; candidates consistently advise negotiating base.",
+  "process": {
+    "summary": "A 4-6 round loop that is DSA-heavy at the mid level: usually two 60-min coding rounds (LC medium-hard, full running code and passing test cases expected, speed judged), one LLD round (design + some code: pub-sub, message queue, Splitwise, logger, meeting scheduler), an HLD round for MTS-4/SMTS/SSE and above (analytics pipelines, workflow engines, rate limiters), then a managerial round that is frequently REQUIRED IN PERSON in Bengaluru, plus HR. Campus and some lateral loops start with a HackerRank OA (60-90 min, 2-3 LC-hard-ish problems, occasionally a practical implement-an-API question). Recurring house problems: the versioned stack, LRU/LFU caches, snakes-and-ladders BFS, and knapsack/coin-change variants dressed as server-provisioning problems. Candidates repeatedly report process friction: rounds differing from what the recruiter described (LLD rounds turning into HLD), interviewers with cameras off, long holds, and ghosting after final rounds.",
+    "rounds": [
+      {
+        "name": "Recruiter screen",
+        "type": "screen",
+        "duration": "15-30 min",
+        "what": "Mostly LinkedIn outreach for laterals. Background, CTC expectation, notice period, loop logistics. ThoughtSpot has repeatedly wanted immediate joiners and has offered notice-period buyouts.",
+        "probes": "Availability for an in-person managerial round in Bengaluru (ask about this up front - one MTS-3 loop was abandoned because the candidate was not in Bangalore); comp expectations (get them recorded in writing - a 2025 Staff candidate was low-balled after a TA change)."
+      },
+      {
+        "name": "Online assessment (HackerRank)",
+        "type": "oa",
+        "duration": "60-90 min",
+        "what": "Standard for campus and some junior lateral loops; many MTS-3/MTS-4 lateral loops skip it. 2-3 problems. Reported sets: text-editor command simulation + count-triplets-with-no-simple-path-in-a-tree (combinatorics on subtree sizes, n up to 1e5, answer mod 1e9+7) + LC 3067 count pairs of connectable servers (Nov 2024); a hard next-greater-element problem + 'implement these HTTP API endpoints' practical question (Jul 2025); 3 DSA problems in 1 hour for interns (Oct 2024).",
+        "probes": "Difficulty skews LC-hard; one 2025 candidate was ghosted after the OA despite solving. The practical API question needs working knowledge of HTTP handler classes/libraries, not just algorithms."
+      },
+      {
+        "name": "Coding round 1 (DSA)",
+        "type": "dsa",
+        "duration": "60 min",
+        "what": "One or two problems in a shared editor, LC medium-hard. Recurring: versioned stack, LRU+LFU cache (both in one hour was reported), snakes and ladders, Alien Dictionary, happy prefix (KMP demanded explicitly), knapsack variants. Code must run and pass test cases.",
+        "probes": "Exact complexity targets are enforced (O(1) push/pop with O(n) print(version); sub-O(N) on a sorted-string problem via binary search). Solving correctly but using the whole hour was read as 'weak hire' in a 2024 MTS-4 reject. Some Hyderabad interviewers mix Java and SQL theory questions into coding rounds."
+      },
+      {
+        "name": "Coding round 2 (DSA)",
+        "type": "dsa",
+        "duration": "60 min",
+        "what": "Second DSA round, often graph/DP-flavoured (DP+graph combo, topological-sort variations, DSU, binary search). Campus loops report LC-hard in both coding rounds with all test cases required.",
+        "probes": "Follow-up optimizations of the first solution are common (e.g. optimize the coin-change variant; tighten from O(N log N) to O(N)). Occasionally this round is hijacked into resume-based design questions - clarify scope with the interviewer at the start."
+      },
+      {
+        "name": "LLD / software design",
+        "type": "lld",
+        "duration": "60 min",
+        "what": "Class design + API contracts, sometimes working code for a component: pub-sub system, message queue, Splitwise, logger, meeting-room scheduler, rule engine, customer-care ticket routing. Frontend tracks get machine coding instead (resource pool class, autosuggestions, Store class with subscribe/save/remove).",
+        "probes": "Requirements scoping, DB choice, class diagram, API design, concurrency on the scheduler/queue problems. Several reports of this round silently becoming HLD (and vice versa) - confirm the expected deliverable. One SSE reject happened specifically in the LLD round (distributed message queue)."
+      },
+      {
+        "name": "HLD / system design",
+        "type": "design",
+        "duration": "60 min (one Staff report stretched to ~4 hours)",
+        "what": "Appears for MTS-4 / SMTS / SSE / Staff; MTS-3 loops often stop at LLD. Analytics-flavoured prompts dominate (the product is a BI tool): Google-Analytics-scale event pipeline (80-100B events/day), census-data ingestion + analytics, event/engagement campaign tracker, sentiment-analysis service with realtime + batch paths.",
+        "probes": "Database design and API-layer interaction are explicitly listed focus areas; replication factor and RPO trade-offs (lose at most 5 min of data), failing-pod handling with circuit breakers, multi-region/multi-master distribution, back-pressure when load exceeds DB capacity. Interviewers push for a committed number on trade-offs rather than a hedge."
+      },
+      {
+        "name": "Hiring manager / managerial",
+        "type": "hm",
+        "duration": "45-60 min",
+        "what": "Project deep-dive: team size, your exact role, alternate approaches you considered. Frequently conducted IN PERSON in Bengaluru and treated as mandatory; a 2026 MTS-4 candidate found it split into two rounds on the day (Director resume round + an unannounced LLD round with the HM).",
+        "probes": "Why ThoughtSpot, why leave current org, how you keep up with GenAI (2025 report), ownership depth on your biggest project. A 2024 SMTS reject came from the HM disliking that the candidate's projects were internal tooling rather than customer-facing."
+      },
+      {
+        "name": "HR / behavioral",
+        "type": "behavioral",
+        "duration": "30 min",
+        "what": "Informal culture-fit / HR wrap-up. Standard questions (why ThoughtSpot, why switch). Sometimes in person together with the managerial round.",
+        "probes": "Comp negotiation starts here; multiple reports of slow or no feedback afterwards (one cleared-all-rounds candidate was held 3 weeks then told they went with someone else)."
+      }
+    ],
+    "indiaNotes": "Engineering hiring is concentrated in Bengaluru (HQ-scale office) and Hyderabad; the India loop IS the main loop - even a Mountain View junior-SWE loop had a hiring team split across US and India. Levels: MTS-1..MTS-4, SMTS, LMTS/Staff, with 'SSE' used for Hyderabad reqs. The in-person managerial round in Bengaluru is the big India quirk - do not start the loop if you cannot attend. US loop (small sample, Mountain View 2026): virtual LC screen, then onsite system design + hiring-manager resume round. 2024-2025 reports repeatedly mention layoffs, re-orgs and flat hikes inside the company, and candidates being pushed to start interviews before they feel ready; one interviewer spent a 2024 HLD round complaining about the company. Weigh the pre-IPO RSU component accordingly.",
+    "timeline": "2-6 weeks typically; fastest reported full loop was 2 weeks (MTS-4, 2024). Outliers: a Staff loop was put on hold 2.5 months mid-process (2025), and results after the final round have taken 3+ weeks with repeated follow-ups (2026).",
+    "tips": [
+      "Prepare the versioned stack cold (O(1) push/pop, print(version) in O(n)) - it is the single most-repeated ThoughtSpot problem (2024, 2025, Glassdoor senior reports, GFG). The expected answer is a persistent stack: store a head-node pointer per version.",
+      "Drill LRU and LFU caches to the point you can code both in one 60-min round - asked at MTS-4 (2024) and Staff (2025).",
+      "Drill knapsack/coin-change and their counting variants: ThoughtSpot re-skins them constantly (server cores vs cost in both unbounded and 0/1 scenarios, special 0/1-digit numbers summing to N, coupons halving prices).",
+      "Write code that runs and passes test cases - campus rounds demand all test cases green, and lateral interviewers ask you to execute. Solving correctly but slowly (full hour) was explicitly cited in a rejection.",
+      "State and hit exact complexity targets unprompted; interviewers enforce them (sub-O(N) on a sorted string via 26 binary searches; O(1) version lookup).",
+      "Confirm the round plan with the recruiter AND re-confirm scope with each interviewer - multiple reports of LLD rounds becoming HLD, DSA rounds becoming resume-design rounds, and an unannounced extra HM-LLD round in person.",
+      "For HLD, prepare analytics/ingestion designs specifically (event pipelines at 1e10-1e11 events/day, batch + realtime split, DB schema trade-offs) - the product is a BI/analytics platform and prompts lean that way.",
+      "Hyderabad loops mix Java and SQL theory into coding rounds - brush collections, threading basics (singleton, deadlock, varargs) and SQL joins.",
+      "Do not start the loop unless you can do an in-person managerial round in Bengaluru (or Hyderabad for those reqs).",
+      "Get the comp expectation acknowledged in writing early and negotiate base over RSUs - the stock is pre-IPO, and a 2025 Staff candidate was low-balled after their recruiter changed mid-process."
+    ],
+    "notes": "OA platform is HackerRank (screenshots and campus reports). No bar-raiser or values round reported; no language constraint reported (C++/Java/Python/JS all seen; one frontend machine-coding round offered pure JS or React). LLD exists as a distinct named round for backend tracks, so lld[] is populated. Frontend/full-stack loops at the same levels replace DSA-2/LLD with machine coding (infinite scroll, autosuggestions, polyfills of useMemo/Array.flat/Promise.all) and frontend HLD (form builder, chat UI). Repeated process complaints across Blind and LeetCode: interviewers with cameras off, final rounds cancelled without notice, ghosting after final rounds, no feedback. One Blind comment: 6 rounds over ~2 weeks. An old Blind thread rated the bar 'a little easier than LinkedIn'. AlgoDaily hosts an undated ThoughtSpot question list (word ladder, serialize/deserialize binary tree, k-largest, matrix shortest distance) - treat as unverified supplementary practice.",
+    "sources": [
+      {"title": "ThoughtSpot | MTS-4 loop (5 rounds, in-person HM) - LeetCode Discuss", "url": "https://leetcode.com/discuss/post/8523997/", "date": "2026-09"},
+      {"title": "ThoughtSpot Orion team MTS-2/3 question - LeetCode Discuss", "url": "https://leetcode.com/discuss/post/8172297/", "date": "2026-05"},
+      {"title": "Thoughtspot MTS-3 full-stack (2.5 YOE) - LeetCode Discuss", "url": "https://leetcode.com/discuss/post/7415838/", "date": "2025-12"},
+      {"title": "Thoughtspot MTS-4 reject (HLD + LLD + managerial) - LeetCode Discuss", "url": "https://leetcode.com/discuss/post/6938826/", "date": "2025-07"},
+      {"title": "ThoughtSpot Staff Engineer Bengaluru Oct 2024 - LeetCode Discuss", "url": "https://leetcode.com/discuss/post/6042959/", "date": "2024-11"},
+      {"title": "Thoughtspot MTS-4 Selected (round list + 2-week timeline) - LeetCode Discuss", "url": "https://leetcode.com/discuss/post/5253431/", "date": "2024-06"},
+      {"title": "ThoughtSpot MTS-3 (Splitwise LLD, in-person HM warning) - LeetCode Discuss", "url": "https://leetcode.com/discuss/post/5510451/", "date": "2024-07"},
+      {"title": "SDE-2 multi-company experience incl. ThoughtSpot 5-round loop - LeetCode Discuss", "url": "https://leetcode.com/discuss/post/4114595/", "date": "2023-10"},
+      {"title": "ThoughtSpot Software Engineer interview questions - Glassdoor India", "url": "https://www.glassdoor.co.in/Interview/ThoughtSpot-Software-Engineer-Interview-Questions-EI_IE818996.0,11_KO12,29.htm", "date": "2026-06"},
+      {"title": "ThoughtSpot Senior Software Engineer interview questions - Glassdoor", "url": "https://www.glassdoor.com/Interview/ThoughtSpot-Senior-Software-Engineer-Interview-Questions-EI_IE818996.0,11_KO12,36.htm", "date": "2024-09"},
+      {"title": "ThoughtSpot MTS interview questions - Glassdoor India", "url": "https://www.glassdoor.co.in/Interview/ThoughtSpot-Member-of-Technical-Staff-Interview-Questions-EI_IE818996.0,11_KO12,37.htm", "date": "2025-10"},
+      {"title": "Thoughtspot worst interview experience - Blind", "url": "https://www.teamblind.com/post/Thoughtspot-worst-interview-experience-Ae8zJeQG", "date": "2023-04"},
+      {"title": "ThoughtSpot software engineer interview guide - Dataford", "url": "https://dataford.io/interview-guides/thoughtspot/software-engineer", "date": "2026-08"},
+      {"title": "ThoughtSpot Staff Hyderabad offer + 7-round/hold timeline - LeetCode Discuss", "url": "https://leetcode.com/discuss/post/7373139/", "date": "2025-11"},
+      {"title": "ThoughtSpot interview experiences index - CodingKaro", "url": "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Thoughtspot", "date": "2025-12"}
+    ]
+  },
+  "dsa": [
+    {
+      "title": "Versioned stack", "lcId": null, "url": "https://enginebogie.com/public/question/implement-a-versioned-stack/835", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Stack", "Linked List", "Design", "Persistence"],
+      "statement": "Implement a stack where every push(e) and pop() creates a new version (1, 2, 3, ...). push and pop must be O(1); print(version) must output that version's contents in O(n) of that version's size. One Glassdoor variant also demanded O(1) get-version. Intended solution: a persistent stack - keep one head-node pointer per version, where push links a new node to the previous head and pop stores the previous head's next.",
+      "variant": "An interviewer hinted 'think of it as a graph, not a stack'. A GFG round asked the same as 'design a versioning system supporting push/pop/current-version' and pushed toward a trie/linked structure.",
+      "evidence": "ThoughtSpot's signature problem: Staff interview (2024-02 post), SMTS round 2 (2024-04), SSE round 2 (2024-05), Glassdoor SSE Jul 2024 + Senior Developer Apr 2024 (failed for missing O(1) target), MTS-3 round 1 (2025-12), and an Oct 2025 comment 'I was asked this question'.",
+      "recency": "2025-12",
+      "sources": ["https://leetcode.com/discuss/post/4714183/", "https://leetcode.com/discuss/post/5026499/", "https://leetcode.com/discuss/post/5192425/", "https://leetcode.com/discuss/post/7415838/", "https://www.glassdoor.com/Interview/ThoughtSpot-Senior-Software-Engineer-Interview-Questions-EI_IE818996.0,11_KO12,36.htm"],
+      "confidence": "high"
+    },
+    {
+      "title": "Find Median from Data Stream", "lcId": 295, "url": "https://leetcode.com/problems/find-median-from-data-stream/", "onLeetcode": true,
+      "difficulty": "Hard", "topics": ["Heap", "Design", "Two Heaps"],
+      "statement": "", "variant": "Asked as 'median of a stream'; candidate solved in 30 min and the rest of the hour went to discussion.",
+      "evidence": "DSA round of a 2026 senior/staff-level loop (8+ YOE candidate).",
+      "recency": "2026-07",
+      "sources": ["https://leetcode.com/discuss/post/8428653/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Service deployment order from config files (topological batches)", "lcId": null, "url": "https://leetcode.com/discuss/post/8172297/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Topological Sort", "Graph", "File Parsing", "Practical"],
+      "statement": "A /services directory contains one folder per service, each with a config.txt holding a line 'depends=A,B,C' (possibly empty). Write a program that scans the folders, parses dependencies, and prints deployment batches: a service deploys only after all its dependencies, and services with no unmet dependencies deploy in parallel in the same batch (Kahn's algorithm level by level). Detect cycles and print an error. The interviewer wanted real C++ including directory scanning and parsing.",
+      "variant": "The team (Orion, orchestration layer) said this mirrors their daily work; practice the I/O plumbing, not just the topo sort.",
+      "evidence": "ThoughtSpot Orion team MTS-2/3 interview, posted 2026-05.",
+      "recency": "2026-05",
+      "sources": ["https://leetcode.com/discuss/post/8172297/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Snakes and Ladders", "lcId": 909, "url": "https://leetcode.com/problems/snakes-and-ladders/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["BFS", "Graph", "Board Simulation"],
+      "statement": "", "variant": "Usually posed on a generic MxN board with explicit snake/ladder endpoint lists ('min dice throws from first to last cell') rather than LC's boustrophedon encoding - model cells as nodes with edges to the next 6 cells plus snake/ladder jumps and BFS.",
+      "evidence": "SDE-2 coding round (2023-07), MTS-4 coding round 1 (May 2024, consumed the full hour), Glassdoor MTS Oct 2025 question list, GFG intern round (2022) and GFG FTE OA.",
+      "recency": "2025-10",
+      "sources": ["https://leetcode.com/discuss/post/3777195/", "https://leetcode.com/discuss/post/5358093/", "https://clear.glassdoor.nl/Interview/ThoughtSpot-Interview-E818996-RVW20831039.htm"],
+      "confidence": "high"
+    },
+    {
+      "title": "Meeting Rooms", "lcId": 252, "url": "https://leetcode.com/problems/meeting-rooms/", "onLeetcode": true,
+      "difficulty": "Easy", "topics": ["Intervals", "Sorting"],
+      "statement": "", "variant": "Asked alongside the versioned stack in the same round; expect the Meeting Rooms II follow-up (min rooms).",
+      "evidence": "MTS-3 full-stack round 1 (2.5 YOE), posted 2025-12; poster linked algo.monster's LC 252 page.",
+      "recency": "2025-12",
+      "sources": ["https://leetcode.com/discuss/post/7415838/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Add Two Numbers (big numbers as linked lists)", "lcId": 2, "url": "https://leetcode.com/problems/add-two-numbers/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Linked List", "Math", "Big Integers"],
+      "statement": "", "variant": "Framed as 'add two numbers too large for int'. The candidate proposed strings/arrays; the interviewer specifically steered to the linked-list formulation.",
+      "evidence": "MTS-3 full-stack round 2 (2025-12); also 'add two linked lists' in a Jan 2025 Hyderabad intern round.",
+      "recency": "2025-12",
+      "sources": ["https://leetcode.com/discuss/post/7415838/", "https://www.glassdoor.co.in/Interview/ThoughtSpot-Software-Engineer-Interview-Questions-EI_IE818996.0,11_KO12,29.htm"],
+      "confidence": "high"
+    },
+    {
+      "title": "Longest Happy Prefix", "lcId": 1392, "url": "https://leetcode.com/problems/longest-happy-prefix/", "onLeetcode": true,
+      "difficulty": "Hard", "topics": ["String", "KMP", "Z-function"],
+      "statement": "", "variant": "The 2025 interviewer explicitly required the KMP failure-function implementation, not hashing.",
+      "evidence": "LMTS/SMTS round 1 (May 2025) and Glassdoor MTS offer loop (Sep 2024).",
+      "recency": "2025-05",
+      "sources": ["https://leetcode.com/discuss/post/6799609/", "https://www.glassdoor.co.in/Interview/ThoughtSpot-Member-of-Technical-Staff-Interview-Questions-EI_IE818996.0,11_KO12,37.htm"],
+      "confidence": "high"
+    },
+    {
+      "title": "Valid Parenthesis String", "lcId": 678, "url": "https://leetcode.com/problems/valid-parenthesis-string/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Greedy", "Stack", "String"],
+      "statement": "", "variant": "",
+      "evidence": "Second problem in the same May 2025 LMTS round 1 as Longest Happy Prefix.",
+      "recency": "2025-05",
+      "sources": ["https://leetcode.com/discuss/post/6799609/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Largest Number", "lcId": 179, "url": "https://leetcode.com/problems/largest-number/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Sorting", "Greedy", "Comparator"],
+      "statement": "", "variant": "A Nov 2024 MTS round asked the single-digit version with a twist: build the largest number from a digit array WITHOUT using any library sort (hand-roll counting sort).",
+      "evidence": "LMTS round 2 (May 2025); digit-array no-sort variant in MTS round 1 (Nov 2024).",
+      "recency": "2025-05",
+      "sources": ["https://leetcode.com/discuss/post/6799609/", "https://leetcode.com/discuss/post/6006181/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Minimum-cost servers for n vCores (unbounded + 0/1 knapsack)", "lcId": null, "url": "https://leetcode.com/discuss/post/5221858/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Dynamic Programming", "Knapsack"],
+      "statement": "Given n required vCores and parallel arrays server_specs[i] (cores) and server_costs[i], find the minimum cost to buy servers whose cores sum to >= n. Scenario A: each configuration may be bought multiple times (unbounded knapsack, dp over core totals; careful that overshooting n is allowed, so take a suffix-min). Scenario B: each configuration at most once (0/1 knapsack). Be ready to code both and discuss the >= n subtlety.",
+      "variant": "Re-reported Mar 2025 and again Oct 2025 (comment: 'I was asked the same question'). A Jul 2025 MTS-4 round 1 also opened with 'a variation of the knapsack problem'.",
+      "evidence": "Round 1 in May 2024; independent posts Mar 2025 and Oct 2025 comment; knapsack variation at MTS-4 Jul 2025.",
+      "recency": "2025-10",
+      "sources": ["https://leetcode.com/discuss/post/5221858/", "https://leetcode.com/discuss/post/6482611/", "https://leetcode.com/discuss/post/6938826/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Minimum Number of K Consecutive Bit Flips", "lcId": 995, "url": "https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/", "onLeetcode": true,
+      "difficulty": "Hard", "topics": ["Greedy", "Sliding Window", "Difference Array"],
+      "statement": "", "variant": "Second problem in the same round as the vCores knapsack.",
+      "evidence": "Round 1 of a 2024-05 loop.",
+      "recency": "2024-05",
+      "sources": ["https://leetcode.com/discuss/post/5221858/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Minimum count of special 0/1-digit numbers summing to N", "lcId": null, "url": "https://leetcode.com/discuss/post/6042959/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Dynamic Programming", "Coin Change", "Math"],
+      "statement": "Special numbers are decimal numbers whose digits are only 0 and 1 (1, 10, 11, 100, 101, ...). Given N, find the minimum count of special numbers (repeats allowed) that sum to N; e.g. 52 = 10+10+10+11+11 -> 5. Treat it as coin change over the special numbers <= N, or reason digit-by-digit: the answer is bounded by the max decimal digit of N, with DP/greedy over digit carries. A follow-up asked to optimize the first solution.",
+      "variant": "The Jul 2025 MTS-4 report describes the same problem as 'coin change where the coin values look binary but are read as decimal'.",
+      "evidence": "Staff round 3 (Oct 2024) and MTS-4 round 2 with optimization follow-up (Jul 2025).",
+      "recency": "2025-07",
+      "sources": ["https://leetcode.com/discuss/post/6042959/", "https://leetcode.com/discuss/post/6938826/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Minimize total price with m half-price coupons", "lcId": null, "url": "https://leetcode.com/discuss/post/6042959/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Greedy", "Heap"],
+      "statement": "Given n item prices and m coupons, each coupon halves one item's current price, a coupon is used once, and multiple coupons may stack on the same item. Minimize the total cost of buying all items. Greedy with a max-heap: always apply the next coupon to the currently most expensive item (halving the max is optimal); e.g. [4,9,3,2] with 3 coupons -> [2,2,3,2] = 9.",
+      "variant": "",
+      "evidence": "Staff round 3, question 2 (Oct 2024, Bengaluru).",
+      "recency": "2024-11",
+      "sources": ["https://leetcode.com/discuss/post/6042959/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Alien Dictionary", "lcId": 269, "url": "https://leetcode.com/problems/alien-dictionary/", "onLeetcode": true,
+      "difficulty": "Hard", "topics": ["Topological Sort", "Graph", "String"],
+      "statement": "", "variant": "Asked with the guarantee that input is valid (no contradiction/prefix traps).",
+      "evidence": "Staff coding round (Oct 2024, Bengaluru).",
+      "recency": "2024-11",
+      "sources": ["https://leetcode.com/discuss/post/6042959/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Excel Sheet Column Title", "lcId": 168, "url": "https://leetcode.com/problems/excel-sheet-column-title/", "onLeetcode": true,
+      "difficulty": "Easy", "topics": ["Math", "Base Conversion"],
+      "statement": "", "variant": "26 -> Z, 27 -> AA; the classic off-by-one bijective base-26 trap.",
+      "evidence": "MTS-4 round 1, question 2 (Jul 2025).",
+      "recency": "2025-07",
+      "sources": ["https://leetcode.com/discuss/post/6938826/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Search in Rotated Sorted Array", "lcId": 33, "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Binary Search", "Array"],
+      "statement": "", "variant": "",
+      "evidence": "Glassdoor MTS Bengaluru review (Oct 2025) question list.",
+      "recency": "2025-10",
+      "sources": ["https://clear.glassdoor.nl/Interview/ThoughtSpot-Interview-E818996-RVW20831039.htm"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Interleaving String", "lcId": 97, "url": "https://leetcode.com/problems/interleaving-string/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Dynamic Programming", "String"],
+      "statement": "", "variant": "Phrased as 'check whether a string is an interleaving of two other strings'. Also appears in ThoughtSpot's LeetCode company tag.",
+      "evidence": "Glassdoor MTS Bengaluru review (Oct 2025); corroborated by the LC company-tag snapshot.",
+      "recency": "2025-10",
+      "sources": ["https://clear.glassdoor.nl/Interview/ThoughtSpot-Interview-E818996-RVW20831039.htm"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Sort Colors / count 0s, 1s and 2s", "lcId": 75, "url": "https://leetcode.com/problems/sort-colors/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Two Pointers", "Array", "Dutch National Flag"],
+      "statement": "", "variant": "Intern version asked to count 0s/1s/2s 'with lower time complexity'; MTS version asked to sort them (one-pass DNF expected).",
+      "evidence": "Glassdoor MTS Oct 2025 question list; Hyderabad intern round Jan 2025.",
+      "recency": "2025-10",
+      "sources": ["https://clear.glassdoor.nl/Interview/ThoughtSpot-Interview-E818996-RVW20831039.htm", "https://www.glassdoor.co.in/Interview/ThoughtSpot-Software-Engineer-Interview-Questions-EI_IE818996.0,11_KO12,29.htm"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Set matrix rows and columns on marked cells", "lcId": 73, "url": "https://leetcode.com/problems/set-matrix-zeroes/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Matrix", "In-place"],
+      "statement": "", "variant": "ThoughtSpot's phrasing inverts LC 73: given a boolean matrix, for every cell that is 1, set its entire row and column to 1. Same O(1)-extra-space first-row/first-column trick.",
+      "evidence": "Glassdoor MTS Bengaluru review (Oct 2025).",
+      "recency": "2025-10",
+      "sources": ["https://clear.glassdoor.nl/Interview/ThoughtSpot-Interview-E818996-RVW20831039.htm"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Left view and right view of a binary tree", "lcId": 199, "url": "https://leetcode.com/problems/binary-tree-right-side-view/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Tree", "BFS", "DFS"],
+      "statement": "", "variant": "Asked for both views (LC 199 covers the right view; mirror for left).",
+      "evidence": "Glassdoor MTS Bengaluru review (Oct 2025).",
+      "recency": "2025-10",
+      "sources": ["https://clear.glassdoor.nl/Interview/ThoughtSpot-Interview-E818996-RVW20831039.htm"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Rotate matrix 90 / 180 degrees", "lcId": 48, "url": "https://leetcode.com/problems/rotate-image/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Matrix", "In-place"],
+      "statement": "", "variant": "Sep 2024 MTS loop asked 90 degrees clockwise; a Nov 2024 MTS round asked 180 degrees (that round had only this one question after a project-architecture discussion).",
+      "evidence": "Glassdoor MTS offer loop (Sep 2024); MTS round 2 (Nov 2024).",
+      "recency": "2024-11",
+      "sources": ["https://www.glassdoor.co.in/Interview/ThoughtSpot-Member-of-Technical-Staff-Interview-Questions-EI_IE818996.0,11_KO12,37.htm", "https://leetcode.com/discuss/post/6006181/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Top K Frequent Elements", "lcId": 347, "url": "https://leetcode.com/problems/top-k-frequent-elements/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Heap", "Hash Map", "Bucket Sort"],
+      "statement": "", "variant": "",
+      "evidence": "Glassdoor MTS offer loop (Sep 2024).",
+      "recency": "2024-09",
+      "sources": ["https://www.glassdoor.co.in/Interview/ThoughtSpot-Member-of-Technical-Staff-Interview-Questions-EI_IE818996.0,11_KO12,37.htm"],
+      "confidence": "medium"
+    },
+    {
+      "title": "LRU Cache", "lcId": 146, "url": "https://leetcode.com/problems/lru-cache/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Hash Map", "Doubly Linked List", "Design"],
+      "statement": "", "variant": "At MTS-4 (May 2024) LRU and LFU were BOTH demanded in one 60-min round. Also asked as a design question in a Hyderabad SSE managerial round (2023).",
+      "evidence": "MTS-4 round 1 (May 2024, selected), SDE-2 backend loop (Apr 2024), SSE managerial (Mar 2023).",
+      "recency": "2024-06",
+      "sources": ["https://leetcode.com/discuss/post/5253431/", "https://leetcode.com/discuss/post/6710195/", "https://leetcode.com/discuss/post/3343348/"],
+      "confidence": "high"
+    },
+    {
+      "title": "LFU Cache", "lcId": 460, "url": "https://leetcode.com/problems/lfu-cache/", "onLeetcode": true,
+      "difficulty": "Hard", "topics": ["Hash Map", "Doubly Linked List", "Design"],
+      "statement": "", "variant": "Build from scratch in a code editor with time/space efficiency discussion; paired with LRU in the MTS-4 loop.",
+      "evidence": "Staff coding round 1 (Aug 2025), MTS-4 round 1 (May 2024), Glassdoor Staff review (2020, 'design LFU cache in code editor').",
+      "recency": "2025-08",
+      "sources": ["https://leetcode.com/discuss/post/7096111/", "https://leetcode.com/discuss/post/5253431/", "https://www.glassdoor.com.mx/Entrevista/ThoughtSpot-Entrevista-E818996-RVW38698857.htm"],
+      "confidence": "high"
+    },
+    {
+      "title": "Longest run of identical characters in a sorted string, faster than O(N)", "lcId": null, "url": "https://leetcode.com/discuss/post/5358093/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Binary Search", "String"],
+      "statement": "Given a sorted lowercase string (e.g. 'aaabbccccdde'), return the length of the longest block of one repeated character (4 for 'cccc'). The linear scan is the warm-up; the interviewer then demands better than O(N): for each of the 26 letters binary-search its first and last occurrence, answer in O(26 log N).",
+      "variant": "The MTS-4 candidate spent the whole hour on it and was rejected partly for pace, so practise jumping straight to the binary-search version.",
+      "evidence": "MTS-4 coding round 2 (May 2024) and SDE-2 backend loop (Apr 2024).",
+      "recency": "2024-05",
+      "sources": ["https://leetcode.com/discuss/post/5358093/", "https://leetcode.com/discuss/post/6710195/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Course Schedule II / topological-sort variation", "lcId": 210, "url": "https://leetcode.com/problems/course-schedule-ii/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Topological Sort", "Graph", "BFS"],
+      "statement": "", "variant": "A 2023 SDE-2 round asked an unnamed 'variation of topological sorting'; the 2026 services-deployment problem is the same idea in practical clothing.",
+      "evidence": "SDE-2 backend loop (Apr 2024); SDE-2 coding round 2 (2023-10).",
+      "recency": "2024-04",
+      "sources": ["https://leetcode.com/discuss/post/6710195/", "https://leetcode.com/discuss/post/4114595/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Path minimizing the maximum edge weight (min stress path)", "lcId": null, "url": "https://leetcode.com/discuss/post/6710195/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Binary Search", "BFS", "Graph", "Minimax"],
+      "statement": "Given a weighted graph, a source and a destination, find a path whose maximum edge weight (the path's stress) is minimized. Expected approach: binary-search the answer K and BFS using only edges of weight <= K, in O(E log maxW); alternatives are a modified Dijkstra on the minimax relaxation or Kruskal/union-find until source and destination connect. Same idea as LC 1631 Path With Minimum Effort on a general graph.",
+      "variant": "",
+      "evidence": "SDE-2 backend loop (Apr 2024); the poster linked the cs.stackexchange formulation.",
+      "recency": "2024-04",
+      "sources": ["https://leetcode.com/discuss/post/6710195/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Count distinct elements in every window of size k", "lcId": null, "url": "https://leetcode.com/discuss/post/3777195/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Sliding Window", "Hash Map"],
+      "statement": "Given an array and k, output the number of distinct elements in each contiguous subarray of size k. Sliding window with a count hash map: increment on entry, decrement/erase on exit, record map size per window, O(N).",
+      "variant": "An intern round asked the harder LC 992 Subarrays with K Different Integers; be ready for that follow-up.",
+      "evidence": "SDE-2 coding round (Jul 2023); LC 992 variant in a 2022 intern round (GFG).",
+      "recency": "2023-07",
+      "sources": ["https://leetcode.com/discuss/post/3777195/", "https://www.geeksforgeeks.org/thoughtspot-interview-experience-for-sde-intern/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Longest Substring Without Repeating Characters", "lcId": 3, "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Sliding Window", "Hash Map", "String"],
+      "statement": "", "variant": "A similar unique-substring problem was repeated in round 2 of the same Hyderabad SSE loop, mixed with Java and SQL theory questions.",
+      "evidence": "Hyderabad SSE loop rounds 1 and 2 (Mar 2023, selected).",
+      "recency": "2023-03",
+      "sources": ["https://leetcode.com/discuss/post/3343348/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Integer to English Words", "lcId": 273, "url": "https://leetcode.com/problems/integer-to-english-words/", "onLeetcode": true,
+      "difficulty": "Hard", "topics": ["String", "Math", "Recursion"],
+      "statement": "", "variant": "Indian phrasing: 12345 -> 'Twelve Thousand Three Hundred Forty Five'; clarify western vs Indian grouping (lakh/crore) before coding.",
+      "evidence": "Hyderabad SSE coding round 1 (Mar 2023).",
+      "recency": "2023-03",
+      "sources": ["https://leetcode.com/discuss/post/3343348/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Minimum rooks remaining after captures (connected components)", "lcId": null, "url": "https://leetcode.com/discuss/post/5026499/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Union Find", "Graph", "Connected Components"],
+      "statement": "K rooks sit on a chessboard; a rook can capture another in its row or column, and captures chain. Find the minimum number of rooks left in the final configuration. Insight: rooks sharing a row/column form a graph; each connected component collapses to exactly one rook, so the answer is the number of connected components (DSU or DFS). Equivalent to LC 947 Most Stones Removed with Same Row or Column (answer = k - removable).",
+      "variant": "",
+      "evidence": "SMTS round 1 (Apr 2024); a commenter mapped it to LC 947.",
+      "recency": "2024-04",
+      "sources": ["https://leetcode.com/discuss/post/5026499/", "https://leetcode.com/discuss/post/5026504/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Maximize Distance to Closest Person", "lcId": 849, "url": "https://leetcode.com/problems/maximize-distance-to-closest-person/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Array", "Two Pointers"],
+      "statement": "", "variant": "Asked in the same SMTS round as the versioned stack.",
+      "evidence": "SMTS round 2 (Apr 2024).",
+      "recency": "2024-04",
+      "sources": ["https://leetcode.com/discuss/post/5026499/"],
+      "confidence": "high"
+    },
+    {
+      "title": "First Missing Positive", "lcId": 41, "url": "https://leetcode.com/problems/first-missing-positive/", "onLeetcode": true,
+      "difficulty": "Hard", "topics": ["Array", "In-place Hashing"],
+      "statement": "", "variant": "Paired with 'a variation of the coin exchange problem' in the same round.",
+      "evidence": "SSE round 1 (May 2024).",
+      "recency": "2024-05",
+      "sources": ["https://leetcode.com/discuss/post/5192425/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Insert Delete GetRandom O(1)", "lcId": 380, "url": "https://leetcode.com/problems/insert-delete-getrandom-o1/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Hash Map", "Array", "Design", "Randomized"],
+      "statement": "", "variant": "Paired with the versioned stack in round 2. A separate SMTS round asked an unremembered 'set-based LC medium' - likely this family.",
+      "evidence": "SSE round 2 (May 2024); SMTS round 2 set question (May 2024).",
+      "recency": "2024-05",
+      "sources": ["https://leetcode.com/discuss/post/5192425/", "https://leetcode.com/discuss/post/5185439/"],
+      "confidence": "high"
+    },
+    {
+      "title": "OA: Text editor command simulation", "lcId": null, "url": "https://leetcode.com/discuss/post/6004629/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Simulation", "String", "Implementation"],
+      "statement": "Implement a text-editor prototype processing an n x 2 command list: Insert s (insert at cursor, cursor moves right by len(s)), Print x (print chars from cursor-x to cursor+x), Left x / Right x (move cursor, clamped at ends), Backspace x (delete x chars left of cursor), Delete x (delete x right). Return the array of printed strings. Second argument always arrives as a string and may need int conversion. Clean rope/gap-buffer not needed - careful index bookkeeping with a string/builder passes.",
+      "variant": "",
+      "evidence": "Question 1 of the Nov 2024 HackerRank OA (screenshots posted).",
+      "recency": "2024-11",
+      "sources": ["https://leetcode.com/discuss/post/6004629/"],
+      "confidence": "high"
+    },
+    {
+      "title": "OA: Count vertex triplets with no connecting simple path in a tree", "lcId": null, "url": "https://leetcode.com/discuss/post/6004629/", "onLeetcode": false,
+      "difficulty": "Hard", "topics": ["Tree", "DFS", "Combinatorics", "Counting"],
+      "statement": "Given a tree of treeNodes product-dependency vertices (edge lists treeFrom/treeTo), count triplets i<j<k such that NO simple path contains all three, modulo 1e9+7, with n up to 1e5. Key fact: a triplet lies on one simple path iff one of the three is on the path between the other two; a triplet has no such path iff some vertex u separates all three into different subtrees. Count per-vertex using subtree sizes with inclusion-exclusion in O(n).",
+      "variant": "",
+      "evidence": "Question 2 of the Nov 2024 HackerRank OA; a commenter sketched the subtree-size + PIE solution.",
+      "recency": "2024-11",
+      "sources": ["https://leetcode.com/discuss/post/6004629/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Count Pairs of Connectable Servers in a Weighted Tree Network", "lcId": 3067, "url": "https://leetcode.com/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Tree", "DFS", "Counting"],
+      "statement": "", "variant": "OA question 3 ('Server Connection') is this problem nearly verbatim: for each server, count ordered pairs (j,k) in different branches whose distances are divisible by signal_speed.",
+      "evidence": "Question 3 of the Nov 2024 HackerRank OA (screenshots match LC 3067); also in the LC company tag.",
+      "recency": "2024-11",
+      "sources": ["https://leetcode.com/discuss/post/6004629/"],
+      "confidence": "high"
+    },
+    {
+      "title": "OA: Minimum time to process all requests across services", "lcId": null, "url": "https://leetcode.com/discuss/post/4885137/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Greedy", "Heap", "Scheduling"],
+      "statement": "n services process m requests; request i is cached on service cache[i]. A request costs 1 time unit on its cached service, 2 anywhere else; a service handles one request at a time, all in parallel. Assign requests to services to minimize the makespan. Greedy/binary-search on answer T: each service's capacity is T units, cached requests prefer their own service at cost 1, overflow goes anywhere at cost 2.",
+      "variant": "",
+      "evidence": "On-campus OA, Mar 2024.",
+      "recency": "2024-03",
+      "sources": ["https://leetcode.com/discuss/post/4885137/"],
+      "confidence": "medium"
+    },
+    {
+      "title": "OA: hard next-greater-element problem + implement an HTTP API", "lcId": null, "url": "https://leetcode.com/discuss/post/6910798/", "onLeetcode": false,
+      "difficulty": "Hard", "topics": ["Monotonic Stack", "Practical", "HTTP"],
+      "statement": "A 90-min lateral OA with two parts: (1) a hard DSA problem built on the next-greater-element / monotonic-stack concept (exact statement unrecovered), and (2) a non-DSA task to implement API endpoints, requiring familiarity with HTTP request/response classes and the standard libraries used to build them in your language. Practise calling a REST endpoint and wiring a tiny handler under time pressure.",
+      "variant": "",
+      "evidence": "MTS lateral OA, Jul 2025 (2.5 YOE candidate; ghosted afterwards).",
+      "recency": "2025-07",
+      "sources": ["https://leetcode.com/discuss/post/6910798/"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Bricks Falling When Hit", "lcId": 803, "url": "https://leetcode.com/problems/bricks-falling-when-hit/", "onLeetcode": true,
+      "difficulty": "Hard", "topics": ["Union Find", "Graph", "Reverse Processing"],
+      "statement": "", "variant": "",
+      "evidence": "Listed in a Bengaluru Staff Engineer Glassdoor review (Jul 2024) alongside the design questions; also in Dataford's ThoughtSpot question bank.",
+      "recency": "2024-07",
+      "sources": ["https://www.glassdoor.com.mx/Entrevista/ThoughtSpot-Entrevista-E818996-RVW38698857.htm", "https://dataford.io/interview-guides/thoughtspot/software-engineer"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Combination Sum", "lcId": 39, "url": "https://leetcode.com/problems/combination-sum/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Backtracking", "Recursion"],
+      "statement": "", "variant": "Asked to an Oct 2024 Bengaluru intern as the follow-up to an OOP classes/constructors question. A much older FTE round asked the cousin: count distinct multisets of powers of 2 summing to k.",
+      "evidence": "Engineering-intern loop, Oct 2024 (Glassdoor); powers-of-2 variant in GFG FTE experience.",
+      "recency": "2024-10",
+      "sources": ["https://www.glassdoor.co.in/Interview/ThoughtSpot-Bangalore-Interview-Questions-EI_IE818996.0,11_IL.12,21_IM1091.htm", "https://www.geeksforgeeks.org/thoughtspot-fteinternship-interview-experience/"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Find All Duplicates in an Array", "lcId": 442, "url": "https://leetcode.com/problems/find-all-duplicates-in-an-array/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Array", "In-place Hashing"],
+      "statement": "", "variant": "Round also included GFG 'leaders in an array' and complexity analysis (senior frontend loop, but the DSA bar was the same).",
+      "evidence": "Senior Frontend Engineer round 1 (Aug 2024).",
+      "recency": "2024-08",
+      "sources": ["https://leetcode.com/discuss/post/5709900/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Word Search", "lcId": 79, "url": "https://leetcode.com/problems/word-search/", "onLeetcode": true,
+      "difficulty": "Medium", "topics": ["Backtracking", "Matrix", "DFS"],
+      "statement": "", "variant": "",
+      "evidence": "SSE (frontend) round 2 coding question, GFG experience (updated Jul 2025).",
+      "recency": "2025",
+      "sources": ["https://www.geeksforgeeks.org/interview-experiences/thoughtspot-interview-experinec-for-sse-frontend/"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Minimum chefs to serve all cooking intervals", "lcId": null, "url": "https://static.glassdoor.ch/Interview/ThoughtSpot-Interview-E818996-RVW80199674.htm", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Intervals", "Sweep Line", "Heap"],
+      "statement": "Each customer request is a time interval during which a chef must be cooking that order. Find the minimum number of chefs so every request is served. This is exactly the maximum interval overlap: sort endpoints and sweep (+1 at start, -1 at end), answer is the peak - the Meeting Rooms II (LC 253) pattern.",
+      "variant": "Dataford's bank lists the same as 'Interval Scheduling for Restaurant Chefs'.",
+      "evidence": "Campus loop Aug 2023 (Glassdoor, 'difficult' rating); Dataford question bank.",
+      "recency": "2023-09",
+      "sources": ["https://static.glassdoor.ch/Interview/ThoughtSpot-Interview-E818996-RVW80199674.htm", "https://dataford.io/interview-guides/thoughtspot/software-engineer"],
+      "confidence": "medium"
+    },
+    {
+      "title": "OA: Drop-off centers (company subsets with min pairwise distance)", "lcId": null, "url": "https://leetcode.com/discuss/post/1976206/", "onLeetcode": false,
+      "difficulty": "Hard", "topics": ["Graph", "Shortest Path", "Union Find", "Bitmask"],
+      "statement": "A city's potential drop-off centers are nodes of a weighted undirected graph, each belonging to a company (up to ~10 companies). Count the unique subsets of companies that can be 'contracted' such that every pair of chosen centers is at least minDistance apart. Approach: all-pairs shortest paths (Dijkstra per node), then enumerate the 2^10 company subsets, or DSU over nodes with edges >= minDistance per the posted solution.",
+      "variant": "The same OA problem circulated at Swiggy, Twilio and Atlassian - a shared HackerRank bank question.",
+      "evidence": "ThoughtSpot HackerRank OA, Apr 2022 (screenshots posted); kept despite age because ThoughtSpot OA reports are scarce.",
+      "recency": "2022-04",
+      "sources": ["https://leetcode.com/discuss/post/1976206/"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Stepping-number strings between two big numbers", "lcId": null, "url": "https://leetcode.com/discuss/post/3561128/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["DFS", "String", "Big Integers"],
+      "statement": "Two numbers are given as strings (too large for int). Output every number strictly between them whose consecutive digits differ by exactly 1 (e.g. between '140' and '560': 210, 232, 234, 321, ...). Generate candidates by DFS from seed digits 1-9, appending last+/-1, comparing strings by length-then-lexicographic to stay in range. Same family as LC 2801 Count Stepping Numbers in Range / LC 967.",
+      "variant": "",
+      "evidence": "Internship interview question, May 2023.",
+      "recency": "2023-05",
+      "sources": ["https://leetcode.com/discuss/post/3561128/"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Shortest weighted path using at most one flight", "lcId": null, "url": "https://leetcode.com/discuss/post/386866/", "onLeetcode": false,
+      "difficulty": "Medium", "topics": ["Dijkstra", "Graph", "DP on State"],
+      "statement": "Cities are connected by roads and/or flights, each with a cost. Find the cheapest path from source to destination using at most one flight edge. Run Dijkstra/BFS on the doubled state space (node, flightsUsed in {0,1}) - the same layered-graph trick as LC 787 Cheapest Flights Within K Stops with K=1.",
+      "variant": "",
+      "evidence": "Old (2019) but repeatedly referenced ThoughtSpot question; included as the graph-with-state archetype the newer rounds echo.",
+      "recency": "2019",
+      "sources": ["https://leetcode.com/discuss/post/386866/"],
+      "confidence": "low"
+    }
+  ],
+  "design": [
+    {
+      "title": "Design Google Analytics (80-100 billion events/day)",
+      "prompt": "Design a web-analytics service like Google Analytics ingesting 80-100B events per day: collection, ingestion pipeline, storage, and query/reporting for dashboards.",
+      "probes": ["ingestion fan-in and partitioning at that write rate", "pre-aggregation vs raw-event storage trade-offs", "batch vs realtime (lambda-style) query paths", "storage schema for rollups"],
+      "round": "HLD round (SSE loop)", "difficulty": "Hard", "classic": true,
+      "evidence": "Glassdoor SSE Bengaluru loop (Jul 2024) with the explicit 80-100B/day load; Dataford bank lists 'architect a service similar to Google Analytics'. Fits ThoughtSpot's analytics-domain bias.",
+      "recency": "2024-07",
+      "sources": ["https://www.glassdoor.com/Interview/ThoughtSpot-Senior-Software-Engineer-Interview-Questions-EI_IE818996.0,11_KO12,36.htm", "https://dataford.io/interview-guides/thoughtspot/software-engineer"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a census-data ingestion and analytics system",
+      "prompt": "Design a system to write census data at national scale and run analytics on it.",
+      "probes": ["write-path scale and batching", "storage layout for analytical queries", "serving aggregate queries"],
+      "round": "HLD round 4 (MTS-4, selected)", "difficulty": "Hard", "classic": false,
+      "evidence": "MTS-4 offer loop, May 2024.",
+      "recency": "2024-06",
+      "sources": ["https://leetcode.com/discuss/post/5253431/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design an event and engagement tracker (campaign analytics)",
+      "prompt": "Vendors onboard products; users receive campaigns by email/SMS and clicking redirects to the vendor's product; vendors see metrics like clicks and impressions. Design it end to end.",
+      "probes": ["click-redirect service and event capture", "metrics aggregation pipeline", "vendor-facing analytics queries", "fan-out of campaigns over email/SMS"],
+      "round": "HLD round 3 (MTS-4)", "difficulty": "Medium", "classic": false,
+      "evidence": "MTS-4 loop, Jul 2025 (rejected later in managerial).",
+      "recency": "2025-07",
+      "sources": ["https://leetcode.com/discuss/post/6938826/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a sentiment-analysis service for e-commerce product reviews",
+      "prompt": "A service over product reviews supporting both realtime and batch queries, plus ingestion of the review data. Focus stated by the interviewer: database design, API-layer interaction, and the high-level architecture.",
+      "probes": ["DB schema for reviews + sentiment scores", "API layer design", "realtime vs batch query paths and precompute", "ingestion pipeline"],
+      "round": "Round 2, labelled 'System Design (LLD)' - a HLD/LLD mix (Staff loop)", "difficulty": "Medium", "classic": false,
+      "evidence": "Staff Bengaluru loop, Oct 2024.",
+      "recency": "2024-11",
+      "sources": ["https://leetcode.com/discuss/post/6042959/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design an Aadhaar-style national registration system with deadline traffic spikes",
+      "prompt": "Design the registration system for a government identity program in India where registration traffic spikes sharply near the deadline. Candidate split it into Registration, Status and Notification services.",
+      "probes": ["a pod crash-looping on a bug: candidate answered with an nginx middleware tracking per-pod success rate + circuit breaker with exponential retry", "multi-data-center distribution (multi-master DB across 4 regions)", "one region's DB destroyed with RPO of 5 minutes: what replication factor - interviewer forced a committed number between 1 and N"],
+      "round": "HLD round 5 (Staff; session ran very long)", "difficulty": "Hard", "classic": false,
+      "evidence": "Staff Bengaluru loop, Oct 2024; unusually detailed probe list.",
+      "recency": "2024-11",
+      "sources": ["https://leetcode.com/discuss/post/6042959/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a generic workflow management system (AWS Step Functions)",
+      "prompt": "Design a generic workflow/orchestration engine similar to AWS Step Functions: define multi-step workflows with dependencies and execute them reliably.",
+      "probes": ["state persistence per execution", "retries and failure handling per step", "scheduling and parallel branches", "trade-offs of design choices (explicitly discussed)"],
+      "round": "System design round (SDE-2 2023 loop; repeated as SMTS round 4 in May 2024)", "difficulty": "Hard", "classic": true,
+      "evidence": "Asked twice: SDE-2 loop (2023-10, cleared) and SMTS backend loop (May 2024, round 4 drew the negative feedback).",
+      "recency": "2024-05",
+      "sources": ["https://leetcode.com/discuss/post/4114595/", "https://leetcode.com/discuss/post/5185439/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a Zepto-like inventory system (HLD + class relations)",
+      "prompt": "Design a quick-commerce inventory system exposing two services: fetch the count of all products in any inventory, and restock items in any inventory. Deliver the HLD plus the class relationships.",
+      "probes": ["consistency between count reads and restock writes", "service boundaries and APIs", "class/entity modelling on top of the HLD"],
+      "round": "Round 3 (SMTS backend)", "difficulty": "Medium", "classic": false,
+      "evidence": "SMTS backend Bengaluru loop, May 2024.",
+      "recency": "2024-05",
+      "sources": ["https://leetcode.com/discuss/post/5185439/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a rate limiter",
+      "prompt": "Design a rate limiter (HLD round).",
+      "probes": ["algorithm choice (token bucket vs sliding window)", "distributed enforcement and shared state"],
+      "round": "HLD round 3 (SSE)", "difficulty": "Medium", "classic": false,
+      "evidence": "SSE loop, May 2024 (rejected later in LLD).",
+      "recency": "2024-05",
+      "sources": ["https://leetcode.com/discuss/post/5151337/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design search autocomplete, in depth",
+      "prompt": "High-level design of a search autocomplete/typeahead service, probed 'in depth'.",
+      "probes": ["trie/prefix index vs precomputed top-k", "ranking and freshness of suggestions", "latency budget per keystroke", "update pipeline for new queries"],
+      "round": "HLD round 3 (SSE)", "difficulty": "Medium", "classic": false,
+      "evidence": "SSE loop, May 2024; note the frontend track separately gets 'implement autosuggestions' as machine coding.",
+      "recency": "2024-05",
+      "sources": ["https://leetcode.com/discuss/post/5192425/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a distributed cache (Redis-like)",
+      "prompt": "Design a distributed cache similar to Redis, from scratch.",
+      "probes": ["sharding/consistent hashing", "eviction policies (ties into the LRU/LFU coding questions)", "replication and failover"],
+      "round": "Reported as the 'hard LLD' question in a Glassdoor SSE loop; effectively an HLD prompt", "difficulty": "Hard", "classic": true,
+      "evidence": "Glassdoor SSE Bengaluru (Jul 2024); Dataford bank lists 'design a distributed cache from scratch'.",
+      "recency": "2024-07",
+      "sources": ["https://www.glassdoor.com/Interview/ThoughtSpot-Senior-Software-Engineer-Interview-Questions-EI_IE818996.0,11_KO12,36.htm", "https://dataford.io/interview-guides/thoughtspot/software-engineer"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a priority call-handling service when load exceeds DB capacity",
+      "prompt": "Design a service that handles incoming calls/requests of different priorities where total load is greater than the database can absorb.",
+      "probes": ["priority queueing and shedding of low-priority traffic", "back-pressure and buffering in front of the DB", "many follow-ups; after the design held up, the interviewer switched to Java questions"],
+      "round": "Round 3 (scheduled as LLD, conducted as HLD; MTS-4 2026 loop)", "difficulty": "Medium", "classic": false,
+      "evidence": "MTS-4 loop, Sep 2026 (all rounds cleared, rejected on 'stronger feedback' for another candidate).",
+      "recency": "2026-09",
+      "sources": ["https://leetcode.com/discuss/post/8523997/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a ChatGPT-like multi-chat system with context management",
+      "prompt": "An LLM is available but keeps no conversation state. Design the system so users can hold multiple chats and resume old ones, with your design assembling the right context input per request so responses stay coherent. Expected deliverables: DB choice, class diagram, APIs and request flow.",
+      "probes": ["conversation/message data model", "context-window assembly (truncation/summarisation of history)", "API design for create/resume chat"],
+      "round": "Round 4, 'LLD + system design' (MTS-4)", "difficulty": "Medium", "classic": false,
+      "evidence": "MTS-4 loop, Jul 2025. Topical for ThoughtSpot (Spotter/AI analyst products).",
+      "recency": "2025-07",
+      "sources": ["https://leetcode.com/discuss/post/6938826/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a real-time chat application (WhatsApp-like)",
+      "prompt": "Design a chat service like WhatsApp. In the frontend variant: UI wireframes, the APIs, UI-API integration, and how to surface the latest message per conversation.",
+      "probes": ["web sockets vs polling vs long polling", "message delivery and latest-message per chat", "high availability (Dataford variant)"],
+      "round": "Design round (frontend SSE loop; Dataford lists a general version)", "difficulty": "Medium", "classic": false,
+      "evidence": "GFG SSE-frontend experience (updated 2025); Dataford bank 'real-time chat application with high availability'.",
+      "recency": "2025",
+      "sources": ["https://www.geeksforgeeks.org/interview-experiences/thoughtspot-interview-experinec-for-sse-frontend/", "https://dataford.io/interview-guides/thoughtspot/software-engineer"],
+      "confidence": "medium"
+    },
+    {
+      "title": "Frontend HLD: dynamic form builder driven by backend config",
+      "prompt": "Design a dynamic form builder whose fields/validation are driven by a backend property-config file; the Aug 2024 variant was a form builder for registration/login with validation and profile update.",
+      "probes": ["config schema to component mapping", "validation strategy", "state management across steps"],
+      "round": "System design (HLD) round of frontend MTS/Senior-FE loops", "difficulty": "Medium", "classic": true,
+      "evidence": "Asked in two separate frontend loops: MTS frontend (Mar 2024) and Senior Frontend Engineer (Aug 2024).",
+      "recency": "2024-08",
+      "sources": ["https://leetcode.com/discuss/post/4867656/", "https://leetcode.com/discuss/post/5709900/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a rich text editor",
+      "prompt": "Design a rich text editor (the only question reported from that software-design round).",
+      "probes": ["document model for formatted text", "cursor/selection handling (pairs with the OA text-editor simulation)"],
+      "round": "Software design round (Senior SWE, Sep 2024 loop)", "difficulty": "Medium", "classic": false,
+      "evidence": "Glassdoor Senior SWE review, Sep 2024 (negative experience, rejected).",
+      "recency": "2024-09",
+      "sources": ["https://www.glassdoor.com/Interview/ThoughtSpot-Senior-Software-Engineer-Interview-Questions-EI_IE818996.0,11_KO12,36.htm"],
+      "confidence": "medium"
+    },
+    {
+      "title": "BI-domain design: schema trade-offs and chasm traps",
+      "prompt": "Discuss trade-offs between database schemas for a BI tool; handle chasm traps in a multi-fact-table reporting environment.",
+      "probes": ["star vs snowflake schemas", "multi-fact joins producing fan-out/chasm traps and how the semantic layer avoids them"],
+      "round": "Design discussion (domain-flavoured; source is an aggregator)", "difficulty": "Hard", "classic": false,
+      "evidence": "Dataford ThoughtSpot question bank only - no first-person report found; kept because it matches the product domain.",
+      "recency": "2025",
+      "sources": ["https://dataford.io/interview-guides/thoughtspot/software-engineer"],
+      "confidence": "low"
+    },
+    {
+      "title": "Design a memory allocator",
+      "prompt": "Design a memory allocator (reported alongside 'design a log library' and 'design microservice architecture' in one Staff loop).",
+      "probes": ["free-list / buddy allocation strategy", "fragmentation handling"],
+      "round": "Design rounds of a Staff loop", "difficulty": "Hard", "classic": false,
+      "evidence": "Bengaluru Staff Engineer Glassdoor review, Jul 2024 (one-off; Staff-level).",
+      "recency": "2024-07",
+      "sources": ["https://www.glassdoor.com.mx/Entrevista/ThoughtSpot-Entrevista-E818996-RVW38698857.htm"],
+      "confidence": "medium"
+    }
+  ],
+  "lld": [
+    {
+      "title": "Pub-sub system with events",
+      "prompt": "Design (classes + APIs) an in-process/pluggable publish-subscribe system with event types, publishers, subscribers and delivery.",
+      "deliverable": "Class design + core code in a shared editor",
+      "probes": ["topic/subscriber registry design", "delivery semantics and ordering", "concurrency on publish"],
+      "round": "LLD round 3 (MTS-4, selected)", "difficulty": "Medium", "classic": true,
+      "evidence": "MTS-4 offer loop, May 2024; message-queue LLDs (below) are the same family and appear repeatedly.",
+      "recency": "2024-06",
+      "sources": ["https://leetcode.com/discuss/post/5253431/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Messaging queue / distributed message queue",
+      "prompt": "LLD of a message queue; one SSE loop asked a plain 'messaging queue' LLD, another asked 'design a distributed message queue' and rejected there.",
+      "deliverable": "Class design, APIs; depth on the distributed variant",
+      "probes": ["produce/consume APIs and consumer groups", "persistence and acknowledgement", "scaling from in-memory LLD to distributed design"],
+      "round": "LLD round 4 (SSE loops)", "difficulty": "Hard", "classic": true,
+      "evidence": "Two independent SSE loops in May 2024 (one verdict: reject in this round).",
+      "recency": "2024-05",
+      "sources": ["https://leetcode.com/discuss/post/5192425/", "https://leetcode.com/discuss/post/5151337/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design Splitwise",
+      "prompt": "LLD of Splitwise: users, groups, expenses, split strategies, balances and simplification.",
+      "deliverable": "Mostly class design ('majorly LLD'); a commenter asked if full code was expected - unclear",
+      "probes": ["split strategies (equal/exact/percent) as polymorphism", "balance ledger and debt simplification"],
+      "round": "Software-design round 3 (MTS-3)", "difficulty": "Medium", "classic": false,
+      "evidence": "MTS-3 loop, Jun-Jul 2024.",
+      "recency": "2024-07",
+      "sources": ["https://leetcode.com/discuss/post/5510451/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Meeting-room scheduler system",
+      "prompt": "N predefined meeting rooms. Users book an available room by providing {startTime, endTime, requiredCapacity}; the system notifies all invited participants and maintains a per-room calendar that can display the current day's meetings.",
+      "deliverable": "Class design + booking logic (a candidate published a full Java implementation)",
+      "probes": ["room-selection strategy given capacity + availability", "conflict detection per room (interval overlap)", "notification component decoupling (observer)", "calendar query API"],
+      "round": "LLD round (Senior Software Engineer)", "difficulty": "Medium", "classic": false,
+      "evidence": "SSE LLD problem posted May 2025; several commenters practised it, one shared a GitHub solution.",
+      "recency": "2025-05",
+      "sources": ["https://leetcode.com/discuss/post/6705389/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Logger / logging library",
+      "prompt": "Design a logger: log levels, appenders/sinks, formatting; the Staff variant was phrased 'design a log library'.",
+      "deliverable": "Class design + key code",
+      "probes": ["level filtering and sink chaining (chain of responsibility)", "async/buffered writes", "config-driven setup"],
+      "round": "LLD round 3 (SDE-2 2023); Staff design round (2024)", "difficulty": "Medium", "classic": true,
+      "evidence": "SDE-2 LLD round (Jul 2023) and Bengaluru Staff Glassdoor review (Jul 2024).",
+      "recency": "2024-07",
+      "sources": ["https://leetcode.com/discuss/post/3777195/", "https://www.glassdoor.com.mx/Entrevista/ThoughtSpot-Entrevista-E818996-RVW38698857.htm"],
+      "confidence": "high"
+    },
+    {
+      "title": "Rule engine",
+      "prompt": "Design a rule engine: rules with conditions and actions evaluated against incoming data/events.",
+      "deliverable": "Coding-LLD round - working class design and code expected",
+      "probes": ["rule representation (condition AST / predicate composition)", "rule evaluation order and conflict handling", "extensibility for new operators"],
+      "round": "Round 3 'Coding (LLD)' of a 2023 SDE-2 loop", "difficulty": "Medium", "classic": false,
+      "evidence": "SDE-2 loop (2023-10, cleared all rounds); candidate noted the interviewer kept interrupting.",
+      "recency": "2023-10",
+      "sources": ["https://leetcode.com/discuss/post/4114595/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Customer-care ticket management / routing system",
+      "prompt": "Tickets arrive with a category; agents are specialized in multiple categories. Assign each ticket to a free capable agent; handle several free agents (fairness/round-robin/load balancing) and no free agent (queueing/retry).",
+      "deliverable": "LLD with class design; discussion drifted into scaling",
+      "probes": ["fair assignment among multiple free agents", "per-category queues when no agent is free", "scalability/fault tolerance follow-up: shard agents by category, consistency across servers"],
+      "round": "Round 2 LLD (Staff loop)", "difficulty": "Medium", "classic": false,
+      "evidence": "Staff loop, Aug 2025 (rounds felt positive, automated rejection).",
+      "recency": "2025-08",
+      "sources": ["https://leetcode.com/discuss/post/7096111/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design a scheduler",
+      "prompt": "Design a (task) scheduler - listed among an Oct 2025 MTS loop's questions; details not reported. Prepare the standard in-memory job scheduler: schedule(task, time/interval), priority/time-ordered heap, worker dispatch, cancel.",
+      "deliverable": "Unclear; assume class design + core code",
+      "probes": ["one-shot vs recurring jobs", "time-ordered data structure choice", "concurrency between scheduling and execution"],
+      "round": "MTS loop (Oct 2025)", "difficulty": "Medium", "classic": false,
+      "evidence": "Glassdoor MTS Bengaluru review (Oct 2025) question list.",
+      "recency": "2025-10",
+      "sources": ["https://clear.glassdoor.nl/Interview/ThoughtSpot-Interview-E818996-RVW20831039.htm"],
+      "confidence": "low"
+    },
+    {
+      "title": "Frontend machine coding: resource pool class",
+      "prompt": "Implement a JS resource pool (like node-pool): retrieve() returns a pooled resource or creates one up to a max limit, otherwise queues the caller in a waiting list; releasing a resource serves the next waiter; waiting requests time out and reject. Some util mocks were pre-provided.",
+      "deliverable": "Working JavaScript (promises) in 60 min",
+      "probes": ["max-limit and waiting-list semantics", "timeout + rejection handling", "releasing back to the pool"],
+      "round": "Frontend coding round 1 (MTS-3 frontend)", "difficulty": "Medium", "classic": false,
+      "evidence": "MTS-3 frontend loop, Oct 2023 (candidate 'bombed' it; a commenter later posted a solution).",
+      "recency": "2024-01",
+      "sources": ["https://leetcode.com/discuss/post/4569884/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Frontend machine coding: Store class with subscribe/save/remove",
+      "prompt": "Implement a Store: subscribe(key, updateFn, cleanupFn) returns an unsubscribe function removing that specific updateFn; save(key, value) stores the value and invokes all of that key's update functions; remove(key) deletes the key from the cache.",
+      "deliverable": "Working JavaScript, live",
+      "probes": ["per-key subscriber lists and targeted unsubscribe", "cleanup-function semantics on remove"],
+      "round": "Coding round (SMTS frontend)", "difficulty": "Medium", "classic": false,
+      "evidence": "SMTS-frontend round, Apr 2025 (solved quickly, still rejected).",
+      "recency": "2025-04",
+      "sources": ["https://leetcode.com/discuss/post/6656823/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Frontend machine coding: search autosuggestions",
+      "prompt": "Build search auto-suggestions against a mock API: input box, debounced fetch, suggestion list, with follow-up questions. Choice of pure HTML/CSS/JS or React.",
+      "deliverable": "Working UI code in 60 min",
+      "probes": ["debouncing rapid input", "race conditions between stale responses", "keyboard navigation (typical follow-ups)"],
+      "round": "Frontend coding round 2 (MTS-3 frontend); Dataford FE guide lists the same with debouncing", "difficulty": "Medium", "classic": true,
+      "evidence": "MTS-3 frontend loop Oct 2023; Dataford frontend guide ('autosuggestion field with debouncing'); infinite-scroll machine coding (GFG SSE-FE, Senior-FE Aug 2024) is the sibling task.",
+      "recency": "2025",
+      "sources": ["https://leetcode.com/discuss/post/4569884/", "https://dataford.io/interview-guides/thoughtspot/frontend-engineer", "https://leetcode.com/discuss/post/5709900/"],
+      "confidence": "high"
+    },
+    {
+      "title": "Design Slack (frontend LLD)",
+      "prompt": "LLD of Slack: requirements, scoping, component/class design, API contracts and optimizations.",
+      "deliverable": "Design on a doc/whiteboard with API contracts; no full code reported",
+      "probes": ["API contracts between client and server", "scoping which features to design", "optimizations (caching, pagination of messages)"],
+      "round": "LLD round 3 (MTS-3 frontend)", "difficulty": "Hard", "classic": false,
+      "evidence": "MTS-3 frontend loop, Oct 2023 (rejected).",
+      "recency": "2024-01",
+      "sources": ["https://leetcode.com/discuss/post/4569884/"],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,1936 @@
+{
+ "company": "Agoda",
+ "slug": "agoda",
+ "levelMapping": "Agoda IC ladder (Booking Holdings): IC1 Software Engineer (entry/contract) -> IC2 Software Engineer -> IC3 Senior Software Engineer (SSE) -> IC4 Staff Software Engineer -> IC5 Lead Software Engineer -> Principal. The Senior band is wide: SSE Bangkok offers went to candidates with 3.10, 4, 4.8 and 5.8 YOE, so with ~3.3 YOE expect Software Engineer or Senior Software Engineer (SSE ~= Google L4 here; Staff ~= L5+ and realistically needs 8+ YOE). Down-leveling mid-loop is routine: many 5-7 YOE candidates who applied for Staff were moved to SSE after the coding/platform rounds (sometimes with one extra round added). JD often says '5+/6+ years' for SSE but 3-4 YOE candidates have cleared it. No RSUs below Lead/IC5 (one IC5 offer carried USD 20k RSUs; SSE/Staff offers are cash only: base + 19% target bonus + sign-on).",
+ "process": {
+  "summary": "Agoda runs one fairly uniform loop for SWE/SSE/Staff, all on HackerRank (OA, live coding, and even the design rounds use HackerRank CodePair/whiteboard): recruiter screen -> HackerRank OA (typically 1 DSA medium + 1 'REST API' question where you call a jsonmock.hackerrank.com endpoint with a plain HTTP client and filter paginated JSON; interns/full-stack get 3-4 DSA) -> live coding (60 min, 2 easy-medium LC-style problems, all test cases must pass) -> the signature 'Platform' round (60 min: improve a deliberately flawed booking/supplier HLD, discuss testing strategy, then review a flawed Java/Python snippet) -> Architecture/system design (60 min, design from scratch, usually a travel-flavored aggregation problem) -> hiring manager / culture-fit round (60-90 min, scenario-based behavioral), with a short non-eliminatory HR 'expectation call' slotted mid-loop to discuss salary and relocation. Interviewers are mostly Bangkok-based engineers; recruiters send a prep document per round and candidates consistently advise following it closely. Main engineering hub is Bangkok with a standard India-to-Bangkok relocation path (visa/work permit, flights, ~30 days accommodation, sign-on of 1-2 months salary); Gurugram is the India engineering office.",
+  "rounds": [
+   {
+    "name": "Recruiter screen",
+    "type": "screen",
+    "duration": "15-45 min",
+    "what": "TA (often based in Bangkok) covers background, why Agoda, willingness to relocate to Bangkok (or Gurugram), notice period, and walks through every later round; prep material is shared per round.",
+    "probes": "Relocation motivation is treated as a real signal from day one - have a concrete story. They may discuss salary expectations early."
+   },
+   {
+    "name": "Online assessment (HackerRank)",
+    "type": "oa",
+    "duration": "60-90 min",
+    "what": "Most common senior/staff format: 2 questions - 1 DSA (LC medium, occasionally hard) + 1 REST API task (GET a jsonmock.hackerrank.com endpoint, handle ?page=N pagination, parse/filter JSON, e.g. 'best-rated show in genre' or 'shows in production between years'). Interns/IC1 get 3-4 DSA (medium); a 2023 Senior variant had SQL + API; one 2025 full-stack OA had 4 questions with no Python option.",
+    "probes": "No Spring or HTTP-client libraries - know raw HttpURLConnection/requests-style basics. All-test-case passes matter; several candidates with high scores still got automatic rejections when headcount closed ('ghost hiring' complaints are common)."
+   },
+   {
+    "name": "Coding round (live, HackerRank CodePair)",
+    "type": "dsa",
+    "duration": "60 min",
+    "what": "2 easy-medium problems with a Bangkok engineer; write fully working code that passes all of Agoda's test cases, state time/space complexity. Second question is often a follow-up extension of the first (e.g. molecule weight, then add parentheses; sort 1s/2s in place, then 1s/2s/3s).",
+    "probes": "Favorite patterns: monotonic stack (next greater/smaller), binary search on answer (capacity-to-ship style), heaps/greedy (shoot-the-planes), hash maps, sliding window, stack parsing (Number of Atoms variant). Some interviewers also tack on quick verbal questions: what test cases would you write, what do you check before raising a PR."
+   },
+   {
+    "name": "Platform round (system analysis + code review)",
+    "type": "practical",
+    "duration": "60 min",
+    "what": "Agoda's signature round, described in their prep email as: (1) System Analysis & Design - 'go beyond the obvious': you're given an existing, deliberately flawed design (almost always suppliers/OTA partners pulling booking or flight data from Agoda) and must critique and improve it; (2) Connectivity Management & QA - API contract fixes, auth, resiliency, testing strategy/testing pyramid; (3) Code Review - a Java or Python snippet of the same service with planted flaws. Frontend candidates instead get a web-fundamentals Q&A (CDN, caching, storage, XSS/CSRF, performance metrics) plus a small JS exercise.",
+    "probes": "Expected call-outs: separate external API from core booking service, read replicas/CQRS, caching with TTL and stampede handling, cursor pagination, rate limiting, correct REST semantics (GET /bookings not POST /getBookings), authn/authz, supplier isolation, CDC/event streaming. Code review: strategy pattern over if-else vendor chains, dependency injection, SRP, exception handling, logging, cache-key design. Rejections cite 'connectivity management' or not covering QA/testing - raise testing unprompted."
+   },
+   {
+    "name": "HR expectation call",
+    "type": "hm",
+    "duration": "15-30 min",
+    "what": "Non-eliminatory mid-loop call: feedback so far, salary expectations, relocation willingness, sometimes location preference (Bangkok vs Gurugram).",
+    "probes": "They anchor compensation here; quoting very high expectations has preceded late-stage drops, quoting low weakens negotiation. Know THB bands beforehand."
+   },
+   {
+    "name": "Architecture / system design",
+    "type": "design",
+    "duration": "60 min (one 2-hour 'AI-assisted pilot' design round reported Mar 2026)",
+    "what": "Classic HLD from scratch, usually travel-flavored: flight-search aggregation from 20-200 suppliers with metered APIs, hotel booking/search, payment gateway with reconciliation, top-K trending hotels. Standard structure expected: requirements, NFRs, core entities, API design, DB choice, HLD diagram, deep dives.",
+    "probes": "Supplier dedup and cheapest-fare selection, caching (search results valid ~1 hour), streaming partial results (SSE) and resuming streams after pod failure, slow-supplier handling, latency SLAs vs third-party SLAs, no-double-booking consistency, idempotency, failure/recovery scenarios, monitoring and P99 metrics (observability earns 'brownie points')."
+   },
+   {
+    "name": "Culture fit / hiring manager round",
+    "type": "behavioral",
+    "duration": "60-90 min (longest round; sometimes HM + Director together)",
+    "what": "Scenario-driven behavioral: recurring production bugs and RCA, urgent bug with no bandwidth, mentoring juniors and promotion readiness, Agile/Scrum improvements, cross-team integration testing under deadline, conflicts, pushing back on design decisions. Some HMs add a small design or LLD question (elevator system, rate limiter, or a 'how would you handle X at Agoda' problem).",
+    "probes": "STAR format expected; show ownership and specific personal contribution. Multiple otherwise-clean loops died here - one Staff candidate was rejected for failing to justify a Bangalore-to-Bangkok move at flat PPP-adjusted comp, another SSE loop failed culture fit alone. Prepare the relocation + 'why Agoda' narrative as seriously as the tech."
+   }
+  ],
+  "indiaNotes": "Agoda's India engineering office is Gurugram (Gurgaon) - there is no Agoda Bengaluru engineering office (Bengaluru/Bangalore candidates interview remotely for Bangkok with relocation, or for Gurugram; Booking Holdings' separate Bengaluru center hires under the Booking.com loop). Gurugram hires 2- and 6-month SDE interns (large offline drives: ~10k applicants -> OA -> ~66 onsite in May 2026), IC1/IC2 Software Engineers, SSE and Staff; at times GGN hiring narrows to Staff/Principal only - one 2023 candidate had an agreed offer pulled when SSE hiring froze. The loop itself is identical to Bangkok's (interviewers mostly sit in Bangkok) and one loop can end with a Bangkok-or-Gurugram (occasionally Singapore) location choice. India compensation reference: SSE Gurgaon June 2024 at 46.6L fixed + 4.4L retention + 19% bonus (~59L). Bangkok offers for India candidates: SSE 165k-190k THB/month base, Staff 200k-230k THB/month, +19% target bonus, sign-on 1-2 months salary, no stocks; relocation package = visa/work-permit sponsorship, flights, up to 30 days temporary accommodation, baggage/shipping, one-time WFH allowance (~12.5-13.5k THB). Offers convert to roughly 72-91 LPA gross INR but negotiation headroom is small ('out of budget for the level' is the standard reply) and several candidates declined for Bangalore offers with higher base.",
+  "timeline": "Highly variable: 3-4 weeks when fast ('1-Day Fast Track' onsite compresses coding+platform+HM into one day with same-day verdicts), typically 4-8 weeks with ~1 week between rounds, but 2-3 months with long HR silences is widely reported. Per-round feedback usually lands in 2 days-2 weeks; final-offer paperwork can arrive within hours of the comp call.",
+  "tips": [
+   "Grind the Agoda-tagged LeetCode list plus a LC-150-style set - multiple candidates confirm live-round questions come from or near the tagged pool (monotonic stack, binary search on answer, heaps/greedy, sliding window, stack parsing).",
+   "Practice on HackerRank itself: small editor, custom test cases, and you must pass all hidden tests in live rounds - partially working code has sunk otherwise-good interviews.",
+   "For the OA, rehearse one plain-HTTP 'call this paginated JSON API and aggregate' exercise in your language - no frameworks allowed, and it is half the score.",
+   "For the Platform round, practice critiquing an existing design aloud: external-vs-core service separation, caching+TTL, read replicas, cursor pagination, rate limiting, auth, correct REST verbs - then volunteer a testing strategy (testing pyramid) without being asked.",
+   "Keep a code-review vocabulary ready: strategy/factory pattern to kill if-else vendor chains, dependency injection, SRP, exception handling, logging, cache TTL/keys - the review snippet plants exactly these flaws.",
+   "In the architecture round, lead with failure modes, SLAs and observability (P99, supplier-level latency, telemetry) - interviewers push hardest on failure/recovery, not the happy-path diagram.",
+   "Prepare the relocation story: why Bangkok at this comp (PPP-adjusted), partner/family plan - HM-round rejections repeatedly trace to a weak relocation/comp justification.",
+   "Read the prep document the recruiter sends before each round and follow it literally; candidates report questions stick to those listed topics.",
+   "Expect possible down-leveling from Staff to Senior mid-loop if you are under ~8 YOE - decide beforehand whether you'd continue, and confirm the level and THB band early.",
+   "Agoda's backend is C#/.NET, Scala, Java/Kotlin with Kafka and Hadoop - coding rounds are language-agnostic (Java/Python/Go/JS all fine), but JVM/.NET framing helps in platform discussions; one full-stack OA had no Python option, so have a backup language."
+  ],
+  "notes": "Everything runs on HackerRank, including design rounds (design is discussed over a shared doc/diagram; one frontend architecture round forbade diagrams entirely). Known quirks: recruiter-shared prep guides per round; a 2-hour 'AI-assisted pilot' system design round appeared in Mar 2026; a 1-Day Fast Track onsite exists; an intern onsite in 2026 included an 'use an AI agent to solve an HTML/CSS task with a planted trap' exercise, signalling AI-tooling evaluation creeping in. No bar-raiser; the HM/culture round plus a director sometimes acts as the final gate, and late-stage rejections/offer-pulls after positive feedback are a recurring complaint (budget/headcount driven). No LLD-specific round for the mid band - LLD shows up inside the platform round (code review), occasionally as an HM-round add-on (elevator, rate limiter) or as OOP-flavored coding (factory-pattern completion); practical items are listed under lld below. Compensation structure: THB base + 19% target bonus + 1-2 month sign-on, no equity below IC5; expat tax reported ~15-19%. Cooloff: candidates have been invited to reapply to a different division after a reject within months.",
+  "sources": [
+   {
+    "title": "Agoda interview experience | Staff software engineer (Gurgaon loop, rounds detail)",
+    "url": "https://leetcode.com/discuss/post/8577055/",
+    "date": "2026-10"
+   },
+   {
+    "title": "Agoda Interview Experience - IC5 Backend Lead - Selected",
+    "url": "https://leetcode.com/discuss/post/8576144/",
+    "date": "2026-10"
+   },
+   {
+    "title": "Agoda Lead Software Engineer (IC5) Offer - Bangkok relocation package",
+    "url": "https://leetcode.com/discuss/post/8576163/",
+    "date": "2026-10"
+   },
+   {
+    "title": "Agoda Staff Backend | 1-Day Fast Track",
+    "url": "https://leetcode.com/discuss/post/8540150/",
+    "date": "2026-09"
+   },
+   {
+    "title": "Agoda | Staff Engineer | Bangkok | Selected (full loop)",
+    "url": "https://leetcode.com/discuss/post/7755434/",
+    "date": "2026-04"
+   },
+   {
+    "title": "Agoda Bangkok Staff SWE interview experience Jul-Aug 2025 (round-by-round)",
+    "url": "https://leetcode.com/discuss/post/7082771/",
+    "date": "2025-08"
+   },
+   {
+    "title": "Agoda Bangkok SSE interview experience Jun-Jul 2025",
+    "url": "https://leetcode.com/discuss/post/7095261/",
+    "date": "2025-08"
+   },
+   {
+    "title": "Agoda | SSE Backend | Gurugram | Reject (recruiter prep-guide loop)",
+    "url": "https://leetcode.com/discuss/post/7274226/",
+    "date": "2025-10"
+   },
+   {
+    "title": "Senior Software Engineer at Agoda (full-stack loop + offer)",
+    "url": "https://leetcode.com/discuss/post/7199643/",
+    "date": "2025-09"
+   },
+   {
+    "title": "Agoda SSE Bangkok compensation (Feb 2026)",
+    "url": "https://leetcode.com/discuss/post/7565922/",
+    "date": "2026-02"
+   },
+   {
+    "title": "Agoda SSE Bangkok 3.10 YOE offer (level mapping evidence)",
+    "url": "https://leetcode.com/discuss/post/6866277/",
+    "date": "2025-06"
+   },
+   {
+    "title": "Agoda - Bangkok | Staff comp vs Uber India (relocation math)",
+    "url": "https://leetcode.com/discuss/post/7601994/",
+    "date": "2026-02"
+   },
+   {
+    "title": "Agoda SSE Bangkok offer - 4.8 YOE, 190k THB + relocation benefits",
+    "url": "https://leetcode.com/discuss/post/7684775/",
+    "date": "2026-03"
+   },
+   {
+    "title": "Glassdoor: Agoda Senior Software Engineer interview questions",
+    "url": "https://static.glassdoor.co.uk/Interview/Agoda-Senior-Software-Engineer-Interview-Questions-EI_IE461386.0,5_KO6,30.htm",
+    "date": "2026-06"
+   },
+   {
+    "title": "Glassdoor: Agoda Staff Software Engineer interview questions",
+    "url": "https://www.glassdoor.com/Interview/Agoda-Staff-Software-Engineer-Interview-Questions-EI_IE461386.0,5_KO6,29.htm",
+    "date": "2026-09"
+   },
+   {
+    "title": "Taro: Agoda SWE Bangkok onsite, accepted offer (fast-track onsite)",
+    "url": "https://www.jointaro.com/interviews/companies/agoda/experiences/software-engineer-bangkok-july-1-2025-accepted-offer-positive-01180b45/",
+    "date": "2025-07"
+   },
+   {
+    "title": "Agoda SDE Intern Gurugram offline drive (May 2026)",
+    "url": "https://leetcode.com/discuss/post/8380191/",
+    "date": "2026-07"
+   },
+   {
+    "title": "Agoda Gurgaon SSE offer pulled after agreed number (process risk)",
+    "url": "https://leetcode.com/discuss/post/4885183/",
+    "date": "2024-03"
+   },
+   {
+    "title": "Substack: Agoda Gurgaon full-stack loop -> SDE2 offer",
+    "url": "https://nerddesignlab.substack.com/p/interview-experience-agoda-gurgaon",
+    "date": "2024-10"
+   },
+   {
+    "title": "Agoda AI Assisted Pilot system design round (2 hours)",
+    "url": "https://leetcode.com/discuss/post/7646557/",
+    "date": "2026-03"
+   },
+   {
+    "title": "Dataford Agoda interview guide (aggregate stats)",
+    "url": "https://dataford.io/interview-guides/agoda",
+    "date": "2026"
+   }
+  ]
+ },
+ "dsa": [
+  {
+   "title": "Molecule weight calculator (Number of Atoms variant)",
+   "lcId": 726,
+   "url": "https://leetcode.com/problems/number-of-atoms/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Stack",
+    "String",
+    "Parsing"
+   ],
+   "statement": "",
+   "variant": "Agoda's house version: weights fixed (C=12, H=1, O=8 or similar map), part 1 has no brackets and single-digit multipliers (two pointers suffice), part 2 adds nested parentheses with group multipliers, e.g. H(CH4)2 = 33 (stack needed). Return total weight, not the formula string.",
+   "evidence": "The single most-reported Agoda live-coding question: Staff Gurgaon Oct 2026, Staff reject Apr 2026, SSE Gurugram Oct 2025, MLE Dec 2025, Staff round-1 Sep 2026, Staff May 2026 (standalone write-up), intern onsite Jul 2026. #1 in the Agoda LC tag snapshot.",
+   "recency": "2026-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/8577055/",
+    "https://leetcode.com/discuss/post/7872881/",
+    "https://leetcode.com/discuss/post/7274226/",
+    "https://leetcode.com/discuss/post/7482642/",
+    "https://leetcode.com/discuss/post/8499468/",
+    "https://leetcode.com/discuss/post/8292630/",
+    "https://leetcode.com/discuss/post/8419900/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Reassign/rank priorities (Rank Transform of an Array)",
+   "lcId": 1331,
+   "url": "https://leetcode.com/problems/rank-transform-of-an-array/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Array",
+    "Sorting",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Asked as 'reassign priorities': [1,4,8,4] -> [1,2,3,2]. A Dec 2025 OA variant asked to reduce each priority to the minimum possible while preserving relative order with values bounded 0-99, pushing for an O(n) counting solution over O(n log n).",
+   "evidence": "Staff reject Apr 2026, Staff selected Apr 2026, SSE Frontend round 1 Jul 2026 (exact LC 1331), SSE OA Dec 2025.",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7872881/",
+    "https://leetcode.com/discuss/post/7755434/",
+    "https://leetcode.com/discuss/post/8459009/",
+    "https://leetcode.com/discuss/post/7402018/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Shoot the descending planes (Eliminate Maximum Number of Monsters variant)",
+   "lcId": 1921,
+   "url": "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "Sorting",
+    "Heap"
+   ],
+   "statement": "",
+   "variant": "Planes instead of monsters: each plane has height/speed of descent, you shoot one per second; return max planes stopped, or time to shoot all / -1 if impossible. Compute arrival times, sort, greedily match against seconds.",
+   "evidence": "SSE Gurugram Oct 2025, SSE DSA round Jun 2025, DSA round Dec 2024, full-stack round 1 Sep 2024, Staff Bangkok coding round Jan 2026.",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/7274226/",
+    "https://leetcode.com/discuss/post/6811748/",
+    "https://leetcode.com/discuss/post/6148486/",
+    "https://leetcode.com/discuss/post/5823525/",
+    "https://leetcode.com/discuss/post/7495956/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "All pairs with minimum absolute difference",
+   "lcId": 1200,
+   "url": "https://leetcode.com/problems/minimum-absolute-difference/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Array",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "Given an array, return all pairs whose difference equals the global minimum absolute difference, e.g. [1,3,10,7,5] -> [[1,3],[5,7]]. Also phrased as 'find the minimum-sum pairs and return all of them'.",
+   "evidence": "Staff pair-coding round Jun 2026, Staff Bangkok HackerRank round Jul-Aug 2025, Glassdoor SSE Gurgaon Nov 2025, Senior full-stack round 1 Feb 2025.",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/8321605/",
+    "https://leetcode.com/discuss/post/7082771/",
+    "https://www.glassdoor.co.nz/Interview/Agoda-Interview-E461386-RVW93447733.htm",
+    "https://leetcode.com/discuss/post/6419327/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum daily reading/printing limit (Capacity To Ship Packages Within D Days)",
+   "lcId": 1011,
+   "url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search",
+    "Greedy"
+   ],
+   "statement": "",
+   "variant": "Agoda skins: finish reading chapters (pages array) in exactly D days minimizing the max pages/day; or part 1 = feasibility check given a fixed daily printing limit, part 2 = binary search the minimum limit. Also reported abstractly as 'binary search to find maximum of minimum' in an OA and 'painting consecutive houses' in a coding round.",
+   "evidence": "Staff Bangkok May 2026 (full statement + solution), SSE May 2026 (two-part version), SSE OA Jun 2025, SSE coding round Apr 2026 (comment).",
+   "recency": "2026-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/8487700/",
+    "https://leetcode.com/discuss/post/8292628/",
+    "https://leetcode.com/discuss/post/6859065/",
+    "https://leetcode.com/discuss/post/7785575/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Next greater / next smaller element (monotonic stack family)",
+   "lcId": 496,
+   "url": "https://leetcode.com/problems/next-greater-element-i/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Monotonic Stack",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "Recurs in many skins: next greater element (plus circular-array follow-up), nearest smaller element, distance (index gap) to next smaller element on the right, 'towers visible from tower x' OA, and 'largest greater number on the right side'. The trick candidates flag: push indices, not values.",
+   "evidence": "Staff selected Apr 2026 (nearest smaller), Staff pair-coding Jun 2026 (distance to next smaller right), SSE round 1 Jun 2025 ('similar to next greater'), Staff Gurugram Feb 2026, Staff Bangkok Jan 2026, OA Dec 2024, coding round Oct 2024, 2023 onsite (circular follow-up).",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/7755434/",
+    "https://leetcode.com/discuss/post/8321605/",
+    "https://leetcode.com/discuss/post/6859065/",
+    "https://leetcode.com/discuss/post/7551684/",
+    "https://leetcode.com/discuss/post/7495956/",
+    "https://leetcode.com/discuss/post/6150300/",
+    "https://leetcode.com/discuss/post/5369866/",
+    "https://leetcode.com/discuss/post/3846220/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Backspace String Compare",
+   "lcId": 844,
+   "url": "https://leetcode.com/problems/backspace-string-compare/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Two Pointers",
+    "String",
+    "Stack"
+   ],
+   "statement": "",
+   "variant": "Given S1 containing '#' backspaces and S2, check equality after processing - asked as the easy second question of a 60-min round.",
+   "evidence": "SSE virtual onsite Jun 2025; also surfaces in the Agoda LC tag snapshot.",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6859065/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Daily Temperatures",
+   "lcId": 739,
+   "url": "https://leetcode.com/problems/daily-temperatures/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Monotonic Stack"
+   ],
+   "statement": "",
+   "variant": "Asked verbatim in a Staff Frontend coding round paired with Best Time to Buy and Sell Stock I.",
+   "evidence": "Staff Frontend Bangkok Jan 2025; high in Agoda LC tag snapshot.",
+   "recency": "2025-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/6371942/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Best Time to Buy and Sell Stock (I, with variations)",
+   "lcId": 121,
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Array",
+    "DP"
+   ],
+   "statement": "",
+   "variant": "Asked straight and as 'a variation of stock buy/sell' - the warm-up question across many loops.",
+   "evidence": "Staff Backend R2 Jul 2025 (variation), Staff Frontend Jan 2025, SSE Nov 2024, SSE reject Oct 2024, backend 2022 onsite.",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/7237792/",
+    "https://leetcode.com/discuss/post/7565801/",
+    "https://leetcode.com/discuss/post/6371942/",
+    "https://leetcode.com/discuss/post/6050889/",
+    "https://leetcode.com/discuss/post/5940422/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Jump Game (DP/greedy variation)",
+   "lcId": 55,
+   "url": "https://leetcode.com/problems/jump-game/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "DP"
+   ],
+   "statement": "",
+   "variant": "Reported twice as 'a DP problem similar to Jump Game' in live rounds; a Climbing Stairs variant with 1/2/3-step jumps appeared in the same slot.",
+   "evidence": "Staff Backend live round Jul 2025, SSE Backend round 2 Feb 2026; Climbing-Stairs-with-3-steps variant Jul 2026.",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/7237792/",
+    "https://leetcode.com/discuss/post/7565801/",
+    "https://leetcode.com/discuss/post/8459009/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Climbing Stairs with 1-3 steps",
+   "lcId": 70,
+   "url": "https://leetcode.com/problems/climbing-stairs/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "DP"
+   ],
+   "statement": "",
+   "variant": "LC 70 with the modification that you may jump 1, 2 or 3 steps; follow-ups asked for test cases you would write and your pre-PR checklist.",
+   "evidence": "Senior Frontend round 1 Jul 2026 (paired with LC 1331).",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8459009/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Sort array of 1s and 2s in place, then 1s/2s/3s (Sort Colors)",
+   "lcId": 75,
+   "url": "https://leetcode.com/problems/sort-colors/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Two Pointers",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "Part 1: in-place sort of an array containing only 1 and 2, no extra space; follow-up extends to 1/2/3 (Dutch national flag). Explain complexity for both.",
+   "evidence": "IC5 Backend Lead coding round Sep 2026.",
+   "recency": "2026-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/8576144/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Degree of an Array",
+   "lcId": 697,
+   "url": "https://leetcode.com/problems/degree-of-an-array/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Hash Map",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "Asked verbatim as Q1 of the Staff fast-track coding round.",
+   "evidence": "Staff Backend 1-Day Fast Track Sep 2026.",
+   "recency": "2026-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/8540150/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Disk space analyzer (max of sliding-window minimums)",
+   "lcId": 239,
+   "url": "https://leetcode.com/problems/sliding-window-maximum/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Monotonic Deque",
+    "Heap"
+   ],
+   "statement": "",
+   "variant": "Given space[] and window x, compute the minimum in every window of size x and return the maximum of those minimums; large constraints force a deque/heap sliding-window approach. (Mirror of LC 239.)",
+   "evidence": "Staff Backend 1-Day Fast Track Sep 2026, Q2.",
+   "recency": "2026-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/8540150/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Find Diameter Endpoints of a Tree",
+   "lcId": 3787,
+   "url": "https://leetcode.com/problems/find-diameter-endpoints-of-a-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "BFS",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "OA: return binary array marking nodes that are endpoints of any diameter (two-BFS technique). A live-round cousin asks for all leaf nodes lying on a diameter in O(n).",
+   "evidence": "Staff SE OA Nov 2025 (screenshots), 'Agoda question' Jan 2026 (leaf-nodes-on-diameter variant); also a tree-based OA DSA question Oct 2025.",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/7380748/",
+    "https://leetcode.com/discuss/post/7465458/",
+    "https://leetcode.com/discuss/post/7287744/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "REST API data-fetch question (HackerRank jsonmock)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "API",
+    "HTTP",
+    "JSON",
+    "Implementation"
+   ],
+   "statement": "The standard second OA question: call https://jsonmock.hackerrank.com/api/<resource> with a plain HTTP client (no Spring/axios-style wrappers pre-wired), walk ?page=N pagination, parse JSON records and aggregate - e.g. return the highest-IMDB-rated TV series in a genre (ties -> alphabetical), or all shows in production between startYear and endYear sorted alphabetically (parsing '(2011-2019)', '(2020- )' run formats). A 2023 variant combined the API call with a MySQL currency-exchange lookup to convert purchase prices.",
+   "variant": "Failing this half of the OA gets candidates rejected even with perfect DSA scores.",
+   "evidence": "Reported in OAs continuously: Staff Nov 2025 (screenshots), SSE Jun 2026 (bestInGenre), Staff OA Jul 2025 (friend's report: 'know vanilla HTTP client'), Oct 2025 (6/10 test cases), Dec 2025 (90-min Problem Solving + REST API format), SSE 2023 (currency variant), Glassdoor Nov 2025.",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/7380748/",
+    "https://leetcode.com/discuss/post/8333988/",
+    "https://leetcode.com/discuss/post/7237792/",
+    "https://leetcode.com/discuss/post/7287744/",
+    "https://leetcode.com/discuss/post/7448613/",
+    "https://leetcode.com/discuss/post/4213008/",
+    "https://www.glassdoor.co.nz/Interview/Agoda-Interview-E461386-RVW93447733.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Maximum OR after at most k doublings",
+   "lcId": 2680,
+   "url": "https://leetcode.com/problems/maximum-or/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Bit Manipulation",
+    "Greedy",
+    "Prefix"
+   ],
+   "statement": "",
+   "variant": "OA: multiply any element by 2 up to k times to maximize the bitwise OR of the array (apply all k to one element; prefix/suffix OR).",
+   "evidence": "SSE OA Jun 2026 (poster identified it as LC Maximum OR).",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/8333988/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count palindromic substrings",
+   "lcId": 647,
+   "url": "https://leetcode.com/problems/palindromic-substrings/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "DP",
+    "Expand Around Center"
+   ],
+   "statement": "",
+   "variant": "Asked in the Staff HackerRank round (candidate passed tests but could not optimize) and again in a 2026 intern OA.",
+   "evidence": "Staff Bangkok Jul-Aug 2025, intern OA Apr 2026.",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/7082771/",
+    "https://leetcode.com/discuss/post/8098451/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Koko Eating Bananas (binary-search-on-answer)",
+   "lcId": 875,
+   "url": "https://leetcode.com/problems/koko-eating-bananas/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "Reported twice as 'very similar to Koko eating bananas'; interchangeable with the capacity-to-ship family above.",
+   "evidence": "Staff Bangkok Jul-Aug 2025 Q3, SWE Bangkok onsite 2023.",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7082771/",
+    "https://leetcode.com/discuss/post/3846220/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "3Sum (often escalated from Two Sum)",
+   "lcId": 15,
+   "url": "https://leetcode.com/problems/3sum/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Two Pointers",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "Pattern: start with 2-Sum, then 'now do 3-Sum' (one 2023 loop pushed to 4-Sum). Also asked at the intern onsite and standalone in a Glassdoor-reported 2026 loop.",
+   "evidence": "Glassdoor Oct 2026 loop (2sum -> 3sum), intern onsite May 2026, SSE 2023 (2/3/4-Sum), backend 2022 HM round.",
+   "recency": "2026-10",
+   "sources": [
+    "https://www.glassdoor.co.uk/Interview/Agoda-Interview-E461386-RVW99830106.htm",
+    "https://leetcode.com/discuss/post/8380191/",
+    "https://leetcode.com/discuss/post/3620884/",
+    "https://leetcode.com/discuss/post/2860369/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Longest Substring Without Repeating Characters",
+   "lcId": 3,
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Asked straight and as 'largest substring with distinct characters' / 'longest repeating substring'; a staple second question.",
+   "evidence": "SSE Bangkok Jun-Jul 2025, Staff Gurugram Feb 2026, full-stack Aug 2024, SSE Gurgaon 2023, SSE Bangkok 2023.",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/7095261/",
+    "https://leetcode.com/discuss/post/7551684/",
+    "https://leetcode.com/discuss/post/5699639/",
+    "https://leetcode.com/discuss/post/3641437/",
+    "https://leetcode.com/discuss/post/3620884/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Group Anagrams",
+   "lcId": 49,
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "String"
+   ],
+   "statement": "",
+   "variant": "Asked at Staff round 1 (Go candidate; watch the aa/aaa hasher edge case) and at the 2026 intern onsite where the interviewer pushed from O(n k log k) sorting to O(n k) counting.",
+   "evidence": "Staff round 1 Sep 2024, intern onsite Jul 2026.",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/5823800/",
+    "https://leetcode.com/discuss/post/8419900/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Unique Paths II / maze paths with obstacles",
+   "lcId": 63,
+   "url": "https://leetcode.com/problems/unique-paths-ii/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Grid"
+   ],
+   "statement": "",
+   "variant": "Count paths (or find shortest path length) from top-left to bottom-right moving only right/down with obstacles. Repeated across Staff and full-stack loops; the shortest-path phrasing appeared in Dec 2024 and Feb 2025 coding rounds.",
+   "evidence": "Staff backend DSA round Feb 2025, full-stack Sep 2024, DSA round Dec 2024, Senior full-stack Feb 2025.",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6466913/",
+    "https://leetcode.com/discuss/post/5823525/",
+    "https://leetcode.com/discuss/post/6148486/",
+    "https://leetcode.com/discuss/post/6419327/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Discounts on products with tagged coupons",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Greedy",
+    "Math"
+   ],
+   "statement": "Products each carry 0+ discount tags; a separate list defines discounts by tag with a type (0 = fixed final price, 1 = percentage off, 2 = flat amount off). Compute the minimum total cost buying every product applying its best applicable discount ('EMPTY' = no tag). Mostly parsing + a map from tag to best price.",
+   "variant": "A price/discount question also opened a Staff Frontend coding round in May 2026 ('straightforward, got lucky').",
+   "evidence": "SSE OA Apr 2025 (full statement + Java solution in comments), SSE DSA round Jun 2025 (candidate ran out of time -> reject), Staff FE round 1 May 2026.",
+   "recency": "2026-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6697591/",
+    "https://leetcode.com/discuss/post/6811748/",
+    "https://leetcode.com/discuss/post/8287736/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum changes/deletions so no two adjacent characters match",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "Greedy"
+   ],
+   "statement": "Two phrasings: (a) minimum character changes across a list of strings so no two adjacent characters are equal (greedy scan); (b) minimum deletions to remove adjacent duplicates, e.g. 'abbbbcdb' -> delete extra b's. Related follow-up territory: Remove All Adjacent Duplicates II (LC 1209) and a Dec 2025 OA 'compress string given frequency limit k' stack variant.",
+   "variant": "",
+   "evidence": "SSE OA Apr 2025 Q1, SSE reject Oct 2024 Q1, SSE OA Dec 2025 (k-compression variant).",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6697591/",
+    "https://leetcode.com/discuss/post/5940422/",
+    "https://leetcode.com/discuss/post/7402018/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Halve the heaviest item d times (heap greedy)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Heap",
+    "Greedy"
+   ],
+   "statement": "n chocolates with weights; each day eat half (floor) of one chocolate; minimize total remaining weight after d days - max-heap, pop/halve/push d times. Same skeleton as the IC1 OA coupons question: m coupons, each halves one item's price, minimize total cost.",
+   "variant": "",
+   "evidence": "Interview question Sep 2024 (chocolates), IC1 contract OA Jul 2025 (coupons).",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/5780224/",
+    "https://leetcode.com/discuss/post/7007178/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Lexicographically smallest task queue with restricted adjacent swaps",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "Greedy",
+    "Sorting"
+   ],
+   "statement": "String of priorities '1'/'2'/'3'; you may swap adjacent 1<->2 and 2<->3 (never 1<->3). Produce the lexicographically smallest ordering - relative order of 1s and 3s is fixed, 2s float between the last 1 before a 3 and the first 3.",
+   "variant": "",
+   "evidence": "IC1 contract-role OA Jul 2025 (full statement).",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7007178/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Connected groups of 1s in a grid, with size queries",
+   "lcId": 200,
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "DFS",
+    "Grid",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Agoda OA variant of Number of Islands: count cells in each connected group of 1s (4-directional), then answer queries - for each queried size, how many groups have exactly that size (BFS/DFS + frequency map). Rotting-oranges-style grid BFS also reported in a (2022-interview) Glassdoor review.",
+   "evidence": "IC1 contract OA Jul 2025 Q3 (screenshot), Glassdoor SWE review May 2026 (rotting oranges, older interview).",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7007178/",
+    "https://www.glassdoor.co.in/Interview/Agoda-Software-Engineer-Interview-Questions-EI_IE461386.0,5_KO6,23.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Work scheduler: fill '?' hours to hit a total (backtracking)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Backtracking",
+    "Enumeration"
+   ],
+   "statement": "A schedule string has digits (fixed hours) and '?' slots; given total workHours and a dayHours cap per slot, enumerate all valid fillings in lexicographic order. Prune with min/max achievable from remaining slots. (Same as the widely shared 'FAANG OA Work Scheduler'.)",
+   "variant": "",
+   "evidence": "Staff Backend Bangkok Sep 2026 - candidate could not finish it and was rejected.",
+   "recency": "2026-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/8536080/",
+    "https://leetcode.com/discuss/post/2011096/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Delete Node in a BST",
+   "lcId": 450,
+   "url": "https://leetcode.com/problems/delete-node-in-a-bst/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BST",
+    "Tree"
+   ],
+   "statement": "",
+   "variant": "Asked in a HackerRank live round, paired with Snakes and Ladders.",
+   "evidence": "Staff-to-SSE Bangkok loop Oct 2024-Feb 2025.",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6388752/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Snakes and Ladders (min dice rolls BFS)",
+   "lcId": 909,
+   "url": "https://leetcode.com/problems/snakes-and-ladders/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "Grid"
+   ],
+   "statement": "",
+   "variant": "'Snake & ladder matrix, min steps to win' - BFS over board positions; pseudocode plus a clear BFS explanation was accepted when time ran out.",
+   "evidence": "Staff-to-SSE Bangkok loop Oct 2024-Feb 2025.",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6388752/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Reverse the order of words in a string",
+   "lcId": 151,
+   "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "'Hello Bangkok:)' -> 'Bangkok:) Hello' - easy opener in the SSE DSA round.",
+   "evidence": "SSE Bangkok loop Jun 2024 (offer).",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/5290917/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Can place k more flowers (Can Place Flowers)",
+   "lcId": 605,
+   "url": "https://leetcode.com/problems/can-place-flowers/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Greedy",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "0/1 flower-bed array with no-adjacent rule; can k more be planted? Follow-ups on early exit and optimization.",
+   "evidence": "SSE Bangkok loop Jun 2024.",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/5290917/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Coin Change",
+   "lcId": 322,
+   "url": "https://leetcode.com/problems/coin-change/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP"
+   ],
+   "statement": "",
+   "variant": "Classic coin-change DP as Q2 of the coding round.",
+   "evidence": "SSE Bangkok Jun 2024 (offer); also in the Agoda LC tag snapshot.",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/5295384/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top K Frequent Elements",
+   "lcId": 347,
+   "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Bucket Sort",
+    "Quickselect"
+   ],
+   "statement": "",
+   "variant": "Asked by a hiring manager in the final coding round; the PQ answer was accepted grudgingly - he wanted quickselect/bucket, so know the O(n) approaches.",
+   "evidence": "SSE Bangkok Jun 2024 HM round (paired with Squares of a Sorted Array).",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/5295384/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Squares of a Sorted Array",
+   "lcId": 977,
+   "url": "https://leetcode.com/problems/squares-of-a-sorted-array/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "Asked with heavy emphasis on edge cases and the test cases you would write.",
+   "evidence": "SSE Bangkok Jun 2024 HM round.",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/5295384/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Frequency difference / sort characters by frequency",
+   "lcId": 451,
+   "url": "https://leetcode.com/problems/sort-characters-by-frequency/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "Variants: difference between most- and least-frequent element counts (Jun 2024), sort characters by frequency (2023), count occurrences of a number (Glassdoor Sep 2024 round).",
+   "evidence": "SSE Jun 2024 Q1, 2023 onsite, Glassdoor SSE Sep 2024.",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/5295384/",
+    "https://leetcode.com/discuss/post/3440586/",
+    "https://www.glassdoor.co.nz/Interview/Agoda-Interview-E461386-RVW93447733.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Minimum-sum/shortest-palindrome string merge (custom hard)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "String",
+    "Palindrome"
+   ],
+   "statement": "From s1 and s2, build the longest palindrome from each, merge them, then find the shortest palindrome of the merged string (candidate's recollection; 18 hidden test cases, pass >=10 to advance). Treat as a palindrome-manipulation stress test rather than a known LC id.",
+   "variant": "",
+   "evidence": "Staff DSA round Nov 2024 (75-minute round, one problem).",
+   "recency": "2024-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/6111397/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Prime string split count (DP + sieve)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Math",
+    "String"
+   ],
+   "statement": "Count ways to split a digit string into primes in [2, 1e6] (<= 6 digits each, no leading zeros), mod 1e9+7 - word-break DP with a sieve.",
+   "variant": "",
+   "evidence": "Coding round Jun 2024 (full statement).",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/5381681/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Number <-> code conversion (1-190 to 'A0'-'S9')",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Math",
+    "String"
+   ],
+   "statement": "Bijective base mapping: f(100)='J9', f('J9')=100; implement both directions, careful with the off-by-one at multiples of 10.",
+   "variant": "",
+   "evidence": "Coding round Jun 2024.",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/5356317/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Dual cache minimum payload subset",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "DP",
+    "Heap"
+   ],
+   "statement": "Requests have payload sizes and flags for cache A/B membership; choose a subset of minimum total payload so each cache serves >= minThreshold requests (a request can count for both). Greedy two-heap picks fail on overlaps - needs DP over (i, aCount, bCount).",
+   "variant": "",
+   "evidence": "Senior/Staff Bangkok HackerRank screening Dec 2024 (poster passed 5/15 with greedy).",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/6161594/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Special addition without carry",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Math"
+   ],
+   "statement": "Add two numbers digit-wise dropping all carries: 456+854=200 (GeeksforGeeks 'special addition'). Easy warm-up before Group Anagrams.",
+   "variant": "",
+   "evidence": "Staff round 1 Sep 2024.",
+   "recency": "2024-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/5823800/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Odd-even linked list + peak element variation",
+   "lcId": 162,
+   "url": "https://leetcode.com/problems/find-peak-element/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Linked List",
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "Round 1 pairing: easy linked-list odd-even filtering (LC 328 flavor) then a medium peak-element variation; error-free working code expected in one attempt.",
+   "evidence": "Staff loop Nov 2025.",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7370296/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Minimum window substring",
+   "lcId": 76,
+   "url": "https://leetcode.com/problems/minimum-window-substring/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Sliding Window",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "Full round on this one problem: brute force first, then optimize step by step while narrating.",
+   "evidence": "SSE Bangkok 2023 (offer).",
+   "recency": "2023-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/3451278/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Palindrome checks: string, and linked list in O(1) space",
+   "lcId": 234,
+   "url": "https://leetcode.com/problems/palindrome-linked-list/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Linked List",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "Round 1: is a string a palindrome, then is a character linked list a palindrome without extra space (reverse second half). Also seen in the 2022 backend loop.",
+   "evidence": "SSE Bangkok Apr 2023, backend 2022, intern screening 2024.",
+   "recency": "2023-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/3601681/",
+    "https://leetcode.com/discuss/post/2860369/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Add Two Numbers (linked lists) + SQL top-customer query",
+   "lcId": 2,
+   "url": "https://leetcode.com/problems/add-two-numbers/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Linked List",
+    "SQL"
+   ],
+   "statement": "",
+   "variant": "A 2023 round mixed LC 2 with an SQL query (customer with most orders) and sort-characters-by-frequency; SQL/MCQ sections also appear in some OAs (2023 Senior OA, Jul 2026 Gurgaon OA with OOP MCQs).",
+   "evidence": "2023 onsite; OA MCQ evidence Jul 2026 (Glassdoor).",
+   "recency": "2023-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/3440586/",
+    "https://www.glassdoor.co.in/Interview/Agoda-Software-Engineer-Interview-Questions-EI_IE461386.0,5_KO6,23.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Min Stack",
+   "lcId": 155,
+   "url": "https://leetcode.com/problems/min-stack/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Stack",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Asked in the 2023 SWE Bangkok coding round; 'implement a provided abstract data structure so it passes the test cases' in an Apr 2025 Glassdoor SSE report is the same genre.",
+   "evidence": "SWE Bangkok Jul 2023 (offer); Glassdoor SSE Apr 2025.",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/3846220/",
+    "https://www.glassdoor.co.uk/Interview/Agoda-Interview-E461386-RVW99830106.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Minimum length subarray containing k rearrangeable-consecutive values",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Permutation"
+   ],
+   "statement": "Given a permutation of 1..n and k, find the minimum-length subarray from which you can pick k elements forming k consecutive integers after reordering (intern OA; sliding window over value positions).",
+   "variant": "",
+   "evidence": "Intern OA Apr 2026 (with Count Palindromic Substrings and a fixed-min/max subarray count similar to LC 2444).",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/8098451/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Count subarrays with fixed min and max",
+   "lcId": 2444,
+   "url": "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "Count subarrays whose min equals min_price and max equals max_price - LC 2444 with renamed bounds.",
+   "evidence": "Intern OA Apr 2026.",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/8098451/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Basic Calculator (+,-,*,/)",
+   "lcId": 224,
+   "url": "https://leetcode.com/problems/basic-calculator/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Stack",
+    "Parsing"
+   ],
+   "statement": "",
+   "variant": "2022 backend loop interview 2; same parsing muscle as the molecule-weight question that replaced it in newer loops.",
+   "evidence": "Backend Thailand 2022 (offer).",
+   "recency": "2022-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/2860369/"
+   ],
+   "confidence": "low"
+  }
+ ],
+ "design": [
+  {
+   "title": "Flight-search aggregation from 20-200 external suppliers",
+   "prompt": "Design a flight-search API that fans out to 20-200 third-party suppliers (one route query at a time; mixed JSON/SOAP/Protobuf protocols; wildly different SLAs, some taking minutes), dedupes identical flights, shows the cheapest fare, and returns results to the UI fast. Supplier data is valid ~1 hour. Variants: metered supplier APIs where every call costs money and no push updates exist; 'flight prices from multiple providers' with per-provider rate limits.",
+   "probes": [
+    "supplier connector layer isolating protocols/timeouts/retries",
+    "cache design: key by (route,date,params), ~1h TTL, stampede handling, what if cache dies and recovers",
+    "dedup via canonical flight identity; streaming partial results (SSE) vs showing duplicates",
+    "resuming an SSE stream when the serving pod dies",
+    "slow suppliers: return fast, retain late responses",
+    "client-facing latency SLA vs supplier SLAs; batch APIs to cut downstream calls",
+    "metered-API cost control: polling cadence, caching, request coalescing",
+    "per-provider rate limiting; monitoring P99 per supplier"
+   ],
+   "round": "Architecture/system design round (60 min)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Asked across the board: IC5 Lead Oct 2026 (richest follow-up list), SSE Gurugram Oct 2025 (metered suppliers), Staff May 2026 (flight aggregator platform round), Staff Apr 2026 (flight aggregation), Staff Jan 2025 (3rd-party cost + realtime prices), SSE Jun 2025 (hotel inventory from internal + MakeMyTrip/Booking), SSE HM round Jun 2024 (prices from providers + rate limits). A community video solution exists for the 'connectivity partners' framing.",
+   "recency": "2026-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/8576144/",
+    "https://leetcode.com/discuss/post/7274226/",
+    "https://leetcode.com/discuss/post/8487700/",
+    "https://leetcode.com/discuss/post/7872881/",
+    "https://leetcode.com/discuss/post/6344830/",
+    "https://leetcode.com/discuss/post/6859065/",
+    "https://leetcode.com/discuss/post/5290917/",
+    "https://www.youtube.com/watch?v=nnprO08ty2k"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Improve the supplier booking-data API (the Platform round scenario)",
+   "prompt": "You are shown a naive design: external suppliers/OTA partners call an API (often literally POST /getBookings) that hits the core internal booking service and OLTP database directly, pulling bookings by supplier and date range (filters like last 5 min / 2h / 1 day / next 7-30 days check-ins, ~100 rpm peak). Critique and improve it end to end, then discuss how you'd test it, then review the (Java/Python) implementation code.",
+   "probes": [
+    "never let external traffic hit the core booking service/DB: separate external API + read replicas or CDC-fed read store",
+    "fix REST semantics (GET /bookings with cursor pagination), request payload design (UTC dates, formats)",
+    "authn/authz per supplier, rate limiting/throttling, supplier isolation",
+    "caching with TTL + stampede/distributed locks",
+    "testing pyramid, rollout to limited traffic, production readiness",
+    "code review: strategy pattern over vendor if-else chains, DI, SRP, exception handling, logging, cache keys"
+   ],
+   "round": "Platform round (60 min, HackerRank)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "The single most consistent Agoda round: Staff Gurgaon Oct 2026, Staff May 2026 (full topic list), 1-Day Fast Track Sep 2026 (search-service + vendor variant), SSE Jun-Jul 2025 (date-range booking fetch), Staff Sep 2026 (down-leveled after it), Glassdoor SSE Jul 2025 ('vendor calls Agoda API to retrieve bookings'), SSE Feb 2026 (complete-the-partial-design variant), plus a GDPR-service performance variant Nov 2025 and an 'image links expiring in 10s' variant Feb 2026.",
+   "recency": "2026-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/8577055/",
+    "https://leetcode.com/discuss/post/8292630/",
+    "https://leetcode.com/discuss/post/8540150/",
+    "https://leetcode.com/discuss/post/7095261/",
+    "https://leetcode.com/discuss/post/8516551/",
+    "https://www.glassdoor.com/Interview/Agoda-Interview-E461386-RVW98723599.htm",
+    "https://leetcode.com/discuss/post/7565801/",
+    "https://leetcode.com/discuss/post/7370296/",
+    "https://leetcode.com/discuss/post/7551684/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Hotel booking / Booking.com-style search + booking system",
+   "prompt": "Design a hotel booking platform (search + booking services), sometimes phrased as 'design Booking.com' or 'improve this booking-system HLD', with proximity-based search emphasized in at least one Staff loop.",
+   "probes": [
+    "no double booking (locking/transactions vs saga), strong vs eventual consistency",
+    "search: geo/proximity indexing, caching, filters",
+    "inventory sync and staleness",
+    "scalability and rate limiting",
+    "QA/testing of the design (a Jun 2026 reject was blamed on skipping testing frameworks)"
+   ],
+   "round": "Architecture round, sometimes Platform round",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Staff Backend Jul 2025 (R4: booking+search like Booking.com, proximity focus), Staff Oct 2024 (design Booking.com), Glassdoor SSE Jun 2026 (improve booking HLD), Staff 2024 offer (simple hotel booking), SSE Nov 2024 (interviewer-prepared hotel-search HLD: add/remove functionality, scaling, caching, rate limiting, trade-offs).",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/7237792/",
+    "https://leetcode.com/discuss/post/6074697/",
+    "https://www.glassdoor.com/Interview/Agoda-Interview-E461386-RVW98723599.htm",
+    "https://leetcode.com/discuss/post/5557087/",
+    "https://leetcode.com/discuss/post/6050889/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Payment gateway / payment service with reconciliation",
+   "prompt": "Design Agoda's payment gateway for ~10M DAU: transactions, integration with an external PSP (Stripe-like), reconciliation, idempotency. Older variant: build exactly-once processing on top of Kafka's at-least-once for payment messages.",
+   "probes": [
+    "idempotency keys and retries",
+    "reconciliation workflows and anomaly detection",
+    "exactly-once semantics over at-least-once infrastructure",
+    "double-charge prevention, ledger consistency",
+    "PSP outage handling"
+   ],
+   "round": "Architecture round (60 min)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Staff May 2026 (10M DAU payment gateway, R3), Staff Nov 2025 (payment service end-to-end, reconciliation focus), Senior SDE 2021 (payment gateway + Kafka exactly-once).",
+   "recency": "2026-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/8487700/",
+    "https://leetcode.com/discuss/post/7370296/",
+    "https://leetcode.com/discuss/post/1677345/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Transaction reconciliation system (multi-source ingest)",
+   "prompt": "Design a system ingesting transactions from heterogeneous sources (message queue, MySQL, CSV files) where an internal user approves/rejects each; approved transactions are batched to a bank's SFTP for settlement. Variant: reconcile Agoda's activity table against an external platform's table on a schedule, detect price anomalies and alert stakeholders. (Also appeared as 'reconciliation system for a car-dealer showroom' - deliberately vague, you must extract requirements.)",
+   "probes": [
+    "per-source ingestion adapters / ETL",
+    "scheduling and interval reconciliation",
+    "anomaly detection and alerting",
+    "approval workflow and audit",
+    "ordering (debits before credits), revoking approvals",
+    "schema joins with referential integrity"
+   ],
+   "round": "Platform or architecture round",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "SSE reject Oct 2024, SSE reject Dec 2024 (activity-table variant; candidate lost on edge cases), Staff Oct 2023 (car-dealer variant).",
+   "recency": "2024-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/5940422/",
+    "https://leetcode.com/discuss/post/6123288/",
+    "https://leetcode.com/discuss/post/4242474/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Flight booking system (scenario-based, interviewer-led)",
+   "prompt": "Design a flight booking system end to end; frequently run as 'here is a rough HLD, now how will you... / what if...' rather than blank-slate. A Glassdoor Aug 2026 Staff version asked to design it and then find issues in an existing design.",
+   "probes": [
+    "booking consistency and concurrent seat booking",
+    "CAP trade-offs, network failures",
+    "REST APIs for search/booking",
+    "load balancing, observability",
+    "testing types applicable to the system"
+   ],
+   "round": "System design round with a manager",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "SSE Jun 2024 R4 (scenario-based with manager), SSE May 2026 (full design with CAP/testing discussion), Glassdoor Staff Aug 2026.",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/5290917/",
+    "https://leetcode.com/discuss/post/8292628/",
+    "https://www.glassdoor.com/Interview/Agoda-Staff-Software-Engineer-Interview-Questions-EI_IE461386.0,5_KO6,29.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top-K trending hotels / heavy hitters",
+   "prompt": "Design a system showing the top K trending hotels (or a generic top-K heavy hitter over logs with low latency).",
+   "probes": [
+    "count-min sketch + funnelled aggregation for approximate fast path",
+    "exact MapReduce-style batch path; lambda trade-off discussion",
+    "regional/windowed top-K",
+    "latency vs accuracy trade-offs"
+   ],
+   "round": "Architecture round",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "SSE 2023 (offer; count-min sketch discussion), SSE Jun 2024 R2 (top-K heavy hitters with log aggregation).",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/3451278/",
+    "https://leetcode.com/discuss/post/5295384/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Live 'X users are viewing this hotel' counter",
+   "prompt": "Design the banner showing how many users are currently viewing a page/hotel room in real time.",
+   "probes": [
+    "presence tracking (heartbeats/TTL counters in Redis)",
+    "approximation vs exactness",
+    "fan-out to viewers (poll vs SSE/WebSocket)",
+    "per-entity hot keys"
+   ],
+   "round": "Platform round (frontend/full-stack loops) or first design round",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Asked Jun 2024 (1st round) and Oct 2024 (SSE FE platform round - candidate rejected on it).",
+   "recency": "2024-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/5369866/",
+    "https://leetcode.com/discuss/post/5860995/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Hotel review tag-management / review-driven search",
+   "prompt": "500 reviews/sec land in SQL; design a tag-management system that mines tags from review comments and serves 'top 10 hotels for tag X' queries (e.g. 'good location'). Variant: hotel review system integrating external jobs/APIs that update ratings and re-rank search.",
+   "probes": [
+    "stream vs batch tag extraction",
+    "inverted index / search store (Elasticsearch) design",
+    "tag aggregation per hotel, ranking",
+    "SQL-to-search pipeline (CDC)"
+   ],
+   "round": "Architecture round / HLD with Lead Engineer",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Asked ~Apr 2024 (standalone help post with design discussion), SSE loop Oct 2024-Feb 2025 (review system variant).",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/5077863/",
+    "https://leetcode.com/discuss/post/6388752/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Stock exchange HLD",
+   "prompt": "Design the high-level architecture of a stock exchange: high throughput, low latency, high availability.",
+   "probes": [
+    "order matching engine basics",
+    "NFR articulation (the candidate was told to improve NFR depth)",
+    "throughput/latency engineering",
+    "availability"
+   ],
+   "round": "Second architecture round (with Staff engineer)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "SSE Bangkok loop Feb 2025 (offer; round where candidate was down-leveled).",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6388752/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Concert-booking flash sale",
+   "prompt": "Design a flash-sale-style concert ticket booking flow under thundering-herd load.",
+   "probes": [
+    "queueing/virtual waiting room",
+    "inventory holds and TTL",
+    "overselling prevention",
+    "metrics and telemetry throughout (explicitly rewarded)"
+   ],
+   "round": "Architectural round",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Staff Bangkok Jul-Aug 2025.",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7082771/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Ride-sharing app (Uber/Lyft)",
+   "prompt": "Standard Uber-style design: FR/NFR, HLD, DB, deep dives; closed with behavioral questions.",
+   "probes": [
+    "driver location ingestion",
+    "matching",
+    "surge/ETA basics",
+    "DB choices"
+   ],
+   "round": "System design round",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Staff Backend loop Sep 2025 (R3).",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7145956/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design YouTube (upload + search + view)",
+   "prompt": "Registered users upload videos; any user searches and watches.",
+   "probes": [
+    "upload pipeline and transcoding",
+    "storage/CDN",
+    "search",
+    "view-count scale"
+   ],
+   "round": "Second HLD round",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Staff loop Jan 2025 (candidate rejected after shallow deep-dives here).",
+   "recency": "2025-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/6344830/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Design WhatsApp / chat application",
+   "prompt": "Full chat design at Staff/SSE level; the 2026 intern version asked for 1:1 + group messaging with read receipts and a SQL schema.",
+   "probes": [
+    "message delivery and ordering",
+    "read receipts",
+    "online presence",
+    "DB schema for conversations"
+   ],
+   "round": "Architecture/platform round; intern round 2",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "SSE loop Oct 2024 (R3 'design WhatsApp'), intern onsite Jul 2026 (chat app with read receipts).",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/5978891/",
+    "https://leetcode.com/discuss/post/8419900/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Location-sharing app with permission constraints",
+   "prompt": "Design a location-sharing app where user1 can restrict user2's visibility by time and location; DB design was the focus.",
+   "probes": [
+    "schema for grants/restrictions",
+    "time/geo-conditional ACLs",
+    "query paths"
+   ],
+   "round": "System design round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE loop Oct 2024 (R2).",
+   "recency": "2024-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/5978891/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Log/media ingestion from multiple sources",
+   "prompt": "Design a log/media storage system accepting data via API, CSV upload and events; asked for HLD, DB schema and soft pseudo-code of key features.",
+   "probes": [
+    "multi-source ingestion adapters",
+    "storage tiering",
+    "schema design",
+    "feature-level LLD sketches"
+   ],
+   "round": "Architecture round (R5 of 6)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE Bangkok Nov 2024 loop (selected).",
+   "recency": "2024-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/6050889/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Distributed URL re-crawl scheduler (500M rows)",
+   "prompt": "A MySQL table of 500M rows (id, URL, frequency) defines recurring fetch jobs; design a distributed scheduler that hits each URL on its cadence indefinitely.",
+   "probes": [
+    "partitioning the schedule",
+    "worker coordination, leases",
+    "skew/hot frequencies",
+    "failure recovery and exactly-once-ish execution"
+   ],
+   "round": "Design round with EM",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Senior SDE loop Nov 2021 (offer); still a good proxy for Agoda's data-infra taste.",
+   "recency": "2022-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/1677345/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Supermarket SKU event streams -> ML feature signals (MLE flavor)",
+   "prompt": "Two streams (stock events ~1M QPS; shelf-camera events ~100K QPS) plus item/store metadata; maintain state (Redis/DB) and materialize feature signals per camera event for a downstream ML model, including temporal features.",
+   "probes": [
+    "state store design at 1M QPS",
+    "dedup and data quality",
+    "join with metadata",
+    "compute-on-camera-event rather than per stock event"
+   ],
+   "round": "System design round (Senior/Staff MLE)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "MLE loop Jan 2026 (candidate rejected; 'not a traditional system design').",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/7482642/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Rate limiter design",
+   "prompt": "Design a rate limiter serving mobile/web/API clients; one 2023 round pushed into bot-signature and ML-based throttling discussion.",
+   "probes": [
+    "token bucket vs sliding window",
+    "Redis TTL implementation",
+    "per-client keys",
+    "distributed coordination",
+    "abuse/bot detection extensions"
+   ],
+   "round": "Techno-managerial / final technical rounds",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE Gurgaon 2023 (R4), SSE Bangkok May 2023 (R5), LLD flavor in Apr 2023 round 2.",
+   "recency": "2023-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/3641437/",
+    "https://leetcode.com/discuss/post/3620884/",
+    "https://leetcode.com/discuss/post/3601681/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Multi-datacenter consistency discussion",
+   "prompt": "Agoda runs across EU/NA/APAC regions - how do you keep data consistent across them? Plus local vs global caching, sharding vs federation, strong vs eventual consistency, and adapter patterns (file/FTP).",
+   "probes": [
+    "cross-region replication topologies",
+    "consistency models per data class",
+    "cache hierarchy",
+    "sharding/federation availability trade-offs"
+   ],
+   "round": "Platform/architecture rounds (theory-heavy variants)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "SSE Bangkok May 2023 loop (rounds 3-4); Glassdoor 2021 offer loop ('how data can be replicated across DCs'); CAP theorem asked Apr 2025 (Glassdoor).",
+   "recency": "2025-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/3620884/",
+    "https://static.glassdoor.com.mx/Interview/Agoda-Interview-E461386-RVW81537323.htm",
+    "https://www.glassdoor.co.uk/Interview/Agoda-Interview-E461386-RVW99830106.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Hotel search page frontend architecture (FE loops)",
+   "prompt": "Design Agoda's hotel-search page from scratch: date/city/occupancy inputs, filter rail, result cards; must scale to 1M users, multiple teams deploying independently, real-time chat embedded. No diagrams - pure discussion. Related: 'design the Agoda search engine' (FE) and a doctor-appointment booking app (FE architecture round).",
+   "probes": [
+    "micro-frontends vs monorepo and independent deploys (explicit rejection reason when shallow)",
+    "component decomposition and state placement (filters: state vs query params)",
+    "bundler/tooling choices and why",
+    "testing architecture, monitoring, Core Web Vitals"
+   ],
+   "round": "Architecture round, frontend track",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Senior FE Jul 2026 (detailed), Staff FE May 2026 (Agoda search engine), Staff FE Feb 2025 (doctor appointment app).",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8459009/",
+    "https://leetcode.com/discuss/post/8287736/",
+    "https://leetcode.com/discuss/post/6398233/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Music streaming trending-songs service",
+   "prompt": "Design a music streaming app surfacing top trending songs, with regional trends, schema design and DB choice follow-ups.",
+   "probes": [
+    "trending computation windows",
+    "regional partitioning",
+    "schema + DB choice",
+    "fault tolerance at millions of requests"
+   ],
+   "round": "HLD round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SWE Bangkok Jul 2023 (offer loop R3).",
+   "recency": "2023-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/3846220/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "File storage service",
+   "prompt": "Design a file storage service (platform round opener after project deep-dive); conflict handling explicitly out of scope in that run.",
+   "probes": [
+    "chunking/metadata split",
+    "upload paths",
+    "quota/auth"
+   ],
+   "round": "Platform round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE Bangkok Jun 2024 loop (offer).",
+   "recency": "2024-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/5290917/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Event streaming platform (Kafka decoupling)",
+   "prompt": "Design an event streaming pipeline decoupling producers from consumers with independent scaling (candidate drove it with Kafka).",
+   "probes": [
+    "topic/partition design",
+    "backpressure",
+    "consumer scaling",
+    "delivery guarantees"
+   ],
+   "round": "Technical discussion round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE Gurgaon Jun 2023 (R2).",
+   "recency": "2023-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/3641437/"
+   ],
+   "confidence": "low"
+  }
+ ],
+ "lld": [
+  {
+   "title": "Code review of a flawed booking/search service (Platform round part 3)",
+   "prompt": "Review a ~1-2 page Java (sometimes Python or language-of-choice) implementation of the service just discussed (supplier booking query API, flight search, promo service). Planted flaws are consistent: vendor-specific if/else chains, repositories instantiated inside methods instead of DI, cache without TTL, duplicate cache logic, POST used for reads (POST /promo/updatestatus, POST for status retrieval), missing create API, weak validation/exception handling, poor logging, mapper responsibilities mixed in.",
+   "deliverable": "Spoken PR review: identify issues, propose patterns (strategy/factory for vendor logic, DI, SRP, enum-based behavior), fix REST semantics (POST /bookings to create, GET /bookings/{id} to read).",
+   "probes": [
+    "strategy pattern over if-else chains",
+    "dependency injection & SRP",
+    "cache TTL and key design",
+    "REST verb correctness",
+    "exception handling + logging",
+    "testability",
+    "constructive-feedback tone"
+   ],
+   "round": "Platform round, final 10-20 minutes",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Reported in nearly every 2025-2026 platform round: Staff Gurgaon Oct 2026, IC5 Sep 2026 (Python), Fast Track Sep 2026 (Java), Staff May 2026, Staff Apr 2026 (reject partly for missing the POST-vs-PUT and missing create API), Staff selected Apr 2026, SSE full-stack Sep 2025, Staff Backend-Java Oct 2025, SSE Bangkok Feb 2026.",
+   "recency": "2026-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/8577055/",
+    "https://leetcode.com/discuss/post/8576144/",
+    "https://leetcode.com/discuss/post/8540150/",
+    "https://leetcode.com/discuss/post/8292630/",
+    "https://leetcode.com/discuss/post/7872881/",
+    "https://leetcode.com/discuss/post/7755434/",
+    "https://leetcode.com/discuss/post/7199643/",
+    "https://leetcode.com/discuss/post/7313063/",
+    "https://leetcode.com/discuss/post/7785575/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "FoodFactory design-pattern completion (HackerRank)",
+   "prompt": "Given a fixed main() using FoodFactory.getFactory(), registerCuisine(name, cuisine) and serveCuisine(cuisine, dish), implement the factory and Cuisine subclasses (Chinese/Italian/Japanese/Mexican) so 'Chinese Chowmin' prints 'Serving Chowmin(Chinese)' and unknown cuisines throw UnservableCuisineRequestException with a formatted message. You may not modify the given code.",
+   "deliverable": "Compiling Java code passing sample I/O.",
+   "probes": [
+    "factory + registry pattern",
+    "exception design",
+    "working within fixed scaffolding"
+   ],
+   "round": "Senior Backend round 1 (coding slot)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Reported Aug 2024 with full scaffold; solutions in comments.",
+   "recency": "2024-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/5702489/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Implement a hashmap, then make it concurrent",
+   "prompt": "Code a hashmap data structure, then extend the design for concurrency (locking strategy, bucket-level locks vs CAS) as a low-level design discussion.",
+   "deliverable": "Working code + LLD discussion.",
+   "probes": [
+    "collision handling",
+    "resize",
+    "thread safety options",
+    "read-write trade-offs"
+   ],
+   "round": "Round 2 of Staff loop (algorithms & design)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Staff Bangkok 2024 (offer loop, R2).",
+   "recency": "2024-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/5557087/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Elevator system (HM-round LLD)",
+   "prompt": "Classic elevator LLD asked by the hiring manager in the culture-fit round of an SSE loop.",
+   "deliverable": "Entities/classes + scheduling discussion.",
+   "probes": [
+    "state machine",
+    "scheduling strategy",
+    "multi-elevator dispatch"
+   ],
+   "round": "Cultural fit / HM round",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE Bangkok loop Oct 2024.",
+   "recency": "2024-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/5978891/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Hotel booking system LLD",
+   "prompt": "Entities, relations and APIs for a hotel booking system, with code expected (asked by an EM after a payments-refunds project deep-dive).",
+   "deliverable": "Entity/class design + API sketches.",
+   "probes": [
+    "booking/room/rate entities",
+    "availability modeling",
+    "API shape"
+   ],
+   "round": "Technical discussion round 3 (EM)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE Gurgaon Jun 2023.",
+   "recency": "2023-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/3641437/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Shadow-testing framework",
+   "prompt": "Function a() is being replaced by a_updated(); build a framework that runs both on the same inputs, diffs outputs, persists results, and tags each test run with a feature_id. Clarify HLD vs LLD (they wanted LLD), start with a concrete signature, generalize with generics, then add the persistence entities (feature, feature_tests, test_execution).",
+   "deliverable": "Code stubs/class design, not production code.",
+   "probes": [
+    "generics for arbitrary signatures",
+    "persistence schema",
+    "run tagging",
+    "diff semantics"
+   ],
+   "round": "Architectural round (SSE, ran as LLD)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE Bangkok Jun-Jul 2025 loop.",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7095261/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Banking system in OOP (coding round variant)",
+   "prompt": "Implement a small banking system in Java applying OOP principles - an SSE 'DSA round' that was actually OOD-in-code.",
+   "deliverable": "Working OOP code.",
+   "probes": [
+    "class design",
+    "encapsulation",
+    "OOP principles under time pressure"
+   ],
+   "round": "First round (in place of DSA)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE Bangkok loop Oct 2024.",
+   "recency": "2024-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/5978891/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Rate limiter LLD",
+   "prompt": "Low-level design of a rate limiter (classes, data structures, Redis TTL based approach) - distinct from the HLD variant.",
+   "deliverable": "Class design + algorithm choice.",
+   "probes": [
+    "token bucket/sliding window implementation",
+    "clock handling",
+    "per-key storage"
+   ],
+   "round": "Round 2 (skillset discussion)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SSE Bangkok Apr 2023; HLD cousin in 2023 loops.",
+   "recency": "2023-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/3601681/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Keypad-driven utilities with factory pattern + unit tests",
+   "prompt": "Keys 1-6 each trigger a program (find uniques, duplicates, getMin, getMax...); implement with clean OOP, the factory pattern and unit tests (interviewer explicitly graded OOP + tests).",
+   "deliverable": "Working code with tests.",
+   "probes": [
+    "factory pattern",
+    "unit testing",
+    "extensibility for new keys"
+   ],
+   "round": "Backend loop interview 1 (2022)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Backend Thailand 2022 (offer).",
+   "recency": "2022-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/2860369/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "JS pipeline function + async concurrency limiter (FE platform)",
+   "prompt": "Frontend platform round: implement a pipe() composing functions, extended to an async pool with a concurrency limit; the prompt grows out of whatever you claim on your resume, so only list JS features you can implement live. A 2024 full-stack variant asked to machine-code a flashcard component.",
+   "deliverable": "Working JavaScript live.",
+   "probes": [
+    "function composition",
+    "promise pools/async-limit",
+    "explaining why/how at each step"
+   ],
+   "round": "Platform round, frontend track",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Staff FE Feb 2025 (selected), full-stack Sep 2024 (flashcard, rejected on basics).",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6398233/",
+    "https://leetcode.com/discuss/post/5823525/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design patterns implementation on demand",
+   "prompt": "Name the patterns you've used, then implement strategy, singleton and factory live.",
+   "deliverable": "Code on the spot.",
+   "probes": [
+    "correct, idiomatic implementations",
+    "when-to-use reasoning"
+   ],
+   "round": "Round 4 with Senior Manager",
+   "difficulty": "Easy",
+   "classic": false,
+   "evidence": "SSE Gurgaon Jun 2023.",
+   "recency": "2023-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/3641437/"
+   ],
+   "confidence": "medium"
+  }
+ ]
+}

@@ -1,0 +1,704 @@
+{
+ "company": "Apple",
+ "slug": "apple",
+ "levelMapping": "ICT2 = junior (0-2 YOE); ICT3 ~ Google L4 / Amazon SDE II - Apple India (Bengaluru/Hyderabad) hires ICT3 at roughly 2-6 YOE, and even 5-7 YOE candidates are often offered ICT3; ICT4 = senior (~5-11 YOE; one 2024 candidate did two extra rounds to upgrade an ICT3 offer to ICT4). At ~3.3 YOE expect ICT3. Apple downlevels aggressively vs other FAANG, so confirm level and band with the recruiter early.",
+ "process": {
+  "summary": "Apple has no central hiring bar: each team runs its own loop, so round count (4-8+) and content vary widely; recruiters themselves sometimes do not know the order. Common India (Hyderabad/Bengaluru) backend shape in 2025-26: recruiter contact -> CoderPad/HackerRank OA (2 problems, 50-70 min, Java-only for Java/Spring roles) -> two back-to-back 60-min 'elimination' screens (R1: DSA + Java/Spring Boot/microservices fundamentals; R2: HLD+LLD, architecture, resume) -> a loop of ~3 more rounds (coding/concurrency, system design, EM/HM behavioral), sometimes extended with director/culture-fit rounds. Coding is practical: code must compile and run, you write and run your own test cases, and DSA is mixed with domain questions (Java internals, Kafka, Redis, SQL, OS/concurrency depending on team). Behavioral content ('Why Apple', conflict, ownership) appears in nearly every round rather than one dedicated round.",
+  "rounds": [
+   {
+    "name": "Recruiter screen",
+    "type": "screen",
+    "duration": "15-30 min",
+    "what": "Background, role fit, 'Why Apple', comp expectations, notice period; recruiter explains (part of) the round plan.",
+    "probes": "Ask for the full round plan, team and tech stack, and whether design rounds are HLD or LLD - recruiters often share, some even hint at questions."
+   },
+   {
+    "name": "Online assessment",
+    "type": "oa",
+    "duration": "50-70 min",
+    "what": "CoderPad (most common) or HackerRank, 2 coding problems; Java-only for IS&T Java roles; SDET/frontend variants add 15-20 MCQs. Easy-medium to medium.",
+    "probes": "Reported OA problems: two-bag knapsack, grid path-following (collect letters along a unique path), walking-robot simulation, k-diff pairs, assign-cookies reskin, minimize-deviation reskin, LIS-style 'max cities' problem, string overlap factorization."
+   },
+   {
+    "name": "Technical phone screen / elimination round 1",
+    "type": "dsa",
+    "duration": "45-60 min",
+    "what": "1-2 coding problems in a shared editor plus language/CS fundamentals; India IS&T version is DSA + Java/Spring Boot/microservices theory. Opens with intro + resume.",
+    "probes": "Trapping Rain Water, parentheses, linked-list variations; Spring annotations, Comparator vs Comparable, CAP, rate limiting/circuit breakers, factory pattern; expect follow-ups that reuse your code."
+   },
+   {
+    "name": "Elimination round 2 (design + stack)",
+    "type": "design",
+    "duration": "60 min",
+    "what": "System design (BookMyShow, rate limiter, CI/CD) and/or LLD, plus deep tech-stack questions (HashMap internals, ConcurrentHashMap, BeanFactory vs ApplicationContext, caching).",
+    "probes": "End-to-end flows (booking, search, onboarding, analytics), trade-offs, and theory depth; India loops treat this as eliminatory before the main loop."
+   },
+   {
+    "name": "Onsite coding rounds (x1-3)",
+    "type": "dsa",
+    "duration": "45-60 min each",
+    "what": "LC medium-level problems with heavy emphasis on running code and self-written tests; often story-framed or practical (CSV parsing, iterators, concurrency).",
+    "probes": "Thread-safety follow-ups (LRU, time-based KV store), complexity analysis, 'adapt your code' follow-ups, Java concurrency primitives, sometimes SQL."
+   },
+   {
+    "name": "System design round",
+    "type": "design",
+    "duration": "60 min",
+    "what": "One HLD prompt, or a deep-dive on your own project's architecture (common at Apple - some 'design rounds' are entirely your past project).",
+    "probes": "Scalability, multi-region, observability, resiliency, data modeling; interviewers push back on choices and ask what you would redo."
+   },
+   {
+    "name": "LLD / domain round (team-dependent)",
+    "type": "lld",
+    "duration": "60 min",
+    "what": "OOD with working code (parking lot, vending machine, pricing strategies, implement a Set), or domain deep-dive (Kafka/Flink, Linux internals for SRE, React for full-stack).",
+    "probes": "Design patterns by name, SOLID, concurrency, extensibility; code review exercises (spot the pattern that improves given code)."
+   },
+   {
+    "name": "Hiring manager round",
+    "type": "hm",
+    "duration": "45-60 min",
+    "what": "Project deep-dive + behavioral (why change, conflicts with peer/manager, ambiguity) + light technical (Java 21 virtual threads, OAuth/JWT, REST).",
+    "probes": "'Why Apple', relocation flexibility, comfort with the team's specific work; STAR-format answers expected."
+   },
+   {
+    "name": "Behavioral / culture rounds",
+    "type": "behavioral",
+    "duration": "30-60 min",
+    "what": "With senior leaders (senior manager, director for some loops); Apple values - deep expertise, drive for excellence, collaboration, invention, results.",
+    "probes": "Mentoring, cross-org influence, disagree-and-commit stories; some US onsites are behavioral-heavy in every round."
+   },
+   {
+    "name": "AI-assisted coding round (new, some teams)",
+    "type": "other",
+    "duration": "60 min",
+    "what": "2026 India Java loops report an 'AI assisted coding' round where you build with an AI tool; also recruiter-screen questions about how you use GenAI day-to-day.",
+    "probes": "How you prompt, verify and test AI output; thin public info - ask the recruiter what tool and rubric they use."
+   }
+  ],
+  "indiaNotes": "India hires are concentrated in Hyderabad (IS&T org - AiDP/GBI, Retail Engineering, Ads Delivery, data platforms; plus SDET) and Bengaluru (SWE, SRE/ACS, services teams). ICT3 is the default offer for 2-6 YOE (ICT4 from ~5-11 YOE with a strong case). India loops are stack-heavy: Java/Spring Boot/microservices questions carry as much weight as DSA, OAs are often Java-only, and the 2-elimination-rounds-then-loop structure is standard for IS&T. 2024-25 Hyderabad ICT3 offers: ~30-48L base + $92-168k RSU/4yr + 5-10% bonus + joining/relocation. IS&T has a vendor-heavy reputation (several candidates report interviewers converted from service companies) and mixed interview quality - rude recruiters, inattentive interviewers and ghosting appear in multiple reports. US/EU loops for the same band are more LC + behavioral and less tech-stack trivia; low-level teams (kernel, media) interview in C/C++ with OS internals.",
+  "timeline": "Highly variable: fast loops finish in ~1 week; typical India IS&T loop is 4-10 weeks OA-to-decision; one 2026 Hyderabad offer took Oct (apply) -> Jan OA -> Mar screens -> Apr onsite -> offer 2 weeks later. Verbal-to-written offer takes 1-3+ weeks (multi-level approvals reportedly up to VP). Ghosting after rounds is common - silence is not always rejection.",
+  "tips": [
+   "Ask the recruiter for the exact round plan, language constraints and HLD-vs-LLD split; Apple rounds are team-specific and recruiters often tell you (one was even told the exact question).",
+   "Practice in CoderPad with code that compiles and runs; write and run your own test cases - several rejections cite unrun/buggy code, and interviewers may stay silent instead of hinting.",
+   "For India IS&T/backend: revise Java internals (HashMap internals, equals/hashCode, string intern, immutability, CompletableFuture, executors, ReentrantLock/ConcurrentHashMap), Spring Boot annotations/beans, Kafka, Redis, SQL joins, CAP, circuit breakers.",
+   "Drill the thread-safety follow-up: LRU cache and time-based KV store were both asked with 'now make it thread-safe'.",
+   "Prepare one project to present in depth with metrics, trade-offs and 'what would you redo' - a design round may be entirely your project (bar-raiser-style HLD).",
+   "Prepare STAR stories (innovation, disagreement with peer/manager, reprioritization, feedback) and a crisp 'Why Apple' - it is asked repeatedly.",
+   "Expect pushback on correct answers; re-explain your reasoning calmly (two candidates report the same interviewer arguing LRU needs no DLL).",
+   "Follow up persistently with recruiters; timelines slip constantly and offers need many approvals."
+  ],
+  "notes": "No bar-raiser; no fixed loop. OA platforms: CoderPad (dominant), HackerRank. Language: usually your choice, but Java-only for Java roles, C for kernel/low-level teams, JS/React live-coding for frontend/full-stack. LC-hard appears occasionally (a 2026 IS&T screen asked an LC-hard in 45 min; a 2026 US panel gave an LC-hard in 20 min). Some coding rounds are deliberately not LC-style: CSV parsing, iterators, debugging given code, concurrency. SDET loops = 1 OA + ~4 rounds (one DSA medium per round + automation frameworks + test design + HM). Full-stack loops add a React round (hooks, rendering 1M rows, component design). An LLD round exists but is team-dependent: IS&T 'elimination round 2' and loop rounds regularly include LLD/OOD with working code. Lunch is evaluative at in-person onsites; AI tools are banned in normal rounds (except the new AI-assisted round). India base pay is below Google/Microsoft parity but RSUs are large; negotiate with competing offers.",
+  "sources": [
+   {
+    "title": "Apple SWE Interview Experience (Selected) - Hyderabad Java role",
+    "url": "https://leetcode.com/discuss/post/8137711/apple-swe-interview-experience-selected-pmdxu/",
+    "date": "2026-05"
+   },
+   {
+    "title": "Apple SDE Interview Experience - Java, SpringBoot & Microservices (5 rounds)",
+    "url": "https://leetcode.com/discuss/post/8109352/apple-sde-interview-experience-java-spri-7g4x/",
+    "date": "2026-04"
+   },
+   {
+    "title": "Apple IS&T SWE Hyd Backend - full 5-round loop",
+    "url": "https://leetcode.com/discuss/post/6840839/apple-ist-swe-hyd-backend-by-debmalyapan-4xy9/",
+    "date": "2025-06"
+   },
+   {
+    "title": "Apple SWE Hyd Ads Delivery - screening + loop (reject)",
+    "url": "https://leetcode.com/discuss/post/7380999/apple-swe-hyd-screening-by-debmalyapan53-4ql5/",
+    "date": "2025-11"
+   },
+   {
+    "title": "Apple ICT3 Full-Stack Engineer - interview to offer (Cupertino)",
+    "url": "https://leetcode.com/discuss/post/6579616/apple-ict3-full-stack-engineer-interview-si3q/",
+    "date": "2025-03"
+   },
+   {
+    "title": "Apple Senior Software Engineer (ICT3) India - offer accepted (2022 vs 2024 loops)",
+    "url": "https://leetcode.com/discuss/interview-experience/5780700/",
+    "date": "2024-09"
+   },
+   {
+    "title": "Apple India IS&T 6-round loop (CI/CD, parking lot, Twitter)",
+    "url": "https://leetcode.com/discuss/post/6298766/apple-java-spring-boot-ist-team-chances-6egvk/",
+    "date": "2025-01"
+   },
+   {
+    "title": "Apple SWE Jan 2026 - senior loop write-up (P2P crawler, 6-round virtual onsite)",
+    "url": "https://medium.com/@arisatano1/apple-swe-interview-jan-2026-8153679663a9",
+    "date": "2026-02"
+   },
+   {
+    "title": "Apple SWE - two phone screens + 4-round onsite (hit counter, iCloud photos)",
+    "url": "https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-two-phone-screens-then-a-four-round-onsite",
+    "date": "2026-08"
+   },
+   {
+    "title": "Apple SRE ICT3 offer - 7 rounds, ASE org (Blind)",
+    "url": "https://www.teamblind.com/post/apple-sre-interview-experience-offer-uwt0l2vp",
+    "date": "2024-06"
+   },
+   {
+    "title": "Glassdoor: Software Engineer ICT3 Hyderabad - accepted offer, 5 rounds",
+    "url": "https://www.glassdoor.co.in/Interview/Apple-Interview-E1138-RVW101622794.htm",
+    "date": "2025-12"
+   },
+   {
+    "title": "Apple online interview India Hyderabad ICT4 backend",
+    "url": "https://leetcode.com/discuss/post/7482890/apple-online-interview-india-hyderabad-i-ziwt/",
+    "date": "2026-01"
+   },
+   {
+    "title": "Apple ICT4 Hyderabad offer thread (comp)",
+    "url": "https://leetcode.com/discuss/post/6372382/apple-ict4-hyderabad-by-anonymous_user-scr7/",
+    "date": "2025-02"
+   },
+   {
+    "title": "Apple India SWE offer - ICT3 upgraded to ICT4 after 2 extra rounds",
+    "url": "https://leetcode.com/discuss/post/5501286/offer-apple-india-software-engineer-by-a-vkwo/",
+    "date": "2024-08"
+   },
+   {
+    "title": "Apple onsite loop guide (round shapes, team-specific)",
+    "url": "https://spacecomplexity.ai/blog/apple-onsite-interview",
+    "date": "2025"
+   },
+   {
+    "title": "Taro: Apple Bengaluru SWE - recruiter call to 4-round onsite (offer)",
+    "url": "https://www.jointaro.com/interviews/companies/apple/experiences/software-engineer-bengaluru-december-1-2024-declined-offer-neutral-1ae0de57/",
+    "date": "2024-12"
+   }
+  ]
+ },
+ "dsa": [
+  {
+   "title": "Time Based Key-Value Store",
+   "lcId": 981,
+   "url": "https://leetcode.com/problems/time-based-key-value-store/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Binary Search",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "Asked with a slight variation plus Java/Spring questions; follow-up: make it thread safe (candidate used ConcurrentHashMap). A Jan 2026 onsite asked the same API with TTL-expiry behavior under read-heavy load.",
+   "evidence": "R1 of a 2026 Java/Spring loop (2026-09) and an onsite coding round in a Jan 2026 senior loop",
+   "recency": "2026-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/8504935/help-needed-for-apple-ai-assisted-coding-iygj/",
+    "https://medium.com/@arisatano1/apple-swe-interview-jan-2026-8153679663a9"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design Hit Counter / rate limiter class",
+   "lcId": 362,
+   "url": "https://leetcode.com/problems/design-hit-counter/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Queue",
+    "Design",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "Recurring phone-screen staple: hit(ts)/getHits(ts) over last 300s. Follow-ups reported: do it in O(1) time (circular 300-slot array), avoid storing every hit (aggregate per second), and extend verbally into a distributed/sliding-window rate limiter (Redis).",
+   "evidence": "Phone screens in 2026-08 (onsite loop PS1), 2025-09 (PS1), 2024-07 (O(1) follow-up); verbal sliding-window design in a 2026-10 SDE3 round; also flagged by an iCloud DB platform onsite report",
+   "recency": "2026-08",
+   "sources": [
+    "https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-two-phone-screens-then-a-four-round-onsite",
+    "https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-two-phone-screens-failed-on-the-socket-message-round",
+    "https://leetcode.com/discuss/post/5457845/apple-and-coupang-phone-screen-rate-limi-quoj/",
+    "https://leetcode.com/discuss/post/8565715/apple-sde-3-java-springboot-profile-by-s-xcup/",
+    "https://www.1point3acres.com/interview/thread/1107328"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Valid Parentheses",
+   "lcId": 20,
+   "url": "https://leetcode.com/problems/valid-parentheses/",
+   "onLeetcode": true,
+   "difficulty": "Easy",
+   "topics": [
+    "Stack",
+    "String"
+   ],
+   "statement": "",
+   "variant": "Appears as the warm-up coding question alongside backend-fundamentals grilling (Kafka, SQL joins, Redis internals).",
+   "evidence": "R1 of a 2026-04 Java/Spring loop; 2022 HackerRank OA; a Nov 2025 US onsite coding question",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/8109352/apple-sde-interview-experience-java-spri-7g4x/",
+    "https://leetcode.com/discuss/interview-experience/5780700/",
+    "https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-three-day-onsite-full-of-behavioral-questions-then-ghosted"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Paths in Matrix Whose Sum Is Divisible by K",
+   "lcId": 2435,
+   "url": "https://leetcode.com/problems/paths-in-matrix-whose-sum-is-divisible-by-k/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "DP",
+    "Matrix"
+   ],
+   "statement": "",
+   "variant": "Sole question of a 60-min loop coding round (candidate linked the exact problem).",
+   "evidence": "Loop round 1, Hyderabad Ads Delivery team (2025-11)",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7380999/apple-swe-hyd-screening-by-debmalyapan53-4ql5/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum Runes to Add to Cast Spell",
+   "lcId": null,
+   "url": "https://leetcode.com/problems/minimum-runes-to-add-to-cast-spell/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Graph",
+    "Matrix",
+    "BFS"
+   ],
+   "statement": "",
+   "variant": "LC Hard asked in a 45-min IS&T DSA screen; candidate solved in O(n+m) in 40 min and was still pushed for 'a more optimized solution' in the last 5 minutes.",
+   "evidence": "IS&T coding screen (2026-06, reject)",
+   "recency": "2026-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/8340782/horrible-and-shocking-interview-experien-r2ps/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Random Pick with Weight (country generator with population bias)",
+   "lcId": 528,
+   "url": "https://leetcode.com/problems/random-pick-with-weight/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Prefix Sum",
+    "Binary Search",
+    "Randomized"
+   ],
+   "statement": "",
+   "variant": "Framed as: return a random country where probability is proportional to population. Expected solution: prefix-sum of weights + binary search; using random.choices() directly is not accepted. Related: an ICT3 full-stack onsite asked to sample n items while preserving the original distribution.",
+   "evidence": "Apple round 1 (2026-07); distribution-preserving sampling in a 2025-03 ICT3 onsite",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8385857/random-country-generator-with-population-2cyy/",
+    "https://leetcode.com/discuss/post/6579616/apple-ict3-full-stack-engineer-interview-si3q/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Product of Array Except Self",
+   "lcId": 238,
+   "url": "https://leetcode.com/problems/product-of-array-except-self/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Array",
+    "Prefix Sum"
+   ],
+   "statement": "",
+   "variant": "Asked as 'print product of all length n-1 subsets' with explicit zero-count cases (no zero / one zero / many zeros); follow-up: no-division prefix/suffix approach.",
+   "evidence": "Apple round 1 (2026-07)",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8381837/given-array-print-product-of-subsets-who-64nz/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Subset sum (exists + enumerate)",
+   "lcId": 416,
+   "url": "https://leetcode.com/problems/partition-equal-subset-sum/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Backtracking"
+   ],
+   "statement": "",
+   "variant": "Asked as: is a subset with a given sum possible (1D DP, O(n*target)); follow-up: print all subsets with that sum (backtracking, O(2^n)).",
+   "evidence": "Apple round 1 (2026-07)",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8381758/subset-with-given-sum-possible-apple-r1-y9eod/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Phone directory (bidirectional name<->number lookup)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Easy",
+   "topics": [
+    "Hash Map",
+    "Design"
+   ],
+   "statement": "Build a phone-directory class supporting add(name, phone), get_name(phone), get_phone(name) and removal by either key, keeping both directions consistent when an existing name or number is reassigned. Expected: two hash maps with careful cleanup of stale mappings (a trie is acceptable but overkill).",
+   "variant": "",
+   "evidence": "Apple round 1 (2026-07); also the DSA round of a 2022 ICT3 India loop",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8381168/phone-directory-problem-apple-r1-find-fr-3cv8/",
+    "https://leetcode.com/discuss/interview-experience/5780700/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Sentence combinations from word lists ('pretty odd statements')",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Backtracking",
+    "Recursion"
+   ],
+   "statement": "Given a list of word groups like {The,A} {dog,cat} {runs,walks} {quickly,slowly} {.,!}, print every sentence formed by picking one word per group, in order (cartesian product via recursion/backtracking). Modular, OOP-style code was expected, not just a nested loop.",
+   "variant": "A Jan 2024 Hyderabad phone screen gave buggy code for the same 'generate all sentences from word lists' problem and asked the candidate to debug it.",
+   "evidence": "SSE round 1 (2026-02); debug variant in Hyderabad phone screen (2024-01)",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/7604955/apple-sse-screening-round-by-anonymous_u-woui/",
+    "https://leetcode.com/discuss/post/4609565/apple-software-engineer-hyderabad-india-oehvm/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "SQL: joins and aggregation",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "SQL"
+   ],
+   "statement": "Write SQL against 2 given tables: reported variants include a join producing a set-difference (MINUS-style) result, a plain two-table join, and 'top earners per department' (group-wise max). Asked inside coding rounds, not a separate round.",
+   "variant": "",
+   "evidence": "ICT4 Hyd R1 (2026-01), SSE R2 (2026-02), 2024 ICT3 loop, DE loops",
+   "recency": "2026-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/7482890/apple-online-interview-india-hyderabad-i-ziwt/",
+    "https://leetcode.com/discuss/post/7604955/apple-sse-screening-round-by-anonymous_u-woui/",
+    "https://leetcode.com/discuss/interview-experience/5780700/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Find Peak Element",
+   "lcId": 162,
+   "url": "https://leetcode.com/problems/find-peak-element/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "Binary-search solution required.",
+   "evidence": "ICT4 Hyderabad backend R1 (2026-01); a 2026-04 kernel round also asked a medium binary-search problem in C",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/7482890/apple-online-interview-india-hyderabad-i-ziwt/",
+    "https://leetcode.com/discuss/post/7874360/apple-kernel-engineer-core-os-interview-lmh7t/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Count ways to split n items into k boxes",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Combinatorics"
+   ],
+   "statement": "Given n identical-value items and k boxes, count the ways to partition n into k distinct positive parts (no duplicate part sizes); e.g. n=3, k=2 -> 2 ([3],[1+2]). Solved with DP (integer partition into k distinct parts).",
+   "variant": "",
+   "evidence": "ICT4 Hyderabad backend R1 (2026-01)",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/7482890/apple-online-interview-india-hyderabad-i-ziwt/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Bowling game scorer",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Simulation",
+    "Implementation"
+   ],
+   "statement": "Compute the final score of a bowling game from a sequence of rolls, handling strikes, spares, misses and the 10th-frame special cases. Implementation-heavy: the candidate (a self-described fast coder) needed the full hour, and the interviewer ran many test cases.",
+   "variant": "",
+   "evidence": "ICT4 Hyderabad backend R2 (2026-01)",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/7482890/apple-online-interview-india-hyderabad-i-ziwt/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Socket message reader interface",
+   "lcId": 158,
+   "url": "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Design",
+    "Buffering",
+    "Networking"
+   ],
+   "statement": "Implement an interface that reads complete messages from a network socket where each underlying read returns a variable number of bytes; buffer partial reads across calls (closest LC analogue: Read4 II). Clean, testable code mattered - the reject feedback cited weak low-level protocol understanding and no test cases.",
+   "variant": "",
+   "evidence": "Phone screen 2 (2025-09, reject)",
+   "recency": "2025-09",
+   "sources": [
+    "https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-two-phone-screens-failed-on-the-socket-message-round"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top-K closest pairs in a sorted array",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Two Pointers"
+   ],
+   "statement": "Given a sorted array like [1,2,4,7,11,16], define a pair's distance as |a-b| for adjacent-or-any pairs and return the K pairs with smallest distances (K=2 -> [(1,2),(2,4)]). Heap over adjacent gaps / k-smallest-pairs pattern.",
+   "variant": "",
+   "evidence": "Onsite coding round 4 (2026-08)",
+   "recency": "2026-08",
+   "sources": [
+    "https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-two-phone-screens-then-a-four-round-onsite"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Debug a KV-store scan iterator (Java)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Debugging",
+    "Iterator",
+    "Design"
+   ],
+   "statement": "Read existing Java code implementing a key-value store's range-scan iterator, find the bug and fix it. Checks: scan start/end boundaries, skipped or duplicated entries, and iterator behavior after exhaustion.",
+   "variant": "",
+   "evidence": "Onsite coding-debug round (2026-08)",
+   "recency": "2026-08",
+   "sources": [
+    "https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-two-phone-screens-then-a-four-round-onsite"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "String overlap factorization (merge two strings on max overlap)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "String"
+   ],
+   "statement": "Concatenate two ASCII strings so that the longest substring shared between the end of one and the start of the other is written once; choose the concatenation order giving the best factorization, preferring str1+str2 on ties (e.g. '1234yyabc' + 'abcxxxx1234' -> 'abcxxxx1234yyabc').",
+   "variant": "",
+   "evidence": "SDET IS&T OA (2026-09)",
+   "recency": "2026-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/8517587/apple-oa-question-sdet-ist-6-you-by-apoo-f490/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Endianness check + kernel deadlock debug (C)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "C",
+    "OS",
+    "Debugging"
+   ],
+   "statement": "45-min CoderPad round, all in C: (1) write code to detect machine endianness; (2) debug a kernel module containing a deadlock plus other optimization issues; (3) a medium binary-search problem. Explaining your thought process out loud mattered as much as solving.",
+   "variant": "",
+   "evidence": "Kernel/Core-OS CoderPad round (2026-04)",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/7874360/apple-kernel-engineer-core-os-interview-lmh7t/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Go-board capture count (board simulation)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "Matrix",
+    "Simulation"
+   ],
+   "statement": "Given a Go-like board of black/white/empty cells and the coordinates where a black stone will be placed, return how many white stones get captured (groups with no remaining liberties) - flood-fill/BFS over white groups. Similar to a known Google 'Go game' question.",
+   "variant": "A 2024-10 phone screen asked a related state-space search: a 4x4 board of X/Y/empty stones, min moves (sliding a stone to any empty cell) to get 4-in-a-row, or -1.",
+   "evidence": "ICT5 phone screen (2025-10); stones variant in a 2024-10 SWE phone screen",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7294060/apple-ict5-phone-screen-by-anonymous_use-t584/",
+    "https://leetcode.com/discuss/post/5857970/apple-phone-screen-swe-by-harish_kugur-z1hc/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Convert Sorted List to Binary Search Tree",
+   "lcId": 109,
+   "url": "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Linked List",
+    "BST",
+    "Recursion"
+   ],
+   "statement": "",
+   "variant": "Given a sorted linked list, build a height-balanced BST; discussed both the convert-to-array and in-place middle-node approaches.",
+   "evidence": "Phone screen (2025-10)",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7291518/apple-phone-screen-by-anonymous_user-pe59/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Merge Intervals",
+   "lcId": 56,
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Array",
+    "Sorting",
+    "Intervals"
+   ],
+   "statement": "",
+   "variant": "Asked alongside resume-driven HLD discussion in a single technical round.",
+   "evidence": "Hyderabad technical round (2025-11); also top-5 in Apple's LC-tagged bank",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/apple/experiences/software-engineer-hyderabad-telangana-november-24-2025-no-offer-positive-3564a4a8/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Number of Islands",
+   "lcId": 200,
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "DFS",
+    "Matrix"
+   ],
+   "statement": "",
+   "variant": "Asked with complexity follow-ups in a 2-question DSA round.",
+   "evidence": "India DSA round (2025-11)",
+   "recency": "2025-11",
+   "sources": [
+    "https://www.jointaro.com/interviews/companies/apple/experiences/software-engineer-india-november-19-2025-no-offer-positive-22a95815/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "LRU Cache (thread-safe)",
+   "lcId": 146,
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Linked List",
+    "Design",
+    "Concurrency"
+   ],
+   "statement": "",
+   "variant": "Full working code with test cases, then: make it thread safe (ReentrantReadWriteLock + ConcurrentHashMap), complexity, plus Java trivia (string intern, equals/hashCode). Two candidates report the same interviewer disputing the need for a doubly linked list - defend your design.",
+   "evidence": "IS&T Hyd loop R5 (2025-06, plus an identical report in comments); Seattle phone screen (2025-04); comment prep-advice for Core Services screens (2026-09)",
+   "recency": "2026-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/6840839/apple-ist-swe-hyd-backend-by-debmalyapan-4xy9/",
+    "https://www.jointaro.com/interviews/companies/apple/experiences/software-engineer-seattle-wa-april-22-2025-no-offer-negative-7866d947/",
+    "https://leetcode.com/discuss/post/8528163/apple-sse-round-in-ase-by-anonymous_user-njgb/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Trapping Rain Water",
+   "lcId": 42,
+   "url": "https://leetcode.com/problems/trapping-rain-water/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Two Pointers",
+    "Stack",
+    "Array"
+   ],
+   "statement": "",
+   "variant": "30 minutes of a 60-min round, followed by Java/Spring theory; also appeared in the 2022 OA and as a variation in an intern round.",
+   "evidence": "IS&T Hyd elimination R1 (2025-05); 2022 HackerRank OA; intern round (2024)",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6840839/apple-ist-swe-hyd-backend-by-debmalyapan-4xy9/",
+    "https://leetcode.com/discuss/interview-experience/5780700/",
+    "https://leetcode.com/discuss/post/5622776/apple-sde-intern-india-march-2024-by-ano-klix/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top K Frequent Elements",
+   "lcId": 347,
+   "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Hash Map",
+    "Bucket Sort"
+   ],
+   "statement": "",
+   "variant": "Asked twice in India loops as a quick second problem after design discussion; expect to compare heap vs bucket-sort approaches.",
+   "evidence": "IS&T Hyd loop R4 (2025-06); Java backend R1 (2025-02)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6840839/apple-ist-swe-hyd-backend-by-debmalyapan-4xy9/",
+    "https://leetcode.com/discuss/post/6461783/apple-interview-experience-l4-sde-2-hyde-o46k/"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "design": [],
+ "lld": []
+}
