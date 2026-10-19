@@ -1,0 +1,2541 @@
+{
+ "company": "Amazon",
+ "slug": "amazon",
+ "levelMapping": "SDE II = L5 (≈ Google L4); Amazon's own band is roughly 3–6 YOE but offers for ~3 YOE are routinely downlevelled to SDE I (L4) after the debrief — several 2025–2026 reports with 2.5–3.3 YOE were offered SDE I after a weak HLD or Bar Raiser round. Recruiters tell sub-4-YOE candidates they must 'convince the panel' on design depth; L5 interviews for ~3 YOE are realistic in India via referral/recruiter but the design rounds decide the level, not the coding rounds.",
+ "process": {
+  "summary": "Amazon runs the most standardised FAANG loop: OA (HackerRank; 2 coding + work-simulation + work-style survey; since mid-2026 many SDE packets replace one coding problem with a 60-minute AI-assisted bug-fixing task in a small repo) → 60-min phone screen (1–2 LeetCode mediums + 1–2 Leadership Principle questions, eliminatory) → a 4–5 round loop of 60 minutes each: 1–2 DSA rounds, one 'Logical & Maintainable' LLD/OOD round, one System Design (HLD) round usually taken by the hiring manager, and a Bar Raiser from another org whose format varies (pure LP, LP + a hard DSA problem, or LP + HLD). Every loop round spends 15–30 minutes on 2 Leadership Principle stories with aggressive follow-ups and these are scored, not warm-up; in 2026 almost every round also asks one 'how do you use GenAI / how do you verify AI-generated code' question. Decisions are made in a single debrief after all rounds; 'design depth' is the stated rejection or downlevel reason in most SDE II failures.",
+  "rounds": [
+   {
+    "name": "Online Assessment (HackerRank)",
+    "type": "oa",
+    "duration": "90–120 min for SDE II (coding 70–90 min + work simulation 15–60 min + work-style survey ~10 min)",
+    "what": "Classic packet: 2 coding problems (one Medium, one Medium/Hard; often custom-worded Amazon-flavoured statements — shipments, warehouses, parcels, permutations), then a work-simulation (respond to inbox/chat scenarios, rank options against Leadership Principles; SDE II packets add 20 min of 'system design scenario' MCQs) and a two-statement work-style survey. New 2026 packet seen in SDE/SDE II reports from Jun–Aug 2026: ONE DSA problem (40 min, often binary-search-on-answer / medium-hard) + a 60-min 'Agentic/AI-assisted coding' task: a small web-app repo (choose Node/MERN, Java Spring Boot or Python/Django) with 3 bugs and a built-in AI assistant that explains code and locates files but refuses to hand you the fix.",
+    "probes": "Passing all tests is not required to advance (reports of 11/15 and 4/6 passing and still moving on). OA scores are reused across roles — the loop call can come 1–4 months later. Copy/paste and browser activity are logged; print-screen ends the session; unauthorised GenAI is grounds for disqualification. Senior/referred candidates are sometimes allowed to skip the OA."
+   },
+   {
+    "name": "Phone screen (technical)",
+    "type": "dsa",
+    "duration": "60 min",
+    "what": "One engineer; ~45 min coding (1–2 LeetCode-medium problems, e.g. Subarray Sum Equals K, Capacity To Ship Packages, Word Break I+II, Optimal Account Balancing, Stepping Numbers, Find All Anagrams, Number of Islands with diagonals) and ~15 min on 1–2 LPs (Bias for Action, Ownership, Dive Deep are common). Eliminatory; result within ~2 days.",
+    "probes": "Brute-force → optimal narrative, time/space complexity, dry run on edge cases, and 2–3 follow-up variants of the same problem (e.g. sum of each window → max of each window). Explaining a correct sub-optimal approach and how to improve it has been enough to pass."
+   },
+   {
+    "name": "Loop: Coding / Problem Solving (1–2 rounds)",
+    "type": "dsa",
+    "duration": "60 min (10–30 min LPs + 30–45 min coding)",
+    "what": "Usually 2 problems (one Medium warm-up, one Medium/Hard) or one problem with escalating follow-ups; Amazon-tagged top-100 is the pool but statements are re-skinned (Koko 'in a different context', Rotting Oranges variants, Making A Large Island, Trapping Rain Water as a follow-up to Container With Most Water, custom BFS that grows into multi-source BFS). Working code in a plain shared editor (Amazon Chime + LiveCode/CodePair) is expected; no compiler.",
+    "probes": "Interviewers are told to drive to an optimal solution and ask for complexity after each step; a space-optimisation follow-up is standard. Unfinished code in the second problem is survivable if the approach was explained, but the Bar Raiser is less forgiving. Candidates who stayed silent about an edge case they knew were marked down."
+   },
+   {
+    "name": "Loop: Logical & Maintainable code (LLD / OOD)",
+    "type": "lld",
+    "duration": "60 min (15–30 min LPs + 30–45 min design/coding)",
+    "what": "Open-ended, deliberately vague prompt (Amazon Locker and its 'reverse' return-drop variant, meeting-room scheduler, parking lot with pricing models, notification service, file-system search/filter library, rate limiter, issue/ticket management, digital wallet, tic-tac-toe, elevator). Expectation varies by interviewer: UML + class skeletons on Bluescape/Excalidraw, or working code for 2–3 core methods, or (increasingly in India) API + DB schema design that looks like mini-HLD.",
+    "probes": "Requirement gathering (10–15 min), choosing entities, SOLID and 1–2 named design patterns (Strategy, Observer, State, Factory), extensibility ('add a new severity level / locker size / channel'), concurrency (double booking, two users taking the last unit), and data-structure choice for the core lookup. Drifting into HLD is a frequently cited failure; so is naming LRU without implementing it."
+   },
+   {
+    "name": "Loop: System Design (HLD) — usually with the Hiring Manager",
+    "type": "design",
+    "duration": "60 min (sometimes 90–105 min; 20–30 min LPs/project deep-dive + 30–40 min design)",
+    "what": "One product-shaped prompt, often from the team's own domain (Devices: config sync / backup & restore between old and new devices; Prime Video/Music: news feed, music streaming; Retail: inventory, cart, Diwali-load website, locker; Kindle: book recommendations) or a classic (news feed, URL shortener, BookMyShow, rate limiter, WhatsApp, payment service, auction platform). Happy path first, then failure modes.",
+    "probes": "Functional/non-functional requirements and back-of-envelope numbers (defend them), API + schema, SQL vs NoSQL justification, caching/CDN, push vs pull fan-out, the celebrity/hot-key problem, concurrency and overselling (locks, transactions, idempotency keys), offline devices and retries, monitoring/alerting, cost. HM rounds also spend 20–35 min on LPs (Ownership, Deliver Results, Earn Trust) and product-judgement questions."
+   },
+   {
+    "name": "Bar Raiser",
+    "type": "behavioral",
+    "duration": "60 min",
+    "what": "Senior engineer/manager from a different org, trained and with veto power; reads earlier rounds' notes. Format is interviewer's choice: (a) 45–60 min pure LP deep-dive (most common in 2025–2026 India reports), (b) 10–15 min LPs + one Hard DSA problem (Knapsack-style, Find the Safest Path in a Grid, Magnetic Force Between Two Balls, Earliest Moment Everyone Becomes Friends/DSU, LCS variant, 'here is brute-force code — explain it then optimise it'), or (c) LPs + HLD/LLD (Amazon Locker, BookMyShow, low-latency API over S3 data).",
+    "probes": "Consistency and diversity of stories (do not reuse earlier rounds' stories), quantified impact, what you would do differently, your questions to the interviewer are evaluated. Coding here demands finished, dry-run code — several SDE II rejections/downlevels cite incomplete Bar Raiser code."
+   },
+   {
+    "name": "Debrief + recruiter decision",
+    "type": "other",
+    "duration": "2–5 business days after the last round (often same week)",
+    "what": "Interviewers vote Hire/No-Hire per LP evidence; Bar Raiser speaks last. Recruiters in India frequently relay per-round feedback ('Inclined / Not inclined') and will say explicitly if the panel wants to downlevel to SDE I or offer a contract/SysDev role instead.",
+    "probes": "Design depth (LLD + HLD) decides L5 vs L4 far more often than DSA; LP coverage gaps in Customer Obsession/Ownership are the typical Bar Raiser veto."
+   }
+  ],
+  "indiaNotes": "Bengaluru, Hyderabad and Chennai run the identical loop (OA → phone screen → 4–5 rounds + Bar Raiser) and the same Leadership-Principle weighting; differences are logistical: (1) rounds are commonly bunched 2–3 per day, and Amazon India often runs face-to-face 'hiring drives' on campus where LLD/HLD are done on paper or on Bluescape (practise Bluescape — multiple candidates found it awkward); (2) a 'Logical & Maintainable' LLD round is almost always present and Indian interviewers increasingly ask for API + DB schema rather than pure class design; (3) reschedules and multi-week gaps are endemic — every round rescheduled at least once in several reports — and late-evening (9–11 pm IST) slots with US interviewers are common; (4) ~3 YOE candidates are interviewed for L5 but downlevels to SDE I are frequent, and recruiters may offer FTC (12-month contract) or SysDev-2 alternatives; (5) Indian loops report heavier LP time (often 30 min of a 60-min round). US/EU loops seen (Seattle, NY, Dublin) sometimes have 3 coding + 1 LLD and no HLD at mid-level, or a dedicated full-behavioural round; the UK/EU phone screen is more often a single problem. Language is free (Java most common among interviewers; Python/Go accepted but one Go candidate had to explain syntax).",
+  "timeline": "OA to loop call: 2 weeks to 4 months (OA scores are pooled across roles). Phone screen to loop: 1–2 weeks. Loop: 1–4 weeks (India: often spread over 2–6 weeks because of reschedules). Decision: 2–5 business days after the Bar Raiser. End-to-end typically 4–8 weeks; fast-tracked to ~2–3 weeks when a competing offer exists. Reapply cool-off after a loop rejection is usually 6 months (one report said 6–24 months).",
+  "tips": [
+   "Prepare 8–10 STAR stories with numbers mapped to all 16 LPs (two per LP for the big six: Customer Obsession, Ownership, Dive Deep, Deliver Results, Earn Trust, Bias for Action); never reuse a story across rounds — the Bar Raiser reads prior notes.",
+   "Ask the recruiter which 2 LPs each round covers and whether the design round is LLD or HLD; a mislabelled round (LLD vs HLD) caused a neutral/negative result in two 2026 reports.",
+   "In LLD, spend ≤10 min on requirements, name entities, then write real classes and 2–3 core methods; if you mention LRU/token bucket, be ready to implement it. Do not drift into HLD.",
+   "In HLD, defend your capacity estimates, build the happy path, then volunteer failure modes (offline device, hot key, double booking, retries/idempotency) before the interviewer asks; expect concurrency/overselling in anything inventory-, booking- or locker-shaped.",
+   "Expect a GenAI question in every 2026 round: have one specific story of using an AI tool, how you verified its output, and one case where you chose not to use it.",
+   "Coding: say the brute force, move to optimal, state complexity, dry-run on the given input, and mention edge cases out loud; start coding by minute 20 even if the optimum is unclear.",
+   "For the new OA: pick the stack you actually know (Django/Spring/MERN), read failing tests first, ask the AI assistant narrow questions, keep patches minimal, and leave the 40-min DSA problem no fumble room.",
+   "Practise Amazon-tagged problems by frequency (30-day/3-month tags) but drill variants: windows → max of window, BFS → multi-source BFS → Dijkstra, LIS → bounded-gap LIS, locker → size-tiered locker.",
+   "Log in to Bluescape/LiveCode before the slot; India rounds are often at night with US interviewers who join late — budget time.",
+   "If downlevelled to SDE I, ask the recruiter for an extra HLD round; it is usually refused but the ask documents the gap."
+  ],
+  "notes": "OA platform: HackerRank (Amazon-branded); supported languages include C, C++, Java, Python, JS, Go, Kotlin. AI-assisted coding: appears ONLY in the OA (2026 'agentic coding' / repo bug-fix section with a sandboxed assistant that will not write the fix); no live loop round allows AI, and recruiters state that unauthorised GenAI use in the OA or loop is disqualifying — several candidates say interviewers reject on suspicion alone. What DID change in live rounds in 2026 is a scored GenAI-literacy behavioural question in most rounds and 'GenAI-focus' hiring-manager rounds. Whiteboarding: Bluescape (Amazon internal) or Excalidraw for design; Amazon Chime + LiveCode for code, no compiler. Bar Raiser can be any format and has veto. No separate 'values' round — LPs are embedded everywhere. The ~2000 Amazon-tagged LeetCode problems make the pool wide; 2025–2026 reports cluster on binary-search-on-answer, grid/multi-source BFS, sliding window, heaps/top-K streams, tree DP, intervals, and LRU/LFU design.",
+  "sources": [
+   {
+    "title": "Amazon SDE II Interview Experience 2026 (rejected — design depth)",
+    "url": "https://leetcode.com/discuss/post/8457154/amazon-sde-ii-interview-experience-2026-19lzv/",
+    "date": "2026-08"
+   },
+   {
+    "title": "Amazon SDE2 BLR — OA (Django debugging + AI assistant), phone screen, loop; downlevelled to SDE1",
+    "url": "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/",
+    "date": "2026-08"
+   },
+   {
+    "title": "Amazon SDE-2 Selected BLR Aug 2026 (OA with AI repo section)",
+    "url": "https://leetcode.com/discuss/post/8499681/amazon-sde-2-selected-blr-aug-2026-by-dh-61y7/",
+    "date": "2026-08"
+   },
+   {
+    "title": "Amazon SDE-2 July 2026 Accepted (OA 'Agentic Coding' section)",
+    "url": "https://leetcode.com/discuss/post/8382886/amazon-sde-2-july-2026-accepted-by-anony-8ocs/",
+    "date": "2026-07"
+   },
+   {
+    "title": "Amazon SDE-2 2026, Prime Video BLR — GenAI question every round",
+    "url": "https://leetcode.com/discuss/post/8420230/amazon-sde-2-interview-experience-2026-e-t1g8/",
+    "date": "2026-04"
+   },
+   {
+    "title": "Amazon SDE-1 OA — new format with AI-assistant bug-fixing round (Levels.fyi)",
+    "url": "https://www.levels.fyi/community/thread/B2QSZH/amazon-sde-1-oa-new-format-with-an-ai-assistant-coding-round--bug-fixing",
+    "date": "2026"
+   },
+   {
+    "title": "Eight companies, eight AI coding interviews (Amazon OA assistant behaviour)",
+    "url": "https://dev.to/max_nyriev/eight-companies-eight-different-ai-coding-interviews-k60",
+    "date": "2026-10"
+   },
+   {
+    "title": "Inside the Amazon 2026 Loop: rounds, rubric, Bar Raiser",
+    "url": "https://dglearning.substack.com/p/inside-the-amazon-2026-loop-rounds",
+    "date": "2026"
+   },
+   {
+    "title": "Amazon SDE Online Assessment: format, rules, what changed (AceRound)",
+    "url": "https://www.aceround.app/blog/amazon-sde-online-assessment-guide/",
+    "date": "2026"
+   },
+   {
+    "title": "Amazon Online Assessment 2026 breakdown (Lodely)",
+    "url": "https://www.lodely.com/blog/amazon-online-assessment-2025",
+    "date": "2026"
+   },
+   {
+    "title": "Amazon interview process 2026 (prepare.sh)",
+    "url": "https://prepare.sh/articles/amazon-interview-process-2026",
+    "date": "2026"
+   },
+   {
+    "title": "Amazon SDE 2 Jan 2026 Offer",
+    "url": "https://leetcode.com/discuss/interview-experience/7554515",
+    "date": "2026-01"
+   },
+   {
+    "title": "Amazon SDE-1 Interview Experience April 2026 (GenAI HM round)",
+    "url": "https://leetcode.com/discuss/post/8014509/amazon-sde-1-interview-experience-by-pra-azvd/",
+    "date": "2026-04"
+   },
+   {
+    "title": "Glassdoor Amazon SDE 2 interview questions (Sep–Oct 2026 reports)",
+    "url": "https://www.glassdoor.co.in/Interview/Amazon-SDE-2-Interview-Questions-EI_IE6036.0,6_KO7,12.htm",
+    "date": "2026-10"
+   },
+   {
+    "title": "Glassdoor — NY Dec 2025 OA with 4 sections",
+    "url": "https://www.glassdoor.co.in/Interview/Amazon-Interview-E6036-RVW101814579.htm",
+    "date": "2025-12"
+   },
+   {
+    "title": "Amazon SDE 2 Interview Experience (SELECTED) June 2025, Bangalore",
+    "url": "https://leetcode.com/discuss/post/6923887/amazon-sde-2-interview-experience-select-rwpm/",
+    "date": "2025-06"
+   },
+   {
+    "title": "Amazon SDE-2 Bangalore 4 YOE July 2025 Offer",
+    "url": "https://leetcode.com/discuss/post/7009755/amazon-sde-2-bangalore-4-yoe-july-2025-o-o826/",
+    "date": "2025-07"
+   },
+   {
+    "title": "Amazon SDE-2 Chennai Kindle 3.1 YOE (Bluescape, LLD-as-schema)",
+    "url": "https://leetcode.com/discuss/post/7176045/",
+    "date": "2025-08"
+   },
+   {
+    "title": "Amazon SDE 2 Hyderabad 5 YOE (30-min rounds, WhatsApp HLD)",
+    "url": "https://leetcode.com/discuss/post/6961332/amazon-sde-2-hyderabad-interview-experie-8pmb/",
+    "date": "2025-05"
+   },
+   {
+    "title": "Amazon SDE-2 all rounds [REJECT] Bangalore 5.9 YOE",
+    "url": "https://leetcode.com/discuss/post/6855714/amazon-sde-2-all-rounds-interview-experi-4q2t/",
+    "date": "2025-05"
+   },
+   {
+    "title": "Amazon SDE 2 (3 YOE) accepted offer — auction platform HLD",
+    "url": "https://leetcode.com/discuss/post/7477684/amazon-india-sde-2-interview-experience-ca6y0/",
+    "date": "2025-10"
+   },
+   {
+    "title": "Amazon SDE2 L5 Bangalore offer (roundz #143)",
+    "url": "https://roundz.substack.com/p/interview-experience-143-amazon-sde2-l5",
+    "date": "2025-07"
+   },
+   {
+    "title": "Amazon SDE2 L5 Bangalore offer (roundz #156)",
+    "url": "https://roundz.substack.com/p/interview-experience-156-amazon-sde2-l5",
+    "date": "2025-08"
+   },
+   {
+    "title": "Amazon SDE II L5 India rejected (roundz #55)",
+    "url": "https://roundz.substack.com/p/interview-experience-55-amazon-sde2-l5",
+    "date": "2025-05"
+   },
+   {
+    "title": "Amazon SDE2 Bangalore hiring drive (pen & paper)",
+    "url": "https://leetcode.com/discuss/post/7178881/",
+    "date": "2025-09"
+   },
+   {
+    "title": "Amazon SDE 2 — 2.5 YOE, offered SDE-1/contract alternatives",
+    "url": "https://leetcode.com/discuss/post/7011572",
+    "date": "2025-03"
+   },
+   {
+    "title": "Amazon Dublin SDE2 reject",
+    "url": "https://leetcode.com/discuss/post/7175298/",
+    "date": "2025"
+   },
+   {
+    "title": "Amazon SDE II USA onsite → SDE I offer",
+    "url": "https://leetcode.com/discuss/post/6624679/",
+    "date": "2025"
+   },
+   {
+    "title": "Amazon mid-level SWE Seattle 2025 (TechPrep)",
+    "url": "https://www.techprep.app/community/interview-experiences/amazon-mid-level-software-engineer-interview-seattle-2025",
+    "date": "2025-05"
+   },
+   {
+    "title": "Amazon SDE2 all DSA asked since June 2025 (compiled)",
+    "url": "https://leetcode.com/discuss/post/7178524/",
+    "date": "2025-09"
+   },
+   {
+    "title": "Amazon HLD LLD DSA questions (compiled)",
+    "url": "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "date": "2025-06"
+   },
+   {
+    "title": "Amazon interview experiences last 6 months — compiled index",
+    "url": "https://leetcode.com/discuss/post/7355849/amazon-interview-experiences-last-6-mont-cfv1/",
+    "date": "2025-09"
+   },
+   {
+    "title": "Blind: Amazon onsite 'logical and maintainable coding'",
+    "url": "https://www.teamblind.com/post/amazon-onsite-interview-logical-and-maintainable-coding-z1185m1d",
+    "date": "undated"
+   }
+  ]
+ },
+ "dsa": [
+  {
+   "title": "Count Subarrays With Sum K (Subarray Sum Equals K)",
+   "lcId": 560,
+   "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Prefix Sum",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "follow-ups: return the subarray itself; count with negatives; stream version",
+   "evidence": "SDE II phone screen Jul 2026 with 2–3 follow-ups; zero-sum subarray variant in another phone screen",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8457154/amazon-sde-ii-interview-experience-2026-19lzv/",
+    "https://leetcode.com/discuss/post/6839238/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Parallel Courses II — min semesters with at most k courses per term",
+   "lcId": 1494,
+   "url": "https://leetcode.com/problems/parallel-courses-ii/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Graph",
+    "Topological Sort",
+    "Bitmask DP"
+   ],
+   "statement": "",
+   "variant": "asked as a story: prerequisites, student takes ≤K courses/semester, prioritise courses with deepest dependency chain; know why greedy fails and the bitmask DP",
+   "evidence": "Loop DSA round Jul 2026 (SDE II); interviewer accepted a greedy by max downstream depth, candidate later realised greedy is wrong — the exact problem is LC 1494",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8457154/amazon-sde-ii-interview-experience-2026-19lzv/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "File-system storage cache (LRU with content)",
+   "lcId": 146,
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Design",
+    "Hash Map",
+    "Doubly Linked List"
+   ],
+   "statement": "",
+   "variant": "probes: move-to-front by relinking vs delete+recreate; store paths vs file contents; LFU variant; 'network request cache' LLD",
+   "evidence": "Asked as 'design a cache for file-system storage' Jul 2026; plain LRU Cache asked in loop/Bar Raiser rounds Mar 2025, Aug 2025 (Chennai), BLR accepted post; LFU in compiled lists",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8457154/amazon-sde-ii-interview-experience-2026-19lzv/",
+    "https://leetcode.com/discuss/post/7176045/",
+    "https://leetcode.com/discuss/post/7054407/",
+    "https://leetcode.com/discuss/post/6585102/amazon-interview-sde-2-march-2025-by-ano-9nha/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Stepping Numbers in a range (adjacent digits differ by 1)",
+   "lcId": 1215,
+   "url": "https://leetcode.com/problems/stepping-numbers/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "Backtracking"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Phone screen Aug 2026 BLR (solved via BFS, one follow-up); appears in compiled list as 'crypto numbers'",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Container With Most Water → Trapping Rain Water (as follow-up)",
+   "lcId": 42,
+   "url": "https://leetcode.com/problems/trapping-rain-water/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Two Pointers",
+    "Stack"
+   ],
+   "statement": "",
+   "variant": "pair LC 11 and LC 42; be ready for the intuition discussion, not just code",
+   "evidence": "Loop DSA round Aug 2026 BLR: LC 11 first, then LC 42 as the follow-up, then Cheapest Flights",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Cheapest Flights Within K Stops",
+   "lcId": 787,
+   "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Graph",
+    "BFS",
+    "Dijkstra"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Third problem in Aug 2026 BLR DSA round; weighted-graph follow-ups (Bus Routes + cost → Dijkstra) also reported Mar 2025",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/",
+    "https://leetcode.com/discuss/post/6585102/amazon-interview-sde-2-march-2025-by-ano-9nha/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Knapsack-style optimisation (greedy trap) — Bar Raiser",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Hard",
+   "topics": [
+    "DP",
+    "Knapsack"
+   ],
+   "statement": "Items with weights/values (phrased as packages, servers or strings with counts of 0s/1s) and one or two capacity limits; maximise value or count of items within capacity. The interviewer first lets you try greedy, shows a counterexample, then expects a 2-D DP with complexity analysis and completed code.",
+   "variant": "",
+   "evidence": "Bar Raiser Aug 2026 BLR: candidate proposed greedy, was pushed to 0/1-knapsack DP and ran out of time → downlevelled; another BLR round (Jul 2025) accepted DFS then asked for the knapsack solution; Ones and Zeroes (LC 474) asked 2026",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/",
+    "https://roundz.substack.com/p/interview-experience-143-amazon-sde2-l5",
+    "https://leetcode.com/discuss/post/8420230/amazon-sde-2-interview-experience-2026-e-t1g8/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Ones and Zeroes (largest subset of binary strings with ≤m ones and ≤n zeros)",
+   "lcId": 474,
+   "url": "https://leetcode.com/problems/ones-and-zeroes/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Knapsack"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Prime Video SDE-2 loop DSA round, 2026",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/8420230/amazon-sde-2-interview-experience-2026-e-t1g8/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Longest Increasing Subsequence II (strictly increasing, adjacent gap ≤ k)",
+   "lcId": 2407,
+   "url": "https://leetcode.com/problems/longest-increasing-subsequence-ii/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "DP",
+    "Segment Tree"
+   ],
+   "statement": "",
+   "variant": "O(n log n) via segment tree / BIT over values; O(n·k) DP is accepted only as a first step",
+   "evidence": "Prime Video SDE-2 loop DSA round 2026 (given as a custom statement with examples); OA 'LIS-like hard where plain DP TLEs' reported 2025",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/8420230/amazon-sde-2-interview-experience-2026-e-t1g8/",
+    "https://leetcode.com/discuss/post/6898756/amazon-sde-2-interview-experience-4-mont-fslv/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Multi-source BFS on a grid (custom, escalating)",
+   "lcId": 994,
+   "url": "https://leetcode.com/problems/rotting-oranges/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "Grid"
+   ],
+   "statement": "",
+   "variant": "variants: time to infect binary tree (LC 2385), Walls and Gates, 'minimum steps to reach cell 9', robots/knights racing to a target",
+   "evidence": "Aug 2026 BLR DSA round: a BFS problem that grew into multi-source BFS as constraints were added; Rotting Oranges itself asked in Bar Raiser Jan 2026, AWS BLR Jun 2025, Hyd 2025, auction-platform candidate's BR",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8499681/amazon-sde-2-selected-blr-aug-2026-by-dh-61y7/",
+    "https://leetcode.com/discuss/interview-experience/7554515",
+    "https://leetcode.com/discuss/post/6891316/",
+    "https://leetcode.com/discuss/post/7183133/",
+    "https://leetcode.com/discuss/post/7477684/amazon-india-sde-2-interview-experience-ca6y0/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Find the Safest Path in a Grid",
+   "lcId": 2812,
+   "url": "https://leetcode.com/problems/find-the-safest-path-in-a-grid/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "Binary Search",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Bar Raiser Aug 2026 BLR — multi-source BFS + binary search on the answer + DFS; interviewer kept pushing for optimisation, ~65 lines of code in 15 min",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8499681/amazon-sde-2-selected-blr-aug-2026-by-dh-61y7/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Next palindromic time (HH:MM)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "Simulation"
+   ],
+   "statement": "Given a time string in 24-hour HH:MM format, return the next valid time (strictly after the given one, wrapping past midnight) whose five characters read the same forwards and backwards (e.g. 12:21, 23:32). Handle the wrap-around and the fact that only a few palindromic times exist.",
+   "variant": "",
+   "evidence": "Loop DSA round Jul 2026 (SDE-2 accepted)",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8382886/amazon-sde-2-july-2026-accepted-by-anony-8ocs/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Find the Kth Smallest Sum of a Matrix With Sorted Rows",
+   "lcId": 1439,
+   "url": "https://leetcode.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Heap",
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Loop DSA round Jul 2026 — 'pick exactly one element per row, kth smallest sum' variation; K smallest pairs (LC 373) asked in a phone screen",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8382886/amazon-sde-2-july-2026-accepted-by-anony-8ocs/",
+    "https://leetcode.com/discuss/post/6839238/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Lowest Common Ancestor of a Binary Tree (and variants III/IV)",
+   "lcId": 236,
+   "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "HM round Apr 2026 (SDE-1); LCA IV (LC 1676) in Hyd SDE-2 loop 2025; LCA III with parent pointers and 'common ancestors of two employees' in BLR 2025",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/8014509/amazon-sde-1-interview-experience-by-pra-azvd/",
+    "https://leetcode.com/discuss/post/6961332/amazon-sde-2-hyderabad-interview-experie-8pmb/",
+    "https://leetcode.com/discuss/post/7701734/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Number of Islands (incl. diagonal / dynamic / largest-after-flip variants)",
+   "lcId": 200,
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "BFS",
+    "DFS",
+    "Union Find"
+   ],
+   "statement": "",
+   "variant": "8-direction connectivity (phone screen Jun 2025); flip one 0 to maximise island = Making A Large Island LC 827 (loop Jun 2025 BLR; components first, then evaluate each 0); online insertions with DSU (LC 305)",
+   "evidence": "Phone screen Jun 2025 (8-directional), SDE-1 loop Apr 2026, FastTag candidate's loop; Making A Large Island (LC 827) asked Jun 2025 BLR; 'dynamic islands with queries' (DSU) in compiled list",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/6923887/amazon-sde-2-interview-experience-select-rwpm/",
+    "https://leetcode.com/discuss/post/8014509/amazon-sde-1-interview-experience-by-pra-azvd/",
+    "https://leetcode.com/discuss/post/8096139/",
+    "https://leetcode.com/discuss/post/6911864/amazon-sde-2-interview-experience-by-ano-yd64/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Serialize and Deserialize Binary Tree",
+   "lcId": 297,
+   "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Tree",
+    "BFS",
+    "DFS"
+   ],
+   "statement": "",
+   "variant": "same final round also asked Longest Substring Without Repeating Characters; Reverse Nodes in k-Group + Insert Delete GetRandom O(1) formed another eliminatory pair in the same loop",
+   "evidence": "Loop DSA Jul 2025 BLR Devices and final round of FastTag loop (interviewer noted DFS would be faster to implement than BFS)",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/post/7132680/amazon-sde-2-bangalore-onsite-interview-pr26m/",
+    "https://leetcode.com/discuss/post/8096139/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Design Browser History (navigate back/forward interface)",
+   "lcId": 1472,
+   "url": "https://leetcode.com/problems/design-browser-history/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Design",
+    "Stack"
+   ],
+   "statement": "",
+   "variant": "second problem: implement arithmetic operators (add/sub/mul/div) using only bit operations / loops",
+   "evidence": "DSA round, 3-YOE accepted offer (Go); paired with 'implement +,-,*,/ without operators'",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7477684/amazon-india-sde-2-interview-experience-ca6y0/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Asteroid Collision",
+   "lcId": 735,
+   "url": "https://leetcode.com/problems/asteroid-collision/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Stack"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Hyd loop Jul 2025 (after Max Points from Cards), Bar Raiser in 3-YOE accepted loop, compiled lists",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7027366/amazon-sde-2-interview-experience-2yoe-h-ynf0/",
+    "https://leetcode.com/discuss/post/7477684/amazon-india-sde-2-interview-experience-ca6y0/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Sort Colors + House Robber III (one DSA round)",
+   "lcId": 337,
+   "url": "https://leetcode.com/problems/house-robber-iii/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree DP",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "House Robber III: memoised recursion then pushed on space optimisation; House Robber II asked in Hyd Bar Raiser Jul 2025 alongside Boats to Save People (LC 881)",
+   "evidence": "India SDE-2 DSA round Sep 2025 (LC 75 + LC 337); House Robber III also in a 2025 SDE II round with space-optimisation follow-up; House Robber II in Hyd Bar Raiser Jul 2025",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7202678/amazon-sde-2-india-interview-experience-7fu7t/",
+    "https://leetcode.com/discuss/post/7144435/",
+    "https://leetcode.com/discuss/post/7027366/amazon-sde-2-interview-experience-2yoe-h-ynf0/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Most frequent page-visit sequence of length 3 (Analyze User Website Visit Pattern)",
+   "lcId": 1152,
+   "url": "https://leetcode.com/problems/analyze-user-website-visit-pattern/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "follow-up: top q most frequent sequences; streaming version with bounded memory",
+   "evidence": "SDE II DSA round 2025 as (timestamp,user,page) records with follow-up 'top-q sequences'; Seattle May 2025 loop; 'three-page sequence' in 2025 compiled list",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7144435/",
+    "https://www.techprep.app/community/interview-experiences/amazon-mid-level-software-engineer-interview-seattle-2025",
+    "https://leetcode.com/discuss/post/6752237/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Word Search (grid backtracking) / find words in a letter matrix",
+   "lcId": 79,
+   "url": "https://leetcode.com/problems/word-search/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Backtracking",
+    "Trie"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "BLR hiring drive 2025 round 1; US onsite round 4 (word list → trie, clarify letter reuse); compiled lists",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7178881/",
+    "https://leetcode.com/discuss/post/6624679/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "3Sum (and variants)",
+   "lcId": 15,
+   "url": "https://leetcode.com/problems/3sum/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Two Pointers",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Bar Raiser in BLR hiring drive (variation); roundz #55 coding round; Bar Raiser May 2025 'given brute-force triplet code, explain and optimise'",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7178881/",
+    "https://roundz.substack.com/p/interview-experience-55-amazon-sde2-l5",
+    "https://leetcode.com/discuss/post/6961911/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Earliest Moment When Everyone Becomes Friends (DSU on timestamped logs)",
+   "lcId": 1101,
+   "url": "https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Union Find",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Bar Raiser May 2025 BLR (candidate used sets+map, expected DSU → rejected); 'graph solvable by DFS but needs DSU to optimise' Sep 2025; 'LeetCode Hard with DSU' Feb 2025 Bar Raiser",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/6855714/amazon-sde-2-all-rounds-interview-experi-4q2t/",
+    "https://leetcode.com/discuss/post/7228788/",
+    "https://leetcode.com/discuss/post/6673070/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Longest Common Subsequence (vaguely worded variant) — Bar Raiser",
+   "lcId": 1143,
+   "url": "https://leetcode.com/problems/longest-common-subsequence/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "String"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Bar Raiser Aug 2025 Chennai: statement obscured, greedy fails, ~3 hints to reach the intended DP; LCS in compiled lists",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7176045/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Closest Binary Search Tree Value II (k values closest to a float target)",
+   "lcId": 272,
+   "url": "https://leetcode.com/problems/closest-binary-search-tree-value-ii/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "BST",
+    "Heap",
+    "Two Pointers"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Loop DSA Aug 2025 BLR Devices",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7132680/amazon-sde-2-bangalore-onsite-interview-pr26m/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Find Median from Data Stream",
+   "lcId": 295,
+   "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Heap",
+    "Design"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Bar Raiser Aug 2025 BLR Devices; in 'since June 2025' compiled list",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7132680/amazon-sde-2-bangalore-onsite-interview-pr26m/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Amount of Time for Binary Tree to Be Infected",
+   "lcId": 2385,
+   "url": "https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "BFS"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Loop DSA Jul 2025 BLR (with Remove K Digits); N-ary variant in compiled list",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7009755/amazon-sde-2-bangalore-4-yoe-july-2025-o-o826/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Remove K Digits",
+   "lcId": 402,
+   "url": "https://leetcode.com/problems/remove-k-digits/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Stack",
+    "Greedy"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Loop DSA Jul 2025 BLR; listed twice in 'since June 2025' compiled list",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7009755/amazon-sde-2-bangalore-4-yoe-july-2025-o-o826/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Magnetic Force Between Two Balls",
+   "lcId": 1552,
+   "url": "https://leetcode.com/problems/magnetic-force-between-two-balls/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Bar Raiser Jul 2025 BLR (binary search on answer)",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7009755/amazon-sde-2-bangalore-4-yoe-july-2025-o-o826/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Maximum Points You Can Obtain from Cards",
+   "lcId": 1423,
+   "url": "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Prefix Sum"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Hyd loop Jul 2025 round 1; 2025 compiled list",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7027366/amazon-sde-2-interview-experience-2yoe-h-ynf0/",
+    "https://leetcode.com/discuss/post/6752237/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Pole cutting — maximise saw height to collect ≥ M total length",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search"
+   ],
+   "statement": "N poles have heights h[i]. You set a horizontal saw at height H and collect the parts above H from every pole (sum of max(0, h[i]-H)). Find the maximum integer H such that the collected length is at least M. Binary search H over [0, max(h)] with an O(N) feasibility check; discuss when no H works.",
+   "variant": "",
+   "evidence": "Loop DSA Jun 2025 BLR (binary search on answer, pushed on complexity); also in compiled list",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6923887/amazon-sde-2-interview-experience-select-rwpm/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Find All Anagrams in a String (start indices of pattern anagrams)",
+   "lcId": 438,
+   "url": "https://leetcode.com/problems/find-all-anagrams-in-a-string/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Phone screen Jun 2025 BLR (with diagonal islands); compiled list 'pattern anagrams'",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6923887/amazon-sde-2-interview-experience-select-rwpm/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum number of transactions to settle debts (Optimal Account Balancing)",
+   "lcId": 465,
+   "url": "https://leetcode.com/problems/optimal-account-balancing/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Backtracking",
+    "Greedy"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "'Logical & Maintainable' round Jun 2025 AWS BLR as a Splitwise-style problem (greedy two-heap failed; backtracking intended); phone screen Apr 2025 Hyd (sub-optimal greedy + improvement passed)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6891316/",
+    "https://leetcode.com/discuss/post/6961332/amazon-sde-2-hyderabad-interview-experie-8pmb/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Koko Eating Bananas (re-skinned)",
+   "lcId": 875,
+   "url": "https://leetcode.com/problems/koko-eating-bananas/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Binary Search"
+   ],
+   "statement": "",
+   "variant": "binary-search-on-answer family seen 2025–2026: Koko re-skinned, Capacity To Ship Packages (phone screen Aug 2026), pole cutting, Magnetic Force, minimum daily capacity; practise the feasibility-function template",
+   "evidence": "Loop DSA May 2025 BLR 'in a different context'; 'similar to Koko' Hyd offer loop; compiled lists",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6961911/",
+    "https://leetcode.com/discuss/post/7052436/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Group Anagrams",
+   "lcId": 49,
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Hash Map",
+    "String"
+   ],
+   "statement": "",
+   "variant": "recipe-grouping variant: group recipes whose ingredient sets are identical (sort/freeze set as key)",
+   "evidence": "Loop DSA May 2025 BLR; listed twice in 'since June 2025'; 'recipe grouping by same ingredients' Bar Raiser variant Apr 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6961911/",
+    "https://leetcode.com/discuss/post/7178524/",
+    "https://leetcode.com/discuss/post/6654251/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Longest Happy Prefix (string pattern matching)",
+   "lcId": 1392,
+   "url": "https://leetcode.com/problems/longest-happy-prefix/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "String",
+    "KMP",
+    "Hashing"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Loop DSA May 2025 BLR (two non-optimal approaches, no hints, required running code)",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6855714/amazon-sde-2-all-rounds-interview-experi-4q2t/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Max Consecutive Ones III",
+   "lcId": 1004,
+   "url": "https://leetcode.com/problems/max-consecutive-ones-iii/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Sliding Window"
+   ],
+   "statement": "",
+   "variant": "second problem same round: Maximum Profit in Job Scheduling — DP alone TLEs, need binary search over sorted end times",
+   "evidence": "Loop DSA 2025 (hint 'think window'), followed by Maximum Profit in Job Scheduling (LC 1235, DP + binary search)",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6898756/amazon-sde-2-interview-experience-4-mont-fslv/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "All Nodes Distance K in Binary Tree",
+   "lcId": 863,
+   "url": "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Tree",
+    "BFS"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Telephonic round May 2025 (with 'max zeros in row-wise sorted matrix'); 'nodes at distance K from any leaf' variant in compiled list",
+   "recency": "2025-05",
+   "sources": [
+    "https://roundz.substack.com/p/interview-experience-55-amazon-sde2-l5",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Word Break I + II (phone screen)",
+   "lcId": 139,
+   "url": "https://leetcode.com/problems/word-break/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "DP",
+    "Backtracking"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Phone screen Mar 2025 (both LC 139 and LC 140 in one hour); Word Break asked twice per compiled list",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6585102/amazon-interview-sde-2-march-2025-by-ano-9nha/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Bus Routes (+ follow-up: routes with cost → Dijkstra)",
+   "lcId": 815,
+   "url": "https://leetcode.com/problems/bus-routes/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "BFS",
+    "Graph"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Loop round 1 Mar 2025; follow-up approach-only with per-route cost",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/6585102/amazon-interview-sde-2-march-2025-by-ano-9nha/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Merge Intervals / meeting-room counting",
+   "lcId": 56,
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Intervals",
+    "Sorting"
+   ],
+   "statement": "",
+   "variant": "sweep line: given (start,end,value) events return intervals where overlapping total exceeds a threshold",
+   "evidence": "Loop DSA Mar 2025 (with min-path BFS); 'min platforms', 'max rooms booked at once', 'radiation intervals exceeding threshold' (Bar Raiser sweep-line) in compiled lists",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/7011572",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Top K Frequent Words / top-K items in an event stream",
+   "lcId": 692,
+   "url": "https://leetcode.com/problems/top-k-frequent-words/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Hash Map"
+   ],
+   "statement": "",
+   "variant": "design push(tweet) and getTopK() APIs; bounded-memory follow-up (Count-Min Sketch), sliding window",
+   "evidence": "US onsite round 1 with follow-ups (multi-word strings, order by occurrence of a query); 'top hashtags with push/getTopK APIs' Hyd Bar Raiser; 'K most popular items in (event,item,timestamp) stream' compiled",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/6624679/",
+    "https://leetcode.com/discuss/post/7052436/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/",
+    "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/main/14-company-interview-questions/amazon.md"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum Cost to Connect Sticks / connect ropes",
+   "lcId": 1167,
+   "url": "https://leetcode.com/problems/minimum-cost-to-connect-sticks/",
+   "onLeetcode": true,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Greedy"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "Hyd loop 2025 (as 'combine numbers, cost = sum'); Dublin round 2 as 'connect ropes'",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/7183133/",
+    "https://leetcode.com/discuss/post/7175298/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Server ID allocator (allocate smallest free id / free id)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Design",
+    "Hash Set"
+   ],
+   "statement": "IDs 1..N. allocate() returns the smallest currently unallocated ID or -1 if none; free(id) returns an ID to the pool (ignore if not allocated). Discuss min-heap + set vs bitset/segment tree, and O(1)/O(log N) trade-offs.",
+   "variant": "closest LC: 379 Design Phone Directory (https://leetcode.com/problems/design-phone-directory/)",
+   "evidence": "Amazon Music SDE-II coding round and compiled list (min-heap + set); closest LeetCode match is 379 Design Phone Directory, which does not require the smallest id",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/6970485/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Unprocessable buy/sell orders (order matching)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Heap",
+    "Simulation"
+   ],
+   "statement": "Orders arrive as [price, qty, type] with type 0 = buy, 1 = sell. A buy matches the cheapest sell with price ≤ buy price; a sell matches the highest buy with price ≥ sell price; partial fills reduce qty. After processing, return the total quantity across orders that could not be matched (example given returns 6). Use a max-heap of buys and a min-heap of sells; watch 1e9 quantities.",
+   "variant": "",
+   "evidence": "Amazon Music SDE-II coding round 2025 (candidate solved everything yet got No-Hire on both rounds — LPs mattered)",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/6970485/",
+    "https://leetcode.com/discuss/post/7178524/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Viewership: video segments watched more than k times",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Sweep Line",
+    "Sorting"
+   ],
+   "statement": "Given many [start,end] segments of a video watched by users, return the merged time ranges that were watched by more than k users. Sweep line over +1/-1 events, emit ranges while the running count exceeds k; discuss merging adjacent ranges and handling equal timestamps.",
+   "variant": "",
+   "evidence": "LLD+coding round May 2025 India L5 (with 'two knights race')",
+   "recency": "2025-05",
+   "sources": [
+    "https://roundz.substack.com/p/interview-experience-55-amazon-sde2-l5"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Sum of each size-K window → max of each window (Sliding Window Maximum)",
+   "lcId": 239,
+   "url": "https://leetcode.com/problems/sliding-window-maximum/",
+   "onLeetcode": true,
+   "difficulty": "Hard",
+   "topics": [
+    "Sliding Window",
+    "Monotonic Deque",
+    "Heap"
+   ],
+   "statement": "",
+   "variant": "",
+   "evidence": "SDE-II phone screen 2025 (no LPs; three approaches discussed: heap+set, heap+count map, segment tree); listed in compiled lists",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/6857463/",
+    "https://leetcode.com/discuss/post/7178524/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Minimum replacements to make a string a palindrome, lexicographically smallest (OA)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "String",
+    "Greedy"
+   ],
+   "statement": "Given a lowercase string, change the minimum number of characters so it becomes a palindrome; among all minimum-change results return the lexicographically smallest. For each mismatched mirror pair pick the smaller character; then (optional second pass) if fewer than k changes were used, turn pairs into 'a' from the left.",
+   "variant": "",
+   "evidence": "Amazon 2026 SDE OA reported on Glassdoor (NY, Dec 2025) as 'password encryption'",
+   "recency": "2025-12",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/Amazon-Interview-E6036-RVW101814579.htm"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Warehouse upgrade feasibility / package allocation (OA, custom)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Greedy",
+    "Sorting"
+   ],
+   "statement": "Warehouses have capacities and a backup requirement; a batch of shipments arrives. You may upgrade exactly one warehouse to absorb the batch while every other warehouse still meets its backup threshold. Decide feasibility or the minimum upgrade cost. Sort capacities and check thresholds greedily; also know the 'count points within total distance d of all centres' variant (sum of |x - c_i| ≤ d, binary search both ends).",
+   "variant": "",
+   "evidence": "Amazon OA Apr 2026 (third-party write-up); 'warehouse prioritising truck deliveries' and 'suitable delivery locations within total distance d' in older compilations",
+   "recency": "2026-04",
+   "sources": [
+    "https://medium.com/@program.net/amazon-oa-april-2026-real-questions-hackerrank-codility-2-question-speed-guide-oa-preparation-cfd13f20cdf6",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "AI-assisted repo bug-fix (OA section, 2026)",
+   "lcId": null,
+   "url": "",
+   "onLeetcode": false,
+   "difficulty": "Medium",
+   "topics": [
+    "Debugging",
+    "Web Backend",
+    "Testing"
+   ],
+   "statement": "You get a small web application repo (choose Node/MERN, Java Spring Boot or Python/Django) with a preview of the running site and ~3 failing behaviours/tests; fix them in 60 minutes. A sandboxed AI assistant can explain code and point to files but refuses to give the fix. Practise: read failing tests, trace from the API handler to the model/serialiser, fix data-shape mismatches and off-by-one/empty-input bugs, re-run tests, keep diffs minimal.",
+   "variant": "",
+   "evidence": "2026 OA packets: Django project debugging with an AI assistant (BLR, Jun 2026); 'Agentic Coding' section (Jul 2026); Levels.fyi: 3 bugs, choose MERN/Spring Boot/Django, 60 min",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/",
+    "https://leetcode.com/discuss/post/8382886/amazon-sde-2-july-2026-accepted-by-anony-8ocs/",
+    "https://leetcode.com/discuss/post/8499681/amazon-sde-2-selected-blr-aug-2026-by-dh-61y7/",
+    "https://www.levels.fyi/community/thread/B2QSZH/amazon-sde-1-oa-new-format-with-an-ai-assistant-coding-round--bug-fixing",
+    "https://dev.to/max_nyriev/eight-companies-eight-different-ai-coding-interviews-k60"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "design": [
+  {
+   "title": "Device configuration sync from old device to new (Alexa/phones)",
+   "prompt": "A user sets up a new Amazon device; transfer account, preferences and app settings from the old device so it is ready in 1–5 minutes.",
+   "probes": [
+    "functional vs non-functional (security, 1–5 min setup)",
+    "entities: old device, new device, user, settings",
+    "APIs + DB schema",
+    "reduce cloud storage: pull settings directly from old device vs cloud snapshot",
+    "device offline / partial sync / versioning of settings"
+   ],
+   "round": "HLD (60 min, often Hiring Manager, Devices org)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Asked Jun 2025 BLR (HLD round 4) and Aug 2026 BLR (HM round, 'smoothest round'); same org also asked backup-and-restore Jul 2026",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/6923887/amazon-sde-2-interview-experience-select-rwpm/",
+    "https://leetcode.com/discuss/post/8499681/amazon-sde-2-selected-blr-aug-2026-by-dh-61y7/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Third-party service (Spotify) broadcasting a feature announcement to Alexa users",
+   "prompt": "A partner wants to notify/announce to all its Alexa users about a new feature via the device.",
+   "probes": [
+    "happy path first then failure modes",
+    "device offline: queue, retry, TTL, dedupe",
+    "fan-out scale and rate control",
+    "fallbacks / fault tolerance",
+    "product judgement: opt-in, quiet hours, abuse"
+   ],
+   "round": "HLD with Hiring Manager (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SDE II loop Jul 2026 (round went well; loop still failed on LLD depth)",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8457154/amazon-sde-ii-interview-experience-2026-19lzv/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Device backup scheduler and restore",
+   "prompt": "Back up device settings, files and media on a schedule and restore onto a new device.",
+   "probes": [
+    "scheduling and incremental backup",
+    "object storage + metadata DB",
+    "restore ordering/consistency",
+    "encryption and multi-device conflicts"
+   ],
+   "round": "HLD (virtual, 30 min design + 30 min LPs)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SDE-2 accepted Jul 2026",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8382886/amazon-sde-2-july-2026-accepted-by-anony-8ocs/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Inventory management system for Amazon (overselling under concurrency)",
+   "prompt": "Design inventory for Amazon retail; one unit left and two customers order at the same instant — only one may succeed.",
+   "probes": [
+    "race conditions and locking (optimistic vs pessimistic, DB transactions, conditional writes)",
+    "reservation vs decrement at checkout",
+    "consistency across warehouses / partitions",
+    "idempotent order APIs",
+    "eventual consistency for displays vs strong for commit"
+   ],
+   "round": "HLD (60 min; mislabelled round)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Aug 2026 BLR (neutral result led to SDE I downlevel); Amazon shopping cart with inventory contention asked by HM May 2025; 'inventory with queued requests' in compiled list",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/",
+    "https://leetcode.com/discuss/post/6855714/amazon-sde-2-all-rounds-interview-experi-4q2t/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Distributed rate limiter",
+   "prompt": "Design a rate limiter for an API fleet with many application instances.",
+   "probes": [
+    "fixed window vs sliding window log/counter vs token bucket",
+    "distributed state in Redis (atomic INCR/Lua), clock skew",
+    "per-user/per-API keys, burst handling",
+    "locks/consistency trade-offs, fail-open vs fail-closed",
+    "follow-up: 10 threads and 1000 calls — thread safety"
+   ],
+   "round": "HM + LLD/HLD hybrid (60 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Aug 2026 BLR HM round (strongest round); LLD rounds Mar 2025 and Apr 2025 Hyd (sliding window code, scaling follow-ups); compiled list 'asked 2 times'",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/",
+    "https://leetcode.com/discuss/post/7011572",
+    "https://leetcode.com/discuss/post/6654251/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "News feed (Facebook-style / social platform with 2k+ friends)",
+   "prompt": "Users post text/image/video; friends see a feed with real-time like/view counts at millions of concurrent users; feed must render instantly even after cache clear.",
+   "probes": [
+    "API design",
+    "push (fan-out on write) vs pull (fan-out on read), hybrid for celebrities",
+    "SQL vs NoSQL vs hybrid; graph DB for follow relationships",
+    "cache invalidation and CDN for media",
+    "viral post: millions of likes in seconds — async counters, sharding",
+    "service boundaries, monolith vs microservices"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Prime Video SDE-2 2026; Jan 2026 offer (social media feed); Hyd L5 2025; AWS BLR Jun 2025 (storing posts then fan-out via events expected); Reddit-like feed with age restriction in compiled list; NY Sep 2026 Glassdoor",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/8420230/amazon-sde-2-interview-experience-2026-e-t1g8/",
+    "https://leetcode.com/discuss/interview-experience/7554515",
+    "https://leetcode.com/discuss/post/7599995/amazon-sde-2-l5-hyderabad-by-anonymous_u-kxf5/",
+    "https://leetcode.com/discuss/post/6891316/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://www.glassdoor.co.in/Interview/Amazon-Interview-E6036-RVW91974874.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Music streaming service (Spotify)",
+   "prompt": "Search songs/artists/albums, playlists, library; playback starts within ms, 99.99% availability, millions of concurrent streams.",
+   "probes": [
+    "CDN strategy across geographies, chunked audio delivery",
+    "object storage for audio + metadata DB",
+    "full-text search (Elasticsearch) and indexing",
+    "listening history for recommendations",
+    "load balancing streaming servers; service boundaries"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Prime Video SDE-2 loop 2026 (second HLD round)",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/8420230/amazon-sde-2-interview-experience-2026-e-t1g8/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Auction / bidding platform",
+   "prompt": "Design an online auction: list items, place bids, show a near-real-time leaderboard, determine the winner.",
+   "probes": [
+    "DB schema and low-latency bid API with caching",
+    "bid edits → allow multiple bids instead",
+    "leaderboard via Redis sorted sets",
+    "Redis is not source of truth — how to persist and determine the winning bid",
+    "auction close race conditions"
+   ],
+   "round": "HLD (60 min, no LPs)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "3-YOE accepted offer (late 2025); candidate used Hello Interview framework",
+   "recency": "2025-10",
+   "sources": [
+    "https://leetcode.com/discuss/post/7477684/amazon-india-sde-2-interview-experience-ca6y0/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Amazon Locker service (HLD)",
+   "prompt": "Design the locker network: assign a locker to an incoming package near the customer, pickup with code, expiry and reclaim.",
+   "probes": [
+    "locker selection by size and proximity (geo-index / proximity service)",
+    "concurrency on locker assignment",
+    "pickup code generation/expiry, notifications",
+    "scaling to all lockers/cities",
+    "reverse flow: returns drop-off"
+   ],
+   "round": "Bar Raiser HLD (60 min) / HM HLD",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Bar Raiser Jun 2025 BLR (strong hire), HM round Mar 2025 ('Amazon Lock System'), Bar Raiser Sep 2025 (LLD-style); LLD versions many times",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/6911864/amazon-sde-2-interview-experience-by-ano-yd64/",
+    "https://leetcode.com/discuss/post/7011572",
+    "https://leetcode.com/discuss/post/7228788/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "BookMyShow / movie ticketing (seat booking at scale)",
+   "prompt": "Design BookMyShow focusing on booking and high-traffic shows.",
+   "probes": [
+    "seat locking/hold with TTL, double booking prevention",
+    "consistency vs availability for booking",
+    "data model: shows, seats, bookings",
+    "hot show traffic: queues, caching seat maps",
+    "payments idempotency"
+   ],
+   "round": "Bar Raiser HLD / Managerial / LLD (20–60 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Bar Raiser Mar 2025, Bar Raiser LLD Hyd Apr 2025 (20 min), Managerial round May 2025, LLD 'real-time seat booking' code-first BLR 2025; compiled lists",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7011572",
+    "https://leetcode.com/discuss/post/6961332/amazon-sde-2-hyderabad-interview-experie-8pmb/",
+    "https://roundz.substack.com/p/interview-experience-55-amazon-sde2-l5",
+    "https://leetcode.com/discuss/post/7701734/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Food delivery platform (Swiggy/Zomato) with 4 actors",
+   "prompt": "Design a food delivery platform covering user, restaurant, admin and delivery-partner roles.",
+   "probes": [
+    "order state machine and notifications",
+    "delivery partner assignment / location tracking",
+    "restaurant menu/inventory consistency",
+    "ETA and surge",
+    "LP-heavy HM probing on real-world failures"
+   ],
+   "round": "HLD (1h45 incl. 35 min LPs)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Jul 2025 BLR offer; LLD Zomato May 2025; 'delivery partner assignment' and 'vehicle tracking for multiple clients' in compiled list",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7009755/amazon-sde-2-bangalore-4-yoe-july-2025-o-o826/",
+    "https://roundz.substack.com/p/interview-experience-55-amazon-sde2-l5",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "URL shortener",
+   "prompt": "Design a URL shortening service.",
+   "probes": [
+    "key space: 62^6 vs expected smaller numbers — defend your estimate",
+    "hashing vs counter/KGS for alias generation",
+    "redirect latency, caching, CDN",
+    "DB choice, schema, cache storage, archival/scheduler",
+    "analytics"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Easy",
+   "classic": true,
+   "evidence": "Rejected SDE 2 2025 (judged 'not acceptable for SDE 2' — numbers not defended); Hyd Apr 2025 HLD with EM; compiled list",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6898756/amazon-sde-2-interview-experience-4-mont-fslv/",
+    "https://leetcode.com/discuss/post/6654251/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Real-time monitoring / metrics & alerting / distributed tracing",
+   "prompt": "Design a real-time system monitoring (metrics ingestion, dashboards, alerts); variant: metrics + distributed tracing for services.",
+   "probes": [
+    "ingestion pipeline (agents → Kafka → time-series DB)",
+    "aggregation windows, downsampling, retention",
+    "alert thresholds, severity classification, dedupe",
+    "trace ID propagation and sampling",
+    "query latency for dashboards"
+   ],
+   "round": "HLD (60 min, SDM)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "BLR Devices Aug 2025 (round 4), vague 'metrics and distributed tracing' Mar 2025 (SDM), compiled list (metrics monitoring and alerting)",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7132680/amazon-sde-2-bangalore-onsite-interview-pr26m/",
+    "https://leetcode.com/discuss/post/6585102/amazon-interview-sde-2-march-2025-by-ano-9nha/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Low-latency API over data in S3 (hourly/weekly queries) — Bar Raiser",
+   "prompt": "Design an API that answers hourly and weekly aggregate queries over data that lands in S3, responding in under 2 seconds.",
+   "probes": [
+    "stream the data into a time-series/OLAP store instead of querying S3",
+    "where aggregation happens: at ingestion vs query time (latency)",
+    "pre-aggregated rollups, caching",
+    "backfill and late data"
+   ],
+   "round": "Bar Raiser (expected LLD, was HLD)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "AWS BLR Jun 2025 Bar Raiser",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6891316/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Amazon.com for Diwali / peak shopping load",
+   "prompt": "Design the Amazon website to survive festival-scale traffic.",
+   "probes": [
+    "FR/NFR, DB schema, services",
+    "DB choice and sharding",
+    "caching/CDN, queue-based load levelling",
+    "multiple failure scenarios (cache down, DB primary down, region failure)",
+    "graceful degradation"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "BLR May 2025 L5 loop (round went well)",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6961911/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Payment service",
+   "prompt": "Design a payment service for Amazon-scale checkout.",
+   "probes": [
+    "idempotency keys and exactly-once semantics",
+    "double-entry ledger, reconciliation",
+    "fault tolerance and retries with PSPs",
+    "CAP trade-offs; strong consistency for balances",
+    "fraud/rate limiting"
+   ],
+   "round": "HLD with Hiring Manager (60–90 min)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Feb 2025 in-office drive (HM), BLR late-2025 rejected loop (payments HLD), compiled list (payment service scalability/fault tolerance)",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6673070/",
+    "https://leetcode.com/discuss/post/7701734/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "WhatsApp / chat system",
+   "prompt": "Design WhatsApp in ~20 minutes with 6–7 functional requirements incl. signup/login (Hyd HM) or a chat system generally.",
+   "probes": [
+    "message ordering with unreliable client timestamps",
+    "sharding, queues, delivery/read receipts",
+    "offline users and push notifications",
+    "Redis pub/sub vs Kafka",
+    "group chat fan-out, media"
+   ],
+   "round": "HLD with HM (35 min) / HLD (60 min)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Hyd Apr 2025 HM (scope too large), 'chat system asked 3 times' in compiled list, WhatsApp read receipts LLD→HLD discussion late 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/6961332/amazon-sde-2-hyderabad-interview-experie-8pmb/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/post/8096139/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Parking lot / parking garage (HLD framing)",
+   "prompt": "Design a scalable, concurrent parking system (many lots, entry/exit, payments).",
+   "probes": [
+    "concurrency on spot allocation",
+    "pricing models",
+    "HLD vs LLD confusion — confirm which is wanted",
+    "availability display and sensors"
+   ],
+   "round": "HLD (60 min) and LLD/HLD hybrid (40 min)",
+   "difficulty": "Easy",
+   "classic": true,
+   "evidence": "HLD round Jun 2025 BLR (candidate drifted to LLD), LLD/HLD hybrid Jul 2025 BLR (concurrent parking garage)",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6911864/amazon-sde-2-interview-experience-by-ano-yd64/",
+    "https://roundz.substack.com/p/interview-experience-143-amazon-sde2-l5"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Review and rating system for Amazon products",
+   "prompt": "Design product reviews/ratings: submit, moderate, aggregate rating, display.",
+   "probes": [
+    "entities, APIs, scalability",
+    "aggregate rating computation (async)",
+    "system health monitoring follow-up",
+    "abuse/moderation"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Mar 2025 loop (Hire from HM); 'customer reviews' LLD in compiled list",
+   "recency": "2025-03",
+   "sources": [
+    "https://leetcode.com/discuss/post/7011572",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Event / adventure-park / ticket booking at 1M users per minute",
+   "prompt": "Design a booking system for an adventure park: many parks, rides with 8 slots each, ticket issued after payment; 1M users/min, 10K concurrent.",
+   "probes": [
+    "FR/NFR and block diagram",
+    "DB choice and schema justification",
+    "concurrency on limited slots (locks, queues, reservations)",
+    "ticket ID generation",
+    "payment out of scope but idempotency still probed"
+   ],
+   "round": "HLD with Hiring Manager (60 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "BLR hiring drive 2025; 'event booking system' Hyd Jul 2025 whiteboard",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7178881/",
+    "https://leetcode.com/discuss/post/7027366/amazon-sde-2-interview-experience-2yoe-h-ynf0/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "K-leaderboard / Twitch top viewers by watch time",
+   "prompt": "Design a leaderboard (top-K users/viewers in the last week) at scale.",
+   "probes": [
+    "sorted sets vs count-min sketch / top-K",
+    "sliding time window aggregation",
+    "write-heavy ingestion, read-heavy top-K",
+    "consistency of ranks"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Jul 2025 'very similar to K leaderboard' HLD round; compiled list (Twitch top-10 viewers past week)",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7228788/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "FastTag (toll payment) system",
+   "prompt": "Design an RFID toll-payment system: vehicles pass a toll plaza, balance debited, notifications sent.",
+   "probes": [
+    "requirements for an unfamiliar domain",
+    "APIs and entities",
+    "idempotency in payments",
+    "Redis cache for frequently accessed vehicle details",
+    "scalability, offline plaza handling"
+   ],
+   "round": "HLD with SDM (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SDE II loop late 2025 (interviewer convinced)",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/8096139/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Error reporting system for e-commerce search ('not relevant' button)",
+   "prompt": "User clicks 'not relevant' on search results → issue raised → assigned to tech support who view the report and logs.",
+   "probes": [
+    "event ingestion and ticket creation",
+    "log correlation/retention and privacy",
+    "assignment/queueing to support",
+    "dashboards and dedupe of identical issues"
+   ],
+   "round": "HM / HLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Hyd SDE2 offer loop 2025 (toughest round)",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/7052436/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Book recommendation system (Kindle)",
+   "prompt": "Design a book recommendation system.",
+   "probes": [
+    "candidate generation vs ranking",
+    "offline batch vs online features",
+    "cold start, popularity fallback",
+    "serving latency and caching",
+    "ML-adjacent design even for backend roles"
+   ],
+   "round": "HLD with Hiring Manager (60 min)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Chennai Kindle Aug 2025 (candidate froze; Not Inclined)",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7176045/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Blogging platform",
+   "prompt": "Design a blogging platform: write/read blogs, home page for signed-in vs anonymous users, recommendations, trending, search.",
+   "probes": [
+    "service decomposition",
+    "SQL vs NoSQL",
+    "trending identification, recommendation logic",
+    "search across platform and within a blog",
+    "abuse from anonymous users",
+    "monitoring, alert thresholds, severity"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "India L5 May 2025 (roundz #55)",
+   "recency": "2025-05",
+   "sources": [
+    "https://roundz.substack.com/p/interview-experience-55-amazon-sde2-l5"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Slack / team messaging",
+   "prompt": "Design Slack.",
+   "probes": [
+    "channels and fan-out",
+    "message ordering and persistence",
+    "presence and notifications",
+    "search"
+   ],
+   "round": "HM HLD (60 min)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "BLR accepted SDE-2 loop 2025",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/7054407/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Message pipeline A→B through a queue with time tracking and capacity limit",
+   "prompt": "A sends time-tracked messages to B through a queue while staying under a capacity limit (vague).",
+   "probes": [
+    "clarify the vague prompt",
+    "backpressure and capacity enforcement",
+    "ordering and timestamps",
+    "monitoring of latency"
+   ],
+   "round": "System design (Seattle, Dec 2025)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Glassdoor Seattle SDE 2 report Sep 2026 (interviews Dec 2025); 'queue-to-queue classifier at 200k msg/s' in older compilation",
+   "recency": "2025-12",
+   "sources": [
+    "https://www.glassdoor.co.in/Interview/Amazon-SDE-2-Interview-Questions-EI_IE6036.0,6_KO7,12.htm",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Twitter / TikTok / YouTube style media platform",
+   "prompt": "Design Twitter with custom requirements / TikTok / YouTube.",
+   "probes": [
+    "upload → transcode → CDN pipeline",
+    "feed ranking, hot content",
+    "storage tiers",
+    "counters at scale"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Compiled lists 2025 and earlier (Twitter custom requirements, TikTok, YouTube architecture, Google Photos)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Google Docs / collaborative editor with scalable link sharing",
+   "prompt": "Design a collaborative code/document editor; handle hot shared links.",
+   "probes": [
+    "OT vs CRDT",
+    "presence and cursor sync",
+    "hot-link read scaling",
+    "permissions"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Compiled list 2025 (asked as code editor and as Docs with hot links)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Amazon search autocomplete / typeahead with a given ranking algorithm",
+   "prompt": "Design autocomplete for Amazon search given a ranking function.",
+   "probes": [
+    "trie vs prefix index in Redis/Elasticsearch",
+    "top-k per prefix precomputation",
+    "freshness vs precompute",
+    "personalisation and latency budget"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Compiled list 2025; dictionary prefix/suffix matching in older compilation",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Uber-like ride sharing / vehicle tracking for many clients",
+   "prompt": "Design ride sharing (asked twice) or a vehicle-tracking platform serving cab and food-delivery clients.",
+   "probes": [
+    "location ingestion and geo-indexing (geohash/S2)",
+    "matching",
+    "multi-tenant isolation",
+    "ETA"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Hard",
+   "classic": true,
+   "evidence": "Compiled list 2025 (ride sharing asked 2 times; vehicle tracking multi-client); ride-matching LLD Hyd 2025",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/post/7599995/amazon-sde-2-l5-hyderabad-by-anonymous_u-kxf5/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Delivery workflow (scan → state updates → email → OTP/photo confirmation)",
+   "prompt": "Design the last-mile delivery workflow system.",
+   "probes": [
+    "state machine per package",
+    "event-driven notifications",
+    "offline scanner sync",
+    "proof-of-delivery storage"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Compiled list 2025",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Prime Video: extract products from video frames and show purchase links",
+   "prompt": "Design a system that detects products in Prime Video frames and surfaces Amazon purchase links.",
+   "probes": [
+    "offline frame-extraction pipeline",
+    "ML inference batching",
+    "metadata store keyed by title/timestamp",
+    "client overlay latency"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Compiled list 2025",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Mars Rover update / fleet software update system",
+   "prompt": "Design a system to push software updates to a remote rover or device fleet.",
+   "probes": [
+    "unreliable, high-latency links; resumable chunked transfer",
+    "verification and rollback",
+    "staged rollout"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Compiled lists (linked Amazon HLD post)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Tag management system / app store with global downloads",
+   "prompt": "Design a tag-management service; design an app store with publishing and worldwide download availability.",
+   "probes": [
+    "metadata vs binary storage, CDN",
+    "publishing workflow and review",
+    "search and versioning"
+   ],
+   "round": "HLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Compiled lists 2025 and older",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Process / job scheduler system",
+   "prompt": "Design a system to schedule processes (jobs) — HM round for SDE-1 Apr 2026; job scheduler LLD in older compilation.",
+   "probes": [
+    "priority and fairness",
+    "distributed workers and leases",
+    "retries and idempotency",
+    "cron vs event triggers"
+   ],
+   "round": "HM round (60 min, mixed DSA + design)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "SDE-1 HM round Apr 2026; 'job scheduler' LLD in 50-posts compilation",
+   "recency": "2026-04",
+   "sources": [
+    "https://leetcode.com/discuss/post/8014509/amazon-sde-1-interview-experience-by-pra-azvd/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "low"
+  }
+ ],
+ "lld": [
+  {
+   "title": "Amazon Locker (and 'reverse locker' returns drop-off)",
+   "prompt": "Design the locker system: assign the right-sized locker for an incoming package, generate pickup code, handle pickup/expiry. 2026 twist: customer books a slot at the nearest drop store and drops off a return in person.",
+   "deliverable": "class design + working code for 2–3 core methods (findLocker/addLocker/updateLocker) in a code pad or on paper",
+   "probes": [
+    "requirement gathering from a vague prompt (10–15 min)",
+    "size tiers S/M/L/XL vs volume-based fit",
+    "data structure for free lockers per size (heaps/sets), O(1)/O(log n)",
+    "nearest store lookup → geo-sharding ('how does Uber do it')",
+    "concurrency on assignment, expiry/reclaim"
+   ],
+   "round": "Logical & Maintainable / Bar Raiser (60 min, 35 min coding)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Reverse-locker LLD Aug 2026 BLR; Bar Raiser 'find space for incoming packages' Jun 2025 BLR; LLD Mar 2025; Bar Raiser LLD Sep 2025; Seattle May 2025 'Locker Allocation' (commenter saw it in 2023 too); compiled lists",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/8499681/amazon-sde-2-selected-blr-aug-2026-by-dh-61y7/",
+    "https://leetcode.com/discuss/post/6923887/amazon-sde-2-interview-experience-select-rwpm/",
+    "https://leetcode.com/discuss/post/6585102/amazon-interview-sde-2-march-2025-by-ano-9nha/",
+    "https://leetcode.com/discuss/post/7228788/",
+    "https://www.techprep.app/community/interview-experiences/amazon-mid-level-software-engineer-interview-seattle-2025",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Meeting room scheduler / room reservation (Outlook, Teams)",
+   "prompt": "Design meeting scheduling and room booking like Outlook/Teams.",
+   "deliverable": "UML-style class skeletons with relationships and methods in a code pad; some interviewers demand code directly",
+   "probes": [
+    "entities: Room, Meeting, User, Calendar, Booking",
+    "conflict detection (interval overlap), recurring meetings",
+    "which design patterns apply",
+    "concurrency on double booking",
+    "finding available rooms by capacity/time"
+   ],
+   "round": "LLD (60 min; 30 min design + LPs)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Jul 2026 accepted (30 min), Jun 2025 BLR (UML in code pad, 'which patterns'), BLR late-2025 'Teams meeting room booking' code-first",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8382886/amazon-sde-2-july-2026-accepted-by-anony-8ocs/",
+    "https://leetcode.com/discuss/post/6923887/amazon-sde-2-interview-experience-select-rwpm/",
+    "https://leetcode.com/discuss/post/7701734/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Audio buffer pipeline at X frames per second",
+   "prompt": "Design a system that moves audio buffers through multiple processing stages at a fixed frame rate.",
+   "deliverable": "classes and functions for stages/buffers/pipeline; started as LLD but drifted to HLD",
+   "probes": [
+    "clarify the vague prompt early",
+    "producer-consumer queues between stages, back-pressure",
+    "buffer pooling/reuse, latency budget per stage",
+    "thread model and timing"
+   ],
+   "round": "Bar Raiser + LLD (60 min incl. 25–30 min resume cross-questioning)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "SDE II Jul 2026 (candidate got stuck; cited as the design-depth concern)",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/8457154/amazon-sde-ii-interview-experience-2026-19lzv/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Rate limiter (LLD)",
+   "prompt": "Design a rate limiter class/library.",
+   "deliverable": "classes + interfaces, then code one algorithm (token bucket or sliding window)",
+   "probes": [
+    "token bucket → sliding window transition",
+    "thread safety: 10 threads, 1000 calls",
+    "pluggable strategies (Strategy pattern)",
+    "scaling to high traffic / distributed follow-up"
+   ],
+   "round": "LLD (60 min) / HM hybrid",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "LLD Mar 2025 (token bucket → sliding window), Hyd Apr 2025 (coded sliding window, struggled on scaling), HM round Aug 2026 BLR, compiled list 'asked 2 times'",
+   "recency": "2026-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7011572",
+    "https://leetcode.com/discuss/post/6654251/",
+    "https://leetcode.com/discuss/post/8512004/amazon-sde2-interview-experience-oa-phon-jhvj/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Customer issue / ticket management with priorities, escalation and wait queue",
+   "prompt": "Design an issue-resolution system: issues with priority levels, escalation rules, agents, and a wait queue.",
+   "deliverable": "classes, interfaces, enums, design patterns — working code not required (Jan 2026); satisfied interviewer (Jun 2025)",
+   "probes": [
+    "priority queue per level, SLA/escalation timers",
+    "agent assignment strategy",
+    "state machine for issue lifecycle",
+    "extensibility of priority levels"
+   ],
+   "round": "LLD/OOD (60 min; 20–25 min LPs first)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Jan 2026 offer ('Customer Issue Resolution System'), Jun 2025 BLR ('issue management with escalations and wait queue')",
+   "recency": "2026-01",
+   "sources": [
+    "https://leetcode.com/discuss/interview-experience/7554515",
+    "https://leetcode.com/discuss/post/6911864/amazon-sde-2-interview-experience-by-ano-yd64/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Parking lot with multiple parking types and pricing models",
+   "prompt": "Design a parking lot supporting different vehicle/spot types and multiple pricing strategies.",
+   "deliverable": "class diagram + core methods (park/unpark/compute fee)",
+   "probes": [
+    "Strategy pattern for pricing",
+    "spot allocation per vehicle type",
+    "multiple entry/exit gates and concurrency",
+    "extensibility to new vehicle types"
+   ],
+   "round": "Logical & Maintainable (60 min)",
+   "difficulty": "Easy",
+   "classic": true,
+   "evidence": "BLR accepted loop 2025 (parking types + pricing), LLD prep post 2025, Blind LMC description, compiled lists",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7054407/",
+    "https://leetcode.com/discuss/post/7060987/",
+    "https://www.teamblind.com/post/amazon-onsite-interview-logical-and-maintainable-coding-z1185m1d",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Notification service with per-client, per-severity subscriber strategies",
+   "prompt": "Multiple clients (Amazon Shopping, AWS) each have subscribers; each subscriber picks channels (phone/SMS/email) per urgency level H/M/L per client.",
+   "deliverable": "DB schema + DB choice discussion, then code to fetch strategies and send notifications",
+   "probes": [
+    "extensible to new severity levels and new channels (paging, Instagram)",
+    "Strategy/Observer patterns",
+    "schema for subscriber × client × level → channels",
+    "retry/dedupe of sends"
+   ],
+   "round": "LLD/OOD (60 min, pen and paper)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "BLR hiring drive 2025; notification service also a common HLD prompt",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7178881/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "File system search / Unix find API / filter files by size and extension",
+   "prompt": "Design a library that walks a directory and returns files matching composable filters (size > 5MB, extension, name pattern); variant: file system with finder API, print/modify/delete child directories.",
+   "deliverable": "interfaces for Filter/Specification with AND/OR composition, Composite for directory tree, working code for traversal",
+   "probes": [
+    "extensibility: add a new filter without touching traversal",
+    "Composite + Specification patterns",
+    "recursion vs iteration on deep trees",
+    "performance on large trees; lazy evaluation"
+   ],
+   "round": "Logical & Maintainable (30–60 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "BLR Devices Aug 2025 (filter by size & extension), Hyd Apr 2025 (file system with finder API, 20–25 min), Hyd 2025 offer loop (print/modify/delete), LLD prep post (Unix find), 50-posts compilation",
+   "recency": "2025-08",
+   "sources": [
+    "https://leetcode.com/discuss/post/7132680/amazon-sde-2-bangalore-onsite-interview-pr26m/",
+    "https://leetcode.com/discuss/post/6961332/amazon-sde-2-hyderabad-interview-experie-8pmb/",
+    "https://leetcode.com/discuss/post/7052436/",
+    "https://leetcode.com/discuss/post/7060987/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Movie / bus / restaurant ticket booking (BookMyShow, IRCTC, bus, restaurant table)",
+   "prompt": "Design a ticket or table booking system; interviewer may demand code immediately or may want API + DB schema instead of classes.",
+   "deliverable": "varies: code + class diagram (Sep 2025), API + schema + microservice modules (Chennai Aug 2025), classes Table/Booking + APIs + schema (restaurant, May 2025)",
+   "probes": [
+    "concurrent booking / seat hold",
+    "booking module conditions (IRCTC)",
+    "normalisation and DB choice",
+    "service modules (Bus, Route, Booking)",
+    "SOLID + patterns while coding live"
+   ],
+   "round": "LLD (60–75 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "Movie ticket LLD Sep 2025, bus ticket Chennai Aug 2025, restaurant booking BLR May 2025, BookMyShow seat booking code-first BLR 2025, Bar Raiser LLD Hyd Apr 2025, IRCTC in compiled list",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7228788/",
+    "https://leetcode.com/discuss/post/7176045/",
+    "https://leetcode.com/discuss/post/6855714/amazon-sde-2-all-rounds-interview-experi-4q2t/",
+    "https://leetcode.com/discuss/post/7701734/",
+    "https://leetcode.com/discuss/post/6961332/amazon-sde-2-hyderabad-interview-experie-8pmb/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Digital wallet",
+   "prompt": "Wallet creation, balance management, fund transfers, transaction logging.",
+   "deliverable": "class design + key methods",
+   "probes": [
+    "atomic transfers and double-spend prevention",
+    "transaction ledger immutability",
+    "idempotent transfer requests",
+    "currency/limits extensibility"
+   ],
+   "round": "LLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Jul 2025 BLR offer",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7009755/amazon-sde-2-bangalore-4-yoe-july-2025-o-o826/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Tic-Tac-Toe / Chess (board games)",
+   "prompt": "Design Tic-Tac-Toe (entities, game flow, end detection) or a standalone chess game.",
+   "deliverable": "class diagram, then code the isGameOver / move-validation method (C++ asked)",
+   "probes": [
+    "O(1) win check per move",
+    "N×N generalisation, multiple players",
+    "Chess: piece movement polymorphism, pseudo code"
+   ],
+   "round": "LLD (60 min; 4 LPs first)",
+   "difficulty": "Easy",
+   "classic": true,
+   "evidence": "Tic-Tac-Toe Hyd Jul 2025 (coded game-over check), chess in both compilations",
+   "recency": "2025-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/7027366/amazon-sde-2-interview-experience-2yoe-h-ynf0/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Elevator system",
+   "prompt": "Design an elevator control system.",
+   "deliverable": "classes + scheduling algorithm",
+   "probes": [
+    "request dispatch strategy (SCAN/look)",
+    "multiple elevators",
+    "state machine per car",
+    "extensibility of scheduling"
+   ],
+   "round": "LLD (60 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "India SDE-2 Sep 2025 (LLD 'not positive'), compiled list (face-to-face)",
+   "recency": "2025-09",
+   "sources": [
+    "https://leetcode.com/discuss/post/7202678/amazon-sde-2-india-interview-experience-7fu7t/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Ride-matching service (LLD)",
+   "prompt": "Design the matching between riders and drivers.",
+   "deliverable": "entities + matching strategy classes",
+   "probes": [
+    "matching strategy abstraction",
+    "driver state transitions",
+    "proximity lookups",
+    "concurrency when two riders match one driver"
+   ],
+   "round": "LLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Hyd L5 2025 offer loop (mixed feedback)",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/7599995/amazon-sde-2-l5-hyderabad-by-anonymous_u-kxf5/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Network request cache / LRU-backed cache",
+   "prompt": "Design a cache for network requests.",
+   "deliverable": "classes AND an implemented eviction policy — naming LRU without implementing it was marked down",
+   "probes": [
+    "LRU implementation (hash map + DLL)",
+    "TTL/expiry, cache-aside vs write-through",
+    "thread safety",
+    "size vs count limits"
+   ],
+   "round": "LLD (60 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "BLR May 2025 L5 (lesson learned), 'file-system storage cache' Jul 2026 DSA/LLD hybrid, LRU/LFU in compilations",
+   "recency": "2026-07",
+   "sources": [
+    "https://leetcode.com/discuss/post/6961911/",
+    "https://leetcode.com/discuss/post/8457154/amazon-sde-ii-interview-experience-2026-19lzv/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "WhatsApp read receipts (feature-scoped LLD)",
+   "prompt": "Assume WhatsApp exists; design only the read-receipt (ticks) feature.",
+   "deliverable": "classes/patterns for the feature, then data flow discussion",
+   "probes": [
+    "interviewer narrows scope: do not redesign the app",
+    "State pattern for sent/delivered/read",
+    "offline users, Redis pub/sub vs Kafka for events",
+    "storage of receipt events"
+   ],
+   "round": "LLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "FastTag loop late 2025 (LLD rated average, HLD discussion strong)",
+   "recency": "2025-12",
+   "sources": [
+    "https://leetcode.com/discuss/post/8096139/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Seller experience application",
+   "prompt": "Design the seller-side app (listings, inventory, orders) from a detailed requirement list.",
+   "deliverable": "entities and components with justification; interviewer challenges each choice",
+   "probes": [
+    "rigorous why-this-entity questioning",
+    "extensibility of listing types",
+    "order/inventory interplay"
+   ],
+   "round": "LLD (90 min, in-office drive)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Feb 2025 offer; compiled list",
+   "recency": "2025-02",
+   "sources": [
+    "https://leetcode.com/discuss/post/6673070/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Splitwise-style debt settlement (minimum transactions)",
+   "prompt": "N people with net balances; produce the minimum number of transactions to settle everyone.",
+   "deliverable": "pseudocode + data-structure choice (two heaps greedy accepted as a start; backtracking is the exact answer)",
+   "probes": [
+    "recognise greedy is not optimal (NP-hard)",
+    "backtracking/bitmask DP for exact",
+    "modelling Expense/Group/User classes if asked as Splitwise LLD"
+   ],
+   "round": "Logical & Maintainable (60 min)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "AWS BLR Jun 2025 LMC round; Splitwise LLD in compiled list",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6891316/",
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "title": "Food delivery platform (Zomato) LLD",
+   "prompt": "Entity design, data flow, delivery partner ↔ customer interactions, scalability.",
+   "deliverable": "class diagram + core flows, plus two coding problems in the same 75-min round",
+   "probes": [
+    "entity responsibilities and segregation",
+    "order state machine",
+    "assignment logic"
+   ],
+   "round": "LLD + coding (75 min)",
+   "difficulty": "Medium",
+   "classic": true,
+   "evidence": "India L5 May 2025; food delivery also HLD Jul 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://roundz.substack.com/p/interview-experience-55-amazon-sde2-l5",
+    "https://leetcode.com/discuss/post/7009755/amazon-sde-2-bangalore-4-yoe-july-2025-o-o826/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Vending machine / ATM / coffee shop (state machines)",
+   "prompt": "Design a vending machine (states, coins, inventory) — classic Amazon OOD.",
+   "deliverable": "class design with State pattern + key methods",
+   "probes": [
+    "State pattern",
+    "inventory and change-making",
+    "extensibility of payment types"
+   ],
+   "round": "Logical & Maintainable (60 min)",
+   "difficulty": "Easy",
+   "classic": true,
+   "evidence": "Compiled list 2025 (vending machine), community-known Amazon OOD staple",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Hotel reservation / library management",
+   "prompt": "Design hotel room reservations or a library system (search, borrow, return, fines).",
+   "deliverable": "class design + core methods",
+   "probes": [
+    "availability search",
+    "overlapping reservations",
+    "extensibility of room/item types"
+   ],
+   "round": "Logical & Maintainable (60 min)",
+   "difficulty": "Easy",
+   "classic": true,
+   "evidence": "Compiled list 2025 (hotel), 'library or parking lot' examples in late-2025 LMC post, Blind LMC thread (book ordering)",
+   "recency": "2025-11",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/post/7816202/amazon-interview-experience-sde2-by-anon-9ykn/",
+    "https://www.teamblind.com/post/amazon-onsite-interview-logical-and-maintainable-coding-z1185m1d"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Office occupancy tracker",
+   "prompt": "Track how many people are in the office at any time; query count at a timestamp; max occupancy in an interval.",
+   "deliverable": "classes + efficient query structure",
+   "probes": [
+    "event log vs prefix counts",
+    "interval max query (segment tree / sorted events)",
+    "badge-in without badge-out edge cases"
+   ],
+   "round": "LLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "LLD prep post 2025",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/7060987/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Stock broker platform (Zerodha/Groww) / Alexa skill system",
+   "prompt": "Design a stock-broker app (orders, portfolio, watchlists) or Alexa's skill/intent handling.",
+   "deliverable": "entities + interfaces",
+   "probes": [
+    "order types and matching abstraction",
+    "portfolio valuation",
+    "Alexa: intent routing, skill registry"
+   ],
+   "round": "LLD (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "LLD prep post 2025 (linked threads)",
+   "recency": "2025-05",
+   "sources": [
+    "https://leetcode.com/discuss/post/7060987/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Package manager (yarn) / CDN push S3 → edge nodes (EU)",
+   "prompt": "Dublin loop: design a package manager with dependency resolution; and a CDN push mechanism propagating new S3 content to edge nodes.",
+   "deliverable": "class design / machine coding",
+   "probes": [
+    "dependency graph resolution and version conflicts",
+    "push fan-out, invalidation, retries for edge nodes",
+    "consistency across edges"
+   ],
+   "round": "LLD/machine coding (two rounds)",
+   "difficulty": "Hard",
+   "classic": false,
+   "evidence": "Amazon Dublin SDE2 reject",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/7175298/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "title": "Download manager / quick-commerce / delivery-partner assignment / hashmap",
+   "prompt": "Older but recurring Amazon OOD prompts: a download manager with concurrent downloads, a quick-commerce ordering system, a delivery-partner assignment module, a HashMap-like data structure.",
+   "deliverable": "class design + method implementation",
+   "probes": [
+    "concurrency control for downloads",
+    "assignment strategy",
+    "hashing, collisions, resizing"
+   ],
+   "round": "Logical & Maintainable (60 min)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Compiled lists (2025 and 50-posts)",
+   "recency": "2025-06",
+   "sources": [
+    "https://leetcode.com/discuss/post/6906753/amazon-hld-lld-dsa-questions-by-anonymou-sepk/",
+    "https://leetcode.com/discuss/interview-experience/6075975/Amazon-SDE2-50-posts-in-1-DSA+LP+LLDHLD/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "title": "Top hashtags: push(tweet) and getTopK() APIs",
+   "prompt": "Implement two APIs: ingest a tweet into storage and return the top K hashtags (K fixed).",
+   "deliverable": "working code for both APIs with chosen data structures",
+   "probes": [
+    "heap vs count map + bucket",
+    "fixed K optimisation",
+    "streaming/bounded memory follow-up"
+   ],
+   "round": "Bar Raiser (discussion + coding)",
+   "difficulty": "Medium",
+   "classic": false,
+   "evidence": "Hyd SDE2 offer loop 2025",
+   "recency": "2025",
+   "sources": [
+    "https://leetcode.com/discuss/post/7052436/"
+   ],
+   "confidence": "medium"
+  }
+ ]
+}

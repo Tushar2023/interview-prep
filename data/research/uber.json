@@ -1,0 +1,2185 @@
+{
+  "company": "Uber",
+  "slug": "uber",
+  "levelMapping": "L4 = Software Engineer II (SDE-2) ≈ Google L4 / Amazon SDE II. India (Bengaluru/Hyderabad) hires L4 at roughly 2.5–5.5 YOE; 3-YOE candidates are routinely looped at L4 (one 2.5-YOE candidate got Uber L4 while Google offered L3). L3 = SWE I (new grad to ~2 YOE), L5a = Senior (SSE). Level can be re-decided in the debrief. Reported Bangalore L4 packages: ~37 LPA TC at 2 YOE; 42 LPA base + 7.4 LPA bonus + $37k RSUs over 4 years (≈67 LPA headline CTC). US L4 at 2.5–3 YOE: ~$310–335k TC.",
+  "process": {
+    "summary": "Uber's SDE-2 loop is one of the heavier mid-level loops: an OA (CodeSignal or HackerRank), a 60-min eliminatory 'Business Phone Screen' with one LeetCode-Hard-ish problem, then a 4–6 round virtual onsite (sometimes a single-day in-person hiring drive in Bangalore) covering DSA, machine coding/LLD, HLD, hiring manager and often a bar raiser. Code must actually compile and pass interviewer-supplied test cases in both the DSA and machine-coding rounds. DSA leans on graphs/DSU, grids, intervals and design-style data structures; HLD prompts are domain-flavoured (stock-price alerting, Uber Eats discovery, popularity-ranked catalogues, carts, Splitwise, chat). The debrief needs unanimously positive feedback — HLD and machine coding are the rounds that most often sink otherwise strong L4 candidates.",
+    "rounds": [
+      {
+        "name": "Recruiter screen",
+        "type": "screen",
+        "duration": "15–30 min",
+        "what": "Background, tech stack (Java/Python/Go), reason for switching, backend vs frontend, role/location expectations. In India recruiters usually reach out on LinkedIn or via referral; they may send a HackerRank practice link before the loop.",
+        "probes": "Why Uber, YOE and level fit, notice period. A referral sometimes lets you skip the OA and go straight to the phone screen."
+      },
+      {
+        "name": "Online assessment",
+        "type": "oa",
+        "duration": "60–90 min",
+        "what": "CodeSignal 'GCA-style' test: 4 problems worth 300 points each (first two easy, last two medium-hard; graph/DP/string/spatial), 70–90 min; candidates report needing ~3.5/4 solved or roughly ≥725–800 of 850 to progress. Many late-2025/2026 India reports instead got HackerRank: 2 problems in 90 min with camera+mic on (one medium DP + one hard), or 3 problems in 65–75 min. Some Bangalore loops had a 60-min, 2-problem easy/medium CodeSignal test. Codility seen once.",
+        "probes": "Hidden test cases only; typical topics: graph/DSU, strings, 2D DP, BST, deques, sliding window, 'minimum edge reversals so every node is reachable', 'final prices with a special discount'."
+      },
+      {
+        "name": "Business Phone Screen (BPS) / eliminatory DSA screen",
+        "type": "dsa",
+        "duration": "60 min",
+        "what": "One LeetCode-Hard-ish problem on CodeSignal/HackerRank (Alien Dictionary, Find the Closest Palindrome, First Unique Number, Number of Islands II, Quad Tree, longest subarray with bounded diff, largest 1-bordered square, longest itinerary). Some screens open with 10–15 min on projects and backend concepts; a few are explicitly 'Coding + Design & Architecture' (≈45 min coding + 15 min HLD). Code must run against test cases.",
+        "probes": "Brute force → optimal progression with time/space for each step, base cases, follow-up optimisations; some interviewers give no hints and expect the optimal complexity (a binary-search answer where O(n²) was expected was marked down)."
+      },
+      {
+        "name": "Onsite DSA round(s)",
+        "type": "dsa",
+        "duration": "60 min each",
+        "what": "One LeetCode-Hard problem with follow-ups, or 2–3 mediums (e.g. Number of Islands → 3D variant → implement a 2D DSU; Cheapest Flights + Max Points from Cards). India loops usually have one onsite DSA round plus the BPS; US loops typically have two (one labelled 'bar raiser DSA'). Interviewers paste extra test cases and expect them to pass.",
+        "probes": "Implement DSU from scratch (path compression, union by rank/size) and explain it; trade-offs between DFS/BFS/DSU; time-vs-space optimised variants; constraint changes (per-entity parameters, read-heavy caching, maximise instead of minimise)."
+      },
+      {
+        "name": "Machine coding / LLD",
+        "type": "lld",
+        "duration": "60–90 min (one report of 45 min)",
+        "what": "Given a short problem statement (sometimes just two words, e.g. 'Design Facebook'), produce runnable, extensible OOP code for 3–4 features: train-platform scheduler, in-memory Twitter, Linux file-system commands, Kafka-like pub-sub queue, job scheduler, circuit breaker, parking lot, logger, K-V store with getRandom, TTL store, voter system. Own IDE is sometimes allowed; otherwise CodeSignal/HackerRank. In US L4 loops this slot is sometimes just another DS problem (e.g. Kth Smallest in BST).",
+        "probes": "Design patterns used and why (Strategy/Factory/Observer/Singleton), SOLID, how you keep the model minimal, then concurrency: thread-safety, locks/synchronized, race conditions, message ordering; interviewer cross-questions every design choice and expects a working demo."
+      },
+      {
+        "name": "HLD / System design (sometimes doubles as Bar Raiser)",
+        "type": "design",
+        "duration": "60 min",
+        "what": "Open-ended design: gather requirements, define actors/entities/schema, APIs, then scale, reliability, consistency, latency. Common prompts: stock price notification system, Uber Eats homepage/restaurant discovery, popularity-ranked e-commerce browse with offline pipeline, cart service, Splitwise, ChatGPT-like chat, Messenger/WhatsApp, Google Calendar, Redis-like cache. Some interviewers paste a written requirement list; some first ask you to explain a system you built from scratch and then pose a new problem. Whiteboard in HackerRank or Excalidraw.",
+        "probes": "Interviewer tightens latency or adds requirements mid-round forcing schema changes; scale estimation and shard keys; 'don't hit the DB per event'; where each store's data lives with concrete examples; consistency vs availability; Kafka vs RabbitMQ, push vs pull; dedup/idempotency, DLQs, thundering herd; geohashing/quadtrees explained plainly; for single-node prompts, do NOT bring up CAP."
+      },
+      {
+        "name": "Hiring Manager (Collaboration & Leadership)",
+        "type": "hm",
+        "duration": "60–75 min",
+        "what": "Deep dive into your most impactful project (architecture, DB design, decisions, timeline, delays) with heavy cross-questioning, then situational questions. Last ~15 min the HM pitches the team.",
+        "probes": "Conflict with stakeholders/manager, handling critical feedback from seniors or in code review, ownership and end-to-end delivery, mentoring, learning a new tech to ship, writing sub-optimal code under deadline, team overwork/stress, why Uber, why you left previous jobs. Many rejections happen here, so prepare concrete STAR stories."
+      },
+      {
+        "name": "Bar Raiser",
+        "type": "values",
+        "duration": "60 min",
+        "what": "Senior engineer from another team. Either a deeper HM-style retrospective (design decisions, trade-offs, alternatives, scalability/maintainability of your past systems) or the HLD round itself is designated the bar-raiser round. Present in several India L4 loops and compulsory at L5; some L4 loops had none.",
+        "probes": "Rapid-fire on past projects, resume and goals; monitoring/metrics for a REST service, push vs pull alerting; occasional mini-design ('penalise riders/drivers below monthly ride or rating thresholds'); checks consistency with answers in earlier rounds; moderates the debrief."
+      },
+      {
+        "name": "Debrief, team matching, offer",
+        "type": "other",
+        "duration": "4 days – 2 weeks (team match can add 10 days – 6 weeks)",
+        "what": "All interviewers debrief; unanimously positive feedback is required (one 'No Hire' in HLD or machine coding ended otherwise strong loops). Some teams additionally require at least one 'Strong Hire'. A negative machine-coding round may be re-taken rather than ending the loop. If the original req closes you are matched to other teams.",
+        "probes": "Hire call typically 4–7 days after the last round, offer letter ~1 week later; rejected candidates told to reapply after 6 months."
+      }
+    ],
+    "indiaNotes": "Bengaluru/Hyderabad L4 loops almost always include the 60–90 min machine-coding/LLD round (runnable code + concurrency), whereas US L4 loops often swap it for a second DS round or a 'specialisation' round. India also runs single-day in-person hiring drives at the Bangalore office (OA ~3 weeks before; screening + DSA + machine coding + HLD + HM all between 9am and 6pm; one drive required at least one 'Strong Yes'). Platform shifted: 2024–mid-2025 reports are CodeSignal; late-2025/2026 India reports say all rounds (OA and interviews) were on HackerRank with a practice link sent beforehand, and the OA needs camera+mic. Rounds may be spread over several weeks (one loop took 8 weeks: screen week 1, DSA+LLD week 2, leadership week 4, HLD week 5, debrief week 6, team match week 7, offer week 8) and scheduling can be chaotic (interviewers late, cameras off). Hyderabad SSE loops mirror Bangalore (90-min machine coding, DSA, HLD, HM, bar raiser). Problems are often skinned in Uber vocabulary (cab-sharing logs, driver/cab subarrays, delivery zones, trip groups). Amsterdam/EU: recruiter screen → one 1:1 LeetCode-Hard coding round with an engineer (correct-first-try bar is strict) → loop of 2 coding + architecture/design + culture/behavioral; graduate program = OA + 60-min DSA + system design + behavioral. Sofia/São Paulo loops: phone screen + 4–5 interviews (2 coding, design & architecture, collaboration & leadership).",
+    "timeline": "Typically 4–8 weeks end to end; fastest reports ~1 month (recruiter call → OA → screen → 4 onsite rounds → hire call a week after HM → offer a week later), slowest ~2 months with 10-day gaps that needed candidate follow-up emails. US loops often finish in ~3 weeks; team matching for new grads/US can add 1.5 months.",
+    "tips": [
+      "Write code that actually compiles and passes pasted test cases in a plain editor — Uber requires runnable solutions in both DSA and machine coding; two of four rounds in one 2026 loop ended with partially tested code.",
+      "Narrate brute force → optimised → optimal with time/space at each step and state base cases; interviewers grade the progression, not just the final code.",
+      "Be able to implement Disjoint Set Union from scratch (path compression + union by rank/size) and explain it — several interviewers specifically wanted Union-Find over DFS/BFS (cab-sharing logs, delivery zones, Number of Islands II, earliest full connectivity).",
+      "Practise Uber-tagged LeetCode from the last 6 months: multiple 2025–26 candidates said their screen/onsite problems were '99% similar' (Alien Dictionary, First Unique Number, Design Hit Counter, My Calendar I, Closest Palindrome, Quad Tree, 1438).",
+      "Machine coding: spend ~15–20 min scoping APIs/classes/strategies, then code to a running state by minute 40 and use the rest for edge cases and refactoring; candidates who jumped straight into code (train scheduler) or over-discussed design (parking lot, 40 min of UML) got negative feedback.",
+      "Expect a concurrency follow-up in machine coding: thread-safe singleton store, locks around shared maps, publisher/consumer threads, TTL expiry — practise writing thread-safe code in your language.",
+      "In HLD, do rigorous scale estimation, pick shard keys (stock symbol, user, region), avoid per-event DB lookups, say exactly what each datastore holds with example rows, and be ready for the interviewer to tighten latency or add requirements mid-round.",
+      "Know messaging trade-offs cold: Kafka vs RabbitMQ, push vs pull, at-most/at-least-once, dedup and idempotency keys, DLQs, thundering-herd at market open; and be able to explain geohashing/quadtrees/H3 to a non-expert.",
+      "Prepare a written 'work document' of 2–3 projects in STAR form with metrics; the HM and bar raiser cross-question architecture decisions, stakeholder conflict, code-review feedback and ownership, and rejections at HM are common.",
+      "If a round feels shaky, keep going — the debrief needs no 'No Hire', but a negative machine-coding round has been re-taken rather than ending the loop; cooloff after rejection is 6 months."
+    ],
+    "notes": "Any language is fine (C++, Java, Python, Go all reported; one candidate switched Java→C++ mid-round). Code is run live on CodeSignal/HackerRank (compilation disabled in one 'problem solving' round, so mental validation mattered). The HLD round has no coding. Round names you will hear: BPS (Business Phone Screen), C1 (DSA), C2 (machine coding / 'depth in specialisation'), 'Design & Architecture' (HLD), 'Collaboration & Leadership' (HM). HLD is the most common failing round for L4 candidates (one 2026 interviewer group had HLD 'No Hire' while every other round was Hire/Strong Hire). Senior/Staff loops add a 'technical retrospective' round. Frontend and Android L4 loops share the BPS, DSA and HM rounds but replace machine coding/HLD with platform-specific rounds (not covered here). Blocked/unreadable sources: uber.com/careers/interviewing (permission not granted), leetcode.com/discuss/post/8155118 (the SDE-2 Bangalore full-stack offer write-up), some Blind threads returned errors, and 1point3acres write-ups are login-gated (only titles/summaries used).",
+    "sources": [
+      {
+        "title": "Uber Interview Experience (Software Engineer II) – 6 rounds, HLD No Hire (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/post/8243609/uber-interview-experiencesoftware-engine-8hqs/",
+        "date": "2026"
+      },
+      {
+        "title": "Uber SDE-2 (L4) interview Feb–Mar 2026 (interviewexperiences.in)",
+        "url": "https://interviewexperiences.in/experience/uber/uber-sde-2-l4-interview-2026-pending-results",
+        "date": "2026-03"
+      },
+      {
+        "title": "Uber SDE II interview experience Nov 2025, all rounds on HackerRank (interviewexperiences.in)",
+        "url": "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025",
+        "date": "2026-03"
+      },
+      {
+        "title": "Interview Experience: SDE2 Uber Nov 2025 (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/post/7672800/interview-experience-sde2-uber-nov-2025-v0b3r/",
+        "date": "2025-11"
+      },
+      {
+        "title": "Uber SDE-2 Interview Experience | L4 | Bangalore (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/interview-experience/7182332/",
+        "date": "2025"
+      },
+      {
+        "title": "Uber L4 (SDE-2) Interview Experience – 8-week timeline (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/interview-experience/7406341/",
+        "date": "2025-12"
+      },
+      {
+        "title": "Uber L4 Interview Experience – US – Offer (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/interview-experience/7217970/",
+        "date": "2025"
+      },
+      {
+        "title": "Uber L4 (SDE-2 Backend) Interview Experience (OFFER) (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/post/7706639/uber-l4-sde-2-interview-experience-offer-r0k1/",
+        "date": "2025"
+      },
+      {
+        "title": "Uber SDE II Backend, June 2026 loop, rejected (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/post/8509983/",
+        "date": "2026-08"
+      },
+      {
+        "title": "Uber L4 interview experience | Accepted – 5.5 YOE (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/interview-experience/7381396",
+        "date": "2025-11"
+      },
+      {
+        "title": "UBER SDE2 Interview | Rejected (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/interview-experience/7423162",
+        "date": "2025-12"
+      },
+      {
+        "title": "Uber SDE 2 Interview Experience – Alien Dictionary round 1 (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/interview-experience/7327020",
+        "date": "2025-11"
+      },
+      {
+        "title": "Uber Software Engineer II (SE-2) Bangalore (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/post/7300207/uber-software-engineer-ii-se-2-bangalore-wyl8/",
+        "date": "2025"
+      },
+      {
+        "title": "Uber SDE-2 Backend interview exp (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/post/7193626/uber-sde-2-backend-interview-exp-by-anon-i2r9/",
+        "date": "2025"
+      },
+      {
+        "title": "Uber SDE2 | Onsite Hiring Drive | Bangalore (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/post/5807498/Uber-SDE2-Chances-or-Onsite-Hiring-Drive-or-Bangalore/",
+        "date": "2024"
+      },
+      {
+        "title": "Uber interview experience – OA and phone screen, Bangalore drive (LeetCode Discuss)",
+        "url": "https://leetcode.com/discuss/post/7578312/uber-interview-experience-oa-and-phone-s-z9hr/",
+        "date": "2025"
+      },
+      {
+        "title": "Uber Interview Experience L4 (SDE2-Backend) December 2024 (Medium)",
+        "url": "https://medium.com/@laxmankumarmegwal/uber-interview-experience-l4-sde2-backend-december-2024-da0f059c230e",
+        "date": "2025-01"
+      },
+      {
+        "title": "My Uber SDE-2 Interview Experience (Not Selected) (Medium)",
+        "url": "https://medium.com/@surabhimanit16/my-uber-sde-2-interview-experience-not-selected-but-worth-sharing-3c938e0625cb",
+        "date": "2026-02"
+      },
+      {
+        "title": "My Uber SWE-2 Interview Experience (Medium)",
+        "url": "https://medium.com/@jarsaniatirth/my-uber-swe-2-interview-experience-bc7c7cc68763",
+        "date": "2025-06"
+      },
+      {
+        "title": "Embracing Growth: My Uber SDE2 Interview Experience (Medium)",
+        "url": "https://medium.com/@singhaltanisha26/embracing-growth-my-uber-sde2-interview-experience-5a8c21197839",
+        "date": "2025-02"
+      },
+      {
+        "title": "I Failed Uber's System Design Interview Last Month (Medium)",
+        "url": "https://medium.com/@emilyhustlenyc/i-failed-ubers-system-design-interview-last-month-here-s-every-question-they-asked-bdaf1bd6e64b",
+        "date": "2026-02"
+      },
+      {
+        "title": "Uber L4 Interview experience, June 2024 (Medium)",
+        "url": "https://khaniqbal.medium.com/uber-l4-interview-experience-5350c0e5918d",
+        "date": "2024-09"
+      },
+      {
+        "title": "Interview Experience – 65 – Uber SDE2 L4 India (Roundz)",
+        "url": "https://roundz.substack.com/p/interview-experience-65-uber-sde2-l4",
+        "date": "2025-05"
+      },
+      {
+        "title": "Interview Experience – 169 – Uber SDE2 Bangalore (Roundz)",
+        "url": "https://roundz.substack.com/p/interview-experience-169-uber-sde2",
+        "date": "2025-08"
+      },
+      {
+        "title": "Interview Experience – 131 – Uber Senior SDE Hyderabad (Roundz)",
+        "url": "https://roundz.substack.com/p/interview-experience-131-uber-senior-sde",
+        "date": "2025-07"
+      },
+      {
+        "title": "Interview Experience – 87 – Uber SDE2 L4 Bangalore (Roundz)",
+        "url": "https://roundz.substack.com/p/interview-experience-87-uber-sde2-l4",
+        "date": "2025-05"
+      },
+      {
+        "title": "Uber Software Engineer Interview Experience (L4/L5, 2025–2026) (InterviewPilot)",
+        "url": "https://interviewpilot.dev/interview-experiences/uber",
+        "date": "2025"
+      },
+      {
+        "title": "Uber SDE-2 interview experience India (interviewexperiences.in)",
+        "url": "https://interviewexperiences.in/experience/uber/uber-sde-2-interview-experience-india",
+        "date": "2025-06"
+      },
+      {
+        "title": "Uber Interview Experience for SDE-1 (Off-Campus) (GeeksforGeeks)",
+        "url": "https://www.geeksforgeeks.org/interview-experiences/uber-interview-experience-for-sde-1-off-campus/",
+        "date": "2026-02"
+      },
+      {
+        "title": "Uber Interview Questions & Experiences 2026 – 70 LeetCode reports indexed (CodingKaro)",
+        "url": "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Uber",
+        "date": "2025-12"
+      },
+      {
+        "title": "Uber Software Engineer II Interview Questions (Glassdoor)",
+        "url": "https://www.glassdoor.com/Interview/Uber-Software-Engineer-II-Interview-Questions-EI_IE575263.0,4_KO5,25.htm",
+        "date": "2026-08"
+      },
+      {
+        "title": "Uber Software Engineer II SDE2 Interview Questions (Glassdoor)",
+        "url": "https://www.glassdoor.com/Interview/Uber-Software-Engineer-II-SDE2-Interview-Questions-EI_IE575263.0,4_KO5,30.htm",
+        "date": "2025-05"
+      },
+      {
+        "title": "Uber Senior Software Engineer Interview Questions (Glassdoor)",
+        "url": "https://www.glassdoor.com/Interview/Uber-Senior-Software-Engineer-Interview-Questions-EI_IE575263.0,4_KO5,29.htm",
+        "date": "2026-06"
+      },
+      {
+        "title": "Uber Interview Questions in Bangalore (Glassdoor)",
+        "url": "https://www.glassdoor.com/Interview/Uber-Bangalore-Interview-Questions-EI_IE575263.0,4_IL.5,14_IM1091.htm",
+        "date": "2026-06"
+      },
+      {
+        "title": "UBER Interview -> Offer, L4 3 YOE (Blind)",
+        "url": "https://www.teamblind.com/post/uber-interview-offer-c0qv0qnk",
+        "date": "2025"
+      },
+      {
+        "title": "Uber SDE 2 chances – India hiring drive, machine coding negative (Blind)",
+        "url": "https://www.teamblind.com/post/uber-sde-2-chances-tbrdrhov",
+        "date": "2025"
+      },
+      {
+        "title": "Uber machine coding SDE2 (Blind)",
+        "url": "https://www.teamblind.com/post/uber-machine-coding-sde2-wpsjxavh",
+        "date": "2024"
+      },
+      {
+        "title": "Uber LLD: any last minute advice? (Blind)",
+        "url": "https://www.teamblind.com/post/uber-lld-any-last-minute-advice-7ktdo4c1",
+        "date": "2024"
+      },
+      {
+        "title": "Uber OA CodeSignal score 822 (Blind)",
+        "url": "https://www.teamblind.com/post/uber-oa-codesignal-score-822-5chqwoeg",
+        "date": "2024"
+      },
+      {
+        "title": "Uber onsite bar raiser round (Blind)",
+        "url": "https://www.teamblind.com/post/uber-onsite-bar-raiser-round-5a23z7ah",
+        "date": "2024"
+      },
+      {
+        "title": "Uber SDE-2 Interview Experience, United States, Sept 2025 (Taro)",
+        "url": "https://www.jointaro.com/interviews/companies/uber/experiences/sde-2-united-states-september-1-2025-no-offer-positive-f273e204/",
+        "date": "2025-09"
+      },
+      {
+        "title": "Uber Software Engineer Interview, Amsterdam, Dec 2024 (Taro)",
+        "url": "https://www.jointaro.com/interviews/companies/uber/experiences/software-engineer-amsterdam-december-1-2024-no-offer-negative-d09f9ae3/",
+        "date": "2024-12"
+      },
+      {
+        "title": "Uber Software Developer Graduate Program, Amsterdam, Mar 2025 (Taro)",
+        "url": "https://www.jointaro.com/interviews/companies/uber/experiences/software-developer-graduate-program-amsterdam-march-21-2025-no-offer-positive-397c766c/",
+        "date": "2025-03"
+      },
+      {
+        "title": "Uber interview process – bar raiser moderates debrief (IGotAnOffer)",
+        "url": "https://igotanoffer.com/en/advice/uber-interview-process",
+        "date": "2025"
+      },
+      {
+        "title": "Uber's interview process & questions in 2025 (Educative)",
+        "url": "https://www.educative.io/blog/uber-interview-process-and-questions",
+        "date": "2025"
+      },
+      {
+        "title": "Uber Interview Questions (2026) (LastRound AI)",
+        "url": "https://lastroundai.com/interview-questions/uber",
+        "date": "2026"
+      },
+      {
+        "title": "Uber Interview Questions (Updated 2026) (LeakCode)",
+        "url": "https://leakcode.dev/company/uber",
+        "date": "2026-05"
+      },
+      {
+        "title": "Uber Coding & Algorithms Questions (PracHub)",
+        "url": "https://prachub.com/companies/uber/categories/coding-and-algorithms",
+        "date": "2026-09"
+      },
+      {
+        "title": "Uber SDE-2 Interview Experience featuring LLD and HLD Rounds (1point3acres, gated)",
+        "url": "https://www.1point3acres.com/interview/post/7896720",
+        "date": "2026"
+      },
+      {
+        "title": "Uber SDE 2 Interview Experience: OA, DSA, LLD, and HLD Rounds (1point3acres, gated)",
+        "url": "https://www.1point3acres.com/interview/post/7845489",
+        "date": "2026-04"
+      }
+    ]
+  },
+  "dsa": [
+    {
+      "title": "Alien Dictionary",
+      "lcId": 269,
+      "url": "https://leetcode.com/problems/alien-dictionary/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Graph",
+        "Topological Sort"
+      ],
+      "statement": "",
+      "variant": "Asked 'with some changes' at a Bangalore hiring drive; interviewer pushes on optimisations and exact time/space; one hour, must run test cases.",
+      "evidence": "BPS round Feb–Mar 2026 (Strong Hire); round-1 coding Nov 2025; Bangalore hiring-drive screening; US phone screen (L4 offer); Glassdoor Bengaluru Senior MLE May 2026.",
+      "recency": "2026-05",
+      "sources": [
+        "https://interviewexperiences.in/experience/uber/uber-sde-2-l4-interview-2026-pending-results",
+        "https://leetcode.com/discuss/interview-experience/7327020",
+        "https://leetcode.com/discuss/post/5807498/Uber-SDE2-Chances-or-Onsite-Hiring-Drive-or-Bangalore/",
+        "https://leetcode.com/discuss/interview-experience/7217970/",
+        "https://www.glassdoor.com/Interview/Uber-Bangalore-Interview-Questions-EI_IE575263.0,4_IL.5,14_IM1091.htm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Longest Continuous Subarray With Absolute Diff ≤ Limit",
+      "lcId": 1438,
+      "url": "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "Monotonic Deque"
+      ],
+      "statement": "",
+      "variant": "Skinned as a driver/cab problem in the elimination round; interviewer wanted the full ladder O(n^4) → O(n^3) → two-pointer with min/max → O(n) with two monotonic deques, plus base cases and complexity at each step.",
+      "evidence": "Elimination round (Bangalore L4 offer, 2025); onsite DSA round Dec 2024.",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7182332/",
+        "https://medium.com/@laxmankumarmegwal/uber-interview-experience-l4-sde2-backend-december-2024-da0f059c230e"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Cab-sharing logs: earliest moment everyone is connected (DSU)",
+      "lcId": 1101,
+      "url": "https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Union-Find",
+        "Graph",
+        "Parsing"
+      ],
+      "statement": "",
+      "variant": "Uber skin: logs like 'UserA-Shared-UserB-timestamp' (12-digit timestamps, you must parse them and build the graph). Part 1: after each log, how many cabs (components) are running. Part 2: first timestamp when all riders are in one cab. Follow-up: riders can block each other and a block can break a connection — DSU doesn't support deletes, discuss BFS/offline alternatives. Expected to implement DSU with path compression + union by rank from scratch.",
+      "evidence": "Coding round (SE-II, Hire); Round 1 DSA Bangalore L4 offer; Coding Round 1 SDE-1 off-campus Feb 2026 (Strong Hire).",
+      "recency": "2026-02",
+      "sources": [
+        "https://leetcode.com/discuss/post/8243609/uber-interview-experiencesoftware-engine-8hqs/",
+        "https://leetcode.com/discuss/interview-experience/7182332/",
+        "https://www.geeksforgeeks.org/interview-experiences/uber-interview-experience-for-sde-1-off-campus/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Number of Islands II",
+      "lcId": 305,
+      "url": "https://leetcode.com/problems/number-of-islands-ii/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Union-Find",
+        "Grid"
+      ],
+      "statement": "",
+      "variant": "Cells are added one at a time and the island count is reported after each; interviewers expect Union-Find (union by rank + path compression), not a re-run of DFS per query — a 'working but not optimal' solution was marked down.",
+      "evidence": "Screening round Feb 2026 (variation); phone screen India SDE-2 June 2025; onsite DSA (frontend L4); PracHub Sep 2026 listing.",
+      "recency": "2026-09",
+      "sources": [
+        "https://medium.com/@surabhimanit16/my-uber-sde-2-interview-experience-not-selected-but-worth-sharing-3c938e0625cb",
+        "https://interviewexperiences.in/experience/uber/uber-sde-2-interview-experience-india",
+        "https://leetcode.com/discuss/post/7322609/",
+        "https://prachub.com/companies/uber/categories/coding-and-algorithms"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Number of Islands (+ 3D variant, 2D DSU, delivery-zones skin)",
+      "lcId": 200,
+      "url": "https://leetcode.com/problems/number-of-islands/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Grid",
+        "BFS/DFS",
+        "Union-Find"
+      ],
+      "statement": "",
+      "variant": "One 2025 onsite asked three parts in 60 min: 2D islands, then a 3D grid version, then implement a 2D DSU (candidate also discussed Ackermann complexity). Another skin: M×N grid of open restaurants, implement countDeliveryZones() plus helpers hasOpenRestaurant/countOpenRestaurants/openRestaurant — interviewer wanted Union-Find because cells get opened dynamically.",
+      "evidence": "Coding Round 1 (L4 backend offer, Strong Hire++); L4 virtual onsite 2025 (grid clustering).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/7706639/uber-l4-sde-2-interview-experience-offer-r0k1/",
+        "https://interviewpilot.dev/interview-experiences/uber"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Find the Closest Palindrome",
+      "lcId": 564,
+      "url": "https://leetcode.com/problems/find-the-closest-palindrome/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Math",
+        "String"
+      ],
+      "statement": "",
+      "variant": "Used as the US 'bar raiser DSA' round with relentless follow-ups, and as the screening problem for an L4 hire. Related variant asked separately: smallest palindrome strictly greater than n (see below).",
+      "evidence": "US L4 onsite round I (offer); screening round for L4 accepted (Nov 2025).",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7217970/",
+        "https://leetcode.com/discuss/interview-experience/7381396"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Construct Quad Tree",
+      "lcId": 427,
+      "url": "https://leetcode.com/problems/construct-quad-tree/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Divide and Conquer",
+        "Tree",
+        "Recursion"
+      ],
+      "statement": "",
+      "variant": "Described as 'LC Hard Quad Tree' in a Dec 2025 screen. A May 2026 phone screen asked to build a quadtree from scratch over a grid not limited to 0/1 values (candidate got stuck building leaves before parents; a top-down recursion and asking whether side length is a power of two unlocks it).",
+      "evidence": "Week-1 DSA screening (L4 offer, Dec 2025); US new-grad phone screen May 2026.",
+      "recency": "2026-05",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7406341/",
+        "https://leakcode.dev/company/uber"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "First Unique Number",
+      "lcId": 1429,
+      "url": "https://leetcode.com/problems/first-unique-number/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Design",
+        "Hash Map",
+        "Queue"
+      ],
+      "statement": "",
+      "variant": "'99% similar' to LeetCode; PracHub lists it as 'earliest ID seen exactly once' with post/query operations (Aug 2026).",
+      "evidence": "BPS round, SDE II backend June 2026 (Hire); PracHub Aug 2026.",
+      "recency": "2026-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/8509983/",
+        "https://prachub.com/companies/uber/categories/coding-and-algorithms"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Design Hit Counter (per-element variant)",
+      "lcId": 362,
+      "url": "https://leetcode.com/problems/design-hit-counter/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Design",
+        "Queue",
+        "Sliding Window"
+      ],
+      "statement": "",
+      "variant": "Methods were put(element), getCount(element) and getTotalCount() over a time window — i.e. hit counter keyed per element plus a global count. Closely related to the 'TTL data structure' machine-coding prompt (see lld).",
+      "evidence": "Onsite DSA round 1, SDE II backend June 2026 (Hire).",
+      "recency": "2026-06",
+      "sources": [
+        "https://leetcode.com/discuss/post/8509983/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "My Calendar I",
+      "lcId": 729,
+      "url": "https://leetcode.com/problems/my-calendar-i/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Design",
+        "Intervals",
+        "Ordered Map"
+      ],
+      "statement": "",
+      "variant": "'99% similar' in a June 2026 onsite DSA round (candidate got No Hire). An older L4 loop labelled a My-Calendar-style booking problem as its 'machine coding' question.",
+      "evidence": "Onsite DSA round 3, June 2026; L4 SDE-2 offer write-up (older).",
+      "recency": "2026-06",
+      "sources": [
+        "https://leetcode.com/discuss/post/8509983/",
+        "https://leetcode.com/discuss/post/2031251/Uber-Experience-or-L4-or-SDE-2/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Currency conversion rates (Evaluate Division) with read-heavy and max-rate follow-ups",
+      "lcId": 399,
+      "url": "https://leetcode.com/problems/evaluate-division/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "BFS",
+        "Dijkstra"
+      ],
+      "statement": "",
+      "variant": "Given [source, target, rate] triples, answer rate queries or -1.0. Follow-up 1: rates change ~once a day but millions of reads/sec — precompute/cache all pairs asynchronously instead of traversing per query. Follow-up 2: return the MAXIMUM achievable rate across paths — Dijkstra with a max-heap and multiplicative relaxation (maxRate[next] < maxRate[cur] * rate).",
+      "evidence": "C1/DSA round Feb–Mar 2026 (Strong Hire); LinkJob and TechPrep 2026 guides list 'maximum arbitrage / currency conversion'.",
+      "recency": "2026-03",
+      "sources": [
+        "https://interviewexperiences.in/experience/uber/uber-sde-2-l4-interview-2026-pending-results",
+        "https://www.linkjob.ai/interview-questions/uber-coding-interview/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Kth Smallest Element in a BST",
+      "lcId": 230,
+      "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "BST",
+        "Tree"
+      ],
+      "statement": "",
+      "variant": "Appeared in the US onsite slot labelled 'LLD' — it was a plain DS round: easy base problem with a medium follow-up (frequent-query optimisation via subtree sizes).",
+      "evidence": "US L4 onsite round III (offer).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7217970/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Rotting Oranges (multi-source BFS)",
+      "lcId": 994,
+      "url": "https://leetcode.com/problems/rotting-oranges/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Grid",
+        "BFS"
+      ],
+      "statement": "",
+      "variant": "Asked as a graph problem 'resembling rotten oranges'; candidate identified multi-source BFS but failed to finish the implementation in time.",
+      "evidence": "DSA round, Bangalore SDE2, Aug 2024 (not selected).",
+      "recency": "2024-08",
+      "sources": [
+        "https://medium.com/@singhaltanisha26/embracing-growth-my-uber-sde2-interview-experience-5a8c21197839"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Largest 1-Bordered Square",
+      "lcId": 1139,
+      "url": "https://leetcode.com/problems/largest-1-bordered-square/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Grid",
+        "Prefix Sums",
+        "DP"
+      ],
+      "statement": "",
+      "variant": "Interviewer expected the ladder O(n^4) brute force → O(n^3) using prefix counts of consecutive 1s, verbalised before coding.",
+      "evidence": "Eliminatory DSA screen, L4 backend Dec 2024 (passed with a hint).",
+      "recency": "2024-12",
+      "sources": [
+        "https://medium.com/@laxmankumarmegwal/uber-interview-experience-l4-sde2-backend-december-2024-da0f059c230e"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Cheapest Flights Within K Stops",
+      "lcId": 787,
+      "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "Bellman-Ford",
+        "Dijkstra"
+      ],
+      "statement": "",
+      "variant": "Paired with Maximum Points You Can Obtain from Cards in a single 60-min coding round; interviewer insisted on stating time/space before coding.",
+      "evidence": "Coding 1 round, SE-2 Bangalore (offer).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/7300207/uber-software-engineer-ii-se-2-bangalore-wyl8/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Maximum Points You Can Obtain from Cards",
+      "lcId": 1423,
+      "url": "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "Prefix Sum"
+      ],
+      "statement": "",
+      "variant": "Second problem of the same Coding-1 round as Cheapest Flights.",
+      "evidence": "Coding 1 round, SE-2 Bangalore (offer).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/7300207/uber-software-engineer-ii-se-2-bangalore-wyl8/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Shortest Way to Form String (min repetitions of s so t is a subsequence)",
+      "lcId": 1055,
+      "url": "https://leetcode.com/problems/shortest-way-to-form-string/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Greedy",
+        "Two Pointers",
+        "String"
+      ],
+      "statement": "",
+      "variant": "Phrased as: minimum number of times s must be appended to itself so that t is a subsequence (s='boy', t='oyb' → 2). Candidate solved it with DP; greedy two-pointer / next-occurrence table is the optimal approach.",
+      "evidence": "Technical screening, SE-2 Bangalore (offer).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/7300207/uber-software-engineer-ii-se-2-bangalore-wyl8/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Find Median from Data Stream + 'loose median' follow-up",
+      "lcId": 295,
+      "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Heap",
+        "Design",
+        "Streaming"
+      ],
+      "statement": "",
+      "variant": "Follow-up: return any value within the power-of-two bucket containing the true median (for 1 2 3 5 6 7 8 the median 5 lies in [4,8], so any of 4..8 is accepted) in O(1) time and O(1) space — bucket counts by power-of-two ranges.",
+      "evidence": "Virtual onsite coding round, SDE-2 Bangalore offer (2024); EngineBogie SDE-2 write-up lists 'median, streaming data, heaps'.",
+      "recency": "2024",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/4854590/Uber-or-SDE-2-or-Offer-or-Bangalore/",
+        "https://enginebogie.com/interview/experience/uber-software-development-engineer-2/143"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Bus Routes",
+      "lcId": 815,
+      "url": "https://leetcode.com/problems/bus-routes/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Graph",
+        "BFS"
+      ],
+      "statement": "",
+      "variant": "Key insight interviewers hint at: model routes (not stops) as nodes and BFS over routes. Needing the hint counted against a Blind poster in a phone screen.",
+      "evidence": "Highest-frequency Uber tag on LeetCode (3-month window, July 2026 snapshot); direct reports are older (L4 SDE-2 onsite coding ~2022; Blind senior phone screen) and every 2026 aggregator lists it first.",
+      "recency": "2026-07",
+      "sources": [
+        "https://leetcode.com/discuss/post/2031251/Uber-Experience-or-L4-or-SDE-2/",
+        "https://www.teamblind.com/post/uber-tech-interview-p8jpuuyv",
+        "https://www.techprep.app/companies/uber"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Minimum Edge Reversals So Every Node Is Reachable",
+      "lcId": 2858,
+      "url": "https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Tree",
+        "DP on Trees",
+        "Rerooting"
+      ],
+      "statement": "",
+      "variant": "Appeared as an OA problem ('similar to') for a Bangalore L4 hiring drive.",
+      "evidence": "OA before Bangalore in-person drive (L4, rejected at phone screen).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/7578312/uber-interview-experience-oa-and-phone-s-z9hr/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Final Prices With a Special Discount in a Shop (OA)",
+      "lcId": 1475,
+      "url": "https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "Monotonic Stack",
+        "Array"
+      ],
+      "statement": "",
+      "variant": "HackerRank OA version also asks for the indexes of items that paid full price (e.g. [5,1,3,4,6,2] → total 14, full-price indexes 1 and 5).",
+      "evidence": "HackerRank OA, Bengaluru, Dec 2025 (Glassdoor).",
+      "recency": "2025-12",
+      "sources": [
+        "https://www.glassdoor.com/Interview/Uber-Bangalore-Interview-Questions-EI_IE575263.0,4_IL.5,14_IM1091.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Longest Path With Different Adjacent Characters",
+      "lcId": 2246,
+      "url": "https://leetcode.com/problems/longest-path-with-different-adjacent-characters/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Tree",
+        "DFS",
+        "DP on Trees"
+      ],
+      "statement": "",
+      "variant": "",
+      "evidence": "Round 1 DSA, India SDE-2 (3.9 YOE), mid-2025.",
+      "recency": "2025-06",
+      "sources": [
+        "https://interviewexperiences.in/experience/uber/uber-sde-2-interview-experience-india"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Sliding Window Maximum",
+      "lcId": 239,
+      "url": "https://leetcode.com/problems/sliding-window-maximum/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Monotonic Deque",
+        "Sliding Window"
+      ],
+      "statement": "",
+      "variant": "Aggregators mention a 'demand-signal' skin in OAs.",
+      "evidence": "SDE-2 coding round in a 2026 1point3acres loop (LLD parking lot + HLD stock subscription in the same loop); TechPrep/LastRound 2026 lists.",
+      "recency": "2026",
+      "sources": [
+        "https://www.1point3acres.com/interview/post/7896720",
+        "https://www.techprep.app/companies/uber"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Top K Frequent Elements / heavy hitters in a stream",
+      "lcId": 347,
+      "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Heap",
+        "Bucket Sort",
+        "Streaming"
+      ],
+      "statement": "",
+      "variant": "Walk through min-heap O(N log K) vs bucket sort O(N), then the streaming variant where numbers keep arriving; senior follow-ups: approximate counts with count-min sketch and scale across machines.",
+      "evidence": "Senior phone screen June 2026 (Glassdoor); Senior SF onsite Sep 2026 (LockedIn); dataford guide.",
+      "recency": "2026-09",
+      "sources": [
+        "https://www.glassdoor.com/Interview/Uber-Senior-Software-Engineer-Interview-Questions-EI_IE575263.0,4_KO5,29.htm",
+        "https://www.lockedinai.com/company-details/UBER",
+        "https://dataford.io/interview-guides/uber/software-engineer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Candy",
+      "lcId": 135,
+      "url": "https://leetcode.com/problems/candy/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Greedy",
+        "Array"
+      ],
+      "statement": "",
+      "variant": "'Similar to' Candy; optimal two-pass greedy expected and test cases run.",
+      "evidence": "Coding round 1, L4 June 2024.",
+      "recency": "2024-06",
+      "sources": [
+        "https://khaniqbal.medium.com/uber-l4-interview-experience-5350c0e5918d"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Furthest Building You Can Reach",
+      "lcId": 1642,
+      "url": "https://leetcode.com/problems/furthest-building-you-can-reach/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Heap",
+        "Greedy"
+      ],
+      "statement": "",
+      "variant": "",
+      "evidence": "Coding round 2, L4 June 2024.",
+      "recency": "2024-06",
+      "sources": [
+        "https://khaniqbal.medium.com/uber-l4-interview-experience-5350c0e5918d"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Boundary of an N-ary tree (anti-clockwise)",
+      "lcId": 545,
+      "url": "https://leetcode.com/problems/boundary-of-binary-tree/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "BFS/DFS"
+      ],
+      "statement": "",
+      "variant": "N-ary (not binary) tree: print left boundary, leaves, right boundary in anti-clockwise order; candidates used BFS level-ends plus leaf DFS.",
+      "evidence": "DSA round, Hyderabad SSE loop (2025); SDE-2 DSA round Dec 2023.",
+      "recency": "2025-07",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-131-uber-senior-sde",
+        "https://medium.com/@neeraj_swe/uber-sde-2-interview-experience-5523a2c7a268"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Encode and Decode Strings (serialize a list of arbitrary strings)",
+      "lcId": 271,
+      "url": "https://leetcode.com/problems/encode-and-decode-strings/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Strings may contain any characters, so a length-prefix or escaping scheme is required.",
+      "evidence": "DSA round, Hyderabad SSE loop (2025).",
+      "recency": "2025-07",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-131-uber-senior-sde"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Word Ladder as 'minimum transitions between network nodes'",
+      "lcId": 127,
+      "url": "https://leetcode.com/problems/word-ladder/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Graph",
+        "BFS"
+      ],
+      "statement": "",
+      "variant": "Nodes are 4-digit codes; two nodes are adjacent if codes differ in exactly one digit; you may only pass through an 'activated list'; return min transitions or -1. BFS over an implicit graph; aggregators mention a bidirectional-BFS follow-up.",
+      "evidence": "BPS round (45 min coding + 15 min HLD), SDE-1 off-campus Feb 2026; LastRound 2024–25 phone screens.",
+      "recency": "2026-02",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/uber-interview-experience-for-sde-1-off-campus/",
+        "https://lastroundai.com/interview-questions/uber"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Escape the Spreading Fire (poison-gas grid, max safe wait time)",
+      "lcId": 2258,
+      "url": "https://leetcode.com/problems/escape-the-spreading-fire/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Grid",
+        "Multi-source BFS",
+        "Binary Search on Answer"
+      ],
+      "statement": "",
+      "variant": "Skinned as cells 0=empty, 1=poisonous gas spreading 4-directionally each second, 2=wall; maximum seconds you can wait at (0,0) and still reach (n-1,m-1). Intended: multi-source BFS for gas arrival times + binary search on the wait. A Nov 2025 Bengaluru intern round had a similar BFS + binary search problem ('like CSES Monsters').",
+      "evidence": "Intern round 2 (PPO offer, 2025); Bengaluru SDE-intern Nov 2025.",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/post/7605181/how-i-got-a-6-month-sde-internship-ppo-a-qofy/",
+        "https://www.jointaro.com/interviews/companies/uber/experiences/sde-intern-bengaluru-karnataka-november-10-2025-no-offer-positive-f44f02ba/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Predict the Winner / optimal strategy for a corner-pick game",
+      "lcId": 486,
+      "url": "https://leetcode.com/problems/predict-the-winner/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "DP",
+        "Game Theory",
+        "Minimax"
+      ],
+      "statement": "",
+      "variant": "Two players alternately take a value from either end of the array; return the maximum total the first player can secure assuming optimal opponent (sum version rather than boolean). Interviewer wanted the minimax reasoning stated clearly, then memoised recursion.",
+      "evidence": "DSA round, SDE II Nov 2025 (selected).",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/post/7672800/interview-experience-sde2-uber-nov-2025-v0b3r/",
+        "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Optimal Binary Search Tree over weighted words",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "DP on Intervals",
+        "Trees"
+      ],
+      "statement": "You are given distinct words with positive costs. Build a BST whose inorder traversal is the words in lexicographic order and whose total cost is minimal, where a word at depth L (root = 0) contributes (L+1) × cost. Return the minimum total cost (and optionally the tree). Classic Optimal BST: sort the words, dp[i][j] = min over roots r of dp[i][r-1] + dp[r+1][j] + sum of costs in [i..j]; O(n^3) with prefix sums, Knuth optimisation optional.",
+      "variant": "Two candidates in late 2025 / early 2026 hit this in the screening or 'backend problem solving' round and called it the hardest round; one ran out of time for the planned system-design part of the screen.",
+      "evidence": "Screening round Nov 2025 (selected); round 2 Feb 2026 (not selected).",
+      "recency": "2026-02",
+      "sources": [
+        "https://leetcode.com/discuss/post/7672800/interview-experience-sde2-uber-nov-2025-v0b3r/",
+        "https://medium.com/@surabhimanit16/my-uber-sde-2-interview-experience-not-selected-but-worth-sharing-3c938e0625cb"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Thief, police stations and bank on a grid (patrol radius)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "Grid",
+        "Multi-source BFS",
+        "Dijkstra"
+      ],
+      "statement": "A grid contains one thief, one bank and several police stations. Each station patrols every cell within Manhattan distance k. Decide whether the thief can reach the bank moving 4-directionally without ever entering a patrolled cell. Part 1: common k — multi-source BFS from stations to mark danger, then BFS/DFS from the thief. Part 2: each station has its own k_i — compute per-cell 'danger' via Dijkstra-like expansion (or mark each station's diamond) and then search. A third follow-up existed but the candidate did not recall it.",
+      "variant": "Two-stage follow-up where the constraint becomes per-entity; be ready to switch from BFS to Dijkstra.",
+      "evidence": "DSA round, L4 accepted (Nov 2025, Strong Hire).",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7381396"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Longest itinerary visiting the most unique cities",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "DFS",
+        "Memoisation",
+        "Longest Path in DAG"
+      ],
+      "statement": "Given allowed one-way legs between cities (e.g. Chennai→Hyderabad, Hyderabad→Bangalore, Bangalore→Delhi, Hyderabad→Delhi), return the route that visits the most distinct cities (Chennai→Hyderabad→Bangalore→Delhi). Expected: DFS from each node with memoised longest-path-from-node (O(V+E)) rather than naive O(V²); discuss what happens if the graph has cycles (neither candidate nor interviewer had handled it — mention cycle detection / SCC condensation).",
+      "variant": "",
+      "evidence": "BPS round, SE-II loop (Strong Hire).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/8243609/uber-interview-experiencesoftware-engine-8hqs/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Minimum absolute difference in every sliding window of size K",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "Sliding Window",
+        "Ordered Set"
+      ],
+      "statement": "Given an array of N integers and K, output for each window of size K the minimum absolute difference between any two elements in it. Expected O(N log K): keep a sorted multiset of the window and a multiset of adjacent differences; on insert/remove update the (up to two) affected adjacent gaps; answer is the smallest gap. The candidate's O(N·K log K) solution was accepted as 'working' but marked non-optimal.",
+      "variant": "",
+      "evidence": "Technical phone screen, SDE-2 Bangalore, July 2024 (offer).",
+      "recency": "2024-07",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/5655907"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Reconstruct an array from K subsequences (lexicographically smallest)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "Topological Sort",
+        "Graph",
+        "Heap"
+      ],
+      "statement": "You are given K subsequences of an unknown permutation of 0..N-1 and told a valid array exists; reconstruct it. Follow-up: if several arrays are valid, return the lexicographically smallest one. Build edges between consecutive elements of each subsequence and topologically sort; for the follow-up use a min-heap Kahn's algorithm (or a DFS that visits neighbours in descending order and reverses the finish order). Related: LeetCode 444 Sequence Reconstruction.",
+      "variant": "",
+      "evidence": "Onsite DSA round, SDE-2 Bangalore July 2024 (solved optimally).",
+      "recency": "2024-07",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/5655907"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Minimum time to burn an entire tree (choose the best ignition node)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "BFS",
+        "Diameter"
+      ],
+      "statement": "Given an undirected tree, fire spreads from a burning node to all adjacent nodes in one unit of time. Fire may be started at any single node; return the minimum time to burn the whole tree. Answer is ceil(diameter/2): find the diameter with two BFS passes (or DFS heights) and ignite at its centre. Related LeetCode: 2385 (fixed start node) and 1245 (tree diameter).",
+      "variant": "",
+      "evidence": "Phone screen at Bangalore L4 in-person drive (rejected).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/7578312/uber-interview-experience-oa-and-phone-s-z9hr/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Minimum characters to APPEND to make a string a palindrome",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "KMP",
+        "Palindrome"
+      ],
+      "statement": "Given a string, return the minimum number of characters to append at the end so the result is a palindrome (mirror of LeetCode 214 Shortest Palindrome, which prepends). Find the longest palindromic suffix via KMP on reverse(s)+'#'+s (or Manacher); answer is n minus that length. A related 'minimum insertions to make palindrome' version (LPS-based DP) is also reported.",
+      "variant": "Fully solved in a Nov 2025 L4 phone screen.",
+      "evidence": "Phone screen, L4 Android loop Nov 2025 (generic DSA round); Exponent-sourced 'minimum insertions' variant.",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/post/7370037/",
+        "https://interviewbaba.com/uber-interview-questions/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Can all array elements be made equal by adding/subtracting x?",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Math",
+        "Number Theory",
+        "Array"
+      ],
+      "statement": "Given an integer x and an array, determine whether every element can be transformed into a common value y by repeatedly adding or subtracting x. Base case x = 1 (always possible); general x ≥ 1 requires all elements to share the same residue mod x. Solve multiple ways and discuss edge cases (negatives, empty array).",
+      "variant": "",
+      "evidence": "DSA round, L4 Nov 2025 (generic, non-Android round).",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/post/7370037/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Merge K identical adjacent cars (stack collapse)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Stack",
+        "String"
+      ],
+      "statement": "Given a sequence of car brands and K, whenever K identical cars become adjacent they merge into one and merging repeats until no run of K identical adjacent cars remains; return the final sequence. Example with K=2: Honda Honda Maruti Maruti Maruti BMW Maruti Maruti Maruti → Honda Maruti BMW Maruti. Use a stack of (brand, count) pairs — same pattern as LeetCode 1209 Remove All Adjacent Duplicates II. Clarify the exact merge rule first (collapse K into one, or remove K).",
+      "variant": "",
+      "evidence": "Phone screen, SDE2 Dec 2025 (passed).",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7423162"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Count rectangle vs vertical-segment intersections (sweep line)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "Sweep Line",
+        "Geometry",
+        "Ordered Set / BIT"
+      ],
+      "statement": "Given a set of axis-aligned rectangles and a set of vertical line segments, count how many times the segments cross rectangle edges (edge-on-edge overlaps excluded). Sort events by x, sweep while maintaining active rectangles' y-intervals in a balanced structure, and for each segment count active edges whose y lies within the segment's range. A separate Dec 2025 SDE2 onsite round described 'minor math plus a line sweep' that the candidate could not finish despite hints.",
+      "variant": "",
+      "evidence": "Coding round 1, Bengaluru June 2026 (Glassdoor); DSA round Dec 2025 (No Hire).",
+      "recency": "2026-06",
+      "sources": [
+        "https://www.glassdoor.com/Interview/Uber-Senior-Software-Engineer-Interview-Questions-EI_IE575263.0,4_KO5,29.htm",
+        "https://leetcode.com/discuss/interview-experience/7423162"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Maximise trip participation with per-person group-size bounds",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "Greedy",
+        "Sorting",
+        "Intervals"
+      ],
+      "statement": "There are n people; person i will only travel in a group containing between L[i] and M[i] OTHER people. Groups are disjoint. Return the maximum number of people who can go on the trip. Example L=[1,1,1], M=[1,1,1] → 2 (A and B pair up, C is left out). Think of each person as accepting group sizes in [L[i]+1, M[i]+1] and greedily form groups by sorting on the upper bound and sweeping sizes; verify with small cases. Also reported as an 'escape-room: largest group whose size preferences can all be met' problem.",
+      "variant": "",
+      "evidence": "SDE 2 round-1 elimination, Dec 2025 (candidate could not find an approach); InterviewQuery escape-room report.",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7421109",
+        "https://www.interviewquery.com/interview-guides/uber-software-engineer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Robots whose four-direction distances to blockers match a query",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Grid",
+        "Prefix Computation"
+      ],
+      "statement": "A grid has robots 'O', empty cells 'E' and blockers 'X'; grid boundaries count as blockers. Given a query [left, up, down, right], return the coordinates of every robot that can move exactly that many cells in each direction before hitting a blocker. Precompute for each cell the distance to the nearest blocker in each of the four directions with four linear passes, then filter robots in O(R·C).",
+      "variant": "PracHub lists a Medium and a Hard version (Aug–Sep 2026).",
+      "evidence": "SSE screening round Nov 2025 (reject); PracHub MLE/SWE Aug–Sep 2026.",
+      "recency": "2026-09",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7332236",
+        "https://prachub.com/companies/uber/categories/coding-and-algorithms"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "k smallest squares of a sorted array in better than O(k)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "Binary Search",
+        "Two Pointers",
+        "Math"
+      ],
+      "statement": "Given a sorted integer array that may contain negatives, return the k smallest squared values in order — or just the k-th smallest square — in time better than O(k). Squares form two sorted runs meeting at the element closest to zero; binary-search for a threshold t such that the count of |x| ≤ t (found with two binary searches) equals k, giving O(log n · log V); the full ordered list can then be produced by merging the two runs. Related: LeetCode 977 Squares of a Sorted Array, 719 K-th Smallest Pair Distance.",
+      "variant": "",
+      "evidence": "SDE1 round Nov 2025; PracHub SWE Sep 2026 ('return the k smallest squares in order').",
+      "recency": "2026-09",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7345883",
+        "https://prachub.com/companies/uber/categories/coding-and-algorithms"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Smallest palindrome strictly greater than n (up to 18 digits)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Math",
+        "String"
+      ],
+      "statement": "Given a decimal string n (up to 18 digits), return the smallest palindromic number strictly greater than n. Mirror the left half onto the right; if the result is not greater than n, increment the left half (handling carries that change the length, e.g. 999 → 1001) and mirror again. Related to LeetCode 564 but one-sided.",
+      "variant": "",
+      "evidence": "SDE2 coding round Dec 2024 (Glassdoor); SSE technical round Mar 2026; PracHub Apr/Jun 2026.",
+      "recency": "2026-06",
+      "sources": [
+        "https://www.glassdoor.com/Interview/Uber-Software-Engineer-II-SDE2-Interview-Questions-EI_IE575263.0,4_KO5,30.htm",
+        "https://leakcode.dev/company/uber",
+        "https://prachub.com/companies/uber/categories/coding-and-algorithms"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Implement a YAML-subset parser (practical phone screen)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Parsing",
+        "Stack",
+        "Recursion"
+      ],
+      "statement": "Parse an indentation-based YAML-like document (nested maps and lists of scalars) into a nested dictionary/object, validating indentation and reporting malformed input. Track an indentation stack of open containers, handle '- ' list items and 'key: value' pairs, and write tests for edge cases (empty values, inconsistent indentation). A Sep 2026 phone screen similarly asked to build a tree from file paths and traverse it with a manual stack.",
+      "variant": "",
+      "evidence": "Grocery backend tech phone screen Aug 2026 and 'file path trees / manual stack traversal' phone screen Sep 2026 (1point3acres titles).",
+      "recency": "2026-09",
+      "sources": [
+        "https://www.1point3acres.com/interview/company/Uber"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "K nearest drivers to a rider",
+      "lcId": 973,
+      "url": "https://leetcode.com/problems/k-closest-points-to-origin/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Heap",
+        "Geospatial"
+      ],
+      "statement": "",
+      "variant": "Uber skin of K Closest Points: given driver coordinates and a rider, return the k nearest; follow-up scales to 500k moving drivers (geohash/quadtree bucketing, per-cell heaps, update cadence). Also appears as a bar-raiser whiteboard warm-up ('pick a random point on a grid, how do you find the closest cars').",
+      "evidence": "Listed by LastRound, TechPrep and Apex 2025–26 guides; Blind bar-raiser thread; no single dated candidate report.",
+      "recency": "2026",
+      "sources": [
+        "https://lastroundai.com/interview-questions/uber",
+        "https://www.techprep.app/companies/uber",
+        "https://www.teamblind.com/post/uber-onsite-bar-raiser-round-5a23z7ah"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Random Pick with Weight (weighted random driver/number)",
+      "lcId": 528,
+      "url": "https://leetcode.com/problems/random-pick-with-weight/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Prefix Sum",
+        "Binary Search",
+        "Randomised"
+      ],
+      "statement": "",
+      "variant": "Asked to hand-implement lower_bound and to validate the distribution empirically over 1000+ draws; also an OA problem in a 2023 campus test ('weighted random numbers') and listed as 'Random Weighted Driver' by InterviewQuery.",
+      "evidence": "DSA round 1 in a Bangalore L4 loop (older, published 2025); campus OA 2023; aggregator lists.",
+      "recency": "2023",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-87-uber-sde2-l4",
+        "https://www.geeksforgeeks.org/interview-experiences/uber-interview-experience/",
+        "https://www.interviewquery.com/interview-guides/uber-software-engineer"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Minimise transactions to settle debts (Optimal Account Balancing)",
+      "lcId": 465,
+      "url": "https://leetcode.com/problems/optimal-account-balancing/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Backtracking",
+        "Graph",
+        "Greedy"
+      ],
+      "statement": "",
+      "variant": "A→B 200, B→C 500, A→B 300 should reduce to A→C 500; candidate's first two attempts failed interviewer tests. Also surfaces as the main probe of the Splitwise HLD question (Nov 2025).",
+      "evidence": "DSA round 2 in a Bangalore L4 loop (older, published 2025); Splitwise HLD probe Nov 2025.",
+      "recency": "2025-11",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-87-uber-sde2-l4",
+        "https://leetcode.com/discuss/post/7672800/interview-experience-sde2-uber-nov-2025-v0b3r/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Local maxima / peaks from a list of (x, y) coordinates",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Math"
+      ],
+      "statement": "Given points of a curve as (x, y) pairs, return all local maxima (points higher than both neighbours once sorted by x). Sort by x and scan for sign changes of the slope in O(n log n) (O(n) if pre-sorted); discuss why the global maximum cannot be found in O(log n) without extra structure. PracHub lists a sibling 'first local minimum' problem (Apr 2026).",
+      "variant": "",
+      "evidence": "SDE-2 'LLD' round Dec 2023; PracHub Apr 2026 (first local minimum).",
+      "recency": "2026-04",
+      "sources": [
+        "https://medium.com/@neeraj_swe/uber-sde-2-interview-experience-5523a2c7a268",
+        "https://prachub.com/companies/uber/categories/coding-and-algorithms"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "design": [
+    {
+      "title": "Stock price notification / alert system",
+      "prompt": "An exchange feed sends {symbol, current price, closing price}. Users subscribe to symbols and must be pushed a notification when a price moves ≥5% (or a per-user DELTA) from the close — in later variants over multiple windows (minute/hour/week). Design ingestion, threshold evaluation and delivery.",
+      "probes": [
+        "don't look up subscribers in the DB on every tick — compute threshold crossings first, then fan out only on crossings",
+        "Kafka vs RabbitMQ; push vs pull delivery",
+        "~50k QPS: shard by symbol; uneven hot symbols (Apple vs a micro-cap)",
+        "where to keep historical prices and how to compare against each window",
+        "dedup / exactly-one notification per crossing, idempotency keys, at-most-once vs at-least-once, DLQ",
+        "market-open thundering herd",
+        "write spikes → Cassandra vs Postgres trade-off",
+        "top-K + sliding-window framing"
+      ],
+      "round": "HLD, often the Bar Raiser round (60 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Reported in at least six loops: SE-II 2026 (No Hire), Feb–Mar 2026 (Strong Hire, Staff interviewer), SDE-2 backend 2025, L4 backend offer 2025 (ticker with DELTA), Bangalore SDE-2 offer 2024 ('stock price indicator'), 1point3acres 2026 ('stock subscription', 'stock price alert').",
+      "recency": "2026-03",
+      "sources": [
+        "https://leetcode.com/discuss/post/8243609/uber-interview-experiencesoftware-engine-8hqs/",
+        "https://interviewexperiences.in/experience/uber/uber-sde-2-l4-interview-2026-pending-results",
+        "https://leetcode.com/discuss/post/7193626/uber-sde-2-backend-interview-exp-by-anon-i2r9/",
+        "https://leetcode.com/discuss/post/7706639/uber-l4-sde-2-interview-experience-offer-r0k1/",
+        "https://leetcode.com/discuss/interview-experience/4854590/Uber-or-SDE-2-or-Offer-or-Bangalore/",
+        "https://www.1point3acres.com/interview/post/7896720"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Uber Eats homepage / location-based restaurant discovery",
+      "prompt": "Design the Uber Eats home screen: nearby restaurants and dishes for a user's location with search, plus ordering metrics. A US variant: a location-based restaurant recommendation system whose latency budget is tightened mid-interview.",
+      "probes": [
+        "geohashing / geo-indexing for nearby search — explain geohash to someone who has never heard of it; quadtrees as alternative",
+        "API design for homepage and search results",
+        "schema for restaurants, dishes, orders; SQL vs NoSQL justification",
+        "caching layers and region-based sharding once latency is tightened",
+        "metrics: most-ordered restaurant, most-ordered dish, orders per restaurant",
+        "DB indexing trade-offs"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Bangalore L4 offer (HackerRank whiteboard); Bangalore hiring drive ('Design Uber Eats'); US L4 offer (restaurant recommendation, backend tech lead); 1point3acres LLD 'Uber Eats'.",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7182332/",
+        "https://leetcode.com/discuss/post/5807498/Uber-SDE2-Chances-or-Onsite-Hiring-Drive-or-Bangalore/",
+        "https://leetcode.com/discuss/interview-experience/7217970/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Popularity-ranked catalogue browse / top-K items (e-commerce, order processing, Amazon homepage)",
+      "prompt": "Design the backend for browsing merchandise (no checkout) that highlights the most popular items per category, driven by a high-volume event stream (view, add-to-cart, wishlist, purchase). Variants: 'order processing system that shows top-k items by popularity plus item details' and 'Amazon homepage recommendations'. Scale given once: 50M items, 10k categories, p99 10k RPS.",
+      "probes": [
+        "offline/batch pipeline for popularity vs real-time counters (Flink/Kafka → Redis sorted sets)",
+        "entities and schema that scale to 50M items — normalised entities were rejected, interviewer pushed denormalised/pre-aggregated structures",
+        "which signals (purchases, ratings, views, comments) and how to weight them",
+        "where each store's data lives — give concrete example documents for MongoDB/Redis",
+        "consistency vs availability choice",
+        "per-country / per-region leaderboards and extensibility to new metrics",
+        "API endpoints and pagination",
+        "scale estimation up front"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Dec 2024 L4 backend (negative); SE-2 Bangalore offer 2025 (event processor); L4 offer Dec 2025 (order processing top-K); L4 accepted Nov 2025 (Amazon homepage recommendation, Hire); PracHub 'Real-Time Top-K Ranking System' (Hard).",
+      "recency": "2025-12",
+      "sources": [
+        "https://medium.com/@laxmankumarmegwal/uber-interview-experience-l4-sde2-backend-december-2024-da0f059c230e",
+        "https://leetcode.com/discuss/post/7300207/uber-software-engineer-ii-se-2-bangalore-wyl8/",
+        "https://leetcode.com/discuss/interview-experience/7406341/",
+        "https://leetcode.com/discuss/interview-experience/7381396",
+        "https://prachub.com/interview-guide/uber-software-engineer-interview-guide"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Cart management service for grocery / Uber Eats",
+      "prompt": "Design a highly available, low-latency cart service for grocery delivery orders that handles concurrent updates to the same cart and the cart lifecycle (create, modify, expire, convert to order).",
+      "probes": [
+        "concurrent updates from multiple devices — optimistic locking / versioning",
+        "availability vs consistency for cart state; where to store (Redis vs DB) and TTL/expiry",
+        "inventory and price changes while items sit in a cart",
+        "idempotent add/remove APIs",
+        "multi-region and hot users"
+      ],
+      "round": "HLD (60 min); also seen as a technical-screen design prompt",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "L4 Grocery backend onsite 2025 (offer); Senior loop June 2026 ('Uber Eats Cart Service', Glassdoor); PracHub 'Food Delivery Cart System' and 'cart management lifecycle service'; dataford.",
+      "recency": "2026-06",
+      "sources": [
+        "https://interviewpilot.dev/interview-experiences/uber",
+        "https://www.glassdoor.com/Interview/Uber-Senior-Software-Engineer-Interview-Questions-EI_IE575263.0,4_KO5,29.htm",
+        "https://prachub.com/interview-guide/uber-software-engineer-interview-guide",
+        "https://dataford.io/interview-guides/uber/software-engineer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Splitwise",
+      "prompt": "Design an expense-sharing service: groups, expenses with unequal splits, balances, and settle-up suggestions.",
+      "probes": [
+        "minimise the number of settlement transactions (debt-graph simplification)",
+        "schema for groups/expenses/balances",
+        "concurrent expense entries on the same group",
+        "scaling to large groups and global consistency of balances"
+      ],
+      "round": "HLD (60 min, Staff interviewer)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "SDE II Nov 2025 (selected); dataford lists it as an LLD prompt too.",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/post/7672800/interview-experience-sde2-uber-nov-2025-v0b3r/",
+        "https://dataford.io/interview-guides/uber/software-engineer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "ChatGPT-like chat application",
+      "prompt": "Design a chat-with-an-LLM product: start a new conversation, continue a previous one, list history, with the model as a slow streaming backend.",
+      "probes": [
+        "conversation/message schema and ordering",
+        "streaming responses to the client",
+        "context assembly for 'continue previous chat' and storage of long histories",
+        "rate limiting / queuing of expensive model calls",
+        "multi-device sync"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "SDE II backend June 2026 (No Hire — candidate had prepped only Hello Interview classics); LeakCode Oct 2025 'chat application design'.",
+      "recency": "2026-06",
+      "sources": [
+        "https://leetcode.com/discuss/post/8509983/",
+        "https://leakcode.dev/company/uber"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Facebook Messenger / WhatsApp",
+      "prompt": "Design a 1:1 and group messaging system with real-time delivery, history and media; the interviewer adds requirements mid-round.",
+      "probes": [
+        "requirements added mid-round forcing schema and architecture changes",
+        "message queues / pub-sub for real-time fan-out; WebSockets",
+        "delivery guarantees: at-least-once vs exactly-once, ordering, read receipts, typing indicators",
+        "chat storage for history and media; sharding by conversation",
+        "CAP trade-offs",
+        "multi-threading depth in a Senior variant"
+      ],
+      "round": "HLD (60–75 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "India L4 offer 2025 (Messenger); Hyderabad SSE 2025 (WhatsApp); SF Senior Sep 2026 ('messenger like Uber's').",
+      "recency": "2026-09",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-65-uber-sde2-l4",
+        "https://roundz.substack.com/p/interview-experience-131-uber-senior-sde",
+        "https://www.lockedinai.com/company-details/UBER"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Google Calendar",
+      "prompt": "Design a calendar service: events, invitees, recurring events, availability and reminders.",
+      "probes": [
+        "interviewer steers with 'how do you do A, how do you do B' — have a complete baseline",
+        "recurrence expansion and storage",
+        "conflict detection / free-busy lookups",
+        "notifications and time zones"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Frontend L4 onsite (generic design round); SDE2 Dec 2024 (Glassdoor).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/7322609/",
+        "https://www.glassdoor.com/Interview/Uber-Software-Engineer-II-SDE2-Interview-Questions-EI_IE575263.0,4_KO5,30.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Redis-like in-memory cache (single node)",
+      "prompt": "Design an in-memory key-value cache similar to Redis — explicitly single-node and non-distributed.",
+      "probes": [
+        "eviction (LRU, TTL) data structures",
+        "concurrency and locking strategy; read/write contention",
+        "write-ahead log / persistence",
+        "memory efficiency",
+        "candidate lost points by repeatedly bringing up CAP for a single-node system"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "SDE-2 backend Feb 2026 (not selected); a 2025 bar-raiser HLD also probed multi-layered eviction strategies.",
+      "recency": "2026-02",
+      "sources": [
+        "https://medium.com/@surabhimanit16/my-uber-sde-2-interview-experience-not-selected-but-worth-sharing-3c938e0625cb",
+        "https://medium.com/@jarsaniatirth/my-uber-swe-2-interview-experience-bc7c7cc68763"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Instagram-style feed notification service",
+      "prompt": "Design the service that notifies users about activity on their feed (likes, comments, follows, new posts).",
+      "probes": [
+        "fan-out on write vs read for celebrity accounts",
+        "aggregation/batching of notifications",
+        "delivery channels and user preferences",
+        "dedup and ordering"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "SDE2 Dec 2025 (Strong Hire in an otherwise rejected loop).",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7423162"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Surge pricing engine",
+      "prompt": "Compute a dynamic price multiplier for every hexagonal zone of a city in near real time from ride requests, available drivers, historical demand and external signals (weather, events); multipliers must refresh at least every 60 seconds.",
+      "probes": [
+        "how exactly the multiplier is computed (define every parameter; neighbour-hex blending with H3 kRing)",
+        "what happens if the Flink/stream job crashes mid-calculation — stale fallback with TTL, DLQ, default 1.0x after N minutes",
+        "hexes straddling city/regulatory boundaries with different surge caps or bans — per-region rules applied in a global job (this follow-up ended the loop)",
+        "cell granularity, aggregation windows, fairness",
+        "narrate a rider opening the app end to end"
+      ],
+      "round": "HLD, final onsite round (Senior); community-known at L4 too",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Senior SDE onsite Jan 2026 (rejected for lack of cross-region depth); listed by every 2026 guide; a Medium author was asked 'just the surge pricing module'.",
+      "recency": "2026-01",
+      "sources": [
+        "https://medium.com/@emilyhustlenyc/i-failed-ubers-system-design-interview-last-month-here-s-every-question-they-asked-bdaf1bd6e64b",
+        "https://medium.com/@kei.zee/design-like-a-pro-uber-system-design-interviews-resources-interview-for-your-prep-3d5d59223f0f",
+        "https://lastroundai.com/interview-questions/uber"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Dispatch / rider–driver (or courier) matching engine",
+      "prompt": "Design the service that matches a ride or Eats order to a nearby driver within 1–2 seconds given millions of drivers sending location pings every few seconds.",
+      "probes": [
+        "geospatial index (geohash / S2 / H3) and sharding by city/cell",
+        "preventing double-assignment of a driver (locks, optimistic concurrency, Redis failure)",
+        "driver declines, goes offline mid-delivery, stale GPS, ghost drivers",
+        "three restaurants finish cooking and only one driver is nearby — batching/priority",
+        "how surge feeds into matching; degradation under overload",
+        "ETA estimation feeding the ranking"
+      ],
+      "round": "HLD (60 min); also a Senior 'multi-threading in ride-matching' probe",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "SF SDE2 Aug 2026 ('ride-hailing dispatch system'); 2026 SF onsite ('dispatch matching engine' with driver-offline and three-restaurants follow-ups); Senior Sep 2026 multithreading probe; guides.",
+      "recency": "2026-08",
+      "sources": [
+        "https://www.lockedinai.com/company-details/UBER",
+        "https://interviewman.com/blog/uber-software-engineer-interview-2026",
+        "https://www.techinterview.org/post/3233460273/uber-interview-guide-2026-dispatch-systems-geospatial-algorithms-and-marketplace-engineering/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Real-time demand heatmap",
+      "prompt": "Design Uber's driver-facing heatmap that shows real-time rider demand by area.",
+      "probes": [
+        "aggregation by H3/geohash cell over sliding windows",
+        "handling demand spikes and hot cells",
+        "freshness vs cost; push vs poll to driver apps",
+        "approximate counting"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Senior SF onsite Sep 2026 (LockedIn); PracHub 'real-time driver heatmap system' (Hard).",
+      "recency": "2026-09",
+      "sources": [
+        "https://www.lockedinai.com/company-details/UBER",
+        "https://prachub.com/interview-guide/uber-software-engineer-interview-guide"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Keyword search index over billions of messages",
+      "prompt": "Billions of text messages, each with a unique sequence number, and a keyword list: design an index to retrieve messages containing one keyword, then multiple keywords; optionally code the lookup.",
+      "probes": [
+        "a keyword→set(messageId) map does not fit — partition the inverted index across many index servers",
+        "partitioning by term vs by document; aggregation of results",
+        "posting-list intersection for multi-keyword queries",
+        "'similar to Twitter search' framing"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "Two L4 SDE-2 reports (one offer) — older (≈2022) but a distinctive Uber prompt.",
+      "recency": "2022",
+      "sources": [
+        "https://leetcode.com/discuss/post/2031251/Uber-Experience-or-L4-or-SDE-2/",
+        "https://leetcode.com/discuss/interview-question/1715795/uber-sde2-system-design/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "File storage platform with backups",
+      "prompt": "Design a platform to store files and their backups with attention to scalability, reliability and efficiency.",
+      "probes": [
+        "file count/sizes, read-write patterns, backup frequency, RTO/RPO",
+        "object storage + incremental backups and snapshots",
+        "strong vs eventual consistency; CDN for reads",
+        "erasure coding vs replication across data centres; horizontal scaling of storage nodes"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Bangalore SDE2 Aug 2024 (not selected).",
+      "recency": "2024-08",
+      "sources": [
+        "https://medium.com/@singhaltanisha26/embracing-growth-my-uber-sde2-interview-experience-5a8c21197839"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Bus booking system",
+      "prompt": "Design an inter-city bus ticket booking platform (search routes, seat selection, booking, payments).",
+      "probes": [
+        "seat-level concurrency and overbooking prevention",
+        "search by route/date; caching availability",
+        "payment and booking state machine; idempotency"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "India SDE-2 (3.9 YOE) mid-2025.",
+      "recency": "2025-06",
+      "sources": [
+        "https://interviewexperiences.in/experience/uber/uber-sde-2-interview-experience-india"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Zomato / food-delivery platform end to end",
+      "prompt": "Design a food ordering and delivery platform (restaurants, menus, orders, delivery partner assignment, live tracking).",
+      "probes": [
+        "order state machine and async processing",
+        "delivery-partner assignment and ETA",
+        "scaling restaurant search and menus; caching"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "SDE 3 India loop (offer, 2024); Uber Eats variants above.",
+      "recency": "2024",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/5833870/Uber-or-Confluent-or-Roller-Coaster-Job-Search-Journey-or-SDE-3/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Real-time driver location tracking",
+      "prompt": "Design the service that ingests GPS pings from millions of drivers every ~4 seconds and serves 'where is driver X' and 'drivers near point P' queries globally.",
+      "probes": [
+        "write-heavy ingestion (Kafka, in-memory/Redis geo structures, batching)",
+        "consistency model for last-known location; staleness and device/network unreliability",
+        "geo-partitioning and hot cities",
+        "retention of location history vs live state"
+      ],
+      "round": "HLD (60 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Listed as an actual Uber prompt by LastRound, TechPrep, Apex and Design Gurus 2025–26 guides; no dated candidate write-up found.",
+      "recency": "2026",
+      "sources": [
+        "https://lastroundai.com/interview-questions/uber",
+        "https://www.apexinterviewer.com/companies/uber",
+        "https://www.designgurus.io/blog/uber-interview-guide"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Multi-channel notification service (trip lifecycle)",
+      "prompt": "Design a scalable notification platform that delivers trip-lifecycle and marketing notifications over push, SMS and email with user preferences and rate limits.",
+      "probes": [
+        "fan-out and prioritisation; retries and provider failover",
+        "dedup/idempotency per event",
+        "preference centre and quiet hours",
+        "scaling to millions of messages"
+      ],
+      "round": "HLD (60 min) or intern/early-career design round",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Bangalore SDE-intern/backend loop July 2025 ('scalable notification service'); jobright/codekerdos 2025–26 guides.",
+      "recency": "2025-07",
+      "sources": [
+        "https://www.jointaro.com/interviews/companies/uber/experiences/sde-intern-bangalore-rural-july-1-2025-accepted-offer-positive-5441773a/",
+        "https://jobright.ai/blog/uber-technical-interview-questions-complete-guide-2026/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Rider/driver penalty system (bar-raiser mini design)",
+      "prompt": "Design a system that levies a penalty or tax on riders/drivers who fall below a minimum number of monthly rides or below-average ratings.",
+      "probes": [
+        "batch vs streaming evaluation of monthly thresholds",
+        "edge cases: disputes, partial months, rating recency",
+        "which metrics to monitor for the RESTful service; push vs pull alerting and why"
+      ],
+      "round": "Bar Raiser (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Bangalore L4 bar-raiser round (older loop, published 2025).",
+      "recency": "2025-05",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-87-uber-sde2-l4"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "'Explain a system you built from scratch' + new design problem",
+      "prompt": "Round opens with a deep walk-through of a system you designed (scaling, trade-offs, failure handling), then a fresh design problem emphasising scalability and asynchronous processing.",
+      "probes": [
+        "consistency vs availability and sync vs async choices in your own system",
+        "caching, sharding, load balancing",
+        "what you would change now"
+      ],
+      "round": "HLD (60 min) — Bangalore variant",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Bangalore SDE-2 backend offer (Roundz 169 / LC 2396265, 6 YOE) — format note rather than a prompt.",
+      "recency": "2025-08",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-169-uber-sde2",
+        "https://leetcode.com/discuss/interview-experience/2396265/Uber-or-SDE-2-or-Bengalore-or-Selected/"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "lld": [
+    {
+      "title": "Train–platform scheduling system",
+      "prompt": "n platforms at a station. Given train arrivals (arrival time + halt duration), assign each train a platform and scheduled time, making trains wait when all platforms are occupied; answer 'which train is at platform p at time t' and 'which platform is train x at at time t'. Runnable code in your language, explain the design patterns, walk through as you code.",
+      "deliverable": "Working code (Train, Platform, Scheduler, ScheduleManager classes) with an assignment Strategy (min-heap of free platforms; alternative random strategy) and query methods; 60–75 min.",
+      "probes": [
+        "why a min-heap of platform-free times plus a heap of waiting trains (Meeting Rooms III pattern)",
+        "keep the model minimal — only fields the queries need",
+        "extensibility to new assignment strategies",
+        "clarify ambiguities before coding; a candidate who coded immediately without design got negative feedback"
+      ],
+      "round": "Machine coding / LLD",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Bangalore L4 offer 2025; L4 backend Dec 2024 (negative).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7182332/",
+        "https://medium.com/@laxmankumarmegwal/uber-interview-experience-l4-sde2-backend-december-2024-da0f059c230e"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "In-memory Twitter (news feed / top-liked tweets)",
+      "prompt": "Implement createUser, postTweet, follow, unfollow and getNewsFeed (last 10 tweets from self + followees). A Blind variant: postTweet, like, unlike, getTopLikedTweet(userId) with each user liking a tweet at most once and ties allowed.",
+      "deliverable": "Runnable services with a thread-safe in-memory store (one candidate used a singleton to simulate a connection pool); 60 min (+18 min extension).",
+      "probes": [
+        "fan-out on write (per-user size-10 heap) vs pull-and-merge — justify for read-heavy feeds",
+        "thread safety of shared maps",
+        "O(1) top-liked tracking: frequency buckets + max pointer instead of TreeMap or over-engineered linked lists",
+        "test the feed path — one candidate ran out of time before testing getNewsFeed"
+      ],
+      "round": "Machine coding / LLD",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "C2 round Feb–Mar 2026 (Hire/Lean Hire); Blind LLD thread; PracHub 'follow/follower classes' technical screen; 'Design Facebook' variant below.",
+      "recency": "2026-03",
+      "sources": [
+        "https://interviewexperiences.in/experience/uber/uber-sde-2-l4-interview-2026-pending-results",
+        "https://www.teamblind.com/post/uber-lld-any-last-minute-advice-7ktdo4c1",
+        "https://prachub.com/interview-guide/uber-software-engineer-interview-guide"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Linux file-system commands (mkdir, cd, ls, pwd)",
+      "prompt": "Implement an in-memory file system supporting mkdir (nested paths), cd (absolute/relative, '.', '..'), ls and pwd with error handling. Hard twist in one loop: cd accepts a wildcard '*' that may match '.', '..' or any child directory, so cd must explore alternatives.",
+      "deliverable": "Working N-ary tree of directory nodes with a current-directory pointer; clean classes and error handling; ~45–60 min.",
+      "probes": [
+        "path parsing and normalisation",
+        "wildcard resolution (DFS over candidates)",
+        "error cases (missing dir, cd above root)",
+        "interviewer wanted a working solution first, nothing fancy"
+      ],
+      "round": "Machine coding / LLD; also an OOD phone-screen prompt in 2026",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "SDE II Nov 2025 (selected); SE-2 Bangalore offer 2025 (wildcard cd); 2025 graduate loop (file-system OOD); 1point3acres 'Filesystem OOD phone screen' Aug 2026.",
+      "recency": "2026-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/7672800/interview-experience-sde2-uber-nov-2025-v0b3r/",
+        "https://leetcode.com/discuss/post/7300207/uber-software-engineer-ii-se-2-bangalore-wyl8/",
+        "https://medium.com/@ykhorja/from-preparation-to-progress-my-uber-graduate-2025-swe-interview-experience-26a7fcdf24e1",
+        "https://www.1point3acres.com/interview/company/Uber"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Key-value store with O(1) get/put/delete/getRandom",
+      "prompt": "Design a hashmap-like store with get(K), put(K,V), delete(K) and getRandom() returning a uniformly random (K,V) pair, all O(1). Extension of LeetCode 380 to key-value pairs.",
+      "deliverable": "Working class (array of keys + index map, swap-with-last on delete); one candidate was asked to convert it into a C++ template class.",
+      "probes": [
+        "uniformity of getRandom after deletes",
+        "make it safe for concurrent access from multiple threads (locking granularity, read-write locks)",
+        "edge cases and tests"
+      ],
+      "round": "Machine coding / LLD",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "SE-II loop (Strong Hire); SDE-2 backend 2025.",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/8243609/uber-interview-experiencesoftware-engine-8hqs/",
+        "https://leetcode.com/discuss/post/7193626/uber-sde-2-backend-interview-exp-by-anon-i2r9/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Kafka-like multithreaded pub-sub message queue",
+      "prompt": "Build an in-memory messaging system with topics, multiple publishers and multiple subscribers where no client blocks another and subscribers consume in parallel. Variants: pull-based queue; per-message TTL after which it must not be consumed; queue-level expiry that drops messages.",
+      "deliverable": "Runnable multithreaded code (producer/consumer threads, per-topic queues, subscriber offsets), demoable with concurrent publishers.",
+      "probes": [
+        "locks / mutexes / synchronized blocks and why; avoiding deadlocks",
+        "preserving message ordering per topic",
+        "TTL expiry and cleanup",
+        "SOLID and patterns used (Observer, Strategy)",
+        "the hiring-drive interviewer wanted one specific approach the candidate could not code"
+      ],
+      "round": "Machine coding / LLD (60 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Bangalore hiring drive (Soft Yes); Blind machine-coding thread (pull-based queue with TTL); L5a machine coding post; Bangalore L4 loop (pub-sub queue, SOLID + locking follow-ups).",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/5807498/Uber-SDE2-Chances-or-Onsite-Hiring-Drive-or-Bangalore/",
+        "https://www.teamblind.com/post/uber-machine-coding-sde2-wpsjxavh",
+        "https://leetcode.com/discuss/interview-question/1091960/Uber-L5a-Interview-or-Machine-coding:-Multithreaded-Queue-like-Kafka",
+        "https://roundz.substack.com/p/interview-experience-87-uber-sde2-l4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Concurrent job scheduler / scheduled executor service",
+      "prompt": "Implement a job scheduler that accepts tasks with schedules (one-off, delayed, recurring) and runs them on a worker pool; variant: a scheduler that pulls jobs from a source; variant: design a ScheduledExecutorService.",
+      "deliverable": "Working, demoable multithreaded code handling thread safety and race conditions; own IDE allowed in one loop.",
+      "probes": [
+        "priority queue keyed by next-run time + condition variable / wait-notify",
+        "worker pool sizing and graceful shutdown",
+        "race conditions on cancel/reschedule",
+        "edge cases (duplicate jobs, past times)"
+      ],
+      "round": "Machine coding / LLD (60 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "India L4 offer 2025 (called the hardest round); Blind thread; SDE 3 loop ('scheduler design'); LeakCode Mar 2026 'design scheduled executor service'.",
+      "recency": "2026-03",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-65-uber-sde2-l4",
+        "https://leetcode.com/discuss/interview-experience/1228190/uber-l4sde-2-india-offer",
+        "https://www.teamblind.com/post/uber-machine-coding-sde2-wpsjxavh",
+        "https://leakcode.dev/company/uber"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Circuit breaker (with rate-limiter-style threshold)",
+      "prompt": "Implement a circuit breaker wrapping calls to a downstream: CLOSED → OPEN when the number of requests (in this variant, not errors) in a window exceeds a threshold, HALF_OPEN after a cooldown to probe recovery, back to CLOSED on success.",
+      "deliverable": "Working state machine with configurable thresholds/timeouts and unit tests.",
+      "probes": [
+        "state transitions and timers",
+        "concurrency: many threads hitting the breaker simultaneously (atomic counters, locks)",
+        "sliding window vs fixed window counting",
+        "how it differs from a rate limiter"
+      ],
+      "round": "Machine coding / LLD (Coding Round 2)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "L4 backend offer 2025 (Strong Hire/Hire); dataford lists 'Circuit Breaker Pattern'; PracHub 'thread-safe token-bucket rate limiter' (Jun 2026, Senior+).",
+      "recency": "2026-06",
+      "sources": [
+        "https://leetcode.com/discuss/post/7706639/uber-l4-sde-2-interview-experience-offer-r0k1/",
+        "https://dataford.io/interview-guides/uber/software-engineer",
+        "https://prachub.com/companies/uber/categories/coding-and-algorithms"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Parking lot",
+      "prompt": "Design and implement a parking lot: multiple floors/spot types, vehicle entry/exit, ticketing and fee calculation.",
+      "deliverable": "Class diagram then WORKING code for entities and services; candidates who spent 40 min on design and never ran the code received negative / Low Hire feedback.",
+      "probes": [
+        "spot allocation strategy and extensibility to new vehicle types",
+        "OOP questions on interfaces vs inheritance",
+        "time management between design and implementation"
+      ],
+      "round": "Machine coding / LLD (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "L4 June 2024 (negative); SDE-1 off-campus Feb 2026 (Low Hire); 1point3acres SDE-2 2026 loop.",
+      "recency": "2026-02",
+      "sources": [
+        "https://khaniqbal.medium.com/uber-l4-interview-experience-5350c0e5918d",
+        "https://www.geeksforgeeks.org/interview-experiences/uber-interview-experience-for-sde-1-off-campus/",
+        "https://www.1point3acres.com/interview/post/7896720"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Logging library",
+      "prompt": "Design an in-memory logging library with well-defined get and set methods (log levels, sinks/appenders, formatting, retrieval).",
+      "deliverable": "Functionally complete code using Singleton and Fluent/Builder patterns, then concurrency control and complexity optimisation.",
+      "probes": [
+        "thread-safe writes (locking) and buffering",
+        "time complexity of retrieval by level/time",
+        "extensibility to new sinks",
+        "compilation issues under time pressure"
+      ],
+      "round": "Machine coding / LLD",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Onsite round 2, SDE-2 Bangalore July 2024 (offer); TechPrep lists 'Logger Rate Limiter'.",
+      "recency": "2024-07",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/5655907",
+        "https://www.techprep.app/companies/uber"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "TTL (time-to-live) key store with active counts",
+      "prompt": "Receive (key, timestamp) pairs in non-decreasing timestamp order; each entry lives for a fixed TTL. Support counting all currently active entries, counting active entries for a given key, and CRUD on keys.",
+      "deliverable": "Working class; the interviewer's preferred design is a single FIFO queue of (timestamp, key) plus a key→count map and a global total, lazily evicting expired heads on every call (same worst case, better average and simpler than per-key queues).",
+      "probes": [
+        "lazy vs eager expiry",
+        "why per-key queues are over-engineering",
+        "thread safety if time allows",
+        "relation to Design Hit Counter"
+      ],
+      "round": "LLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "L4 accepted Nov 2025 (Lean Hire).",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7381396"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Voter / election management system",
+      "prompt": "Model states → constituencies → districts → EVMs (electronic voting machines); support creating an election and running the voting process (register voter, cast vote once, tally per level).",
+      "deliverable": "Class model plus working code for at least one end-to-end feature (e.g. cast vote + tally).",
+      "probes": [
+        "hierarchy modelling and aggregation of counts",
+        "preventing double voting",
+        "extensibility to new election types",
+        "candidate failed by not producing working code"
+      ],
+      "round": "LLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "SDE2 Dec 2025 (No Hire).",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7423162"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Employee–manager hierarchy API",
+      "prompt": "Given employees and managers, design and implement get(employee) → manager, changeManager(employee, oldManager, newManager) and addEmployee(manager, employee), with at least two operations in O(1).",
+      "deliverable": "Working code with a forward map (employee→manager) and reverse map (manager→set of reports); keep it simple.",
+      "probes": [
+        "which operations are O(1) and why",
+        "validation (oldManager mismatch, cycles)",
+        "candidate lost time on LLD-style class hierarchies and over-engineering — the constraint was the point"
+      ],
+      "round": "'API and data structure design' round (60 min)",
+      "difficulty": "Easy",
+      "classic": false,
+      "evidence": "SDE-2 backend Feb 2026 (not selected).",
+      "recency": "2026-02",
+      "sources": [
+        "https://medium.com/@surabhimanit16/my-uber-sde-2-interview-experience-not-selected-but-worth-sharing-3c938e0625cb"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "'Design Facebook' (two-word machine-coding prompt)",
+      "prompt": "The interviewer pasted only 'Design Facebook' into CoderPad: scope it yourself (users, posts, friends, feed), pick three functionalities and implement them.",
+      "deliverable": "Production-quality working code for three features using key design patterns, with multithreading for concurrent access.",
+      "probes": [
+        "scoping a deliberately vague prompt",
+        "patterns chosen and why",
+        "concurrency on shared structures",
+        "clean code and tests"
+      ],
+      "round": "Machine coding / LLD (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Virtual onsite 2, SDE-2 Bangalore offer (2024).",
+      "recency": "2024",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/4854590/Uber-or-SDE-2-or-Offer-or-Bangalore/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Thread-safe folder hierarchy with printPath",
+      "prompt": "Folder has id, name and a list of subfolder ids. Implement addFolder(Folder) and printPath(index) returning the path from that folder to the root (e.g. 'abc -> ijk -> lmn', or empty if unreachable), callable from multiple threads.",
+      "deliverable": "Working, thread-safe code (parent map, read-write lock), ~90 min.",
+      "probes": [
+        "parent pointers vs repeated search",
+        "detecting folders without a path to root",
+        "lock granularity and read-mostly optimisation"
+      ],
+      "round": "Machine coding (Hyderabad SSE loop)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Hyderabad Senior SDE 2025 (rejected overall).",
+      "recency": "2025-07",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-131-uber-senior-sde"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Meeting-room scheduler (scheduleMeeting API)",
+      "prompt": "n conference rooms; scheduleMeeting(startTime, endTime) must reserve and return any free room or throw if none is available (e.g. three rooms: three overlapping bookings succeed, a fourth fails, a later one reuses a freed room). Asked both as a 60-min coding problem and as an LLD class-design exercise.",
+      "deliverable": "Working API with per-room sorted interval sets (or a heap of room end-times); expected complexity about log(meetings) + O(rooms); class design and patterns when framed as LLD.",
+      "probes": [
+        "reduce O(rooms·bookings) to logarithmic with sorted structures / binary search",
+        "handle ~10,000 concurrent requests — identify the lock bottleneck and shard by room or use optimistic concurrency",
+        "deterministic room selection",
+        "relation to Meeting Rooms II/III and Range Module"
+      ],
+      "round": "LLD / coding (60 min); SDE-3 phone screen",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "L4 2025 onsite (room booking with concurrency follow-up); SDE-3 phone screen Nov 2025; India SDE-2 LLD mid-2025; PracHub 'assign meetings to minimum rooms' Aug 2026.",
+      "recency": "2026-08",
+      "sources": [
+        "https://interviewpilot.dev/interview-experiences/uber",
+        "https://leetcode.com/discuss/interview-experience/7332704",
+        "https://interviewexperiences.in/experience/uber/uber-sde-2-interview-experience-india",
+        "https://prachub.com/companies/uber/categories/coding-and-algorithms"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Smart-device controller (fan, TV, common vs device-specific commands)",
+      "prompt": "An application controls multiple device types; some commands (ON/OFF) are common, others are device-specific. Implement four functions so new devices and commands can be added cleanly; requirements are deliberately vague.",
+      "deliverable": "Full working code on the interviewer's platform; candidate moved from interfaces-per-device to an abstract Device base class.",
+      "probes": [
+        "are devices and commands known in advance? (Command/Strategy pattern vs enum switch)",
+        "what should each function do — interviewer repeatedly asked 'will this work?'",
+        "extensibility"
+      ],
+      "round": "OOP / LLD (50–60 min)",
+      "difficulty": "Easy",
+      "classic": false,
+      "evidence": "SDE loop Jan 2023 (selected).",
+      "recency": "2023-01",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/uber-interview-experience-for-sde/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Uber Eats order flow LLD",
+      "prompt": "Low-level design of an Uber Eats-style ordering system (restaurants, menus, cart, order placement and status transitions).",
+      "deliverable": "Class design plus working code for core flows; details gated.",
+      "probes": [
+        "order state machine",
+        "concurrency on cart/order",
+        "extensibility of pricing/offers"
+      ],
+      "round": "LLD",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "1point3acres SDE-2 loop 2026 (login-gated; title and summary only).",
+      "recency": "2026-04",
+      "sources": [
+        "https://www.1point3acres.com/interview/post/7845489"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Trip state machine / Uber Black ride allocation",
+      "prompt": "Model a trip's lifecycle (requested → matched → en route → started → completed/cancelled) with valid transitions and side effects; a related guide prompt is 'Design Uber Black': driver registration, ride requests and nearest-available-cab allocation.",
+      "deliverable": "Working state machine with transition validation and listeners; or classes for drivers/rides with a nearest-cab Strategy.",
+      "probes": [
+        "illegal transitions and idempotent events",
+        "concurrency on a single trip",
+        "pluggable allocation strategies"
+      ],
+      "round": "Machine coding (claimed 45-min round)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Listed by LastRound, TechPrep and dataford 2025–26 guides; no dated candidate write-up found.",
+      "recency": "2026",
+      "sources": [
+        "https://lastroundai.com/interview-questions/uber",
+        "https://www.techprep.app/companies/uber",
+        "https://dataford.io/interview-guides/uber/software-engineer"
+      ],
+      "confidence": "low"
+    }
+  ]
+}

@@ -1,0 +1,782 @@
+{
+ "company": "uber",
+ "folder": "uber",
+ "totalTagged": 362,
+ "top": [
+  {
+   "lcId": 305,
+   "title": "Number of Islands II",
+   "url": "https://leetcode.com/problems/number-of-islands-ii/",
+   "difficulty": "Hard",
+   "acceptance": 40.7,
+   "score": 990.0,
+   "windows": {
+    "30d": 87.5,
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "30d",
+   "slug": "number-of-islands-ii"
+  },
+  {
+   "lcId": 2812,
+   "title": "Find the Safest Path in a Grid",
+   "url": "https://leetcode.com/problems/find-the-safest-path-in-a-grid/",
+   "difficulty": "Medium",
+   "acceptance": 57.2,
+   "score": 740.0,
+   "windows": {
+    "30d": 100.0,
+    "3mo": 62.5,
+    "6mo": 50.0,
+    "older": 25.0,
+    "all": 37.5
+   },
+   "recency": "30d",
+   "slug": "find-the-safest-path-in-a-grid"
+  },
+  {
+   "lcId": 1429,
+   "title": "First Unique Number",
+   "url": "https://leetcode.com/problems/first-unique-number/",
+   "difficulty": "Medium",
+   "acceptance": 57.8,
+   "score": 632.5,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "3mo",
+   "slug": "first-unique-number"
+  },
+  {
+   "lcId": 1438,
+   "title": "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit",
+   "url": "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/",
+   "difficulty": "Medium",
+   "acceptance": 57.8,
+   "score": 590.0,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 87.5,
+    "older": 87.5,
+    "all": 100.0
+   },
+   "recency": "3mo",
+   "slug": "longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit"
+  },
+  {
+   "lcId": 427,
+   "title": "Construct Quad Tree",
+   "url": "https://leetcode.com/problems/construct-quad-tree/",
+   "difficulty": "Medium",
+   "acceptance": 78.5,
+   "score": 577.5,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 87.5,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "3mo",
+   "slug": "construct-quad-tree"
+  },
+  {
+   "lcId": 977,
+   "title": "Squares of a Sorted Array",
+   "url": "https://leetcode.com/problems/squares-of-a-sorted-array/",
+   "difficulty": "Easy",
+   "acceptance": 73.9,
+   "score": 577.5,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 87.5,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "3mo",
+   "slug": "squares-of-a-sorted-array"
+  },
+  {
+   "lcId": 2858,
+   "title": "Minimum Edge Reversals So Every Node Is Reachable",
+   "url": "https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/",
+   "difficulty": "Hard",
+   "acceptance": 60.0,
+   "score": 575.0,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 100.0,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "minimum-edge-reversals-so-every-node-is-reachable"
+  },
+  {
+   "lcId": 815,
+   "title": "Bus Routes",
+   "url": "https://leetcode.com/problems/bus-routes/",
+   "difficulty": "Hard",
+   "acceptance": 47.4,
+   "score": 560.0,
+   "windows": {
+    "3mo": 75.0,
+    "6mo": 87.5,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "3mo",
+   "slug": "bus-routes"
+  },
+  {
+   "lcId": 269,
+   "title": "Alien Dictionary",
+   "url": "https://leetcode.com/problems/alien-dictionary/",
+   "difficulty": "Hard",
+   "acceptance": 37.3,
+   "score": 552.5,
+   "windows": {
+    "3mo": 75.0,
+    "6mo": 87.5,
+    "older": 87.5,
+    "all": 100.0
+   },
+   "recency": "3mo",
+   "slug": "alien-dictionary"
+  },
+  {
+   "lcId": 1475,
+   "title": "Final Prices With a Special Discount in a Shop",
+   "url": "https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/",
+   "difficulty": "Easy",
+   "acceptance": 84.2,
+   "score": 522.5,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 87.5,
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "3mo",
+   "slug": "final-prices-with-a-special-discount-in-a-shop"
+  },
+  {
+   "lcId": 1101,
+   "title": "The Earliest Moment When Everyone Become Friends",
+   "url": "https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/",
+   "difficulty": "Medium",
+   "acceptance": 66.1,
+   "score": 515.0,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 87.5,
+    "older": 25.0,
+    "all": 62.5
+   },
+   "recency": "3mo",
+   "slug": "the-earliest-moment-when-everyone-become-friends"
+  },
+  {
+   "lcId": 200,
+   "title": "Number of Islands",
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "difficulty": "Medium",
+   "acceptance": 64.7,
+   "score": 477.5,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 75.0,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "3mo",
+   "slug": "number-of-islands"
+  },
+  {
+   "lcId": 230,
+   "title": "Kth Smallest Element in a BST",
+   "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+   "difficulty": "Medium",
+   "acceptance": 77.0,
+   "score": 470.0,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "3mo",
+   "slug": "kth-smallest-element-in-a-bst"
+  },
+  {
+   "lcId": 79,
+   "title": "Word Search",
+   "url": "https://leetcode.com/problems/word-search/",
+   "difficulty": "Medium",
+   "acceptance": 47.7,
+   "score": 457.5,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "word-search"
+  },
+  {
+   "lcId": 1428,
+   "title": "Leftmost Column with at Least a One",
+   "url": "https://leetcode.com/problems/leftmost-column-with-at-least-a-one/",
+   "difficulty": "Medium",
+   "acceptance": 55.3,
+   "score": 450.0,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 75.0,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "leftmost-column-with-at-least-a-one"
+  },
+  {
+   "lcId": 564,
+   "title": "Find the Closest Palindrome",
+   "url": "https://leetcode.com/problems/find-the-closest-palindrome/",
+   "difficulty": "Hard",
+   "acceptance": 32.0,
+   "score": 440.0,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "find-the-closest-palindrome"
+  },
+  {
+   "lcId": 212,
+   "title": "Word Search II",
+   "url": "https://leetcode.com/problems/word-search-ii/",
+   "difficulty": "Hard",
+   "acceptance": 38.6,
+   "score": 395.0,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "word-search-ii"
+  },
+  {
+   "lcId": 380,
+   "title": "Insert Delete GetRandom O(1)",
+   "url": "https://leetcode.com/problems/insert-delete-getrandom-o1/",
+   "difficulty": "Medium",
+   "acceptance": 55.4,
+   "score": 395.0,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "insert-delete-getrandom-o-1"
+  },
+  {
+   "lcId": 410,
+   "title": "Split Array Largest Sum",
+   "url": "https://leetcode.com/problems/split-array-largest-sum/",
+   "difficulty": "Hard",
+   "acceptance": 60.9,
+   "score": 392.5,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "3mo",
+   "slug": "split-array-largest-sum"
+  },
+  {
+   "lcId": 2571,
+   "title": "Minimum Operations to Reduce an Integer to 0",
+   "url": "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/",
+   "difficulty": "Medium",
+   "acceptance": 62.8,
+   "score": 380.0,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 75.0,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "3mo",
+   "slug": "minimum-operations-to-reduce-an-integer-to-0"
+  },
+  {
+   "lcId": 384,
+   "title": "Shuffle an Array",
+   "url": "https://leetcode.com/problems/shuffle-an-array/",
+   "difficulty": "Medium",
+   "acceptance": 59.8,
+   "score": 375.0,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "3mo",
+   "slug": "shuffle-an-array"
+  },
+  {
+   "lcId": 162,
+   "title": "Find Peak Element",
+   "url": "https://leetcode.com/problems/find-peak-element/",
+   "difficulty": "Medium",
+   "acceptance": 47.1,
+   "score": 372.5,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 75.0,
+    "older": 37.5,
+    "all": 50.0
+   },
+   "recency": "3mo",
+   "slug": "find-peak-element"
+  },
+  {
+   "lcId": 981,
+   "title": "Time Based Key-Value Store",
+   "url": "https://leetcode.com/problems/time-based-key-value-store/",
+   "difficulty": "Medium",
+   "acceptance": 50.0,
+   "score": 355.0,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "3mo",
+   "slug": "time-based-key-value-store"
+  },
+  {
+   "lcId": 871,
+   "title": "Minimum Number of Refueling Stops",
+   "url": "https://leetcode.com/problems/minimum-number-of-refueling-stops/",
+   "difficulty": "Hard",
+   "acceptance": 41.6,
+   "score": 312.5,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "3mo",
+   "slug": "minimum-number-of-refueling-stops"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 310.0,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 50.0,
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "3mo",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 2791,
+   "title": "Count Paths That Can Form a Palindrome in a Tree",
+   "url": "https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/",
+   "difficulty": "Hard",
+   "acceptance": 52.7,
+   "score": 305.0,
+   "windows": {
+    "6mo": 100.0,
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "count-paths-that-can-form-a-palindrome-in-a-tree"
+  },
+  {
+   "lcId": 2503,
+   "title": "Maximum Number of Points From Grid Queries",
+   "url": "https://leetcode.com/problems/maximum-number-of-points-from-grid-queries/",
+   "difficulty": "Hard",
+   "acceptance": 59.2,
+   "score": 302.5,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 50.0,
+    "older": 25.0,
+    "all": 37.5
+   },
+   "recency": "3mo",
+   "slug": "maximum-number-of-points-from-grid-queries"
+  },
+  {
+   "lcId": 1915,
+   "title": "Number of Wonderful Substrings",
+   "url": "https://leetcode.com/problems/number-of-wonderful-substrings/",
+   "difficulty": "Medium",
+   "acceptance": 66.6,
+   "score": 275.0,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "3mo",
+   "slug": "number-of-wonderful-substrings"
+  },
+  {
+   "lcId": 1966,
+   "title": "Binary Searchable Numbers in an Unsorted Array",
+   "url": "https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array/",
+   "difficulty": "Medium",
+   "acceptance": 63.8,
+   "score": 275.0,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "3mo",
+   "slug": "binary-searchable-numbers-in-an-unsorted-array"
+  },
+  {
+   "lcId": 2948,
+   "title": "Make Lexicographically Smallest Array by Swapping Elements",
+   "url": "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/",
+   "difficulty": "Medium",
+   "acceptance": 60.3,
+   "score": 275.0,
+   "windows": {
+    "3mo": 50.0,
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "3mo",
+   "slug": "make-lexicographically-smallest-array-by-swapping-elements"
+  },
+  {
+   "lcId": 362,
+   "title": "Design Hit Counter",
+   "url": "https://leetcode.com/problems/design-hit-counter/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 270.0,
+   "windows": {
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "design-hit-counter"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 245.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 399,
+   "title": "Evaluate Division",
+   "url": "https://leetcode.com/problems/evaluate-division/",
+   "difficulty": "Medium",
+   "acceptance": 64.4,
+   "score": 220.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "evaluate-division"
+  },
+  {
+   "lcId": 827,
+   "title": "Making A Large Island",
+   "url": "https://leetcode.com/problems/making-a-large-island/",
+   "difficulty": "Hard",
+   "acceptance": 56.9,
+   "score": 217.5,
+   "windows": {
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "making-a-large-island"
+  },
+  {
+   "lcId": 121,
+   "title": "Best Time to Buy and Sell Stock",
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+   "difficulty": "Easy",
+   "acceptance": 57.0,
+   "score": 212.5,
+   "windows": {
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "best-time-to-buy-and-sell-stock"
+  },
+  {
+   "lcId": 210,
+   "title": "Course Schedule II",
+   "url": "https://leetcode.com/problems/course-schedule-ii/",
+   "difficulty": "Medium",
+   "acceptance": 55.9,
+   "score": 200.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "course-schedule-ii"
+  },
+  {
+   "lcId": 253,
+   "title": "Meeting Rooms II",
+   "url": "https://leetcode.com/problems/meeting-rooms-ii/",
+   "difficulty": "Medium",
+   "acceptance": 52.7,
+   "score": 200.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "meeting-rooms-ii"
+  },
+  {
+   "lcId": 588,
+   "title": "Design In-Memory File System",
+   "url": "https://leetcode.com/problems/design-in-memory-file-system/",
+   "difficulty": "Hard",
+   "acceptance": 48.3,
+   "score": 200.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "design-in-memory-file-system"
+  },
+  {
+   "lcId": 934,
+   "title": "Shortest Bridge",
+   "url": "https://leetcode.com/problems/shortest-bridge/",
+   "difficulty": "Medium",
+   "acceptance": 59.6,
+   "score": 200.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "shortest-bridge"
+  },
+  {
+   "lcId": 207,
+   "title": "Course Schedule",
+   "url": "https://leetcode.com/problems/course-schedule/",
+   "difficulty": "Medium",
+   "acceptance": 51.8,
+   "score": 192.5,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "course-schedule"
+  },
+  {
+   "lcId": 33,
+   "title": "Search in Rotated Sorted Array",
+   "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+   "difficulty": "Medium",
+   "acceptance": 45.2,
+   "score": 185.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "search-in-rotated-sorted-array"
+  },
+  {
+   "lcId": 297,
+   "title": "Serialize and Deserialize Binary Tree",
+   "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+   "difficulty": "Hard",
+   "acceptance": 61.1,
+   "score": 185.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "serialize-and-deserialize-binary-tree"
+  },
+  {
+   "lcId": 295,
+   "title": "Find Median from Data Stream",
+   "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+   "difficulty": "Hard",
+   "acceptance": 54.7,
+   "score": 180.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "find-median-from-data-stream"
+  },
+  {
+   "lcId": 994,
+   "title": "Rotting Oranges",
+   "url": "https://leetcode.com/problems/rotting-oranges/",
+   "difficulty": "Medium",
+   "acceptance": 59.0,
+   "score": 180.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "rotting-oranges"
+  },
+  {
+   "lcId": 2402,
+   "title": "Meeting Rooms III",
+   "url": "https://leetcode.com/problems/meeting-rooms-iii/",
+   "difficulty": "Hard",
+   "acceptance": 51.4,
+   "score": 180.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "meeting-rooms-iii"
+  },
+  {
+   "lcId": 13,
+   "title": "Roman to Integer",
+   "url": "https://leetcode.com/problems/roman-to-integer/",
+   "difficulty": "Easy",
+   "acceptance": 66.8,
+   "score": 177.5,
+   "windows": {
+    "6mo": 50.0,
+    "older": 25.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "roman-to-integer"
+  },
+  {
+   "lcId": 855,
+   "title": "Exam Room",
+   "url": "https://leetcode.com/problems/exam-room/",
+   "difficulty": "Medium",
+   "acceptance": 43.6,
+   "score": 162.5,
+   "windows": {
+    "6mo": 62.5,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "exam-room"
+  },
+  {
+   "lcId": 864,
+   "title": "Shortest Path to Get All Keys",
+   "url": "https://leetcode.com/problems/shortest-path-to-get-all-keys/",
+   "difficulty": "Hard",
+   "acceptance": 54.8,
+   "score": 162.5,
+   "windows": {
+    "6mo": 62.5,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "shortest-path-to-get-all-keys"
+  },
+  {
+   "lcId": 545,
+   "title": "Boundary of Binary Tree",
+   "url": "https://leetcode.com/problems/boundary-of-binary-tree/",
+   "difficulty": "Medium",
+   "acceptance": 48.2,
+   "score": 160.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "boundary-of-binary-tree"
+  },
+  {
+   "lcId": 5,
+   "title": "Longest Palindromic Substring",
+   "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+   "difficulty": "Medium",
+   "acceptance": 38.2,
+   "score": 152.5,
+   "windows": {
+    "6mo": 50.0,
+    "older": 25.0,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "longest-palindromic-substring"
+  }
+ ]
+}

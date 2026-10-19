@@ -1,0 +1,857 @@
+{
+ "company": "amazon",
+ "folder": "amazon",
+ "totalTagged": 1988,
+ "top": [
+  {
+   "lcId": 1,
+   "title": "Two Sum",
+   "url": "https://leetcode.com/problems/two-sum/",
+   "difficulty": "Easy",
+   "acceptance": 57.8,
+   "score": 1060.0,
+   "windows": {
+    "30d": 100.0,
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "30d",
+   "slug": "two-sum"
+  },
+  {
+   "lcId": 42,
+   "title": "Trapping Rain Water",
+   "url": "https://leetcode.com/problems/trapping-rain-water/",
+   "difficulty": "Hard",
+   "acceptance": 67.7,
+   "score": 877.5,
+   "windows": {
+    "30d": 75.0,
+    "3mo": 87.5,
+    "6mo": 87.5,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "30d",
+   "slug": "trapping-rain-water"
+  },
+  {
+   "lcId": 121,
+   "title": "Best Time to Buy and Sell Stock",
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+   "difficulty": "Easy",
+   "acceptance": 57.0,
+   "score": 852.5,
+   "windows": {
+    "30d": 75.0,
+    "3mo": 87.5,
+    "6mo": 75.0,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "30d",
+   "slug": "best-time-to-buy-and-sell-stock"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 840.0,
+   "windows": {
+    "30d": 75.0,
+    "3mo": 75.0,
+    "6mo": 87.5,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "30d",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 3,
+   "title": "Longest Substring Without Repeating Characters",
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 815.0,
+   "windows": {
+    "30d": 75.0,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "30d",
+   "slug": "longest-substring-without-repeating-characters"
+  },
+  {
+   "lcId": 2,
+   "title": "Add Two Numbers",
+   "url": "https://leetcode.com/problems/add-two-numbers/",
+   "difficulty": "Medium",
+   "acceptance": 48.8,
+   "score": 795.0,
+   "windows": {
+    "30d": 75.0,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "add-two-numbers"
+  },
+  {
+   "lcId": 33,
+   "title": "Search in Rotated Sorted Array",
+   "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+   "difficulty": "Medium",
+   "acceptance": 45.2,
+   "score": 795.0,
+   "windows": {
+    "30d": 75.0,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "search-in-rotated-sorted-array"
+  },
+  {
+   "lcId": 49,
+   "title": "Group Anagrams",
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "difficulty": "Medium",
+   "acceptance": 72.9,
+   "score": 795.0,
+   "windows": {
+    "30d": 75.0,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "group-anagrams"
+  },
+  {
+   "lcId": 200,
+   "title": "Number of Islands",
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "difficulty": "Medium",
+   "acceptance": 64.7,
+   "score": 765.0,
+   "windows": {
+    "30d": 62.5,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "30d",
+   "slug": "number-of-islands"
+  },
+  {
+   "lcId": 904,
+   "title": "Fruit Into Baskets",
+   "url": "https://leetcode.com/problems/fruit-into-baskets/",
+   "difficulty": "Medium",
+   "acceptance": 51.7,
+   "score": 750.0,
+   "windows": {
+    "30d": 75.0,
+    "3mo": 75.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "fruit-into-baskets"
+  },
+  {
+   "lcId": 5,
+   "title": "Longest Palindromic Substring",
+   "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+   "difficulty": "Medium",
+   "acceptance": 38.2,
+   "score": 745.0,
+   "windows": {
+    "30d": 62.5,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "longest-palindromic-substring"
+  },
+  {
+   "lcId": 15,
+   "title": "3Sum",
+   "url": "https://leetcode.com/problems/3sum/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 745.0,
+   "windows": {
+    "30d": 62.5,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "3sum"
+  },
+  {
+   "lcId": 875,
+   "title": "Koko Eating Bananas",
+   "url": "https://leetcode.com/problems/koko-eating-bananas/",
+   "difficulty": "Medium",
+   "acceptance": 50.2,
+   "score": 745.0,
+   "windows": {
+    "30d": 62.5,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "koko-eating-bananas"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 707.5,
+   "windows": {
+    "30d": 62.5,
+    "3mo": 62.5,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 560,
+   "title": "Subarray Sum Equals K",
+   "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+   "difficulty": "Medium",
+   "acceptance": 47.7,
+   "score": 707.5,
+   "windows": {
+    "30d": 62.5,
+    "3mo": 62.5,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "subarray-sum-equals-k"
+  },
+  {
+   "lcId": 4,
+   "title": "Median of Two Sorted Arrays",
+   "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+   "difficulty": "Hard",
+   "acceptance": 47.0,
+   "score": 695.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "median-of-two-sorted-arrays"
+  },
+  {
+   "lcId": 207,
+   "title": "Course Schedule",
+   "url": "https://leetcode.com/problems/course-schedule/",
+   "difficulty": "Medium",
+   "acceptance": 51.8,
+   "score": 695.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "course-schedule"
+  },
+  {
+   "lcId": 3413,
+   "title": "Maximum Coins From K Consecutive Bags",
+   "url": "https://leetcode.com/problems/maximum-coins-from-k-consecutive-bags/",
+   "difficulty": "Medium",
+   "acceptance": 25.7,
+   "score": 695.0,
+   "windows": {
+    "30d": 75.0,
+    "3mo": 75.0,
+    "6mo": 62.5,
+    "older": 12.5,
+    "all": 37.5
+   },
+   "recency": "30d",
+   "slug": "maximum-coins-from-k-consecutive-bags"
+  },
+  {
+   "lcId": 75,
+   "title": "Sort Colors",
+   "url": "https://leetcode.com/problems/sort-colors/",
+   "difficulty": "Medium",
+   "acceptance": 70.0,
+   "score": 662.5,
+   "windows": {
+    "30d": 62.5,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "sort-colors"
+  },
+  {
+   "lcId": 23,
+   "title": "Merge k Sorted Lists",
+   "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+   "difficulty": "Hard",
+   "acceptance": 60.0,
+   "score": 657.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "merge-k-sorted-lists"
+  },
+  {
+   "lcId": 9,
+   "title": "Palindrome Number",
+   "url": "https://leetcode.com/problems/palindrome-number/",
+   "difficulty": "Easy",
+   "acceptance": 60.7,
+   "score": 632.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "palindrome-number"
+  },
+  {
+   "lcId": 11,
+   "title": "Container With Most Water",
+   "url": "https://leetcode.com/problems/container-with-most-water/",
+   "difficulty": "Medium",
+   "acceptance": 60.4,
+   "score": 632.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "container-with-most-water"
+  },
+  {
+   "lcId": 128,
+   "title": "Longest Consecutive Sequence",
+   "url": "https://leetcode.com/problems/longest-consecutive-sequence/",
+   "difficulty": "Medium",
+   "acceptance": 47.2,
+   "score": 632.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "longest-consecutive-sequence"
+  },
+  {
+   "lcId": 138,
+   "title": "Copy List with Random Pointer",
+   "url": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+   "difficulty": "Medium",
+   "acceptance": 63.3,
+   "score": 632.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "copy-list-with-random-pointer"
+  },
+  {
+   "lcId": 347,
+   "title": "Top K Frequent Elements",
+   "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+   "difficulty": "Medium",
+   "acceptance": 66.8,
+   "score": 632.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "top-k-frequent-elements"
+  },
+  {
+   "lcId": 767,
+   "title": "Reorganize String",
+   "url": "https://leetcode.com/problems/reorganize-string/",
+   "difficulty": "Medium",
+   "acceptance": 57.3,
+   "score": 632.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "reorganize-string"
+  },
+  {
+   "lcId": 48,
+   "title": "Rotate Image",
+   "url": "https://leetcode.com/problems/rotate-image/",
+   "difficulty": "Medium",
+   "acceptance": 80.4,
+   "score": 612.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "rotate-image"
+  },
+  {
+   "lcId": 78,
+   "title": "Subsets",
+   "url": "https://leetcode.com/problems/subsets/",
+   "difficulty": "Medium",
+   "acceptance": 82.5,
+   "score": 612.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "subsets"
+  },
+  {
+   "lcId": 169,
+   "title": "Majority Element",
+   "url": "https://leetcode.com/problems/majority-element/",
+   "difficulty": "Easy",
+   "acceptance": 66.4,
+   "score": 612.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "majority-element"
+  },
+  {
+   "lcId": 994,
+   "title": "Rotting Oranges",
+   "url": "https://leetcode.com/problems/rotting-oranges/",
+   "difficulty": "Medium",
+   "acceptance": 59.0,
+   "score": 607.5,
+   "windows": {
+    "30d": 37.5,
+    "3mo": 62.5,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "rotting-oranges"
+  },
+  {
+   "lcId": 20,
+   "title": "Valid Parentheses",
+   "url": "https://leetcode.com/problems/valid-parentheses/",
+   "difficulty": "Easy",
+   "acceptance": 44.5,
+   "score": 595.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "valid-parentheses"
+  },
+  {
+   "lcId": 53,
+   "title": "Maximum Subarray",
+   "url": "https://leetcode.com/problems/maximum-subarray/",
+   "difficulty": "Medium",
+   "acceptance": 53.5,
+   "score": 595.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "maximum-subarray"
+  },
+  {
+   "lcId": 127,
+   "title": "Word Ladder",
+   "url": "https://leetcode.com/problems/word-ladder/",
+   "difficulty": "Hard",
+   "acceptance": 46.0,
+   "score": 595.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "word-ladder"
+  },
+  {
+   "lcId": 76,
+   "title": "Minimum Window Substring",
+   "url": "https://leetcode.com/problems/minimum-window-substring/",
+   "difficulty": "Hard",
+   "acceptance": 47.9,
+   "score": 587.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "minimum-window-substring"
+  },
+  {
+   "lcId": 236,
+   "title": "Lowest Common Ancestor of a Binary Tree",
+   "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 587.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "lowest-common-ancestor-of-a-binary-tree"
+  },
+  {
+   "lcId": 322,
+   "title": "Coin Change",
+   "url": "https://leetcode.com/problems/coin-change/",
+   "difficulty": "Medium",
+   "acceptance": 48.7,
+   "score": 587.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 62.5,
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "coin-change"
+  },
+  {
+   "lcId": 17,
+   "title": "Letter Combinations of a Phone Number",
+   "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+   "difficulty": "Medium",
+   "acceptance": 66.4,
+   "score": 575.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "letter-combinations-of-a-phone-number"
+  },
+  {
+   "lcId": 21,
+   "title": "Merge Two Sorted Lists",
+   "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+   "difficulty": "Easy",
+   "acceptance": 68.5,
+   "score": 575.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "merge-two-sorted-lists"
+  },
+  {
+   "lcId": 26,
+   "title": "Remove Duplicates from Sorted Array",
+   "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+   "difficulty": "Easy",
+   "acceptance": 63.2,
+   "score": 575.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "remove-duplicates-from-sorted-array"
+  },
+  {
+   "lcId": 55,
+   "title": "Jump Game",
+   "url": "https://leetcode.com/problems/jump-game/",
+   "difficulty": "Medium",
+   "acceptance": 41.2,
+   "score": 575.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "jump-game"
+  },
+  {
+   "lcId": 239,
+   "title": "Sliding Window Maximum",
+   "url": "https://leetcode.com/problems/sliding-window-maximum/",
+   "difficulty": "Hard",
+   "acceptance": 49.0,
+   "score": 575.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "sliding-window-maximum"
+  },
+  {
+   "lcId": 1011,
+   "title": "Capacity To Ship Packages Within D Days",
+   "url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/",
+   "difficulty": "Medium",
+   "acceptance": 74.3,
+   "score": 575.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "capacity-to-ship-packages-within-d-days"
+  },
+  {
+   "lcId": 217,
+   "title": "Contains Duplicate",
+   "url": "https://leetcode.com/problems/contains-duplicate/",
+   "difficulty": "Easy",
+   "acceptance": 64.5,
+   "score": 567.5,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "contains-duplicate"
+  },
+  {
+   "lcId": 18,
+   "title": "4Sum",
+   "url": "https://leetcode.com/problems/4sum/",
+   "difficulty": "Medium",
+   "acceptance": 41.1,
+   "score": 562.5,
+   "windows": {
+    "30d": 37.5,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "4sum"
+  },
+  {
+   "lcId": 198,
+   "title": "House Robber",
+   "url": "https://leetcode.com/problems/house-robber/",
+   "difficulty": "Medium",
+   "acceptance": 53.4,
+   "score": 562.5,
+   "windows": {
+    "30d": 37.5,
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "house-robber"
+  },
+  {
+   "lcId": 19,
+   "title": "Remove Nth Node From End of List",
+   "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+   "difficulty": "Medium",
+   "acceptance": 52.0,
+   "score": 555.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "30d",
+   "slug": "remove-nth-node-from-end-of-list"
+  },
+  {
+   "lcId": 7,
+   "title": "Reverse Integer",
+   "url": "https://leetcode.com/problems/reverse-integer/",
+   "difficulty": "Medium",
+   "acceptance": 32.1,
+   "score": 550.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "reverse-integer"
+  },
+  {
+   "lcId": 34,
+   "title": "Find First and Last Position of Element in Sorted Array",
+   "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+   "difficulty": "Medium",
+   "acceptance": 49.3,
+   "score": 550.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "find-first-and-last-position-of-element-in-sorted-array"
+  },
+  {
+   "lcId": 41,
+   "title": "First Missing Positive",
+   "url": "https://leetcode.com/problems/first-missing-positive/",
+   "difficulty": "Hard",
+   "acceptance": 43.2,
+   "score": 550.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "first-missing-positive"
+  },
+  {
+   "lcId": 51,
+   "title": "N-Queens",
+   "url": "https://leetcode.com/problems/n-queens/",
+   "difficulty": "Hard",
+   "acceptance": 76.0,
+   "score": 550.0,
+   "windows": {
+    "30d": 50.0,
+    "3mo": 50.0,
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "n-queens"
+  }
+ ]
+}

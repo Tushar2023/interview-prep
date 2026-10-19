@@ -1,0 +1,660 @@
+{
+ "company": "nutanix",
+ "folder": "nutanix",
+ "totalTagged": 64,
+ "top": [
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 287.5,
+   "windows": {
+    "6mo": 100.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 968,
+   "title": "Binary Tree Cameras",
+   "url": "https://leetcode.com/problems/binary-tree-cameras/",
+   "difficulty": "Hard",
+   "acceptance": 48.0,
+   "score": 250.0,
+   "windows": {
+    "6mo": 100.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "binary-tree-cameras"
+  },
+  {
+   "lcId": 1823,
+   "title": "Find the Winner of the Circular Game",
+   "url": "https://leetcode.com/problems/find-the-winner-of-the-circular-game/",
+   "difficulty": "Medium",
+   "acceptance": 82.3,
+   "score": 250.0,
+   "windows": {
+    "6mo": 100.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "find-the-winner-of-the-circular-game"
+  },
+  {
+   "lcId": 853,
+   "title": "Car Fleet",
+   "url": "https://leetcode.com/problems/car-fleet/",
+   "difficulty": "Medium",
+   "acceptance": 55.4,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "car-fleet"
+  },
+  {
+   "lcId": 991,
+   "title": "Broken Calculator",
+   "url": "https://leetcode.com/problems/broken-calculator/",
+   "difficulty": "Medium",
+   "acceptance": 56.3,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "broken-calculator"
+  },
+  {
+   "lcId": 1003,
+   "title": "Check If Word Is Valid After Substitutions",
+   "url": "https://leetcode.com/problems/check-if-word-is-valid-after-substitutions/",
+   "difficulty": "Medium",
+   "acceptance": 61.3,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "check-if-word-is-valid-after-substitutions"
+  },
+  {
+   "lcId": 1052,
+   "title": "Grumpy Bookstore Owner",
+   "url": "https://leetcode.com/problems/grumpy-bookstore-owner/",
+   "difficulty": "Medium",
+   "acceptance": 64.1,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "grumpy-bookstore-owner"
+  },
+  {
+   "lcId": 1156,
+   "title": "Swap For Longest Repeated Character Substring",
+   "url": "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/",
+   "difficulty": "Medium",
+   "acceptance": 44.7,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "swap-for-longest-repeated-character-substring"
+  },
+  {
+   "lcId": 1157,
+   "title": "Online Majority Element In Subarray",
+   "url": "https://leetcode.com/problems/online-majority-element-in-subarray/",
+   "difficulty": "Hard",
+   "acceptance": 40.6,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "online-majority-element-in-subarray"
+  },
+  {
+   "lcId": 1559,
+   "title": "Detect Cycles in 2D Grid",
+   "url": "https://leetcode.com/problems/detect-cycles-in-2d-grid/",
+   "difficulty": "Medium",
+   "acceptance": 63.4,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "detect-cycles-in-2d-grid"
+  },
+  {
+   "lcId": 1687,
+   "title": "Delivering Boxes from Storage to Ports",
+   "url": "https://leetcode.com/problems/delivering-boxes-from-storage-to-ports/",
+   "difficulty": "Hard",
+   "acceptance": 39.9,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "delivering-boxes-from-storage-to-ports"
+  },
+  {
+   "lcId": 1689,
+   "title": "Partitioning Into Minimum Number Of Deci-Binary Numbers",
+   "url": "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/",
+   "difficulty": "Medium",
+   "acceptance": 90.5,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "partitioning-into-minimum-number-of-deci-binary-numbers"
+  },
+  {
+   "lcId": 2428,
+   "title": "Maximum Sum of an Hourglass",
+   "url": "https://leetcode.com/problems/maximum-sum-of-an-hourglass/",
+   "difficulty": "Medium",
+   "acceptance": 76.4,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "maximum-sum-of-an-hourglass"
+  },
+  {
+   "lcId": 2895,
+   "title": "Minimum Processing Time",
+   "url": "https://leetcode.com/problems/minimum-processing-time/",
+   "difficulty": "Medium",
+   "acceptance": 70.6,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "minimum-processing-time"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 87.5,
+   "windows": {
+    "all": 87.5
+   },
+   "recency": "all",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 1290,
+   "title": "Convert Binary Number in a Linked List to Integer",
+   "url": "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/",
+   "difficulty": "Easy",
+   "acceptance": 82.4,
+   "score": 87.5,
+   "windows": {
+    "all": 87.5
+   },
+   "recency": "all",
+   "slug": "convert-binary-number-in-a-linked-list-to-integer"
+  },
+  {
+   "lcId": 48,
+   "title": "Rotate Image",
+   "url": "https://leetcode.com/problems/rotate-image/",
+   "difficulty": "Medium",
+   "acceptance": 80.4,
+   "score": 75.0,
+   "windows": {
+    "all": 75.0
+   },
+   "recency": "all",
+   "slug": "rotate-image"
+  },
+  {
+   "lcId": 49,
+   "title": "Group Anagrams",
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "difficulty": "Medium",
+   "acceptance": 72.9,
+   "score": 75.0,
+   "windows": {
+    "all": 75.0
+   },
+   "recency": "all",
+   "slug": "group-anagrams"
+  },
+  {
+   "lcId": 65,
+   "title": "Valid Number",
+   "url": "https://leetcode.com/problems/valid-number/",
+   "difficulty": "Hard",
+   "acceptance": 23.2,
+   "score": 75.0,
+   "windows": {
+    "all": 75.0
+   },
+   "recency": "all",
+   "slug": "valid-number"
+  },
+  {
+   "lcId": 239,
+   "title": "Sliding Window Maximum",
+   "url": "https://leetcode.com/problems/sliding-window-maximum/",
+   "difficulty": "Hard",
+   "acceptance": 49.0,
+   "score": 75.0,
+   "windows": {
+    "all": 75.0
+   },
+   "recency": "all",
+   "slug": "sliding-window-maximum"
+  },
+  {
+   "lcId": 334,
+   "title": "Increasing Triplet Subsequence",
+   "url": "https://leetcode.com/problems/increasing-triplet-subsequence/",
+   "difficulty": "Medium",
+   "acceptance": 39.5,
+   "score": 75.0,
+   "windows": {
+    "all": 75.0
+   },
+   "recency": "all",
+   "slug": "increasing-triplet-subsequence"
+  },
+  {
+   "lcId": 3,
+   "title": "Longest Substring Without Repeating Characters",
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "longest-substring-without-repeating-characters"
+  },
+  {
+   "lcId": 33,
+   "title": "Search in Rotated Sorted Array",
+   "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+   "difficulty": "Medium",
+   "acceptance": 45.2,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "search-in-rotated-sorted-array"
+  },
+  {
+   "lcId": 54,
+   "title": "Spiral Matrix",
+   "url": "https://leetcode.com/problems/spiral-matrix/",
+   "difficulty": "Medium",
+   "acceptance": 57.2,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "spiral-matrix"
+  },
+  {
+   "lcId": 74,
+   "title": "Search a 2D Matrix",
+   "url": "https://leetcode.com/problems/search-a-2d-matrix/",
+   "difficulty": "Medium",
+   "acceptance": 54.3,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "search-a-2d-matrix"
+  },
+  {
+   "lcId": 92,
+   "title": "Reverse Linked List II",
+   "url": "https://leetcode.com/problems/reverse-linked-list-ii/",
+   "difficulty": "Medium",
+   "acceptance": 51.9,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "reverse-linked-list-ii"
+  },
+  {
+   "lcId": 103,
+   "title": "Binary Tree Zigzag Level Order Traversal",
+   "url": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+   "difficulty": "Medium",
+   "acceptance": 64.1,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "binary-tree-zigzag-level-order-traversal"
+  },
+  {
+   "lcId": 124,
+   "title": "Binary Tree Maximum Path Sum",
+   "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+   "difficulty": "Hard",
+   "acceptance": 42.5,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "binary-tree-maximum-path-sum"
+  },
+  {
+   "lcId": 210,
+   "title": "Course Schedule II",
+   "url": "https://leetcode.com/problems/course-schedule-ii/",
+   "difficulty": "Medium",
+   "acceptance": 55.9,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "course-schedule-ii"
+  },
+  {
+   "lcId": 297,
+   "title": "Serialize and Deserialize Binary Tree",
+   "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+   "difficulty": "Hard",
+   "acceptance": 61.1,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "serialize-and-deserialize-binary-tree"
+  },
+  {
+   "lcId": 329,
+   "title": "Longest Increasing Path in a Matrix",
+   "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/",
+   "difficulty": "Hard",
+   "acceptance": 56.8,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "longest-increasing-path-in-a-matrix"
+  },
+  {
+   "lcId": 394,
+   "title": "Decode String",
+   "url": "https://leetcode.com/problems/decode-string/",
+   "difficulty": "Medium",
+   "acceptance": 62.9,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "decode-string"
+  },
+  {
+   "lcId": 543,
+   "title": "Diameter of Binary Tree",
+   "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
+   "difficulty": "Easy",
+   "acceptance": 65.8,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "diameter-of-binary-tree"
+  },
+  {
+   "lcId": 621,
+   "title": "Task Scheduler",
+   "url": "https://leetcode.com/problems/task-scheduler/",
+   "difficulty": "Medium",
+   "acceptance": 63.4,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "task-scheduler"
+  },
+  {
+   "lcId": 716,
+   "title": "Max Stack",
+   "url": "https://leetcode.com/problems/max-stack/",
+   "difficulty": "Hard",
+   "acceptance": 46.0,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "max-stack"
+  },
+  {
+   "lcId": 895,
+   "title": "Maximum Frequency Stack",
+   "url": "https://leetcode.com/problems/maximum-frequency-stack/",
+   "difficulty": "Hard",
+   "acceptance": 66.9,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "maximum-frequency-stack"
+  },
+  {
+   "lcId": 1014,
+   "title": "Best Sightseeing Pair",
+   "url": "https://leetcode.com/problems/best-sightseeing-pair/",
+   "difficulty": "Medium",
+   "acceptance": 62.7,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "best-sightseeing-pair"
+  },
+  {
+   "lcId": 15,
+   "title": "3Sum",
+   "url": "https://leetcode.com/problems/3sum/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "3sum"
+  },
+  {
+   "lcId": 23,
+   "title": "Merge k Sorted Lists",
+   "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+   "difficulty": "Hard",
+   "acceptance": 60.0,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "merge-k-sorted-lists"
+  },
+  {
+   "lcId": 41,
+   "title": "First Missing Positive",
+   "url": "https://leetcode.com/problems/first-missing-positive/",
+   "difficulty": "Hard",
+   "acceptance": 43.2,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "first-missing-positive"
+  },
+  {
+   "lcId": 42,
+   "title": "Trapping Rain Water",
+   "url": "https://leetcode.com/problems/trapping-rain-water/",
+   "difficulty": "Hard",
+   "acceptance": 67.7,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "trapping-rain-water"
+  },
+  {
+   "lcId": 45,
+   "title": "Jump Game II",
+   "url": "https://leetcode.com/problems/jump-game-ii/",
+   "difficulty": "Medium",
+   "acceptance": 43.1,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "jump-game-ii"
+  },
+  {
+   "lcId": 73,
+   "title": "Set Matrix Zeroes",
+   "url": "https://leetcode.com/problems/set-matrix-zeroes/",
+   "difficulty": "Medium",
+   "acceptance": 63.3,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "set-matrix-zeroes"
+  },
+  {
+   "lcId": 126,
+   "title": "Word Ladder II",
+   "url": "https://leetcode.com/problems/word-ladder-ii/",
+   "difficulty": "Hard",
+   "acceptance": 27.8,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "word-ladder-ii"
+  },
+  {
+   "lcId": 130,
+   "title": "Surrounded Regions",
+   "url": "https://leetcode.com/problems/surrounded-regions/",
+   "difficulty": "Medium",
+   "acceptance": 45.8,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "surrounded-regions"
+  },
+  {
+   "lcId": 133,
+   "title": "Clone Graph",
+   "url": "https://leetcode.com/problems/clone-graph/",
+   "difficulty": "Medium",
+   "acceptance": 65.7,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "clone-graph"
+  },
+  {
+   "lcId": 139,
+   "title": "Word Break",
+   "url": "https://leetcode.com/problems/word-break/",
+   "difficulty": "Medium",
+   "acceptance": 49.6,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "word-break"
+  },
+  {
+   "lcId": 189,
+   "title": "Rotate Array",
+   "url": "https://leetcode.com/problems/rotate-array/",
+   "difficulty": "Medium",
+   "acceptance": 45.2,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "rotate-array"
+  },
+  {
+   "lcId": 200,
+   "title": "Number of Islands",
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "difficulty": "Medium",
+   "acceptance": 64.7,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "number-of-islands"
+  },
+  {
+   "lcId": 253,
+   "title": "Meeting Rooms II",
+   "url": "https://leetcode.com/problems/meeting-rooms-ii/",
+   "difficulty": "Medium",
+   "acceptance": 52.7,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "meeting-rooms-ii"
+  }
+ ]
+}

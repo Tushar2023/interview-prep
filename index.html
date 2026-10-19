@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prep · Tushar</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<style>
+:root{
+  --bg:#0a0d13; --panel:#10151f; --panel2:#151c29; --line:#1e2736; --line2:#2a3548;
+  --text:#e8eef6; --mut:#8b98ab; --acc:#6d8dff; --acc2:#3fd6c2;
+  --grad:linear-gradient(135deg,#6d8dff,#3fd6c2);
+  --red:#f85149; --green:#3fb950; --amber:#e3b341; --blue:#58a6ff; --teal:#3fd6c2; --purple:#b57bff;
+  --shadow:0 12px 40px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;padding-bottom:60px}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:rgba(109,141,255,.35)}
+a{color:var(--acc)}
+
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:12px 20px;background:rgba(10,13,19,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand .dot{width:30px;height:30px;border-radius:9px;background:var(--grad);display:grid;place-items:center;font-size:15px}
+.brand h1{font-size:16px;font-weight:700;letter-spacing:.2px}
+.brand small{display:block;color:var(--mut);font-size:11px;font-weight:400;margin-top:-2px}
+.save-ind{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mut);padding:5px 10px;border:1px solid var(--line);border-radius:99px;white-space:nowrap}
+.save-ind .d{width:7px;height:7px;border-radius:50%;background:var(--green);flex:none}
+.save-ind.saving .d{background:var(--amber)}
+.save-ind.warn .d{background:var(--red)}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{background:none;border:0;padding:7px 13px;color:var(--mut);cursor:pointer;font-weight:600;font-size:13px;white-space:nowrap}
+.seg button.on{background:var(--panel2);color:var(--text)}
+.btn{background:var(--panel2);border:1px solid var(--line2);border-radius:9px;padding:7px 14px;cursor:pointer;font-weight:600;font-size:13px;transition:filter .15s;white-space:nowrap}
+.btn:hover{filter:brightness(1.2)}
+.btn.primary{background:var(--grad);border:0;color:#07101c}
+.btn.danger{color:var(--red);border-color:rgba(248,81,73,.4)}
+.btn.sm{padding:5px 10px;font-size:12px}
+.icon-btn{background:none;border:1px solid var(--line);border-radius:9px;width:34px;height:34px;cursor:pointer;color:var(--mut);font-size:15px;flex:none}
+.icon-btn:hover{color:var(--text)}
+
+.wrap{max-width:1320px;margin:0 auto;padding:16px 20px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.stat b{font-size:24px;font-weight:800;letter-spacing:-.5px}
+.stat span{display:block;color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.8px;margin-top:2px}
+.stat .sub{color:var(--mut);font-size:11px;margin-left:6px;font-weight:500}
+
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:8px 14px;cursor:pointer;text-align:left;min-width:150px}
+.chip.on{border-color:var(--acc);background:rgba(109,141,255,.13)}
+.chip b{font-size:13px;display:flex;align-items:center;gap:7px}
+.chip .av{width:18px;height:18px;border-radius:6px;display:grid;place-items:center;font-size:10px;font-weight:800;color:#07101c}
+.chip span{font-size:11px;color:var(--mut);display:block;white-space:nowrap}
+.chip .bar{height:3px;border-radius:2px;background:var(--line2);margin-top:6px;overflow:hidden}
+.chip .bar i{display:block;height:100%;background:var(--grad)}
+
+.cpanel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.cpanel .head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cpanel .head h2{font-size:16px;display:flex;align-items:center;gap:8px}
+.cpanel .lvl{font-size:12px;color:var(--mut);border:1px solid var(--line2);border-radius:99px;padding:2px 9px}
+.cpanel .sum{color:var(--mut);font-size:13px;margin-top:8px;max-width:980px}
+.cpanel .sum.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rounds{display:flex;gap:8px;overflow-x:auto;margin-top:12px;padding-bottom:4px;scrollbar-width:none}
+.rounds::-webkit-scrollbar{display:none}
+.round{flex:none;background:var(--panel2);border:1px solid var(--line2);border-radius:10px;padding:8px 11px;min-width:150px;max-width:230px;cursor:pointer}
+.round b{font-size:12.5px;display:flex;align-items:center;gap:6px}
+.round b i{width:7px;height:7px;border-radius:50%;display:inline-block;flex:none}
+.round small{color:var(--mut);font-size:11px;display:block;margin-top:2px}
+.round.open{max-width:none;flex:1 1 100%}
+.round .what{font-size:12px;color:var(--text);margin-top:6px;white-space:normal}
+.round .what em{color:var(--mut);font-style:normal}
+.tips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tip{font-size:11.5px;color:var(--mut);border:1px solid var(--line);border-radius:8px;padding:4px 9px;background:var(--bg)}
+.cpanel details{margin-top:10px}
+.cpanel summary{cursor:pointer;color:var(--mut);font-size:12px;user-select:none}
+.cpanel .src a{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.tabs{display:flex;gap:4px;border:1px solid var(--line);border-radius:9px;overflow-x:auto;background:var(--panel);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.togs{display:contents}
+.tabs button{background:none;border:0;padding:7px 13px;color:var(--mut);cursor:pointer;font-weight:600;font-size:13px;white-space:nowrap}
+.tabs button.on{background:var(--panel2);color:var(--text)}
+.tabs button small{color:var(--mut);font-weight:500;margin-left:4px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.search{flex:1 1 200px;min-width:170px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:8px 12px;outline:none}
+.search:focus{border-color:var(--acc)}
+select.ctl{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:8px 10px;outline:none;color:var(--text);max-width:170px;-webkit-appearance:none;appearance:none}
+.tog{background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:7px 13px;cursor:pointer;color:var(--mut);font-size:12.5px;font-weight:600;white-space:nowrap}
+.tog.on{border-color:var(--acc);color:var(--text);background:rgba(109,141,255,.14)}
+.linkish{background:none;border:0;color:var(--acc);cursor:pointer;font-size:12.5px}
+
+.tablewrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:auto}
+.tgrid{min-width:980px}
+.trow{display:grid;grid-template-columns:168px minmax(260px,2.4fr) 120px minmax(150px,1.2fr) 92px 40px 38px;
+  align-items:center;padding:9px 14px;border-bottom:1px solid var(--line);cursor:pointer;gap:8px}
+.trow:last-child{border-bottom:0}
+.trow:hover{background:rgba(255,255,255,.025)}
+.trow.done{opacity:.72}
+.thead{position:sticky;top:0;background:var(--panel2);z-index:5;font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--mut);cursor:default;border-radius:14px 14px 0 0}
+.thead .h{cursor:pointer;user-select:none;white-space:nowrap}
+.thead .h:hover{color:var(--text)}
+.qt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.qt b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px}
+.qt b a{color:var(--text);text-decoration:none}
+.qt b a:hover{text-decoration:underline}
+.qt small{color:var(--mut);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:99px;vertical-align:1px;white-space:nowrap}
+.diff{font-size:11.5px;font-weight:700}
+.ev{font-size:11.5px;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ev b{color:var(--text);font-weight:600}
+.rec{font-size:11px;font-weight:700;white-space:nowrap}
+.avs{display:flex;gap:3px;flex-wrap:wrap}
+.av{width:20px;height:20px;border-radius:6px;display:grid;place-items:center;font-size:10px;font-weight:800;color:#07101c}
+.star{background:none;border:0;cursor:pointer;font-size:16px;opacity:.28;padding:4px}
+.star.on{opacity:1;color:var(--amber)}
+.noteico{font-size:13px;opacity:.35;text-align:center}
+.noteico.on{opacity:1}
+select.status{border-radius:99px;padding:4px 8px;font-size:12px;font-weight:700;cursor:pointer;outline:none;max-width:168px;width:100%;-webkit-appearance:none;appearance:none;text-align:center;border:1px solid}
+
+.modal-back{position:fixed;inset:0;background:rgba(4,6,10,.66);z-index:100;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:4vh 12px 40px;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.modal-back.open{display:flex}
+.modal{background:var(--panel);border:1px solid var(--line2);border-radius:16px;width:100%;max-width:720px;box-shadow:var(--shadow)}
+.modal header{display:flex;align-items:flex-start;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line);gap:10px}
+.modal header h2{font-size:17px;line-height:1.3}
+.modal header h2 a{color:var(--text);text-decoration:none}
+.modal header h2 a:hover{text-decoration:underline}
+.modal .body{padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--mut);margin-bottom:5px;font-weight:600}
+.field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line2);border-radius:9px;padding:8px 11px;outline:none;color:var(--text)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--acc)}
+.field textarea{min-height:74px;resize:vertical}
+.modal footer{display:flex;gap:10px;padding:15px 20px;border-top:1px solid var(--line);justify-content:flex-end;flex-wrap:wrap}
+.meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.mchip{font-size:10.5px;font-weight:600;color:var(--mut);border:1px solid var(--line2);padding:1px 7px;border-radius:99px;white-space:nowrap}
+.stmt{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:13.5px;white-space:pre-wrap;line-height:1.55}
+.probes{display:flex;flex-direction:column;gap:4px;font-size:13px}
+.probes div::before{content:"→ ";color:var(--acc2)}
+.stbtns{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.stbtn{border:1px solid var(--line2);background:var(--bg);border-radius:9px;padding:9px 6px;cursor:pointer;font-size:12px;font-weight:700;text-align:center;line-height:1.25}
+.stbtn small{display:block;font-weight:500;color:var(--mut);font-size:10.5px}
+.stbtn.on{color:#07101c}
+.cblock{border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:5px;font-size:12.5px}
+.cblock .ch{display:flex;align-items:center;gap:8px;font-weight:700}
+.cblock .ch .av{width:18px;height:18px;font-size:9px}
+.cblock a{font-size:12px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.timeline{border-left:2px solid var(--line2);padding-left:14px;display:flex;flex-direction:column;gap:6px;max-height:160px;overflow-y:auto}
+.timeline .evt{font-size:12.5px}
+.timeline .evt small{color:var(--mut);margin-right:8px}
+.checkrow{display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;user-select:none}
+.checkrow input{width:auto}
+
+.menu{position:absolute;right:20px;top:56px;background:var(--panel2);border:1px solid var(--line2);border-radius:12px;box-shadow:var(--shadow);display:none;flex-direction:column;min-width:210px;z-index:60;overflow:hidden}
+.menu.open{display:flex}
+.menu button{background:none;border:0;text-align:left;padding:10px 16px;cursor:pointer;font-size:13.5px}
+.menu button:hover{background:rgba(255,255,255,.05)}
+.menu hr{border:0;border-top:1px solid var(--line)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--panel2);border:1px solid var(--line2);border-radius:99px;padding:9px 18px;font-size:13px;z-index:200;transition:transform .25s;box-shadow:var(--shadow);white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.empty{text-align:center;color:var(--mut);padding:60px 20px}
+.phone-url{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:16px;background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:12px 16px;text-align:center;user-select:all;word-break:break-all}
+kbd{background:var(--panel2);border:1px solid var(--line2);border-radius:5px;padding:0 6px;font-size:11px}
+.hint{color:var(--mut);font-size:12px}
+
+@media (max-width:760px){
+  .topbar{padding:10px 12px}
+  .wrap{padding:12px}
+  .brand small{display:none}
+  .stat b{font-size:19px}
+  .stats{grid-template-columns:repeat(3,1fr);gap:8px}
+  .stat{padding:10px 11px}
+  .stat span{font-size:10px;letter-spacing:.5px}
+  .tabs{flex:1 1 100%}
+  .search{flex:1 1 100%}
+  select.ctl{flex:1 1 44%;max-width:none}
+  .togs{display:flex;gap:8px;flex:1 1 100%;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  .togs::-webkit-scrollbar{display:none}
+  .tablewrap{background:none;border:0;overflow:visible}
+  .tgrid{min-width:0}
+  .thead{display:none}
+  .trow{display:block;background:var(--panel);border:1px solid var(--line);border-radius:13px;margin-bottom:9px;padding:12px 14px}
+  .mrowtop{display:flex;align-items:flex-start;gap:8px}
+  .mrowtop .qt{flex:1}
+  .mrowtop .qt b{white-space:normal}
+  .mmeta{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;align-items:center}
+  select.status{max-width:none;width:100%;padding:8px}
+  .grid3{grid-template-columns:1fr 1fr}
+  .stbtns{grid-template-columns:repeat(2,1fr)}
+  .modal-back{padding:0}
+  .modal{max-width:none;min-height:100vh;border-radius:0;border:0}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="dot">🧠</div>
+    <div><h1>Prep</h1><small>Company-specific · L4 / SDE2 band · 2026</small></div>
+  </div>
+  <div class="save-ind" id="saveInd"><span class="d"></span><span id="saveTxt">Loading…</span></div>
+  <div class="seg">
+    <button id="segCompanies" onclick="setView('companies')">Companies</button>
+    <button id="segAll" onclick="setView('all')">All questions</button>
+    <button id="segRevise" onclick="setView('revise')">★ Revise</button>
+  </div>
+  <button class="icon-btn" onclick="toggleMenu(event)" title="More">⋯</button>
+  <button class="btn primary" onclick="openAdd()">+ Add</button>
+  <div class="menu" id="menu">
+    <button onclick="openPhone()">📱 Open on phone</button>
+    <hr>
+    <button onclick="exportJSON()">⬇ Export progress (JSON)</button>
+    <button onclick="document.getElementById('importFile').click()">⬆ Import progress (JSON)</button>
+    <hr>
+    <button onclick="resetProgress()" style="color:var(--red)">Reset all progress</button>
+    <button id="signOutBtn" onclick="signOut()" style="display:none">Sign out</button>
+  </div>
+  <input type="file" id="importFile" accept=".json" style="display:none" onchange="importJSON(this)">
+</div>
+
+<div class="wrap">
+  <div class="stats" id="stats"></div>
+  <div class="chips" id="companyChips"></div>
+  <div id="companyPanel"></div>
+  <div class="filters">
+    <div class="tabs" id="tabs"></div>
+    <input class="search" id="q" placeholder="Search questions, topics, probes…  ( / )" oninput="filters.q=this.value;renderBody()">
+    <select class="ctl" id="fDiff" onchange="filters.diff=this.value;renderBody()"></select>
+    <select class="ctl" id="fTopic" onchange="filters.topic=this.value;renderBody()"></select>
+    <select class="ctl" id="fStatus" onchange="filters.status=this.value;renderBody()"></select>
+    <select class="ctl" id="fSort" onchange="sort.key=this.value;renderBody()"></select>
+    <div class="togs">
+    <button class="tog" id="tRev" onclick="tog('rev')">★ Must revise</button>
+    <button class="tog" id="tRep" onclick="tog('rep')" title="Only questions reported in interview experiences">Reported</button>
+    <button class="tog" id="tHideDone" onclick="tog('hideDone')">Hide done</button>
+    <button class="tog" id="tHide150" onclick="tog('hide150')" title="Hide problems that are in LeetCode's Top Interview 150 study plan">Hide LC150</button>
+    <button class="linkish" id="clearF" onclick="clearFilters()" style="display:none">Clear</button>
+    </div>
+  </div>
+  <div id="body"></div>
+</div>
+
+<!-- question detail -->
+<div class="modal-back" id="qBack" onclick="if(event.target===this)closeQ()">
+  <div class="modal">
+    <header><h2 id="qTitle"></h2><button class="icon-btn" onclick="closeQ()">✕</button></header>
+    <div class="body" id="qBody"></div>
+    <footer id="qFoot"></footer>
+  </div>
+</div>
+
+<!-- add / edit custom question -->
+<div class="modal-back" id="addBack" onclick="if(event.target===this)closeAdd()">
+  <div class="modal" style="max-width:600px">
+    <header><h2 id="addTitle">Add question</h2><button class="icon-btn" onclick="closeAdd()">✕</button></header>
+    <div class="body">
+      <div class="grid2">
+        <div class="field"><label>Company</label><select id="aCompany"></select></div>
+        <div class="field"><label>Bucket</label><select id="aKind">
+          <option value="dsa">DSA / coding</option><option value="design">System design</option><option value="lld">LLD / machine coding</option></select></div>
+      </div>
+      <div class="field"><label>Title</label><input id="aTitle" placeholder="e.g. Design a rate limiter"></div>
+      <div class="grid2">
+        <div class="field"><label>URL (LeetCode or source)</label><input id="aUrl" placeholder="https://leetcode.com/problems/…"></div>
+        <div class="field"><label>Difficulty</label><select id="aDiff"><option>Easy</option><option selected>Medium</option><option>Hard</option></select></div>
+      </div>
+      <div class="field"><label>Topics (comma separated)</label><input id="aTopics" placeholder="Graph, BFS"></div>
+      <div class="field"><label>Problem statement / prompt</label><textarea id="aStmt"></textarea></div>
+    </div>
+    <footer>
+      <button class="btn danger" id="aDelete" onclick="deleteCustom()" style="display:none">Delete</button>
+      <span style="flex:1"></span>
+      <button class="btn" onclick="closeAdd()">Cancel</button>
+      <button class="btn primary" onclick="saveAdd()">Save</button>
+    </footer>
+  </div>
+</div>
+
+<div class="modal-back" id="phoneBack" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal" style="max-width:430px">
+    <header><h2>📱 Open on your phone</h2><button class="icon-btn" onclick="document.getElementById('phoneBack').classList.remove('open')">✕</button></header>
+    <div class="body" id="phoneBody"></div>
+  </div>
+</div>
+
+<div class="modal-back" id="authBack">
+  <div class="modal" style="max-width:400px">
+    <header><h2>🧠 Prep — sign in</h2></header>
+    <div class="body">
+      <div class="field"><label>Email</label><input id="aEmail" type="email" autocomplete="email"></div>
+      <div class="field"><label>Password</label><input id="aPass" type="password" autocomplete="current-password" onkeydown="if(event.key==='Enter')signIn()"></div>
+      <div id="aMsg" style="font-size:12.5px;color:var(--red)"></div>
+      <button class="btn primary" onclick="signIn()" style="padding:10px">Sign in</button>
+      <button class="btn" onclick="signUp()">First time? Create account</button>
+      <p class="hint">Same account as Job Hunt. Your progress is private and syncs to every device.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script>
+'use strict';
+// Same Supabase project as Job Hunt; a separate `prep` table holds this app's progress.
+const CLOUD={url:'https://gncpukthvojkttfmpkdu.supabase.co',anonKey:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImduY3B1a3Rodm9qa3R0Zm1wa2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0MTQ1NjUsImV4cCI6MjA5ODk5MDU2NX0.w6z82rdPR5ROR73OUgsYtK_08PkEQt_ClRTbf8scmcI'};
+const TABLE='prep', LS_KEY='prep-data';
+
+const STATUSES=[
+ {id:'none',label:'Not started',short:'Not started',c:'#7d8896',hint:'untouched'},
+ {id:'a1',label:'✓ 1st attempt',short:'1st ✓',c:'#3fb950',hint:'solved clean'},
+ {id:'a1h',label:'1st attempt · hints',short:'1st + hints',c:'#3fd6c2',hint:'needed help'},
+ {id:'a2',label:'✓ 2nd attempt',short:'2nd ✓',c:'#58a6ff',hint:'solved on revisit'},
+ {id:'a2h',label:'2nd attempt · hints',short:'2nd + hints',c:'#e3b341',hint:'still needed help'},
+];
+const ST=Object.fromEntries(STATUSES.map(s=>[s.id,s]));
+const KINDS=[['dsa','DSA'],['design','System design'],['lld','LLD / machine coding']];
+const KINDLABEL=Object.fromEntries(KINDS);
+const DIFFC={Easy:'#3fb950',Medium:'#e3b341',Hard:'#f85149'};
+const RECC={'30d':'#3fb950','3mo':'#3fd6c2','6mo':'#e3b341','older':'#8b98ab','all':'#8b98ab'};
+const RTYPE={screen:'#8b98ab',oa:'#8b98ab',dsa:'#58a6ff',practical:'#3fd6c2',design:'#b57bff',lld:'#e3b341',behavioral:'#f0883e',hm:'#f0883e',values:'#f0883e',other:'#8b98ab'};
+
+const DATA=window.PREP_DATA||{companies:[],questions:[]};
+const COMP=Object.fromEntries(DATA.companies.map(c=>[c.id,c]));
+const QBYID={};
+
+let db=null, mode='boot', pendingSave=false, saveTimer=null, openId=null, editingCustom=null;
+let view=localStorage.getItem('prep-view')||'companies';
+let company=localStorage.getItem('prep-company')||'';
+let kind=localStorage.getItem('prep-kind')||'dsa';
+const filters={q:'',diff:'',topic:'',status:'',rev:false,rep:false,hideDone:false,hide150:false};
+let sort={key:'rel',dir:1};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const today=()=>new Date().toISOString().slice(0,10);
+const nowIso=()=>new Date().toISOString();
+
+// ---------- data access ----------
+function allQuestions(){return DATA.questions.concat(db?.custom||[])}
+function indexQuestions(){for(const q of allQuestions())QBYID[q.id]=q}
+function prog(id){return (db.items||{})[id]||{s:'none',r:false,n:''}}
+function centry(q,cid){return q.companies.find(c=>c.id===cid)}
+function isDone(id){return prog(id).s!=='none'}
+function fmtDate(d){if(!d)return'';const dt=new Date(d.length===10?d+'T00:00:00':d);return dt.toLocaleDateString('en-GB',{day:'numeric',month:'short'})}
+function recencyOf(q,cid){
+  const e=cid?centry(q,cid):null;
+  if(e){if(e.lcRecency&&e.lcRecency!=='all')return e.lcRecency;if(e.recency)return e.recency}
+  // best across companies
+  const order={'30d':0,'3mo':1,'6mo':2,'older':3};
+  let best=null;for(const c of q.companies){if(c.lcRecency&&c.lcRecency in order&&(best===null||order[c.lcRecency]<order[best]))best=c.lcRecency}
+  if(best)return best;
+  const r=q.companies.map(c=>c.recency).filter(Boolean).sort().pop();return r||'';
+}
+function recBadge(r){
+  if(!r)return'';
+  const known=RECC[r];
+  if(known)return `<span class="rec" style="color:${known}" title="LeetCode company tag: ${r==='older'?'reported >6 months ago':'reported in the last '+r}">${r==='older'?'>6mo':r}</span>`;
+  return `<span class="rec" style="color:var(--purple)" title="Reported in an interview experience">${esc(r)}</span>`;
+}
+function reported(q,cid){return cid?!!(centry(q,cid)||{}).reported:q.companies.some(c=>c.reported)}
+function scoreOf(q,cid){if(cid){const e=centry(q,cid);return e?e.score:0}return Math.max(...q.companies.map(c=>c.score))+q.companies.length*25}
+
+// ---------- persistence (mirrors Job Hunt) ----------
+function emptyDb(){return {version:1,rev:0,items:{},custom:[]}}
+function setInd(cls,txt){const i=$('#saveInd');i.className='save-ind '+cls;$('#saveTxt').textContent=txt}
+let sb=null,uid=null;
+async function bootCloud(){
+  setInd('saving','Connecting…');
+  const mod=await import('https://esm.sh/@supabase/supabase-js@2');
+  sb=mod.createClient(CLOUD.url,CLOUD.anonKey);
+  const {data:{session}}=await sb.auth.getSession();
+  if(!session){$('#authBack').classList.add('open');setInd('warn','Signed out');return}
+  uid=session.user.id;
+  $('#authBack').classList.remove('open');
+  $('#signOutBtn').style.display='';
+  const {data:row,error}=await sb.from(TABLE).select('data,rev').eq('user_id',uid).maybeSingle();
+  if(error){
+    try{db=JSON.parse(localStorage.getItem(LS_KEY))||emptyDb()}catch(_){db=emptyDb()}
+    setInd('warn','Cloud unreachable — device copy');console.error(error);
+  }else if(!row){db=emptyDb();mode='cloud';await doSave(true);setInd('','Synced · cloud')}
+  else{db=row.data&&row.data.items?row.data:emptyDb();db.rev=row.rev;setInd('','Synced · cloud')}
+  mode='cloud';
+  start();setInterval(poll,5000);
+}
+async function signIn(){
+  $('#aMsg').style.color='var(--red)';$('#aMsg').textContent='';
+  const {error}=await sb.auth.signInWithPassword({email:$('#aEmail').value.trim(),password:$('#aPass').value});
+  if(error){$('#aMsg').textContent=error.message;return}
+  bootCloud();
+}
+async function signUp(){
+  $('#aMsg').textContent='';
+  const {error}=await sb.auth.signUp({email:$('#aEmail').value.trim(),password:$('#aPass').value});
+  if(error){$('#aMsg').textContent=error.message;return}
+  $('#aMsg').style.color='var(--green)';
+  $('#aMsg').textContent='Account created. If email confirmation is on, check your inbox first — then Sign in.';
+}
+async function signOut(){await sb.auth.signOut();location.reload()}
+async function boot(){
+  if(CLOUD.url){
+    try{await bootCloud()}catch(e){setInd('warn','Cloud failed to load');console.error(e);
+      try{db=JSON.parse(localStorage.getItem(LS_KEY))||emptyDb()}catch(_){db=emptyDb()}
+      mode='local';start()}
+    return;
+  }
+  mode='local';
+  try{db=JSON.parse(localStorage.getItem(LS_KEY))||emptyDb()}catch(_){db=emptyDb()}
+  setInd('warn','Browser-only');start();
+}
+function start(){db.items=db.items||{};db.custom=db.custom||[];indexQuestions();initControls();renderAll()}
+function scheduleSave(){
+  pendingSave=true;setInd('saving','Saving…');
+  clearTimeout(saveTimer);saveTimer=setTimeout(()=>doSave(),450);
+}
+async function doSave(first){
+  db.rev=(db.rev||0)+1;db.savedAt=nowIso();
+  if(mode==='cloud'){
+    try{
+      const {data:rows,error}=await sb.from(TABLE)
+        .update({data:db,rev:db.rev,updated_at:db.savedAt}).eq('user_id',uid).lt('rev',db.rev).select('rev');
+      if(error)throw error;
+      if(!rows||!rows.length){
+        const {error:ins}=await sb.from(TABLE).insert({user_id:uid,data:db,rev:db.rev});
+        if(ins){
+          const {data:cur}=await sb.from(TABLE).select('data,rev').eq('user_id',uid).single();
+          if(cur&&cur.rev>=db.rev){db=cur.data;db.rev=cur.rev;indexQuestions();renderAll();toast('Loaded newer changes from another device')}
+        }
+      }
+      pendingSave=false;setInd('','Synced · cloud');
+      localStorage.setItem(LS_KEY,JSON.stringify(db));
+    }catch(e){pendingSave=false;setInd('warn','Offline — saved on this device');console.error(e);localStorage.setItem(LS_KEY,JSON.stringify(db))}
+    return;
+  }
+  localStorage.setItem(LS_KEY,JSON.stringify(db));
+  pendingSave=false;setInd('warn','Saved in browser only');
+}
+async function poll(){
+  if(pendingSave||document.visibilityState!=='visible'||mode!=='cloud')return;
+  try{
+    const {data:row}=await sb.from(TABLE).select('rev').eq('user_id',uid).maybeSingle();
+    if(row&&row.rev>(db.rev||0)){
+      const {data:full}=await sb.from(TABLE).select('data,rev').eq('user_id',uid).single();
+      db=full.data;db.rev=full.rev;db.items=db.items||{};db.custom=db.custom||[];indexQuestions();renderAll();setInd('','Synced · cloud');
+    }
+  }catch(e){}
+}
+
+// ---------- mutations ----------
+function touch(id){const it=db.items[id]||(db.items[id]={s:'none',r:false,n:'',h:[]});it.t=nowIso();return it}
+function setStatus(id,s){
+  const cur=prog(id);if(cur.s===s)return;
+  const it=touch(id);it.s=s;(it.h=it.h||[]).push({d:today(),e:'Status → '+ST[s].label});
+  scheduleSave();renderAll();if(openId===id)renderQ();
+  if(s==='a1')toast('Clean first attempt 🎉');
+}
+function toggleRev(id){const it=touch(id);it.r=!it.r;(it.h=it.h||[]).push({d:today(),e:it.r?'Marked must-revise':'Cleared must-revise'});scheduleSave();renderAll();if(openId===id)renderQ()}
+let noteTimer=null;
+function setNote(id,v){const it=touch(id);it.n=v;clearTimeout(noteTimer);noteTimer=setTimeout(()=>{scheduleSave();renderBody()},500)}
+
+// ---------- scope / filtering ----------
+function scopeQuestions(){
+  // questions visible in the current view before text filters
+  const qs=allQuestions();
+  if(view==='revise')return qs.filter(q=>prog(q.id).r);
+  if(view==='all')return qs.filter(q=>q.kind===kind);
+  return qs.filter(q=>q.kind===kind&&(!company||centry(q,company)));
+}
+function visible(){
+  const cid=view==='companies'?company:'';
+  let list=scopeQuestions().filter(q=>{
+    const p=prog(q.id);
+    if(filters.diff&&q.difficulty!==filters.diff)return false;
+    if(filters.topic&&!(q.topics||[]).includes(filters.topic))return false;
+    if(filters.status&&p.s!==filters.status)return false;
+    if(filters.rev&&!p.r)return false;
+    if(filters.rep&&!reported(q,cid))return false;
+    if(filters.hideDone&&p.s!=='none')return false;
+    if(filters.hide150&&q.lc150)return false;
+    if(filters.q){const s=filters.q.toLowerCase();
+      const hay=[q.title,(q.topics||[]).join(' '),q.statement,(q.probes||[]).join(' '),p.n,...q.companies.map(c=>c.evidence+' '+c.variant+' '+COMP[c.id]?.name)].join(' ').toLowerCase();
+      if(!hay.includes(s))return false}
+    return true;
+  });
+  const dnum={Easy:0,Medium:1,Hard:2};
+  const recnum=q=>{const r=recencyOf(q,cid);return {'30d':0,'3mo':1,'6mo':2}[r]??(/^20\d\d/.test(r)?(2027-parseInt(r.slice(0,4)))*0.9:5)};
+  const key={
+    rel:q=>-scoreOf(q,cid),recency:q=>recnum(q),diff:q=>dnum[q.difficulty]??1,title:q=>q.title.toLowerCase(),
+    shared:q=>-q.companies.length,updated:q=>-(Date.parse(prog(q.id).t||0)||0)
+  }[sort.key]||(q=>-scoreOf(q,cid));
+  list.sort((a,b)=>{const ka=key(a),kb=key(b);if(ka<kb)return -1*sort.dir;if(ka>kb)return 1*sort.dir;return scoreOf(b,cid)-scoreOf(a,cid)});
+  return list;
+}
+function anyFilter(){return filters.q||filters.diff||filters.topic||filters.status||filters.rev||filters.rep||filters.hideDone||filters.hide150}
+function clearFilters(){Object.assign(filters,{q:'',diff:'',topic:'',status:'',rev:false,rep:false,hideDone:false,hide150:false});
+  $('#q').value='';$('#fDiff').value='';$('#fTopic').value='';$('#fStatus').value='';renderAll()}
+function tog(k){filters[k]=!filters[k];renderAll()}
+
+// ---------- rendering ----------
+function renderAll(){renderStats();renderChips();renderPanel();renderTabs();renderTogs();renderTopics();renderBody()}
+function renderTogs(){
+  $('#tRev').className='tog'+(filters.rev?' on':'');$('#tRep').className='tog'+(filters.rep?' on':'');
+  $('#tHideDone').className='tog'+(filters.hideDone?' on':'');$('#tHide150').className='tog'+(filters.hide150?' on':'');
+  $('#clearF').style.display=anyFilter()?'':'none';
+  $('#segCompanies').className=view==='companies'?'on':'';$('#segAll').className=view==='all'?'on':'';$('#segRevise').className=view==='revise'?'on':'';
+  $('#tabs').style.display=view==='revise'?'none':'';
+  $('#companyChips').style.display=view==='companies'?'':'none';
+}
+function weekAgo(){const d=new Date();d.setDate(d.getDate()-7);return d.toISOString()}
+function renderStats(){
+  const scope=view==='companies'&&company?allQuestions().filter(q=>centry(q,company)):allQuestions();
+  const total=scope.length;
+  const solved=scope.filter(q=>isDone(q.id)).length;
+  const clean=scope.filter(q=>prog(q.id).s==='a1'||prog(q.id).s==='a2').length;
+  const rev=scope.filter(q=>prog(q.id).r).length;
+  const wk=weekAgo();
+  const week=scope.filter(q=>{const p=prog(q.id);return p.s!=='none'&&p.t&&p.t>wk}).length;
+  const pct=total?Math.round(100*solved/total):0;
+  $('#stats').innerHTML=`
+   <div class="stat"><b>${solved}<span class="sub">/ ${total}</span></b><span>Solved${company&&view==='companies'?' · '+esc(COMP[company].name):''}</span></div>
+   <div class="stat"><b>${pct}%</b><span>Coverage</span></div>
+   <div class="stat"><b style="color:var(--green)">${solved?Math.round(100*clean/solved):0}%</b><span>Clean (no hints)</span></div>
+   <div class="stat"><b style="color:var(--amber)">${rev}</b><span>Must revise</span></div>
+   <div class="stat"><b style="color:var(--acc)">${week}</b><span>This week</span></div>`;
+}
+function compProgress(cid){
+  const qs=allQuestions().filter(q=>centry(q,cid));
+  const by=k=>qs.filter(q=>q.kind===k);
+  const done=k=>by(k).filter(q=>isDone(q.id)).length;
+  return {total:qs.length,solved:qs.filter(q=>isDone(q.id)).length,
+    parts:KINDS.filter(([k])=>by(k).length).map(([k,l])=>`${k==='dsa'?'DSA':k==='design'?'SD':'LLD'} ${done(k)}/${by(k).length}`).join(' · ')};
+}
+function avatar(c,size){return `<span class="av" style="background:${c.color};${size?`width:${size}px;height:${size}px;font-size:${Math.round(size/2)}px`:''}" title="${esc(c.name)}">${esc(c.emoji)}</span>`}
+function renderChips(){
+  if(view!=='companies')return;
+  const all=allQuestions();const allDone=all.filter(q=>isDone(q.id)).length;
+  $('#companyChips').innerHTML=[`<button class="chip ${!company?'on':''}" onclick="setCompany('')"><b>All companies</b><span>${allDone}/${all.length} solved</span><div class="bar"><i style="width:${all.length?Math.round(100*allDone/all.length):0}%"></i></div></button>`,
+   ...DATA.companies.map(c=>{const p=compProgress(c.id);const pct=p.total?Math.round(100*p.solved/p.total):0;
+    return `<button class="chip ${company===c.id?'on':''}" onclick="setCompany('${c.id}')">
+      <b>${avatar(c)}${esc(c.name)}</b><span>${p.parts||'no data yet'}</span>
+      <div class="bar"><i style="width:${pct}%"></i></div></button>`})].join('');
+}
+let openRound=-1;
+function renderPanel(){
+  const el=$('#companyPanel');
+  if(view!=='companies'||!company){el.innerHTML='';return}
+  const c=COMP[company],p=c.process||{};
+  const expanded=localStorage.getItem('prep-panel-'+company)==='1';
+  const rounds=(p.rounds||[]).map((r,i)=>`<div class="round ${openRound===i?'open':''}" onclick="openRound=openRound===${i}?-1:${i};renderPanel()">
+      <b><i style="background:${RTYPE[r.type]||RTYPE.other}"></i>${esc(r.name)}</b><small>${esc(r.duration||'')}${r.duration&&r.type?' · ':''}${esc(r.type||'')}</small>
+      ${openRound===i?`<div class="what">${esc(r.what||'')}${r.probes?`<br><em>Probes: ${esc(Array.isArray(r.probes)?r.probes.join('; '):r.probes)}</em>`:''}${r.tips?`<br><em>Tip: ${esc(Array.isArray(r.tips)?r.tips.join('; '):r.tips)}</em>`:''}</div>`:''}</div>`).join('');
+  const tips=(p.tips||[]).map(t=>`<span class="tip">${esc(t)}</span>`).join('');
+  const srcs=(p.sources||[]).map(s=>typeof s==='string'?{url:s}:s).filter(s=>s&&s.url).map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title||s.url)}${s.date?' · '+esc(s.date):''}</a>`).join('');
+  const summary=p.summary||(c.researched?'':`Process research for ${c.name} hasn't landed yet — questions below come from LeetCode's company tags.`);
+  el.innerHTML=`<div class="cpanel">
+    <div class="head"><h2>${avatar(c,24)}${esc(c.name)}</h2><span class="lvl">${esc(c.level)}</span>
+      <span class="hint">${c.lcTagged?c.lcTagged+' LC-tagged':''}</span>
+      <span style="flex:1"></span><button class="linkish" onclick="localStorage.setItem('prep-panel-${company}','${expanded?'0':'1'}');renderPanel()">${expanded?'Hide process ▴':'Show process ▾'}</button></div>
+    ${expanded?`
+    ${c.levelMapping?`<div class="sum"><b style="color:var(--text)">Level:</b> ${esc(c.levelMapping)}</div>`:''}
+    ${p.timeline?`<div class="sum"><b style="color:var(--text)">Timeline:</b> ${esc(p.timeline)}</div>`:''}
+    ${summary?`<div class="sum">${esc(summary)}</div>`:''}
+    ${rounds?`<div class="rounds">${rounds}</div>`:''}
+    ${p.indiaNotes?`<div class="sum" style="margin-top:10px"><b style="color:var(--text)">India:</b> ${esc(p.indiaNotes)}</div>`:''}
+    ${p.notes?`<div class="sum" style="margin-top:6px">${esc(p.notes)}</div>`:''}
+    ${tips?`<div class="tips">${tips}</div>`:''}
+    ${srcs?`<details><summary>Sources (${(p.sources||[]).length})</summary><div class="src">${srcs}</div></details>`:''}`
+    :`${summary?`<div class="sum clamp">${esc(summary)}</div>`:''}
+    ${rounds?`<div class="rounds">${rounds}</div>`:''}`}
+  </div>`;
+}
+function renderTabs(){
+  if(view==='revise')return;
+  const base=view==='companies'&&company?allQuestions().filter(q=>centry(q,company)):allQuestions();
+  $('#tabs').innerHTML=KINDS.map(([k,l])=>{const n=base.filter(q=>q.kind===k).length;const d=base.filter(q=>q.kind===k&&isDone(q.id)).length;
+    return `<button class="${kind===k?'on':''}" onclick="setKind('${k}')">${l}<small>${d}/${n}</small></button>`}).join('');
+}
+function renderTopics(){
+  const cnt={};for(const q of scopeQuestions())for(const t of (q.topics||[]))cnt[t]=(cnt[t]||0)+1;
+  const tops=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,40).sort((a,b)=>a[0].localeCompare(b[0]));
+  const cur=filters.topic;
+  fillSelect($('#fTopic'),[['','All topics'],...tops.map(([t,n])=>[t,`${t} (${n})`])],cur);
+  if(cur&&!cnt[cur]){filters.topic='';$('#fTopic').value=''}
+}
+function statusSel(q){
+  const p=prog(q.id),s=ST[p.s]||ST.none;
+  return `<select class="status" onclick="event.stopPropagation()" onchange="setStatus('${q.id}',this.value)"
+    style="color:${s.c};border-color:${s.c}55;background:${s.c}18">
+    ${STATUSES.map(o=>`<option value="${o.id}" ${o.id===p.s?'selected':''}>${o.label}</option>`).join('')}</select>`;
+}
+function diffPill(d){return d?`<span class="diff" style="color:${DIFFC[d]||'var(--mut)'}">${esc(d)}</span>`:''}
+function badges(q,cid){
+  const out=[];
+  if(q.lc150)out.push(`<span class="pill" style="color:var(--purple);background:rgba(181,123,255,.14)" title="In LeetCode Top Interview 150">LC150</span>`);
+  if(q.custom)out.push(`<span class="pill" style="color:var(--mut);background:rgba(139,152,171,.15)">custom</span>`);
+  if(reported(q,cid))out.push(`<span class="pill" style="color:var(--acc2);background:rgba(63,214,194,.13)" title="Reported in interview experiences">reported</span>`);
+  if(q.classic)out.push(`<span class="pill" style="color:var(--amber);background:rgba(227,179,65,.13)" title="Asked repeatedly">classic</span>`);
+  if(!q.onLeetcode&&q.kind==='dsa')out.push(`<span class="pill" style="color:var(--mut);background:rgba(139,152,171,.15)">non-LC</span>`);
+  if(cid&&q.companies.length>1)out.push(`<span class="pill" style="color:var(--blue);background:rgba(88,166,255,.13)" title="Also asked at ${esc(q.companies.filter(c=>c.id!==cid).map(c=>COMP[c.id]?.name||c.id).join(', '))}">+${q.companies.length-1}</span>`);
+  return out.join('');
+}
+function evidenceCell(q,cid){
+  if(cid){const e=centry(q,cid);if(!e)return'';
+    const w=e.lcWindows||{};const parts=[];
+    if(w['30d']!=null)parts.push(`<b>${Math.round(w['30d'])}%</b> 30d`);else if(w['3mo']!=null)parts.push(`<b>${Math.round(w['3mo'])}%</b> 3mo`);else if(w['6mo']!=null)parts.push(`<b>${Math.round(w['6mo'])}%</b> 6mo`);
+    if(e.evidence)parts.push(esc(e.evidence));
+    return parts.join(' · ')||(e.lcRecency?'LeetCode tag':'');
+  }
+  return `<span class="avs">${q.companies.map(c=>COMP[c.id]?avatar(COMP[c.id]):'').join('')}</span>`;
+}
+const isMobile=()=>window.innerWidth<761;
+function renderBody(){
+  const cid=view==='companies'?company:'';
+  const list=visible();
+  if(!list.length){$('#body').innerHTML=`<div class="empty">${view==='revise'?'Nothing marked ★ must-revise yet. Star a question from its row or detail view.':'Nothing matches these filters.'}<br>${anyFilter()?'<button class="linkish" onclick="clearFilters()">Clear filters</button>':''}</div>`;return}
+  const arrow=k=>sort.key===k?(sort.dir>0?' ↑':' ↓'):'';
+  const evHead=cid?'Signal':'Asked at';
+  const head=isMobile()?'':`<div class="trow thead">
+    <div>Status</div>
+    <div class="h" onclick="setSort('title')">Question${arrow('title')}</div>
+    <div class="h" onclick="setSort('diff')">Difficulty${arrow('diff')}</div>
+    <div class="h" onclick="setSort('${cid?'rel':'shared'}')">${evHead}${arrow(cid?'rel':'shared')}</div>
+    <div class="h" onclick="setSort('recency')">Recency${arrow('recency')}</div>
+    <div>★</div><div></div></div>`;
+  const rows=list.map(q=>{
+    const p=prog(q.id);const rec=recencyOf(q,cid);
+    const title=`<b>${q.url?`<a href="${esc(q.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(q.title)}</a>`:esc(q.title)}${q.lcId?`<span class="mchip">#${q.lcId}</span>`:''}${badges(q,cid)}</b>`;
+    const sub=`<small>${esc((q.topics||[]).slice(0,4).join(' · '))}${(q.kind!=='dsa'&&q.round)?(q.topics?.length?' · ':'')+esc(q.round):''}${view!=='companies'&&q.kind!=='dsa'?' · '+esc(COMP[q.companies[0].id]?.name||''):''}</small>`;
+    if(isMobile())return `
+    <div class="trow ${p.s!=='none'?'done':''}" onclick="openQ('${q.id}')">
+      <div class="mrowtop"><div class="qt">${title}${sub}</div>
+        <button class="star ${p.r?'on':''}" onclick="event.stopPropagation();toggleRev('${q.id}')">★</button></div>
+      <div class="mmeta">${diffPill(q.difficulty)}${recBadge(rec)}<span class="ev">${evidenceCell(q,cid)}</span>${p.n?'<span class="noteico on">📝</span>':''}</div>
+      ${statusSel(q)}
+    </div>`;
+    return `
+    <div class="trow ${p.s!=='none'?'done':''}" onclick="openQ('${q.id}')">
+      <div>${statusSel(q)}</div>
+      <div class="qt">${title}${sub}</div>
+      <div>${diffPill(q.difficulty)}</div>
+      <div class="ev" title="${esc((centry(q,cid)||{}).evidence||'')}">${evidenceCell(q,cid)}</div>
+      <div>${recBadge(rec)}</div>
+      <button class="star ${p.r?'on':''}" onclick="event.stopPropagation();toggleRev('${q.id}')">★</button>
+      <div class="noteico ${p.n?'on':''}" title="${esc(p.n||'')}">${p.n?'📝':'·'}</div>
+    </div>`}).join('');
+  $('#body').innerHTML=`<div class="tablewrap"><div class="tgrid">${head}${rows}</div></div>`;
+}
+function setSort(k){if(sort.key===k)sort.dir*=-1;else{sort.key=k;sort.dir=1}$('#fSort').value=sort.key;renderBody()}
+function setView(v){view=v;localStorage.setItem('prep-view',v);renderAll()}
+function setCompany(c){company=c;localStorage.setItem('prep-company',c);openRound=-1;renderAll()}
+function setKind(k){kind=k;localStorage.setItem('prep-kind',k);renderAll()}
+
+// ---------- question detail ----------
+function openQ(id){openId=id;renderQ();$('#qBack').classList.add('open')}
+function closeQ(){$('#qBack').classList.remove('open');openId=null}
+function renderQ(){
+  const q=QBYID[openId];if(!q)return;
+  const p=prog(q.id);
+  $('#qTitle').innerHTML=`${q.url?`<a href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.title)} ↗</a>`:esc(q.title)}`;
+  const comps=q.companies.map(c=>{const co=COMP[c.id];if(!co)return'';
+    const w=c.lcWindows||{};const wins=Object.entries(w).filter(([k])=>k!=='all').map(([k,v])=>`${k} ${Math.round(v)}%`).join(' · ');
+    const srcs=(c.sources||[]).map(s=>`<a href="${esc(s)}" target="_blank" rel="noopener">${esc(s.replace(/^https?:\/\/(www\.)?/,''))}</a>`).join('');
+    return `<div class="cblock"><div class="ch">${avatar(co,18)}${esc(co.name)}<span class="mchip">rank #${c.rank}</span>${c.reported?'<span class="mchip" style="color:var(--acc2)">reported</span>':''}${c.recency?`<span class="mchip">${esc(c.recency)}</span>`:''}</div>
+      ${wins?`<div class="hint">LeetCode tag frequency: ${wins}</div>`:''}
+      ${c.evidence?`<div>${esc(c.evidence)}</div>`:''}
+      ${c.variant?`<div><b>Variant / follow-up:</b> ${esc(c.variant)}</div>`:''}
+      ${srcs}</div>`}).join('');
+  $('#qBody').innerHTML=`
+    <div class="meta">
+      <span class="mchip" style="color:var(--text)">${esc(KINDLABEL[q.kind])}</span>
+      ${q.difficulty?`<span class="mchip" style="color:${DIFFC[q.difficulty]}">${esc(q.difficulty)}</span>`:''}
+      ${q.lcId?`<span class="mchip">LeetCode #${q.lcId}</span>`:''}
+      ${q.lc150?'<span class="mchip" style="color:var(--purple)">LC150</span>':''}
+      ${q.classic?'<span class="mchip" style="color:var(--amber)">classic</span>':''}
+      ${q.round?`<span class="mchip">${esc(q.round)}</span>`:''}
+      ${(q.topics||[]).map(t=>`<span class="mchip">${esc(t)}</span>`).join('')}
+    </div>
+    ${q.statement?`<div class="stmt">${esc(q.statement)}</div>`:''}
+    ${q.deliverable?`<div class="hint"><b style="color:var(--text)">Expected:</b> ${esc(q.deliverable)}</div>`:''}
+    ${(q.probes||[]).length?`<div><div class="field"><label>Interviewers probe</label></div><div class="probes">${q.probes.map(x=>`<div>${esc(x)}</div>`).join('')}</div></div>`:''}
+    <div><div class="field"><label>Status <span class="hint" style="text-transform:none;letter-spacing:0">(keys 0–4)</span></label></div>
+      <div class="stbtns">${STATUSES.map(s=>`<button class="stbtn ${p.s===s.id?'on':''}" style="${p.s===s.id?`background:${s.c};border-color:${s.c}`:`color:${s.c}`}" onclick="setStatus('${q.id}','${s.id}')">${esc(s.short)}<small>${esc(s.hint)}</small></button>`).join('')}</div></div>
+    <label class="checkrow"><input type="checkbox" ${p.r?'checked':''} onchange="toggleRev('${q.id}')"> ★ Must revise</label>
+    <div class="field"><label>Notes (approach, pitfalls, time taken)</label><textarea id="qNote" oninput="setNote('${q.id}',this.value)">${esc(p.n||'')}</textarea></div>
+    ${comps?`<div><div class="field"><label>Where it's asked</label></div><div style="display:flex;flex-direction:column;gap:8px">${comps}</div></div>`:''}
+    ${(p.h||[]).length?`<div class="field"><label>Timeline</label><div class="timeline">${p.h.slice().reverse().map(e=>`<div class="evt"><small>${fmtDate(e.d)}</small>${esc(e.e)}</div>`).join('')}</div></div>`:''}`;
+  $('#qFoot').innerHTML=`${q.custom?`<button class="btn" onclick="editCustom('${q.id}')">Edit</button>`:''}<span style="flex:1"></span>
+    ${q.url?`<a class="btn" href="${esc(q.url)}" target="_blank" rel="noopener" style="text-decoration:none">Open ↗</a>`:''}
+    <button class="btn primary" onclick="closeQ()">Done</button>`;
+}
+
+// ---------- custom questions ----------
+function openAdd(){
+  editingCustom=null;$('#addTitle').textContent='Add question';$('#aDelete').style.display='none';
+  fillSelect($('#aCompany'),DATA.companies.map(c=>[c.id,c.name]),company||DATA.companies[0]?.id);
+  $('#aKind').value=view==='revise'?'dsa':kind;$('#aTitle').value='';$('#aUrl').value='';$('#aDiff').value='Medium';$('#aTopics').value='';$('#aStmt').value='';
+  $('#addBack').classList.add('open');setTimeout(()=>$('#aTitle').focus(),50);
+}
+function editCustom(id){
+  const q=QBYID[id];if(!q)return;closeQ();editingCustom=id;
+  $('#addTitle').textContent='Edit question';$('#aDelete').style.display='';
+  fillSelect($('#aCompany'),DATA.companies.map(c=>[c.id,c.name]),q.companies[0].id);
+  $('#aKind').value=q.kind;$('#aTitle').value=q.title;$('#aUrl').value=q.url||'';$('#aDiff').value=q.difficulty||'Medium';
+  $('#aTopics').value=(q.topics||[]).join(', ');$('#aStmt').value=q.statement||'';
+  $('#addBack').classList.add('open');
+}
+function closeAdd(){$('#addBack').classList.remove('open');editingCustom=null}
+function slug(n){return n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function saveAdd(){
+  const title=$('#aTitle').value.trim();if(!title){toast('Title is required');return}
+  const url=$('#aUrl').value.trim();const m=url.match(/leetcode\.com\/problems\/([a-z0-9-]+)/);
+  const rec={id:editingCustom||('custom-'+slug(title).slice(0,40)+'-'+Math.random().toString(36).slice(2,6)),
+    kind:$('#aKind').value,title,url,lcId:null,onLeetcode:!!m,difficulty:$('#aDiff').value,
+    topics:$('#aTopics').value.split(',').map(s=>s.trim()).filter(Boolean),lc150:false,
+    statement:$('#aStmt').value.trim(),custom:true,
+    companies:[{id:$('#aCompany').value,rank:0,score:200,lcWindows:{},lcRecency:'',reported:true,evidence:'Added by you',variant:'',sources:[],recency:today().slice(0,7)}]};
+  if(editingCustom){const i=db.custom.findIndex(c=>c.id===editingCustom);if(i>=0)db.custom[i]=rec;else db.custom.push(rec)}
+  else db.custom.push(rec);
+  indexQuestions();scheduleSave();closeAdd();renderAll();toast(editingCustom?'Updated':'Added');
+}
+function deleteCustom(){
+  if(!editingCustom||!confirm('Delete this question? Its progress is removed too.'))return;
+  db.custom=db.custom.filter(c=>c.id!==editingCustom);delete db.items[editingCustom];delete QBYID[editingCustom];
+  scheduleSave();closeAdd();renderAll();toast('Deleted');
+}
+
+// ---------- import / export / misc ----------
+function download(name,text,type){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+}
+function exportJSON(){download('prep-progress-'+today()+'.json',JSON.stringify(db,null,1),'application/json');toggleMenu()}
+function importJSON(inp){
+  const f=inp.files[0];if(!f)return;
+  const rd=new FileReader();
+  rd.onload=()=>{try{
+    const j=JSON.parse(rd.result);
+    if(!j.items||typeof j.items!=='object')throw new Error();
+    db.items=j.items;db.custom=Array.isArray(j.custom)?j.custom:db.custom;indexQuestions();scheduleSave();renderAll();toast('Imported '+Object.keys(j.items).length+' entries');
+  }catch(e){toast('Invalid file')}};
+  rd.readAsText(f);inp.value='';toggleMenu();
+}
+function resetProgress(){
+  if(!confirm('Clear every status, star and note? Custom questions are kept.'))return;
+  db.items={};scheduleSave();renderAll();toggleMenu();toast('Progress reset');
+}
+function openPhone(){
+  toggleMenu();
+  $('#phoneBody').innerHTML=`<p>Open the same address on any device:</p>
+    <div class="phone-url">${esc(location.origin+location.pathname)}</div>
+    <p class="hint">On iPhone: Share → Add to Home Screen. Sign in with the same account and everything stays in sync.</p>`;
+  $('#phoneBack').classList.add('open');
+}
+function toggleMenu(ev){if(ev)ev.stopPropagation();$('#menu').classList.toggle('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.menu'))$('#menu').classList.remove('open')});
+let toastTimer=null;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2600)}
+function fillSelect(sel,opts,val){sel.innerHTML=opts.map(o=>`<option value="${esc(o[0])}" ${String(o[0])===String(val)?'selected':''}>${esc(o[1])}</option>`).join('')}
+function initControls(){
+  fillSelect($('#fDiff'),[['','All difficulties'],['Easy','Easy'],['Medium','Medium'],['Hard','Hard']],'');
+  fillSelect($('#fStatus'),[['','All statuses'],...STATUSES.map(s=>[s.id,s.label])],'');
+  fillSelect($('#fSort'),[['rel','Sort: relevance'],['recency','Sort: recency'],['shared','Sort: most shared'],['diff','Sort: difficulty'],['title','Sort: title'],['updated','Sort: last touched']],sort.key);
+}
+document.addEventListener('keydown',e=>{
+  if(e.target.matches('input,textarea,select')){if(e.key==='Escape')e.target.blur();return}
+  if(openId){
+    const map={'0':'none','1':'a1','2':'a1h','3':'a2','4':'a2h'};
+    if(map[e.key]){setStatus(openId,map[e.key]);return}
+    if(e.key==='r'){toggleRev(openId);return}
+  }
+  if(e.key==='/'){e.preventDefault();$('#q').focus()}
+  if(e.key==='n'){e.preventDefault();openAdd()}
+  if(e.key==='Escape'){closeQ();closeAdd();$('#phoneBack').classList.remove('open')}
+});
+let rzT=null;
+window.addEventListener('resize',()=>{clearTimeout(rzT);rzT=setTimeout(renderBody,150)});
+boot();
+</script>
+</body>
+</html>

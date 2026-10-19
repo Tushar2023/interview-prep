@@ -1,0 +1,76 @@
+{
+ "company": "thoughtspot",
+ "folder": "thoughtspot",
+ "totalTagged": 5,
+ "top": [
+  {
+   "lcId": 2791,
+   "title": "Count Paths That Can Form a Palindrome in a Tree",
+   "url": "https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/",
+   "difficulty": "Hard",
+   "acceptance": 52.7,
+   "score": 160.0,
+   "windows": {
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "count-paths-that-can-form-a-palindrome-in-a-tree"
+  },
+  {
+   "lcId": 76,
+   "title": "Minimum Window Substring",
+   "url": "https://leetcode.com/problems/minimum-window-substring/",
+   "difficulty": "Hard",
+   "acceptance": 47.9,
+   "score": 140.0,
+   "windows": {
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "minimum-window-substring"
+  },
+  {
+   "lcId": 97,
+   "title": "Interleaving String",
+   "url": "https://leetcode.com/problems/interleaving-string/",
+   "difficulty": "Medium",
+   "acceptance": 44.3,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "interleaving-string"
+  },
+  {
+   "lcId": 3067,
+   "title": "Count Pairs of Connectable Servers in a Weighted Tree Network",
+   "url": "https://leetcode.com/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/",
+   "difficulty": "Medium",
+   "acceptance": 56.2,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "count-pairs-of-connectable-servers-in-a-weighted-tree-network"
+  },
+  {
+   "lcId": 84,
+   "title": "Largest Rectangle in Histogram",
+   "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+   "difficulty": "Hard",
+   "acceptance": 50.4,
+   "score": 75.0,
+   "windows": {
+    "all": 75.0
+   },
+   "recency": "all",
+   "slug": "largest-rectangle-in-histogram"
+  }
+ ]
+}

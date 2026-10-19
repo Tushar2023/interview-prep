@@ -1,0 +1,453 @@
+{
+ "company": "databricks",
+ "folder": "databricks",
+ "totalTagged": 31,
+ "top": [
+  {
+   "lcId": 362,
+   "title": "Design Hit Counter",
+   "url": "https://leetcode.com/problems/design-hit-counter/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 1060.0,
+   "windows": {
+    "30d": 100.0,
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "30d",
+   "slug": "design-hit-counter"
+  },
+  {
+   "lcId": 438,
+   "title": "Find All Anagrams in a String",
+   "url": "https://leetcode.com/problems/find-all-anagrams-in-a-string/",
+   "difficulty": "Medium",
+   "acceptance": 54.1,
+   "score": 570.0,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 87.5,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "3mo",
+   "slug": "find-all-anagrams-in-a-string"
+  },
+  {
+   "lcId": 751,
+   "title": "IP to CIDR",
+   "url": "https://leetcode.com/problems/ip-to-cidr/",
+   "difficulty": "Medium",
+   "acceptance": 53.8,
+   "score": 335.0,
+   "windows": {
+    "6mo": 87.5,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "6mo",
+   "slug": "ip-to-cidr"
+  },
+  {
+   "lcId": 348,
+   "title": "Design Tic-Tac-Toe",
+   "url": "https://leetcode.com/problems/design-tic-tac-toe/",
+   "difficulty": "Medium",
+   "acceptance": 58.8,
+   "score": 297.5,
+   "windows": {
+    "6mo": 75.0,
+    "older": 100.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "design-tic-tac-toe"
+  },
+  {
+   "lcId": 2096,
+   "title": "Step-By-Step Directions From a Binary Tree Node to Another",
+   "url": "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/",
+   "difficulty": "Medium",
+   "acceptance": 56.5,
+   "score": 290.0,
+   "windows": {
+    "6mo": 75.0,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "step-by-step-directions-from-a-binary-tree-node-to-another"
+  },
+  {
+   "lcId": 981,
+   "title": "Time Based Key-Value Store",
+   "url": "https://leetcode.com/problems/time-based-key-value-store/",
+   "difficulty": "Medium",
+   "acceptance": 50.0,
+   "score": 282.5,
+   "windows": {
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "time-based-key-value-store"
+  },
+  {
+   "lcId": 198,
+   "title": "House Robber",
+   "url": "https://leetcode.com/problems/house-robber/",
+   "difficulty": "Medium",
+   "acceptance": 53.4,
+   "score": 265.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "house-robber"
+  },
+  {
+   "lcId": 1293,
+   "title": "Shortest Path in a Grid with Obstacles Elimination",
+   "url": "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/",
+   "difficulty": "Hard",
+   "acceptance": 46.5,
+   "score": 242.5,
+   "windows": {
+    "6mo": 75.0,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "shortest-path-in-a-grid-with-obstacles-elimination"
+  },
+  {
+   "lcId": 900,
+   "title": "RLE Iterator",
+   "url": "https://leetcode.com/problems/rle-iterator/",
+   "difficulty": "Medium",
+   "acceptance": 59.4,
+   "score": 225.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "rle-iterator"
+  },
+  {
+   "lcId": 933,
+   "title": "Number of Recent Calls",
+   "url": "https://leetcode.com/problems/number-of-recent-calls/",
+   "difficulty": "Easy",
+   "acceptance": 78.7,
+   "score": 225.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "number-of-recent-calls"
+  },
+  {
+   "lcId": 213,
+   "title": "House Robber II",
+   "url": "https://leetcode.com/problems/house-robber-ii/",
+   "difficulty": "Medium",
+   "acceptance": 45.2,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "house-robber-ii"
+  },
+  {
+   "lcId": 1146,
+   "title": "Snapshot Array",
+   "url": "https://leetcode.com/problems/snapshot-array/",
+   "difficulty": "Medium",
+   "acceptance": 36.8,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "snapshot-array"
+  },
+  {
+   "lcId": 68,
+   "title": "Text Justification",
+   "url": "https://leetcode.com/problems/text-justification/",
+   "difficulty": "Hard",
+   "acceptance": 51.5,
+   "score": 87.5,
+   "windows": {
+    "older": 62.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "text-justification"
+  },
+  {
+   "lcId": 2468,
+   "title": "Split Message Based on Limit",
+   "url": "https://leetcode.com/problems/split-message-based-on-limit/",
+   "difficulty": "Hard",
+   "acceptance": 42.2,
+   "score": 87.5,
+   "windows": {
+    "older": 62.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "split-message-based-on-limit"
+  },
+  {
+   "lcId": 742,
+   "title": "Closest Leaf in a Binary Tree",
+   "url": "https://leetcode.com/problems/closest-leaf-in-a-binary-tree/",
+   "difficulty": "Medium",
+   "acceptance": 47.5,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "closest-leaf-in-a-binary-tree"
+  },
+  {
+   "lcId": 2131,
+   "title": "Longest Palindrome by Concatenating Two Letter Words",
+   "url": "https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/",
+   "difficulty": "Medium",
+   "acceptance": 53.5,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "longest-palindrome-by-concatenating-two-letter-words"
+  },
+  {
+   "lcId": 567,
+   "title": "Permutation in String",
+   "url": "https://leetcode.com/problems/permutation-in-string/",
+   "difficulty": "Medium",
+   "acceptance": 49.2,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "permutation-in-string"
+  },
+  {
+   "lcId": 980,
+   "title": "Unique Paths III",
+   "url": "https://leetcode.com/problems/unique-paths-iii/",
+   "difficulty": "Hard",
+   "acceptance": 82.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "unique-paths-iii"
+  },
+  {
+   "lcId": 54,
+   "title": "Spiral Matrix",
+   "url": "https://leetcode.com/problems/spiral-matrix/",
+   "difficulty": "Medium",
+   "acceptance": 57.2,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "spiral-matrix"
+  },
+  {
+   "lcId": 845,
+   "title": "Longest Mountain in Array",
+   "url": "https://leetcode.com/problems/longest-mountain-in-array/",
+   "difficulty": "Medium",
+   "acceptance": 42.3,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "longest-mountain-in-array"
+  },
+  {
+   "lcId": 1091,
+   "title": "Shortest Path in Binary Matrix",
+   "url": "https://leetcode.com/problems/shortest-path-in-binary-matrix/",
+   "difficulty": "Medium",
+   "acceptance": 51.8,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "shortest-path-in-binary-matrix"
+  },
+  {
+   "lcId": 2251,
+   "title": "Number of Flowers in Full Bloom",
+   "url": "https://leetcode.com/problems/number-of-flowers-in-full-bloom/",
+   "difficulty": "Hard",
+   "acceptance": 58.0,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "number-of-flowers-in-full-bloom"
+  },
+  {
+   "lcId": 8,
+   "title": "String to Integer (atoi)",
+   "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+   "difficulty": "Medium",
+   "acceptance": 21.3,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "string-to-integer-atoi"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 994,
+   "title": "Rotting Oranges",
+   "url": "https://leetcode.com/problems/rotting-oranges/",
+   "difficulty": "Medium",
+   "acceptance": 59.0,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "rotting-oranges"
+  },
+  {
+   "lcId": 1197,
+   "title": "Minimum Knight Moves",
+   "url": "https://leetcode.com/problems/minimum-knight-moves/",
+   "difficulty": "Medium",
+   "acceptance": 42.0,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "minimum-knight-moves"
+  },
+  {
+   "lcId": 1865,
+   "title": "Finding Pairs With a Certain Sum",
+   "url": "https://leetcode.com/problems/finding-pairs-with-a-certain-sum/",
+   "difficulty": "Medium",
+   "acceptance": 61.6,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "finding-pairs-with-a-certain-sum"
+  },
+  {
+   "lcId": 1928,
+   "title": "Minimum Cost to Reach Destination in Time",
+   "url": "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/",
+   "difficulty": "Hard",
+   "acceptance": 41.9,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "minimum-cost-to-reach-destination-in-time"
+  },
+  {
+   "lcId": 2276,
+   "title": "Count Integers in Intervals",
+   "url": "https://leetcode.com/problems/count-integers-in-intervals/",
+   "difficulty": "Hard",
+   "acceptance": 36.1,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "count-integers-in-intervals"
+  },
+  {
+   "lcId": 3043,
+   "title": "Find the Length of the Longest Common Prefix",
+   "url": "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/",
+   "difficulty": "Medium",
+   "acceptance": 62.3,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "find-the-length-of-the-longest-common-prefix"
+  },
+  {
+   "lcId": 1,
+   "title": "Two Sum",
+   "url": "https://leetcode.com/problems/two-sum/",
+   "difficulty": "Easy",
+   "acceptance": 57.8,
+   "score": 37.5,
+   "windows": {
+    "all": 37.5
+   },
+   "recency": "all",
+   "slug": "two-sum"
+  }
+ ]
+}

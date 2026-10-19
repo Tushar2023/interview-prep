@@ -1,0 +1,174 @@
+{
+ "company": "stripe",
+ "folder": "stripe",
+ "totalTagged": 12,
+ "top": [
+  {
+   "lcId": 1169,
+   "title": "Invalid Transactions",
+   "url": "https://leetcode.com/problems/invalid-transactions/",
+   "difficulty": "Medium",
+   "acceptance": 32.4,
+   "score": 340.0,
+   "windows": {
+    "6mo": 100.0,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "invalid-transactions"
+  },
+  {
+   "lcId": 2483,
+   "title": "Minimum Penalty for a Shop",
+   "url": "https://leetcode.com/problems/minimum-penalty-for-a-shop/",
+   "difficulty": "Medium",
+   "acceptance": 71.2,
+   "score": 152.5,
+   "windows": {
+    "older": 87.5,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "minimum-penalty-for-a-shop"
+  },
+  {
+   "lcId": 399,
+   "title": "Evaluate Division",
+   "url": "https://leetcode.com/problems/evaluate-division/",
+   "difficulty": "Medium",
+   "acceptance": 64.4,
+   "score": 147.5,
+   "windows": {
+    "older": 100.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "evaluate-division"
+  },
+  {
+   "lcId": 2303,
+   "title": "Calculate Amount Paid in Taxes",
+   "url": "https://leetcode.com/problems/calculate-amount-paid-in-taxes/",
+   "difficulty": "Easy",
+   "acceptance": 69.5,
+   "score": 147.5,
+   "windows": {
+    "older": 100.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "calculate-amount-paid-in-taxes"
+  },
+  {
+   "lcId": 1087,
+   "title": "Brace Expansion",
+   "url": "https://leetcode.com/problems/brace-expansion/",
+   "difficulty": "Medium",
+   "acceptance": 66.9,
+   "score": 140.0,
+   "windows": {
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "brace-expansion"
+  },
+  {
+   "lcId": 787,
+   "title": "Cheapest Flights Within K Stops",
+   "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+   "difficulty": "Medium",
+   "acceptance": 42.2,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "cheapest-flights-within-k-stops"
+  },
+  {
+   "lcId": 161,
+   "title": "One Edit Distance",
+   "url": "https://leetcode.com/problems/one-edit-distance/",
+   "difficulty": "Medium",
+   "acceptance": 34.6,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "one-edit-distance"
+  },
+  {
+   "lcId": 2043,
+   "title": "Simple Bank System",
+   "url": "https://leetcode.com/problems/simple-bank-system/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "simple-bank-system"
+  },
+  {
+   "lcId": 2050,
+   "title": "Parallel Courses III",
+   "url": "https://leetcode.com/problems/parallel-courses-iii/",
+   "difficulty": "Hard",
+   "acceptance": 66.8,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "parallel-courses-iii"
+  },
+  {
+   "lcId": 2768,
+   "title": "Number of Black Blocks",
+   "url": "https://leetcode.com/problems/number-of-black-blocks/",
+   "difficulty": "Medium",
+   "acceptance": 42.0,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "number-of-black-blocks"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 1604,
+   "title": "Alert Using Same Key-Card Three or More Times in a One Hour Period",
+   "url": "https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period/",
+   "difficulty": "Medium",
+   "acceptance": 46.3,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "alert-using-same-key-card-three-or-more-times-in-a-one-hour-period"
+  }
+ ]
+}

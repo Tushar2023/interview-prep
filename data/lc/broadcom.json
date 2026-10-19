@@ -1,0 +1,47 @@
+{
+ "company": "broadcom",
+ "folder": "broadcom",
+ "totalTagged": 3,
+ "top": [
+  {
+   "lcId": 19,
+   "title": "Remove Nth Node From End of List",
+   "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+   "difficulty": "Medium",
+   "acceptance": 52.0,
+   "score": 160.0,
+   "windows": {
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "remove-nth-node-from-end-of-list"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 100.0,
+   "windows": {
+    "all": 100.0
+   },
+   "recency": "all",
+   "slug": "lru-cache"
+  }
+ ]
+}

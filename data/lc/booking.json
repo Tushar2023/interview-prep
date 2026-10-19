@@ -1,0 +1,206 @@
+{
+ "company": "booking",
+ "folder": "bookingcom",
+ "totalTagged": 14,
+ "top": [
+  {
+   "lcId": 2512,
+   "title": "Reward Top K Students",
+   "url": "https://leetcode.com/problems/reward-top-k-students/",
+   "difficulty": "Medium",
+   "acceptance": 47.2,
+   "score": 660.0,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "3mo",
+   "slug": "reward-top-k-students"
+  },
+  {
+   "lcId": 239,
+   "title": "Sliding Window Maximum",
+   "url": "https://leetcode.com/problems/sliding-window-maximum/",
+   "difficulty": "Hard",
+   "acceptance": 49.0,
+   "score": 270.0,
+   "windows": {
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "sliding-window-maximum"
+  },
+  {
+   "lcId": 1948,
+   "title": "Delete Duplicate Folders in System",
+   "url": "https://leetcode.com/problems/delete-duplicate-folders-in-system/",
+   "difficulty": "Hard",
+   "acceptance": 77.4,
+   "score": 132.5,
+   "windows": {
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "delete-duplicate-folders-in-system"
+  },
+  {
+   "lcId": 2032,
+   "title": "Two Out of Three",
+   "url": "https://leetcode.com/problems/two-out-of-three/",
+   "difficulty": "Easy",
+   "acceptance": 77.8,
+   "score": 132.5,
+   "windows": {
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "two-out-of-three"
+  },
+  {
+   "lcId": 1034,
+   "title": "Coloring A Border",
+   "url": "https://leetcode.com/problems/coloring-a-border/",
+   "difficulty": "Medium",
+   "acceptance": 51.5,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "coloring-a-border"
+  },
+  {
+   "lcId": 2146,
+   "title": "K Highest Ranked Items Within a Price Range",
+   "url": "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/",
+   "difficulty": "Medium",
+   "acceptance": 46.9,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "k-highest-ranked-items-within-a-price-range"
+  },
+  {
+   "lcId": 2159,
+   "title": "Order Two Columns Independently",
+   "url": "https://leetcode.com/problems/order-two-columns-independently/",
+   "difficulty": "Medium",
+   "acceptance": 61.8,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "order-two-columns-independently"
+  },
+  {
+   "lcId": 12,
+   "title": "Integer to Roman",
+   "url": "https://leetcode.com/problems/integer-to-roman/",
+   "difficulty": "Medium",
+   "acceptance": 71.2,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "integer-to-roman"
+  },
+  {
+   "lcId": 13,
+   "title": "Roman to Integer",
+   "url": "https://leetcode.com/problems/roman-to-integer/",
+   "difficulty": "Easy",
+   "acceptance": 66.8,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "roman-to-integer"
+  },
+  {
+   "lcId": 46,
+   "title": "Permutations",
+   "url": "https://leetcode.com/problems/permutations/",
+   "difficulty": "Medium",
+   "acceptance": 82.1,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "permutations"
+  },
+  {
+   "lcId": 221,
+   "title": "Maximal Square",
+   "url": "https://leetcode.com/problems/maximal-square/",
+   "difficulty": "Medium",
+   "acceptance": 50.6,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "maximal-square"
+  },
+  {
+   "lcId": 332,
+   "title": "Reconstruct Itinerary",
+   "url": "https://leetcode.com/problems/reconstruct-itinerary/",
+   "difficulty": "Hard",
+   "acceptance": 44.7,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "reconstruct-itinerary"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 32,
+   "title": "Longest Valid Parentheses",
+   "url": "https://leetcode.com/problems/longest-valid-parentheses/",
+   "difficulty": "Hard",
+   "acceptance": 39.1,
+   "score": 87.5,
+   "windows": {
+    "older": 62.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "longest-valid-parentheses"
+  }
+ ]
+}

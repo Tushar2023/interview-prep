@@ -1,0 +1,174 @@
+{
+ "company": "coinbase",
+ "folder": "coinbase",
+ "totalTagged": 12,
+ "top": [
+  {
+   "lcId": 2043,
+   "title": "Simple Bank System",
+   "url": "https://leetcode.com/problems/simple-bank-system/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 160.0,
+   "windows": {
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "simple-bank-system"
+  },
+  {
+   "lcId": 281,
+   "title": "Zigzag Iterator",
+   "url": "https://leetcode.com/problems/zigzag-iterator/",
+   "difficulty": "Medium",
+   "acceptance": 67.1,
+   "score": 140.0,
+   "windows": {
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "zigzag-iterator"
+  },
+  {
+   "lcId": 588,
+   "title": "Design In-Memory File System",
+   "url": "https://leetcode.com/problems/design-in-memory-file-system/",
+   "difficulty": "Hard",
+   "acceptance": 48.3,
+   "score": 140.0,
+   "windows": {
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "design-in-memory-file-system"
+  },
+  {
+   "lcId": 981,
+   "title": "Time Based Key-Value Store",
+   "url": "https://leetcode.com/problems/time-based-key-value-store/",
+   "difficulty": "Medium",
+   "acceptance": 50.0,
+   "score": 140.0,
+   "windows": {
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "time-based-key-value-store"
+  },
+  {
+   "lcId": 2325,
+   "title": "Decode the Message",
+   "url": "https://leetcode.com/problems/decode-the-message/",
+   "difficulty": "Easy",
+   "acceptance": 85.9,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "decode-the-message"
+  },
+  {
+   "lcId": 528,
+   "title": "Random Pick with Weight",
+   "url": "https://leetcode.com/problems/random-pick-with-weight/",
+   "difficulty": "Medium",
+   "acceptance": 49.2,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "random-pick-with-weight"
+  },
+  {
+   "lcId": 68,
+   "title": "Text Justification",
+   "url": "https://leetcode.com/problems/text-justification/",
+   "difficulty": "Hard",
+   "acceptance": 51.5,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "text-justification"
+  },
+  {
+   "lcId": 121,
+   "title": "Best Time to Buy and Sell Stock",
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+   "difficulty": "Easy",
+   "acceptance": 57.1,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "best-time-to-buy-and-sell-stock"
+  },
+  {
+   "lcId": 210,
+   "title": "Course Schedule II",
+   "url": "https://leetcode.com/problems/course-schedule-ii/",
+   "difficulty": "Medium",
+   "acceptance": 55.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "course-schedule-ii"
+  },
+  {
+   "lcId": 1166,
+   "title": "Design File System",
+   "url": "https://leetcode.com/problems/design-file-system/",
+   "difficulty": "Medium",
+   "acceptance": 65.2,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "design-file-system"
+  },
+  {
+   "lcId": 3043,
+   "title": "Find the Length of the Longest Common Prefix",
+   "url": "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/",
+   "difficulty": "Medium",
+   "acceptance": 62.3,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "find-the-length-of-the-longest-common-prefix"
+  },
+  {
+   "lcId": 622,
+   "title": "Design Circular Queue",
+   "url": "https://leetcode.com/problems/design-circular-queue/",
+   "difficulty": "Medium",
+   "acceptance": 55.0,
+   "score": 50.0,
+   "windows": {
+    "all": 50.0
+   },
+   "recency": "all",
+   "slug": "design-circular-queue"
+  }
+ ]
+}

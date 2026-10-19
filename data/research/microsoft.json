@@ -1,0 +1,2217 @@
+{
+  "company": "Microsoft",
+  "slug": "microsoft",
+  "levelMapping": "SDE II = L61–L62 (≈ Google L4 / Amazon SDE II). L59–60 = SDE I, L63–64 = Senior. In India ~2.5–4.5 YOE lands L61 almost always; L62 typically needs 5–7 YOE (a 4.5-YOE candidate was refused an L62 uplevel in Dec 2025, a 6.5-YOE candidate got L62). A 3.3-YOE backend candidate should expect L61 and confirm the level/job-ID with the recruiter before the loop; downlevelling from Senior to L62 is common.",
+  "process": {
+    "summary": "Recruiter call → Codility/HackerRank OA (2 problems, 60–90 min) → a 'virtual loop' of 3–4 one-hour rounds on Microsoft Teams, often all on one day (hiring drives run on Saturdays) or split so that Rounds 1–2 are eliminatory and Rounds 3–4 are scheduled only on good feedback. Typical India SDE II loop: 1–2 DSA rounds (runnable code with tests, 1–2 problems each), one design round (LLD/OOD is at least as common as HLD at L61; rounds labelled 'HLD' frequently turn out to be LLD), a hiring-manager round (project deep dive + behavioral + often a small design/coding/SQL task) and/or an 'As Appropriate' (AA) round with a very senior engineer/manager that mixes behavioral, design and a quick coding question and is the final decision point. Every round opens with 10–15 min on your current project, and interviewers push back on correct answers to test confidence.",
+    "rounds": [
+      {
+        "name": "Recruiter screen",
+        "type": "screen",
+        "duration": "15–30 min",
+        "what": "Why Microsoft, why this role, notice period, preferred language, current work; recruiter maps you to a team/job-ID (WSD/Windows, Azure, M365, Xbox, AI orgs) and explains the round plan.",
+        "probes": "Ask which team/product you are interviewing for, how many rounds and whether the design round is HLD or LLD — reports show recruiters often do not volunteer this."
+      },
+      {
+        "name": "Online assessment",
+        "type": "oa",
+        "duration": "60–90 min",
+        "what": "Codility (most common in India) or HackerRank. 2 problems (occasionally 3): one Medium array/string/stack/BFS problem and one Medium-Hard DP/graph/combinatorics problem. Hidden tests run only after the timer ends; pass bar reported between 50% and ~85%. Recruiter-sourced candidates sometimes skip it.",
+        "probes": "Reported OA problems: stock buy/sell III variant, base -2 addition of bit arrays, shortest unique substring, Dijkstra+DFS graph, nCr mod p, rotate-prefix-of-string by array, 2D DP story problem, string backtracking, Rotting-Oranges/Walking-Robot-Simulation lookalikes, debug-a-BFS-by-adding-2-lines."
+      },
+      {
+        "name": "DSA round 1",
+        "type": "dsa",
+        "duration": "60 min",
+        "what": "Intro + 10–15 min on current project, then 1–2 problems in Codility/HackerRank CodePair with screen share. Expected: compilable code, your own test cases, dry run, complexity. Pseudo-code is discouraged. Often two interviewers (one shadowing).",
+        "probes": "Trees (validate/recover BST, level-order + zigzag/reverse follow-ups, next-right pointers, LCA/cousins), sliding window (424, 567, 76, 395), linked lists (twin sum, reorder, add numbers), matrix BFS (994, word search), binary-search variants (33). Follow-ups ask you to adapt the same code with minimal change and no extra complexity. Some interviewers add CS fundamentals (hash map/heap internals, OS, C++ STL)."
+      },
+      {
+        "name": "DSA round 2 (or DSA + design)",
+        "type": "dsa",
+        "duration": "60 min",
+        "what": "Second coding round; sometimes replaced by a combined 'DSA + design' hour (e.g. Design Twitter APIs then code the feed, or URL shortener + a sliding-window problem). Story-framed problems are common (LRU cache told as IP-heartbeat management, heap problem told as a scheduling story).",
+        "probes": "Priority queues with custom comparators, graph problems (course schedule II variant, weighted grid shortest path, currency-conversion graph, stones-on-graph greedy BFS), data-structure design (max frequency stack as save()/best(), time-based KV store), DP (house robber, word break with Trie)."
+      },
+      {
+        "name": "Design round (LLD/OOD or HLD)",
+        "type": "design",
+        "duration": "60 min (often runs 75–90)",
+        "what": "At L61 very often LLD: parking lot, elevator, cache with pluggable eviction, rate limiter, alert system, post-office delivery, Excel sheet, games (snake & ladder, battleship, tic-tac-toe) — explain classes then write working code. HLD when given: URL shortener, telemetry/log metrics, notification system, proximity service, payment service, Google-Docs-like editor, distributed KV store/cache.",
+        "probes": "SOLID and which pattern (Strategy/State/Observer) keeps it extensible; thread safety; then for HLD: requirements + capacity, APIs, DB choice/schema, sharding/replication, consistency vs availability, caching, DDoS/rate limiting, multi-region, ID generation. Interviewers change requirements mid-round and expect a redesign."
+      },
+      {
+        "name": "Hiring manager round",
+        "type": "hm",
+        "duration": "60–90 min",
+        "what": "Deep dive into your most complex project (architecture diagram, trade-offs, what you'd do differently, metrics, on-call/incidents), behavioral questions (why switch, conflict, handling work you dislike, pressure), and usually one technical task: idempotent checkout API with pseudocode, SQL vs NoSQL + write SQL queries, parking-system HLD with DB indexing/partitioning, rate limiter LLD→HLD, estimation question (devices in a data centre), a quick coding problem (sort colors, stoi, bishop moves).",
+        "probes": "Expects you to defend design decisions under hostile-sounding pushback; data-model and database fundamentals (indexes, partitioning, transactions, unique constraints) come up often; interviewer also sells the team."
+      },
+      {
+        "name": "As Appropriate (AA) round",
+        "type": "other",
+        "duration": "45–60 min",
+        "what": "Final round with a very senior engineer/manager/director (often 20+ years at MS), scheduled only after positive feedback on the first rounds. Reviews all prior feedback, probes weak spots (a weak design round gets re-tested here), and makes the final hire/no-hire call. Mix: behavioral (growth mindset, failure that hurt the company, mentoring), a design discussion (Google Docs, LinkedIn job search, telemetry) and/or a short coding task (tic-tac-toe playGame, stoi, make-a-machine-sluggish across cores).",
+        "probes": "Why Microsoft, how you handle technical disagreement, impact metrics, AI/agents experience (AI-focused teams), OS/C++ internals in Windows/Azure core teams, then your questions about team/location."
+      }
+    ],
+    "indiaNotes": "Hyderabad, Bengaluru and Noida loops are virtual on Teams and compressed: 3–4 rounds on one day (Saturday hiring drives are common) or 2+2 across a few days; India candidates get rounds 1–2 as an eliminatory pair. L61 is the default band for ≤4.5 YOE; HLD is sometimes replaced by a second LLD/DSA round when experience is judged too light for HLD (reported at 2.4 YOE), and at L61 the design round is LLD more often than HLD. Codility is the usual OA in India (HackerRank in some Noida/Hyderabad drives). Windows (WSD), Azure core and Xbox teams probe OS (processes vs threads, virtual memory, paging) and C++ internals (set/map, STL, memory); other teams are language-agnostic but may ask you to code in your résumé language. Expect to run the code against your own tests, not just pseudo-code. Multiple job-IDs/teams can interview you in parallel with no cooldown; one consolidated offer results. US/EU loops (Redmond, Dublin, Vancouver) look similar but lean more on behavioral-plus-coding rounds, sometimes include a 'research and present a topic' round, and recruiters there are reported as less structured.",
+    "timeline": "Recruiter contact → OA within days; OA result 2 days–2 weeks; loop 1–3 weeks later (hiring events fix the date a month out); rounds 3–4 scheduled 1–7 days after rounds 1–2; verbal result 1–7 days after the last round; written offer 3 days–4 weeks later (tool migrations and job-ID changes caused delays in Dec 2025). Typical end-to-end 3–8 weeks; one Dec 2025 Bengaluru-startup candidate went from recruiter call (24 Nov) to signed offer (24 Dec).",
+    "tips": [
+      "Write compilable code and your own edge-case tests in Codility/CodePair; dry-run before saying done — several offers cite this, several rejections cite 'brute force when the interviewer expected the optimal sliding window'.",
+      "Prepare the standard follow-up ladder for tree problems: level order → zigzag → reverse level order with minimal code change; next-right pointers iterative then recursive; validate BST then O(1)-space (Morris) variant.",
+      "LRU cache is the single most-reported problem: be ready to make it thread-safe, a singleton, priority/TTL-based, and to refactor eviction into a Strategy interface.",
+      "Treat every 'HLD' slot as possibly LLD: clarify scope in the first minute (ask 'HLD first, then LLD if time?'), and keep a class skeleton ready for parking lot, elevator, rate limiter, alert/notification system, cache.",
+      "Know several rate-limiting algorithms (token bucket, leaky bucket, fixed/sliding window) with code for token bucket and a Redis sorted-set scale-out story; it appears as LLD, HLD follow-up and HM question.",
+      "Have a 20-minute, uninterrupted walkthrough of your hardest project: diagram, DB choice, queues, monitoring, incidents, metrics, what you'd change — it is asked in 2–3 of the 4 rounds and decided at least two reported rejections.",
+      "Expect deliberate pushback on correct answers (heapify complexity, idempotency design); hold your position calmly and explain why, but ask for clarification before trying to 'prove' something.",
+      "Revise OS and language internals if the team is Windows/Azure core/C++: processes vs threads, virtual memory, paging, deadlocks, how std::set/map keep order, hash map/heap complexities.",
+      "Database fundamentals show up in HM rounds: SQL vs NoSQL, when NoSQL fits, adding a column to a huge table, indexing/partitioning, transactions, writing a top-N query.",
+      "Behavioral themes are growth mindset, handling disagreement/conflict, a failure that affected the company, why switch, and 'why Microsoft'; prepare STAR stories with metrics, and one about AI/agents if the team is AI-focused.",
+      "Follow up with HR if the process stalls — candidates report rounds being rescheduled 1–3 times and a closed position reopening with another team two months later using the same feedback."
+    ],
+    "notes": "OA platform is Codility (India default) or HackerRank; the live coding tool is Codility/HackerRank CodePair over Teams with screen share. No formal 'bar raiser'; the AA interviewer plays that role and can override a single No-Hire. Generally all interviewers must give Hire. The loop is language-agnostic (C#, C++, Java, Python all seen) but a Java-heavy résumé may be asked to code in Java, and C++ teams ask C++-specific follow-ups. One Windows team ran an AI-assisted LLD round where the candidate was allowed to use an LLM and was judged on prompt quality and evaluation of the output; AI-focused orgs reportedly pilot Copilot-enabled coding, and the AA interviewer in one loop compared the candidate's tic-tac-toe code with ChatGPT output. Microsoft's careers site allows AI for preparation but not during assessments unless explicitly permitted. No cooldown between parallel team processes; rejected candidates have re-interviewed within months with a different panel. LLD/OOD rounds exist for this band, so the 'lld' section is populated. Other problems seen in 2024 loops/OAs but trimmed from the list: Add Two Numbers (trailing carry), Merge k Sorted Lists, Cheapest Flights Within K Stops (modified), Merge In Between Linked Lists, Largest Number, Restore IP Addresses, Best Time to Buy and Sell Stock III (OA), negabinary addition (OA), repair a broken circular doubly linked list, Bus Routes/Word Ladder II (2025 list).",
+    "sources": [
+      {
+        "title": "Microsoft SDE II Bengaluru L61/62 offer (OA + 4 rounds: DSA, LLD, HLD, HM/AA)",
+        "url": "https://leetcode.com/discuss/post/7769548/",
+        "date": "2026"
+      },
+      {
+        "title": "Microsoft SDE-2 L61/L62 selected — 9 rounds incl. 2 OAs, LLD job scheduler, config service",
+        "url": "https://leetcode.com/discuss/post/8426715/microsoft-sde-2-interview-experience-by-ep8dz/",
+        "date": "2026"
+      },
+      {
+        "title": "Microsoft SDE-2 Windows team — AI-assisted LLD round, proximity HLD, Linux cp",
+        "url": "https://leetcode.com/discuss/post/8462091/",
+        "date": "2026"
+      },
+      {
+        "title": "Microsoft SDE 2 L61/62 — HackerRank OA, meeting rooms variant, Spotify LLD, URL shortener, hostile HM idempotency round",
+        "url": "https://leetcode.com/discuss/post/7545165/microsoft-sde-2-l6162-interview-experien-e5q7/",
+        "date": "2026"
+      },
+      {
+        "title": "Microsoft SDE-2 — 5 rounds: course schedule, rate limiter LLD, monitoring HLD, two HM rounds",
+        "url": "https://leetcode.com/discuss/post/7576877/",
+        "date": "2026"
+      },
+      {
+        "title": "Microsoft India SDE 2 (L62) selected, WSD org — LRU thread-safe/singleton, URL shortener + DDoS, telemetry, parking HLD + SQL",
+        "url": "https://leetcode.com/discuss/interview-experience/7435112",
+        "date": "2025-12"
+      },
+      {
+        "title": "Microsoft SDE-2 India Dec 2025 rejected — permutation in string, IP heartbeat LRU, pluggable-eviction cache, sort colors",
+        "url": "https://leetcode.com/discuss/interview-experience/7433909",
+        "date": "2025-12"
+      },
+      {
+        "title": "Microsoft L61/62 Hyderabad (rejected) and Noida (selected) — min window substring, alert system LLD, GPay HLD, tic-tac-toe AA",
+        "url": "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/",
+        "date": "2025-12"
+      },
+      {
+        "title": "Microsoft SDE2 L62 offer — URL shortener deep dive, agentic workflow LLD, AA round",
+        "url": "https://leetcode.com/discuss/post/7392060/microsoft-sde2-l62-interview-loop-offer-al63c/",
+        "date": "2025-12"
+      },
+      {
+        "title": "Microsoft Software Engineer II EU on-site rejection — currency graph, elevator OOD, Pastebin, HM",
+        "url": "https://leetcode.com/discuss/interview-experience/7409568",
+        "date": "2025-12"
+      },
+      {
+        "title": "Microsoft SDE 2 hiring drive 'fumbled' — BST two-sum, LC 424, LC 1309, OS/networking fundamentals",
+        "url": "https://leetcode.com/discuss/interview-experience/7381249",
+        "date": "2025-11"
+      },
+      {
+        "title": "Microsoft SDE-2 Noida L61 — max frequency stack as save/best, snake & ladder, elevator spec, stoi in AA",
+        "url": "https://leetcode.com/discuss/post/7357425/microsoft-sde2-interview-experience-by-a-9v91/",
+        "date": "2025-11"
+      },
+      {
+        "title": "Microsoft SDE 2 L61 Noida (Xbox/Windows org) offer — Design Twitter coded, LCP, rate limiter in HM round, LinkedIn job search with director",
+        "url": "https://medium.com/@imran2018wahid/microsoft-sde-2-interview-experience-40fb0a4f41c0",
+        "date": "2025-08"
+      },
+      {
+        "title": "Microsoft SDE-II Level 61 Noida (3 YOE) — HackerRank OA, rotting oranges/BST, post office LLD, elevator LLD, AA round",
+        "url": "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/",
+        "date": "2025-08"
+      },
+      {
+        "title": "Roundz #68 — Microsoft SDE 2 L61 Hyderabad: Codility OA, two DSA rounds, AA round with Google Docs design",
+        "url": "https://roundz.substack.com/p/interview-experience-68-microsoft-l61",
+        "date": "2025-05"
+      },
+      {
+        "title": "Roundz #150 — Microsoft SDE II Redmond hiring event (US loop structure)",
+        "url": "https://roundz.substack.com/p/interview-experience-150-microsoft-sde2",
+        "date": "2025-08"
+      },
+      {
+        "title": "Microsoft SDE-2 (Data) selected — Codility OA, median stream + concurrency, log metrics HLD, AA round",
+        "url": "https://medium.com/@astha.jha7/microsoft-interview-experience-sde-2-selected-9550813fd1ea",
+        "date": "2025-03"
+      },
+      {
+        "title": "Microsoft L62 Hyderabad Jan 2025 reject — reorder list, twin sum, image library LLD, notification HLD",
+        "url": "https://leetcode.com/discuss/interview-experience/6366462/Microsoft-or-L62-or-Hyderabad-or-January-2025-Reject/",
+        "date": "2025-01"
+      },
+      {
+        "title": "Microsoft SDE-2 recent questions 2025 consolidated (OA/DSA/LLD/HLD lists)",
+        "url": "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/",
+        "date": "2025"
+      },
+      {
+        "title": "Microsoft SDE2 L61 Noida (2.4 YOE) — Excel LLD, battleship, HLD swapped for LLD, leave manager with GEM",
+        "url": "https://medium.com/@nehagoyal592000/microsoft-sde2-l61-noida-f646a7db75ad",
+        "date": "2024-10"
+      },
+      {
+        "title": "Microsoft SDE-2 L-61 offer — house robber, stack, parking lot with sizes/pricing (working code), HM",
+        "url": "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-sde-2-l-61-got-offer/",
+        "date": "2024-11"
+      },
+      {
+        "title": "Blind — Microsoft SDE2 screen (Azure SQL): validate BST with O(1) space expected",
+        "url": "https://www.teamblind.com/post/microsoft-sde2-interview-experience-alcvunlu",
+        "date": "2025-01"
+      },
+      {
+        "title": "Blind — downlevelled to SDE2: next-right pointer, token-bucket limiter, fixed-size queue, multi-region data design",
+        "url": "https://www.teamblind.com/post/microsoft-sde2senior-software-engineer-interview-experience-g70vklcp",
+        "date": "2025"
+      },
+      {
+        "title": "SDE-2 L61 Noida compensation post (L62 refused at 4.5 YOE)",
+        "url": "https://leetcode.com/discuss/post/7462537/",
+        "date": "2025-12"
+      },
+      {
+        "title": "IGotAnOffer — Microsoft SDE interview process, level bands, AA round, feedback mechanics",
+        "url": "https://igotanoffer.com/blogs/tech/microsoft-software-development-engineer-interview",
+        "date": "2025"
+      },
+      {
+        "title": "Hello Interview — Microsoft loop structure and commonly asked questions",
+        "url": "https://www.hellointerview.com/guides/microsoft/senior",
+        "date": "2026"
+      },
+      {
+        "title": "Ophy AI — Microsoft interview process 2026, AA round, AI-use policy",
+        "url": "https://ophyai.com/blog/company-guides/microsoft-interview-guide",
+        "date": "2026"
+      },
+      {
+        "title": "Glassdoor — Microsoft Software Engineer II SDE2 interviews (Vancouver May 2026 rate-limiter API screen)",
+        "url": "https://www.glassdoor.co.in/Interview/Microsoft-Software-Engineer-II-SDE2-Interview-Questions-EI_IE1651.0,9_KO10,35.htm",
+        "date": "2026-05"
+      },
+      {
+        "title": "Glassdoor — Microsoft SDE II interviews (Dublin Oct 2025: coding, parking OOP, Google Docs)",
+        "url": "https://www.glassdoor.co.in/Interview/Microsoft-Interview-Questions-E1651.htm?filter.jobTitleExact=Software+Development+Engineer+(SDE)+II",
+        "date": "2026-09"
+      },
+      {
+        "title": "CodingKaro aggregator of 117 LeetCode Microsoft interview experiences (Nov–Dec 2025 slice)",
+        "url": "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Microsoft",
+        "date": "2025-12"
+      }
+    ]
+  },
+  "dsa": [
+    {
+      "title": "LRU Cache",
+      "lcId": 146,
+      "url": "https://leetcode.com/problems/lru-cache/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Linked List",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Often story-framed (IP addresses that expire when heartbeats stop; 'implementation-heavy' narrative). Follow-ups reported: make it thread-safe, make the class a singleton and justify it, extend to a priority-based cache, add TTL/expiry, refactor eviction into a pluggable Strategy interface, add dependency management via topological sort, explain inheritance vs composition.",
+      "evidence": "Reported in at least 8 loops: Dec 2025 L62 WSD (thread-safe + singleton), Dec 2025 India reject (IP heartbeat variant), 2026 L61/62 (LRU + topo-sort dependencies), Hyderabad Azure 2024 (priority-cache follow-up), Nov 2025 Noida R1 story version, 2025 consolidated list, Dec 2025 SSE design round, 2024 Azure SDE-2 distributed-cache coding round",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7435112",
+        "https://leetcode.com/discuss/interview-experience/7433909",
+        "https://leetcode.com/discuss/post/8426715/microsoft-sde-2-interview-experience-by-ep8dz/",
+        "https://leetcode.com/discuss/post/5299357/Interview-Experience:-Microsoft-SDE-2-or-Hyderabad-or-Azure/",
+        "https://leetcode.com/discuss/post/7523946/interview-experience-microsoft-sde-2-by-0562r/",
+        "https://hackernoon.com/tips-and-insights-from-a-successful-sde-2-application-microsoft-engineer-interview-offer-2024"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Permutation in String",
+      "lcId": 567,
+      "url": "https://leetcode.com/problems/permutation-in-string/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "Hash Map",
+        "String"
+      ],
+      "statement": "",
+      "variant": "Interviewer expects the fixed-size sliding window immediately; a candidate who generated permutations (O(n!)) was marked down and later rejected.",
+      "evidence": "Dec 2025 India SDE-2 Round 1; also #37 in the July-2026 tag snapshot",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7433909"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Longest Repeating Character Replacement",
+      "lcId": 424,
+      "url": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "String"
+      ],
+      "statement": "",
+      "variant": "Asked as 'a variation' in a Windows-team DSA round (discuss brute force then optimal) and verbatim in a Nov 2025 hiring drive where the candidate needed hints to reach the variable window.",
+      "evidence": "2 reports: 2026 Windows SDE-2 R1, Nov 2025 hiring drive R1",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/8462091/",
+        "https://leetcode.com/discuss/interview-experience/7381249"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Minimum Window Substring",
+      "lcId": 76,
+      "url": "https://leetcode.com/problems/minimum-window-substring/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Sliding Window",
+        "Hash Map",
+        "String"
+      ],
+      "statement": "",
+      "variant": "Both strings limited to 26 lowercase letters; follow-ups: state complexity, optimize, then clean up the code (Noida L61 R1, rated Strong Hire).",
+      "evidence": "Dec 2025 Noida L61 Round 1",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Longest Substring with At Least K Repeating Characters",
+      "lcId": 395,
+      "url": "https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "Divide and Conquer",
+        "String"
+      ],
+      "statement": "",
+      "variant": "Asked as a variation in a Hyderabad L61 DSA round (two interviewers, Codility, runnable code required).",
+      "evidence": "Roundz #68 Hyderabad L61, May 2025",
+      "recency": "2025-05",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-68-microsoft-l61"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Longest Substring with At Most K Distinct Characters",
+      "lcId": 340,
+      "url": "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "Hash Map"
+      ],
+      "statement": "",
+      "variant": "Also appears as the follow-up to Longest Substring Without Repeating Characters (LC 3), which itself was asked in a 2025 DevOps SWE round and the 2025 consolidated list.",
+      "evidence": "Hyderabad SDE-2 R1 (LC 340); LC 3 in Jun 2025 SWE DevOps R1 and 2025 consolidated list; IGotAnOffer commonly-asked list",
+      "recency": "2025-06",
+      "sources": [
+        "https://leetcode.com/discuss/post/889286/microsoft-sde-2-hyderabad-rejected/",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-swe-devops/",
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Rotting Oranges",
+      "lcId": 994,
+      "url": "https://leetcode.com/problems/rotting-oranges/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "BFS",
+        "Matrix"
+      ],
+      "statement": "",
+      "variant": "Multi-source BFS; appears both in Codility OAs (lookalike) and as the warm-up in a Noida L61 DSA round followed by two BST problems.",
+      "evidence": "Aug 2025 Noida L61 R1; May 2025 Hyderabad OA lookalike; #16 in tag snapshot",
+      "recency": "2025-08",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/",
+        "https://roundz.substack.com/p/interview-experience-68-microsoft-l61"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Validate Binary Search Tree",
+      "lcId": 98,
+      "url": "https://leetcode.com/problems/validate-binary-search-tree/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "DFS",
+        "BST"
+      ],
+      "statement": "",
+      "variant": "One Azure SQL screen insisted on an O(1) extra-space solution (Morris inorder traversal) after the standard inorder approach; usually paired with Recover BST.",
+      "evidence": "Aug 2025 Noida L61 R1; Jan 2025 Blind Azure SQL screen; IGotAnOffer list",
+      "recency": "2025-08",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/",
+        "https://www.teamblind.com/post/microsoft-sde2-interview-experience-alcvunlu"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Recover Binary Search Tree",
+      "lcId": 99,
+      "url": "https://leetcode.com/problems/recover-binary-search-tree/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "DFS",
+        "BST"
+      ],
+      "statement": "",
+      "variant": "Phrased as 'find the two swapped/incorrectly placed nodes'; brute force first then O(n) inorder with prev pointer.",
+      "evidence": "Aug 2025 Noida L61 R1; Hyderabad SDE-1 R2",
+      "recency": "2025-08",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-1-hyderabad/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Binary Tree Level Order Traversal with zigzag and reverse follow-ups",
+      "lcId": 102,
+      "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "BFS"
+      ],
+      "statement": "",
+      "variant": "Level order (LC 102) → zigzag (LC 103) → reverse level order (LC 107); each follow-up must be a minimal edit of the same code without raising time/space complexity. Also asked as 'build the tree from input then print level order' and zigzag alone (2025 consolidated list, Hyderabad Azure 2019).",
+      "evidence": "May 2025 Hyderabad L61 R3; 2024 SDE-II R2; 2025 consolidated list",
+      "recency": "2025-05",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-68-microsoft-l61",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-4/",
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Populating Next Right Pointers in Each Node II",
+      "lcId": 117,
+      "url": "https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "BFS",
+        "Linked List"
+      ],
+      "statement": "",
+      "variant": "Asked as 'given a node return its next node on the same level' and as 'connect nodes at the same level'; solve iteratively then the interviewer asks for recursive (Hyderabad L62). Easier LC 116 version (complete tree) in a Mar 2024 L61 screen.",
+      "evidence": "Blind 2025 downlevel loop R1; Hyderabad L62 offer; Mar 2024 L61 R1; GfG Hyderabad SDE-2",
+      "recency": "2025",
+      "sources": [
+        "https://www.teamblind.com/post/microsoft-sde2senior-software-engineer-interview-experience-g70vklcp",
+        "https://leetcode.com/discuss/interview-experience/865904/Microsoft-or-Offer-or-SDE-II-or-L62-or-Hyderabad",
+        "https://leetcode.com/discuss/interview-experience/4937133/Microsoft-SDE2-L61-interview-experience/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Two Sum IV – Input is a BST",
+      "lcId": 653,
+      "url": "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "Tree",
+        "BST",
+        "Two Pointers"
+      ],
+      "statement": "",
+      "variant": "Candidate's inorder-to-array + two pointers (O(n) space) was accepted only partially; interviewer wanted forward and reverse BST iterators for O(h) space.",
+      "evidence": "Nov 2025 SDE-2 hiring drive R1",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7381249"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Lowest Common Ancestor of a Binary Tree / Deepest Leaves",
+      "lcId": 236,
+      "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "DFS"
+      ],
+      "statement": "",
+      "variant": "LC 236 asked after the train-platform problem (Noida L61, Oct 2024); LC 1123 (LCA of deepest leaves) asked in Hyderabad SDE-2 R1.",
+      "evidence": "Noida L61 R1 (Oct 2024); Hyderabad SDE-2 R1",
+      "recency": "2024-10",
+      "sources": [
+        "https://medium.com/@nehagoyal592000/microsoft-sde2-l61-noida-f646a7db75ad",
+        "https://leetcode.com/discuss/post/889286/microsoft-sde-2-hyderabad-rejected/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Cousins in Binary Tree (find all cousins of a node)",
+      "lcId": 993,
+      "url": "https://leetcode.com/problems/cousins-in-binary-tree/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "Tree",
+        "BFS"
+      ],
+      "statement": "",
+      "variant": "Asked as 'return all cousins of a given node' (same depth, different parent): brute force with complexity, then optimized single BFS.",
+      "evidence": "Noida L61 R3 (Oct 2024)",
+      "recency": "2024-10",
+      "sources": [
+        "https://medium.com/@nehagoyal592000/microsoft-sde2-l61-noida-f646a7db75ad"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Maximum Width of Binary Tree",
+      "lcId": 662,
+      "url": "https://leetcode.com/problems/maximum-width-of-binary-tree/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "BFS"
+      ],
+      "statement": "",
+      "variant": "Full program incl. test harness had to be written and run; index-labelling (2i, 2i+1) approach expected after a naive attempt failed.",
+      "evidence": "Mar 2024 L61 R2 (1.5 h)",
+      "recency": "2024-03",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/4937133/Microsoft-SDE2-L61-interview-experience/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Maximum Twin Sum of a Linked List (no modification allowed)",
+      "lcId": 2130,
+      "url": "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Linked List",
+        "Two Pointers",
+        "Stack"
+      ],
+      "statement": "",
+      "variant": "Constraint: list must not be modified (no reversing the second half); expected two pointers plus an n/2 array or stack.",
+      "evidence": "Jan 2025 Hyderabad L62 R1",
+      "recency": "2025-01",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/6366462/Microsoft-or-L62-or-Hyderabad-or-January-2025-Reject/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Reorder List (L1,L2,…,R1,R2,… → L1,R1,L2,R2,…)",
+      "lcId": 143,
+      "url": "https://leetcode.com/problems/reorder-list/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Linked List",
+        "Two Pointers"
+      ],
+      "statement": "",
+      "variant": "Interleave the first half with the second half in order (not reversed, unlike LC 143); O(n²) was accepted as a warm-up.",
+      "evidence": "Jan 2025 Hyderabad L62 R1",
+      "recency": "2025-01",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/6366462/Microsoft-or-L62-or-Hyderabad-or-January-2025-Reject/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Linked list cycle: detect, find length, break the cycle",
+      "lcId": 142,
+      "url": "https://leetcode.com/problems/linked-list-cycle-ii/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Linked List",
+        "Two Pointers"
+      ],
+      "statement": "",
+      "variant": "Three-part follow-up chain: detect (LC 141), length of loop, then remove the loop by finding the node before the cycle start.",
+      "evidence": "2025 consolidated SDE-2 list",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Asteroid Collision",
+      "lcId": 735,
+      "url": "https://leetcode.com/problems/asteroid-collision/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Stack",
+        "Simulation"
+      ],
+      "statement": "",
+      "variant": "Asked as a close variant; 20 minutes incl. tests. Stack problems generally are a Microsoft OA staple ('medium stack problem' in the Dec 2025 OA).",
+      "evidence": "2024 SDE2 R1; Dec 2025 OA stack problem",
+      "recency": "2025-12",
+      "sources": [
+        "https://medium.com/@iamabhishek229313/microsoft-sde2-interview-experience-f570deba9c0d",
+        "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Sort Colors (Dutch National Flag)",
+      "lcId": 75,
+      "url": "https://leetcode.com/problems/sort-colors/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Two Pointers"
+      ],
+      "statement": "",
+      "variant": "Asked in the engineering-manager round; correct three-pointer solution but interviewer wanted it coded faster.",
+      "evidence": "Dec 2025 India SDE-2 R4",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7433909"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Search in Rotated Sorted Array",
+      "lcId": 33,
+      "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Binary Search",
+        "Array"
+      ],
+      "statement": "",
+      "variant": "Paired with grid word search in one hour (Dec 2025). 'Modified binary search on an array, not on LeetCode' also reported in a Redmond hiring-event round; simple binary search in a Hyderabad L62 R1.",
+      "evidence": "Dec 2025 R2; Aug 2025 Redmond loop; Dec 2025 Hyderabad R1",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7384653",
+        "https://roundz.substack.com/p/interview-experience-150-microsoft-sde2",
+        "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Word Search (grid)",
+      "lcId": 79,
+      "url": "https://leetcode.com/problems/word-search/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Matrix",
+        "Backtracking",
+        "DFS"
+      ],
+      "statement": "",
+      "variant": "Horizontal/vertical moves only; candidate used BFS from every matching start cell. Also in the IGotAnOffer common list.",
+      "evidence": "Dec 2025 R2",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7384653",
+        "https://igotanoffer.com/blogs/tech/microsoft-software-development-engineer-interview"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Count Subarrays With Fixed Bounds",
+      "lcId": 2444,
+      "url": "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Sliding Window",
+        "Array"
+      ],
+      "statement": "",
+      "variant": "Asked alongside a grid-reachability-within-time-T problem before two design rounds.",
+      "evidence": "Dec 2025 SSE loop",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7425597"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Decrypt String from Alphabet to Integer Mapping",
+      "lcId": 1309,
+      "url": "https://leetcode.com/problems/decrypt-string-from-alphabet-to-integer-mapping/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "String"
+      ],
+      "statement": "",
+      "variant": "Warm-up before a max-subarray-with-length-≤k problem in a hiring-drive round that also covered OAuth/JWT/Docker.",
+      "evidence": "Nov 2025 SDE-2 hiring drive R2",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7381249"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Maximum subarray sum with length at most k",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "Prefix Sum",
+        "Monotonic Deque"
+      ],
+      "statement": "You are given profits[] where positive entries are profit months and negative entries are loss months. Return the maximum sum of any contiguous subarray whose length is at most k. Expected approach: prefix sums with a monotonic deque of minimum prefix over the last k positions (O(n)), or Kadane adapted with a window bound. The candidate could not finish it even with hints.",
+      "variant": "A plain 'variant of maximum subarray' was also asked in the Hyderabad L62 offer loop.",
+      "evidence": "Nov 2025 SDE-2 hiring drive R2; Hyderabad L62 R1",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7381249",
+        "https://leetcode.com/discuss/interview-experience/865904/Microsoft-or-Offer-or-SDE-II-or-L62-or-Hyderabad"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Most-frequent-then-most-recent data structure (save/best)",
+      "lcId": 895,
+      "url": "https://leetcode.com/problems/maximum-frequency-stack/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Hash Map",
+        "Design",
+        "Stack"
+      ],
+      "statement": "Design a structure with save(num) and best(): best() returns and removes the value with the highest frequency, breaking ties by the most recently saved number. Example: saving 2,5,8,2,8,9,2 then calling best() four times yields 2, 8, 2, 9. This is LC 895 Maximum Frequency Stack in disguise (map of freq → stack of values plus value → freq map).",
+      "variant": "Candidate solved with doubly linked list + hash maps, then realised maps alone suffice. Also listed as 'Maximum Frequency Stack' in the 2025 consolidated list.",
+      "evidence": "Nov 2025 Noida L61 R1; 2025 consolidated list",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/post/7357425/microsoft-sde2-interview-experience-by-a-9v91/",
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Time Based Key-Value Store",
+      "lcId": 981,
+      "url": "https://leetcode.com/problems/time-based-key-value-store/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Binary Search",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Paired with a digit-string partition problem; interviewer disliked the vector+binary-search answer's redundant checks — write it cleanly.",
+      "evidence": "Jan 2025 SDE2 coding round",
+      "recency": "2025-01",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/6302403/Microsoft-SDE2-Interview-Experience/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Minimum partitions of a digit string into dictionary words (Trie)",
+      "lcId": 139,
+      "url": "https://leetcode.com/problems/word-break/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Trie",
+        "DP",
+        "String"
+      ],
+      "statement": "Given a string of digits and a word list (may contain duplicates), split the string into the fewest substrings such that every piece is in the list; return the minimum count. Recursion is the obvious start; the interviewer wanted a Trie-guided DP (Word Break II / minimum-cut style).",
+      "variant": "Word Break family; Word Ladder II also listed in the 2025 consolidated list.",
+      "evidence": "Jan 2025 SDE2 coding round",
+      "recency": "2025-01",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/6302403/Microsoft-SDE2-Interview-Experience/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Meeting Rooms II / Minimum platforms",
+      "lcId": 253,
+      "url": "https://leetcode.com/problems/meeting-rooms-ii/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Intervals",
+        "Heap",
+        "Sorting"
+      ],
+      "statement": "",
+      "variant": "Asked as 'minimum number of train platforms' (Noida L61, with corner cases + complexity) and as a 'variation of minimum meeting rooms' with a follow-up the candidate could not debug live (2026 L61/62).",
+      "evidence": "2026 SDE 2 L61/62 DSA round; Oct 2024 Noida L61 R1",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7545165/microsoft-sde-2-l6162-interview-experien-e5q7/",
+        "https://medium.com/@nehagoyal592000/microsoft-sde2-l61-noida-f646a7db75ad"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Priority queue with custom sort order (story problem)",
+      "lcId": 1046,
+      "url": "https://leetcode.com/problems/last-stone-weight/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Heap",
+        "Sorting",
+        "Design"
+      ],
+      "statement": "Heap problems are repeatedly dressed as scheduling/story prompts: build a priority queue of structs with a multi-key custom comparator, then process items in that order (e.g. tasks by priority then arrival, or 'sorting + priority queue' variations). Expected: clean struct, comparator, heap operations and complexity.",
+      "variant": "Dec 2025 Hyderabad R2 ('priority queue problem with custom sort order'); Dec 2025 L62 R2 ('sorting and priority queue variation'); Nov 2025 Noida R2 (story-based heap problem).",
+      "evidence": "3 reports in Nov–Dec 2025",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/",
+        "https://leetcode.com/discuss/post/7392060/microsoft-sde2-l62-interview-loop-offer-al63c/",
+        "https://leetcode.com/discuss/post/7523946/interview-experience-microsoft-sde-2-by-0562r/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Course Schedule II (topological sort) with a variant follow-up",
+      "lcId": 210,
+      "url": "https://leetcode.com/problems/course-schedule-ii/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "Topological Sort"
+      ],
+      "statement": "",
+      "variant": "Full HackerRank solution with all tests, then a variant explained in pseudocode; topological sort also appeared as 'LRU cache that manages dependencies via topo sort' in a 2026 LLD round.",
+      "evidence": "2026 SDE-2 R1; 2026 L61/62 LLD",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7576877/",
+        "https://leetcode.com/discuss/post/8426715/microsoft-sde-2-interview-experience-by-ep8dz/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Shortest path in a weighted grid with constraints",
+      "lcId": 1631,
+      "url": "https://leetcode.com/problems/path-with-minimum-effort/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "Dijkstra",
+        "Matrix"
+      ],
+      "statement": "Find the minimum-cost path from one cell of a weighted grid to another subject to extra constraints (blocked cells, limited moves/time). Variants reported: Dijkstra on a grid (Bengaluru 2026 R1), and 'can you reach bottom-right from top-left within time T with blocked cells' (Dec 2025).",
+      "variant": "Clean code and edge cases were emphasised over just a working answer.",
+      "evidence": "2026 Bengaluru SDE II R1; Dec 2025 SSE loop",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7769548/",
+        "https://leetcode.com/discuss/interview-experience/7425597"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Currency conversion as a weighted graph",
+      "lcId": 399,
+      "url": "https://leetcode.com/problems/evaluate-division/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "DFS"
+      ],
+      "statement": "Given exchange rates between currency pairs, answer conversion queries (or find how much value is retained converting A→B through intermediates). Model rates as weighted edges and DFS/BFS multiplying weights along the path — the EU Azure candidate did not recognise it as a graph problem until hinted.",
+      "variant": "Equivalent to LC 399 Evaluate Division.",
+      "evidence": "Dec 2025 EU Azure E+C R1",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7409568"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Balance stones on a connected graph (adjacent difference ≤ 1)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "BFS",
+        "Heap",
+        "Greedy"
+      ],
+      "statement": "Each node of a connected undirected graph holds some stones. You may only add stones. Return the minimum total stones to add so that every pair of adjacent nodes differs by at most one. Reported approach: process nodes from a max-heap by current stones, BFS outward and greedily raise each neighbour to (current − 1) when it is lower.",
+      "variant": "",
+      "evidence": "Oct 2025 technical R1 (posted Nov 2025)",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7378815"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "All paths from a source with a target sum (graph backtracking)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Graph",
+        "Backtracking",
+        "DFS"
+      ],
+      "statement": "Given an undirected graph that may contain cycles, a source vertex and a target sum, enumerate all simple paths starting at the source whose node (or edge) weights add up to the target. Needs a visited set per path and pruning; the interviewer pushed many counter-questions and ended on complexity.",
+      "variant": "Preceded by Longest Common Prefix (LC 14) as a warm-up in the same hour.",
+      "evidence": "Aug 2025 Noida L61 R2",
+      "recency": "2025-08",
+      "sources": [
+        "https://medium.com/@imran2018wahid/microsoft-sde-2-interview-experience-40fb0a4f41c0"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Longest Common Prefix",
+      "lcId": 14,
+      "url": "https://leetcode.com/problems/longest-common-prefix/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "String"
+      ],
+      "statement": "",
+      "variant": "Warm-up before a graph problem; #6 in the tag snapshot.",
+      "evidence": "Aug 2025 Noida L61 R2",
+      "recency": "2025-08",
+      "sources": [
+        "https://medium.com/@imran2018wahid/microsoft-sde-2-interview-experience-40fb0a4f41c0"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Simplify Path",
+      "lcId": 71,
+      "url": "https://leetcode.com/problems/simplify-path/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Stack",
+        "String"
+      ],
+      "statement": "",
+      "variant": "Asked as a similar file-path normalisation problem, followed by a Two Sum variant with extra constraints rated medium-hard.",
+      "evidence": "May 2025 Hyderabad L61 R2",
+      "recency": "2025-05",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-68-microsoft-l61"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Design Twitter (code the feed)",
+      "lcId": 355,
+      "url": "https://leetcode.com/problems/design-twitter/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Design",
+        "Heap",
+        "Hash Map"
+      ],
+      "statement": "",
+      "variant": "Given as a 1.5-hour 'DSA + system design' round: postTweet/getNewsFeed/follow/unfollow, millions of users, thread safety; interviewer pushed to improve time/space from 'store all tweets + heap' to capping each user's stored tweets at n, then code and test.",
+      "evidence": "Aug 2025 Noida L61 R1",
+      "recency": "2025-08",
+      "sources": [
+        "https://medium.com/@imran2018wahid/microsoft-sde-2-interview-experience-40fb0a4f41c0"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Find Median from Data Stream (salaries) + concurrency follow-up",
+      "lcId": 295,
+      "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Heap",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Insert salaries into a stream and report the median after each insert; follow-ups on complexity, then how multiple threads inserting concurrently are handled (locks/critical sections).",
+      "evidence": "Nov 2024 SDE-2 (Data) R2",
+      "recency": "2025-03",
+      "sources": [
+        "https://medium.com/@astha.jha7/microsoft-interview-experience-sde-2-selected-9550813fd1ea"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Binary array neighbour-equality iterations (state after n steps)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Simulation",
+        "Bit Manipulation",
+        "Cycle Detection"
+      ],
+      "statement": "A binary array evolves each step: a cell becomes 1 if its two neighbours are equal, else 0 (ends treated as 0). Return the array after n steps where n can be huge. Discuss naive simulation, then detect the period of the state sequence (hash states) and jump n mod period; handle first/last index edge cases. Essentially LC 957 Prison Cells After N Days generalised.",
+      "variant": "",
+      "evidence": "Nov 2024 SDE-2 (Data) R3",
+      "recency": "2025-03",
+      "sources": [
+        "https://medium.com/@astha.jha7/microsoft-interview-experience-sde-2-selected-9550813fd1ea"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "House Robber (max sum of non-adjacent elements)",
+      "lcId": 198,
+      "url": "https://leetcode.com/problems/house-robber/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "DP",
+        "Array"
+      ],
+      "statement": "",
+      "variant": "Asked as maxSumSubsequence([3,2,5,10,7]); paired with implementing a stack with an array (push/pop/peek).",
+      "evidence": "Nov 2024 L61 R1 (offer)",
+      "recency": "2025-01",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-sde-2-l-61-got-offer/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Fixed-size queue backed by an array / stack using array",
+      "lcId": 622,
+      "url": "https://leetcode.com/problems/design-circular-queue/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Design",
+        "Array",
+        "Queue"
+      ],
+      "statement": "",
+      "variant": "Implement enqueue/dequeue with head/tail pointers over a fixed array (Blind 2025 loop); implement stack push/pop/peek on an array (Nov 2024 L61). Microsoft frequently asks 'implement a data structure from scratch and outline tests'.",
+      "evidence": "Blind 2025 downlevel loop R3; Nov 2024 L61 R1; Glassdoor Toronto loop ('implement a queue')",
+      "recency": "2025",
+      "sources": [
+        "https://www.teamblind.com/post/microsoft-sde2senior-software-engineer-interview-experience-g70vklcp",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-sde-2-l-61-got-offer/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "String to Integer (stoi) with edge cases",
+      "lcId": 8,
+      "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Math"
+      ],
+      "statement": "",
+      "variant": "Asked in the AA / hiring-manager round as a quick coding check in C++; focus on whitespace, sign, overflow, invalid characters.",
+      "evidence": "Nov 2025 Noida L61 R4 (AA)",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/post/7357425/microsoft-sde2-interview-experience-by-a-9v91/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Bishop moves on an 8x8 chessboard",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Matrix",
+        "Simulation"
+      ],
+      "statement": "Given a bishop's (x, y) on a standard chessboard, print every square it can reach in one move. Expected clean code: iterate four diagonal directions with a direction array in one loop and stop at the board edge, rather than four separate while loops.",
+      "variant": "Asked by a senior engineering manager after a project deep dive.",
+      "evidence": "Dec 2025 India SDE-2 R3",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7433909"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Tic-tac-toe: implement playGame",
+      "lcId": 348,
+      "url": "https://leetcode.com/problems/design-tic-tac-toe/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Design",
+        "Matrix",
+        "OOD"
+      ],
+      "statement": "",
+      "variant": "AA round with a senior AI leader: write a working game loop with win detection, then compare your code with ChatGPT's output and discuss the differences.",
+      "evidence": "Dec 2025 Noida L61 AA round",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Make a machine run sluggishly (multi-core CPU saturation)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "OS",
+        "Concurrency"
+      ],
+      "statement": "Write code whose execution noticeably slows down a machine. The expected answer is not an infinite loop on one thread but spawning one busy thread/process per core (and optionally memory pressure) so CPU utilisation hits 100% across all cores; discuss how the OS schedules threads. The inverse ('parallelise a task across an 8-core CPU') was asked in a 2024 HM round.",
+      "variant": "AA round problem-solving/debugging mindset question.",
+      "evidence": "Aug 2025 Noida L61 AA; 2024 Azure SDE-2 HM round",
+      "recency": "2025-08",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/",
+        "https://hackernoon.com/tips-and-insights-from-a-successful-sde-2-application-microsoft-engineer-interview-offer-2024"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Implement the Linux cp command",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "OS",
+        "File Systems",
+        "C++"
+      ],
+      "statement": "Write cp: open the source, create/truncate the destination, copy in buffered chunks, preserve permissions, handle directories/recursion, symlinks, partial writes and errors. Follow-ups went into syscalls, buffering, file descriptors and C++ RAII — a Windows/core-OS team question.",
+      "variant": "",
+      "evidence": "2026 Windows SDE-2 R4 (OS + C++ round)",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/8462091/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Shortest unique substring (OA)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Hash Map"
+      ],
+      "statement": "Given a string S, return the length of the shortest substring that occurs exactly once in S. Count occurrences of substrings by increasing length (or use suffix structures) and return the first length that has a unique one. Appears repeatedly in Microsoft Codility OAs.",
+      "variant": "Paired with 'maximise distinct two-digit combinations in a digit string' (De Bruijn flavour) in a Nov 2024 OA; also in a Hyderabad SDE-1 Codility OA.",
+      "evidence": "Nov 2024 SDE-2 (Data) OA; SDE-1 Hyderabad OA",
+      "recency": "2025-03",
+      "sources": [
+        "https://medium.com/@astha.jha7/microsoft-interview-experience-sde-2-selected-9550813fd1ea",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-1-hyderabad/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Rotate prefix characters by array values (OA)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Prefix Sum"
+      ],
+      "statement": "Given string s and integer array arr (len ≤ len(s)), for each i rotate every character in s[0..i] forward by arr[i] letters (backward if negative) with wrap-around. Return the final string; e.g. s='abcd', arr=[1,-2,3,0] → 'ccfd'. Efficient solution: suffix sums of arr give each position's total shift in O(n).",
+      "variant": "HackerRank OA, 90 min, 2 problems; the other was a medium sliding-window problem.",
+      "evidence": "Aug 2025 Noida L61 OA",
+      "recency": "2025-08",
+      "sources": [
+        "https://medium.com/@imran2018wahid/microsoft-sde-2-interview-experience-40fb0a4f41c0"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "nCr modulo prime and Dijkstra+DFS graph (OA)",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "Math",
+        "Combinatorics",
+        "Graph"
+      ],
+      "statement": "HackerRank OA pair: (1) a graph problem needing Dijkstra plus a DFS over the resulting structure; (2) compute C(n, k) mod p for large inputs using factorials and modular inverses (Fermat). Candidate completed problem 1 and ~80% of problem 2 and still advanced.",
+      "variant": "",
+      "evidence": "Aug 2025 Noida L61 OA (two write-ups of the same loop)",
+      "recency": "2025-08",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/",
+        "https://medium.com/@singhgyanendra583/microsoft-sde2-interview-experience-selected-4969a504b92d"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "design": [
+    {
+      "title": "URL shortener (TinyURL)",
+      "prompt": "Design a URL shortening service: shorten + redirect APIs at large scale.",
+      "probes": [
+        "functional/non-functional requirements and capacity estimate",
+        "ID generation: Snowflake vs counter+Base62 vs hash (SHA-1/Base64) and collisions",
+        "multi-region deployment and replication",
+        "redirect flow, 301 vs 302, caching hot links",
+        "preventing DDoS/abuse on the redirect path",
+        "load balancer types",
+        "interviewer rejects the 'conventional' answer and pushes into component failure/edge scenarios"
+      ],
+      "round": "HLD round (60 min); also as the design half of a combined DSA+design hour",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "At least 6 reports: Dec 2025 L62 WSD R2 (+DDoS), Dec 2025 L62 R1 (deep dive), 2026 L61/62 HLD (multi-region, ID gen), 2025 consolidated list, Hyderabad SDE-1 PM round, Aug 2026 Glassdoor SWE onsite",
+      "recency": "2026-08",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7435112",
+        "https://leetcode.com/discuss/post/7392060/microsoft-sde2-l62-interview-loop-offer-al63c/",
+        "https://leetcode.com/discuss/post/7545165/microsoft-sde-2-l6162-interview-experien-e5q7/",
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/",
+        "https://www.glassdoor.com/Interview/Microsoft-Interview-Questions-E1651.htm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Telemetry / log-metrics / cloud logging system",
+      "prompt": "Telemetry (JSON or plain-text error logs) streams in continuously from services or machines; design a system that ingests, stores and lets engineers query/analyse it (CloudWatch-Logs-like).",
+      "probes": [
+        "ingestion pipeline and buffering (queues/Event Hubs)",
+        "hot vs cold storage and retention",
+        "indexing for search by service/time/level",
+        "aggregation of metrics and alert thresholds",
+        "backpressure and lossy vs lossless delivery",
+        "multi-tenant isolation (Azure flavour)",
+        "a data-heavy team added 'how would you adapt as a backend engineer'"
+      ],
+      "round": "HLD round or project+design round (60–80 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Dec 2025 L62 WSD R3 (data telemetry system), Nov 2024 SDE-2 Data R3 (log metrics), 2024 SDE2 R5 (CloudWatch-like logging), 2026 SDE-2 R3 (distributed monitoring system)",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7435112",
+        "https://medium.com/@astha.jha7/microsoft-interview-experience-sde-2-selected-9550813fd1ea",
+        "https://medium.com/@iamabhishek229313/microsoft-sde2-interview-experience-f570deba9c0d",
+        "https://leetcode.com/discuss/post/7576877/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Notification system (critical vs non-critical)",
+      "prompt": "Design a notification platform that fans out to users/apps; one version separates critical from non-critical notifications, another is the Windows notification centre where apps generate and display notifications.",
+      "probes": [
+        "priority lanes and separate queues for critical traffic",
+        "rate limiting per user/app — name several algorithms (token bucket, leaky bucket, fixed/sliding window)",
+        "delivery channels, retries, dedup, idempotency",
+        "user preferences and quiet hours",
+        "edge cases (IGotAnOffer phrasing: 'including edge cases')",
+        "Windows LLD version: Observer pattern, app registration, toast lifecycle"
+      ],
+      "round": "HLD + manager round (Principal Manager) / LLD round",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Jan 2025 Hyderabad L62 R3; 2026 Windows SDE-2 LLD; 2025 guide lists; IGotAnOffer common list",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/6366462/Microsoft-or-L62-or-Hyderabad-or-January-2025-Reject/",
+        "https://leetcode.com/discuss/post/8462091/",
+        "https://igotanoffer.com/blogs/tech/microsoft-software-development-engineer-interview"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Proximity / nearest-store / restaurants-within-10km service",
+      "prompt": "Design a service where a customer finds the nearest of many stores (or restaurants within a 10 km radius for a food-delivery app).",
+      "probes": [
+        "geo-indexing: geohash vs quadtree vs S2 vs PostGIS",
+        "read-heavy caching of popular areas",
+        "store open/closed and inventory freshness",
+        "scope expands mid-round (filters, ranking, moving couriers)",
+        "asked to code part of the agreed approach at the end",
+        "older variant: nearest of 5M lat/long points on a globe"
+      ],
+      "round": "HLD round (senior manager) — a No-Hire here sank the Hyderabad L62 attempt",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Dec 2025 Hyderabad L62 R3; 2026 Windows SDE-2 R3; 2019 Azure Hyderabad R4",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/",
+        "https://leetcode.com/discuss/post/8462091/",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-2-5-years/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Google Docs / collaborative document editor",
+      "prompt": "Design a real-time collaborative document editor (Google Docs / Word Online).",
+      "probes": [
+        "web + WebSocket servers, API design",
+        "DB choice and schema, caching",
+        "real-time sync approach (OT vs CRDT), conflict handling",
+        "permissions/authn/authz, load balancing, rate limiting",
+        "AA-round version asked for LLD pseudocode of collaboration + sync + conflicts"
+      ],
+      "round": "AA round (45 min, candidate spoke ~20 min uninterrupted) / system design round",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "May 2025 Hyderabad L61 AA; Aug 2025 Noida L61 AA (LLD pseudocode); Oct 2025 Dublin SWE II onsite",
+      "recency": "2025-10",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-68-microsoft-l61",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/",
+        "https://www.glassdoor.co.in/Interview/Microsoft-Interview-Questions-E1651.htm?filter.jobTitleExact=Software+Development+Engineer+(SDE)+II"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Distributed key-value store (Redis-like) / distributed cache",
+      "prompt": "Design a distributed in-memory key-value store or cache.",
+      "probes": [
+        "partitioning/consistent hashing",
+        "replication and leader election",
+        "consistency vs availability trade-off (CAP)",
+        "eviction and TTL",
+        "concurrent updates and client-side consistency",
+        "2024 version: code the LRU core, then refactor for multiple eviction policies"
+      ],
+      "round": "HLD round; sometimes 'design and code' hybrid",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "2026 Bengaluru SDE II R3; 2024 Azure SDE-2 R3; 2025 consolidated list; Hello Interview common list",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7769548/",
+        "https://hackernoon.com/tips-and-insights-from-a-successful-sde-2-application-microsoft-engineer-interview-offer-2024",
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Rate limiter (HLD follow-up to LLD)",
+      "prompt": "After coding a token bucket, scale the rate limiter as a distributed service.",
+      "probes": [
+        "Redis sorted sets / atomic Lua scripts",
+        "synchronising token reads/writes under concurrency",
+        "per-tenant limits and noisy neighbours",
+        "fixed-window boundary burst problem vs token bucket",
+        "Vancouver May 2026 screen framed it as 'design an API rate limiter'"
+      ],
+      "round": "HM round (LLD then HLD if time) / technical screen",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Aug 2025 Noida L61 HM round; May 2026 Vancouver SWE II screen; Blind 2025 loop; Hello Interview list",
+      "recency": "2026-05",
+      "sources": [
+        "https://medium.com/@imran2018wahid/microsoft-sde-2-interview-experience-40fb0a4f41c0",
+        "https://www.glassdoor.co.in/Interview/Microsoft-Software-Engineer-II-SDE2-Interview-Questions-EI_IE1651.0,9_KO10,35.htm",
+        "https://www.teamblind.com/post/microsoft-sde2senior-software-engineer-interview-experience-g70vklcp"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Payment service (Google Pay-like)",
+      "prompt": "Design a peer-to-peer payment service.",
+      "probes": [
+        "debit and credit on both accounts atomically — concurrency and locking",
+        "idempotency of transfer requests",
+        "ledger schema; write some class/data-handling code",
+        "question 'moved in unexpected directions' — be ready to pivot",
+        "wrapped up in ~40 min then team/culture chat"
+      ],
+      "round": "HLD round (senior Principal Engineer)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "Dec 2025 Noida L61 R3 (Hire)",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Idempotent checkout / API that handles idempotency",
+      "prompt": "Where and how do you implement idempotency for a checkout or payment API? Write pseudocode.",
+      "probes": [
+        "idempotency key stored with a unique DB index vs cache-only",
+        "transaction boundary and the full request lifecycle (in-progress, succeeded, failed)",
+        "duplicate requests, data consistency, failure scenarios",
+        "interviewer pushed back hard ('this would crash the server') — defend the design calmly"
+      ],
+      "round": "Hiring manager round (two separate 2026 loops)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "2026 L61/62 HM round; 2026 SDE-2 second HM round",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7545165/microsoft-sde-2-l6162-interview-experien-e5q7/",
+        "https://leetcode.com/discuss/post/7576877/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Car parking system (HLD) with database deep dive",
+      "prompt": "Design a parking system end to end (not the OOD version): diagram, components, then databases.",
+      "probes": [
+        "DB selection strategy",
+        "indexing and partitioning",
+        "query optimisation; write several SQL queries live",
+        "transaction handling for slot allocation",
+        "preceded by 'most challenging project' deep dive"
+      ],
+      "round": "Hiring manager round (~1.5 h)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Dec 2025 L62 WSD HM round",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7435112"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Alert monitoring system (sensors with thresholds)",
+      "prompt": "Many machines each have sensors (temperature, pressure…) with lower/upper thresholds; out-of-range readings raise alerts that users can view and move between states (acknowledged, resolved, ignored).",
+      "probes": [
+        "ingestion at scale and threshold evaluation",
+        "alert state machine and audit",
+        "dedup/flapping suppression",
+        "downstream delivery to services (LLD version: class definitions + send logic)",
+        "HLD/LLD blend — clarify which the interviewer wants"
+      ],
+      "round": "System design round (R3)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Nov 2025 Noida R3 (alert monitoring); Dec 2025 Noida L61 R2 (alert system LLD); 2024 'alarm system with CRUD + HLD'",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/7523946/interview-experience-microsoft-sde-2-by-0562r/",
+        "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-4/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Twitter / Facebook news feed",
+      "prompt": "Design a social feed from scratch; what happens when a celebrity posts?",
+      "probes": [
+        "fan-out on write vs read, hybrid for celebrities",
+        "feed cache and ranking",
+        "follow graph storage",
+        "the coded LC-355 version asks for thread safety and O(log n) feed fetch"
+      ],
+      "round": "HLD round",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "2025 consolidated list (celebrity problem); Hyderabad L62 HLD (Facebook feed); Aug 2025 Noida R1 (Design Twitter coded)",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/",
+        "https://leetcode.com/discuss/interview-experience/865904/Microsoft-or-Offer-or-SDE-II-or-L62-or-Hyderabad",
+        "https://medium.com/@imran2018wahid/microsoft-sde-2-interview-experience-40fb0a4f41c0"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "WhatsApp / Teams-style chat",
+      "prompt": "Design a chat application (1:1 and group), with durability and ordering of messages.",
+      "probes": [
+        "message ordering per conversation",
+        "durable storage and delivery receipts",
+        "presence service API (Hello Interview list)",
+        "WebSockets vs long polling",
+        "Microsoft framings: Teams messaging, 'design a part of Microsoft Teams', 'Teams feature for university students in Japan'"
+      ],
+      "round": "HLD round",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "2025 consolidated list (WhatsApp durability/ordering); Hello Interview and IGotAnOffer common lists; frontend-handbook Teams prompts",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/",
+        "https://www.hellointerview.com/guides/microsoft/senior",
+        "https://igotanoffer.com/blogs/tech/microsoft-software-development-engineer-interview",
+        "https://www.frontendinterviewhandbook.com/companies/microsoft-front-end-interview-questions"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Fleet software management (Azure)",
+      "prompt": "Manage the software stack across a fleet of N machines that grows/shrinks: auto-install newer versions, flag blocked software, and apply priority-based actions (RED = remove immediately, YELLOW = notify user).",
+      "probes": [
+        "agent vs agentless inventory",
+        "desired-state reconciliation loop",
+        "policy store and priority evaluation",
+        "rollout safety and reporting",
+        "scale as machines join/leave"
+      ],
+      "round": "HLD round (Azure team, Hyderabad)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "2024 Hyderabad Azure SDE-2 R3",
+      "recency": "2024",
+      "sources": [
+        "https://leetcode.com/discuss/post/5299357/Interview-Experience:-Microsoft-SDE-2-or-Hyderabad-or-Azure/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Configuration management service (HLD then implement a component)",
+      "prompt": "Design a service that stores and serves configuration to many services, then implement one small component of it.",
+      "probes": [
+        "versioning and rollback of configs",
+        "push vs pull propagation and caching at clients",
+        "consistency of reads after writes",
+        "access control",
+        "then code a piece (e.g. the client cache or a validation layer)"
+      ],
+      "round": "HLD + LLD round",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "2026 L61/62 selected loop R7",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/8426715/microsoft-sde-2-interview-experience-by-ep8dz/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Multi-region customer data routing",
+      "prompt": "Customer data lives in region A while the UX service runs in region B; design how a user's request finds and reaches the right region's data.",
+      "probes": [
+        "HTTP redirects vs proxying",
+        "Redis cache: single instance vs cluster, hot/warm tiers for cost",
+        "propagating customer-info updates (Kafka) and whether that is over-engineering",
+        "cost as a non-functional requirement — remove components when asked",
+        "commenters warn against over-engineering"
+      ],
+      "round": "System design round",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Blind 2025 downlevelled-to-SDE2 loop R4",
+      "recency": "2025",
+      "sources": [
+        "https://www.teamblind.com/post/microsoft-sde2senior-software-engineer-interview-experience-g70vklcp"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Microsoft licence ordering service",
+      "prompt": "Design an ordering service where companies buy licences for Microsoft services.",
+      "probes": [
+        "order lifecycle and state machine",
+        "inventory/entitlement provisioning",
+        "payments and idempotency",
+        "interviewer expected the standard requirements→API→data→scale structure; unstructured answer led to rejection"
+      ],
+      "round": "Final system design round (20-year MS veteran)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Dec 2025 R3",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7384653"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Pastebin-like service",
+      "prompt": "Design Pastebin.",
+      "probes": [
+        "storage of blobs vs metadata",
+        "API endpoints and short IDs",
+        "database scaling",
+        "expiry and cleanup",
+        "interviewer said 'good' but candidate felt it lacked depth — go deeper unprompted"
+      ],
+      "round": "Behavioral + system design round (EU Azure E+C onsite)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Dec 2025 EU SWE II onsite",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7409568"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Travel booking site (MakeMyTrip-like)",
+      "prompt": "Design a flight/hotel booking platform.",
+      "probes": [
+        "search aggregation across suppliers",
+        "inventory holds and double-booking prevention",
+        "payments and idempotency",
+        "caching search results"
+      ],
+      "round": "Second design round (SSE loop)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "Dec 2025 SSE loop",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7425597"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "LinkedIn-style job search",
+      "prompt": "Design job search with multiple filters at LinkedIn scale.",
+      "probes": [
+        "data models for users and jobs; DB choices",
+        "search index (inverted index/Elasticsearch) and filter processing in the backend",
+        "ranking and pagination",
+        "45-minute discussion with a director, then AI/agents experience questions"
+      ],
+      "round": "Final round with a director (Xbox/Windows org)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "Aug 2025 Noida L61 R4",
+      "recency": "2025-08",
+      "sources": [
+        "https://medium.com/@imran2018wahid/microsoft-sde-2-interview-experience-40fb0a4f41c0"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Leave-manager application (Workday-like)",
+      "prompt": "Design a leave management app: HLD (APIs, DB schema) then LLD/code of core functions.",
+      "probes": [
+        "reducing DB transactions",
+        "prevent duplicate leave requests",
+        "exclude national holidays",
+        "cap consecutive leaves at three",
+        "manager approval flow"
+      ],
+      "round": "Group Engineering Manager round (HR + technical)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Oct 2024 Noida L61 R4",
+      "recency": "2024-10",
+      "sources": [
+        "https://medium.com/@nehagoyal592000/microsoft-sde2-l61-noida-f646a7db75ad"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Coding-contest platform with submission surge",
+      "prompt": "Design a contest platform that survives ~10^6 submissions/sec at contest close.",
+      "probes": [
+        "queueing and judge-worker autoscaling",
+        "leaderboard consistency",
+        "rate limiting and fairness",
+        "state requirements explicitly — no single right answer"
+      ],
+      "round": "Design round (ran 90 min instead of 60)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "2024 SDE-II design round (colleague's question)",
+      "recency": "2024-05",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-4/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Online-users counter across data centres",
+      "prompt": "Users should see how many other users are online; the system spans multiple data centres behind a load balancer.",
+      "probes": [
+        "how the LB and data centres communicate",
+        "approximate counting (HyperLogLog) vs exact",
+        "heartbeat/presence expiry"
+      ],
+      "round": "LLD/HLD round",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Hyderabad L62 offer loop",
+      "recency": "2024",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/865904/Microsoft-or-Offer-or-SDE-II-or-L62-or-Hyderabad"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Library system (online + offline)",
+      "prompt": "Design a library system; walk through a student checking out an item, then scale it.",
+      "probes": [
+        "HLD first, LLD if time",
+        "CAP, SQL vs NoSQL",
+        "client request types",
+        "scaling the checkout path"
+      ],
+      "round": "Design + coding round (1.5 h)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Mar 2024 L61 R3; IGotAnOffer common list",
+      "recency": "2024-03",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/4937133/Microsoft-SDE2-L61-interview-experience/",
+        "https://igotanoffer.com/blogs/tech/microsoft-software-development-engineer-interview"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Scheduler-based system / distributed job scheduler",
+      "prompt": "Design a system that schedules and runs jobs (cron-like) reliably at scale.",
+      "probes": [
+        "exactly-once vs at-least-once execution",
+        "leader election and worker heartbeats",
+        "retries, DLQ, priorities",
+        "LLD version: design and implement a job scheduler (2026)"
+      ],
+      "round": "HLD round; LLD round",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "2025 consolidated list (HLD + LLD); 2026 L61/62 LLD job scheduler",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/",
+        "https://leetcode.com/discuss/post/8426715/microsoft-sde-2-interview-experience-by-ep8dz/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Load balancer / garbage collector / file system (concept designs)",
+      "prompt": "Short conceptual designs reported in 2025 SDE-2 loops: design a load balancer, design a garbage collector, design a (distributed) file system, Amazon-style star-rating aggregation.",
+      "probes": [
+        "LB algorithms and health checks",
+        "GC: reachability, generations, pauses",
+        "file system: metadata vs chunk storage",
+        "star rating: write path aggregation and eventual consistency"
+      ],
+      "round": "HLD / 'miscellaneous' round",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "2025 consolidated list",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Parity checker across geo-distributed servers",
+      "prompt": "Design a system that verifies data parity across geographically distributed servers, wired into Jenkins pipelines.",
+      "probes": [
+        "checksumming and Merkle trees",
+        "scheduling and reporting drift",
+        "repair strategy"
+      ],
+      "round": "AA round (Data team)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Nov 2024 SDE-2 (Data) AA",
+      "recency": "2025-03",
+      "sources": [
+        "https://medium.com/@astha.jha7/microsoft-interview-experience-sde-2-selected-9550813fd1ea"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Streaming-data mini case + orchestration deep dive",
+      "prompt": "Small design case on streaming data, then architecture trade-offs: orchestration, high-volume handling, distributed transactions, containers, inference challenges.",
+      "probes": [
+        "exactly-once in streams",
+        "backpressure",
+        "container orchestration choices",
+        "tie-back to résumé architecture"
+      ],
+      "round": "Team-fit + technical deep dive (Data team)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Nov 2024 SDE-2 (Data) R4",
+      "recency": "2025-03",
+      "sources": [
+        "https://medium.com/@astha.jha7/microsoft-interview-experience-sde-2-selected-9550813fd1ea"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Copilot / LLM-adjacent design",
+      "prompt": "Reported 2025–26 AI-flavoured prompts: 'design an agentic workflow' (LLD, L62 loop), 'design Copilot as a modular component that plugs into any application' (M365/frontend loop), and HM-round pitches about an LLM interface over company documents.",
+      "probes": [
+        "tool/agent orchestration and state",
+        "prompt + context assembly, token budgets",
+        "guardrails, rate limiting per tenant, fallback models",
+        "evaluation of outputs",
+        "AI-team AA rounds ask about your experience with AI agents"
+      ],
+      "round": "LLD round (agentic workflow) / design round",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "Dec 2025 L62 R2 (agentic workflow); Dec 2025 frontend-handbook Copilot prompt; 2026 L61/62 HM pitch",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/7392060/microsoft-sde2-l62-interview-loop-offer-al63c/",
+        "https://www.frontendinterviewhandbook.com/companies/microsoft-front-end-interview-questions",
+        "https://leetcode.com/discuss/post/7545165/microsoft-sde-2-l6162-interview-experien-e5q7/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "OneDrive / Dropbox file sync and Outlook email",
+      "prompt": "Design cloud file storage with sync (OneDrive/Dropbox) or an email client/delivery system at Outlook scale.",
+      "probes": [
+        "chunked uploads, metadata service, sync engine, conflict copies / last-writer-wins",
+        "CDN and offline state",
+        "email: queues, spam, search, calendar as a sub-prompt"
+      ],
+      "round": "HLD round",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "Appears in guide lists (Ophy 2026, IGotAnOffer 'Dropbox/iCloud', frontend-handbook 'Outlook-style email client') but no first-hand 2025–26 SDE II report found",
+      "recency": "2026",
+      "sources": [
+        "https://ophyai.com/blog/company-guides/microsoft-interview-guide",
+        "https://igotanoffer.com/blogs/tech/microsoft-software-development-engineer-interview",
+        "https://www.frontendinterviewhandbook.com/companies/microsoft-front-end-interview-questions"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "lld": [
+    {
+      "title": "Parking lot (sized slots + hourly pricing)",
+      "prompt": "Cars are S/M/L; the lot has limited slots per size (e.g. 200/100/50). On entry assign a same-size slot or fall back to the next larger size; on exit compute the fee from per-size hourly rates. Working code required.",
+      "deliverable": "runnable code with classes (Lot, Slot, Vehicle, Ticket, PricingStrategy) and a demo",
+      "probes": [
+        "fallback allocation across sizes",
+        "pricing as a Strategy",
+        "concurrency on slot allocation",
+        "SOLID and which patterns keep it extensible (2026 Bengaluru version: 'vending machine or parking lot')",
+        "Dublin Oct 2025 OOP round: 'parking slot system'"
+      ],
+      "round": "LLD round (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Nov 2024 L61 R2 (offer); 2026 Bengaluru SDE II R2; Oct 2025 Dublin SWE II; Dec 2025 L62 HM (HLD variant with SQL)",
+      "recency": "2026",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-sde-2-l-61-got-offer/",
+        "https://leetcode.com/discuss/post/7769548/",
+        "https://www.glassdoor.co.in/Interview/Microsoft-Interview-Questions-E1651.htm?filter.jobTitleExact=Software+Development+Engineer+(SDE)+II"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Elevator control system",
+      "prompt": "Single shaft, floors 0–10, up/down hall buttons (disabled at ends), car buttons, direction display; serve requests efficiently with no starvation and direction continuity; needs two floors to decelerate; safety rules (no motion with doors open, emergency stop, sensor-fault halt, power-loss recovery); optional maintenance mode and diagnostics. Multi-elevator variant: scheduling across cars.",
+      "deliverable": "class design + code for the controller/scheduler (state machine), trade-off discussion",
+      "probes": [
+        "SCAN/LOOK-style scheduling and starvation",
+        "State pattern for door/motion states",
+        "controller ↔ elevator object communication",
+        "concurrency of request handling",
+        "was labelled 'HLD' in one Noida loop but was LLD"
+      ],
+      "round": "LLD round (60 min); OOP round in EU",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Nov 2025 Noida L61 R3 (detailed spec); Aug 2025 Noida L61 R3; Dec 2025 EU Azure R2",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/7357425/microsoft-sde2-interview-experience-by-a-9v91/",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/",
+        "https://leetcode.com/discuss/interview-experience/7409568"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Cache service with pluggable eviction strategies",
+      "prompt": "Design a cache class that accepts an eviction policy (LRU, LFU, FIFO, TTL…) and fully implement one policy.",
+      "deliverable": "working code: Cache<K,V> + EvictionPolicy interface + LRU implementation with O(1) ops",
+      "probes": [
+        "Strategy pattern and open/closed extension",
+        "thread safety (locks/striping)",
+        "singleton and when it is justified",
+        "complexity of add/update/delete",
+        "distributed follow-ups: CAP, consistency"
+      ],
+      "round": "LLD / coding round",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Dec 2025 India SDE-2 R2; Dec 2025 L62 WSD R1 (thread-safe + singleton LRU); 2024 Azure SDE-2 R3 (multiple eviction policies); SDE-1 Azure Networking HM 'design a cache system'",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/7433909",
+        "https://leetcode.com/discuss/interview-experience/7435112",
+        "https://hackernoon.com/tips-and-insights-from-a-successful-sde-2-application-microsoft-engineer-interview-offer-2024",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-i-1-year-experienced/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Rate limiter (design classes + implement one algorithm)",
+      "prompt": "Design a rate limiter: class structure, implement one algorithm (token bucket is the usual pick) and compare alternatives.",
+      "deliverable": "working token-bucket code with tests; interface allowing other algorithms",
+      "probes": [
+        "token bucket vs leaky bucket vs fixed vs sliding window and the boundary-burst problem",
+        "thread-safe refill",
+        "per-client keys",
+        "scale-out with Redis sorted sets (HLD follow-up)",
+        "2025 consolidated list: 'design it and write working code'"
+      ],
+      "round": "LLD round; also HM round and technical screen",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "2026 SDE-2 R2; Aug 2025 Noida L61 HM; Blind 2025 loop; 2025 consolidated list; May 2026 Vancouver screen",
+      "recency": "2026-05",
+      "sources": [
+        "https://leetcode.com/discuss/post/7576877/",
+        "https://medium.com/@imran2018wahid/microsoft-sde-2-interview-experience-40fb0a4f41c0",
+        "https://www.teamblind.com/post/microsoft-sde2senior-software-engineer-interview-experience-g70vklcp",
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Post-office letter delivery system",
+      "prompt": "Letters enter at one end and must be delivered efficiently by multiple postmen.",
+      "deliverable": "entities (PostOffice, Letter, DeliveryPerson, Route), delivery flow, data-structure choices",
+      "probes": [
+        "assigning letters across delivery personnel (queues per route, load balancing)",
+        "concurrent processing of letters",
+        "extensibility to priorities/zones",
+        "candidate reused a telemetry-logger design to reason about the flow"
+      ],
+      "round": "LLD round (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Aug 2025 Noida L61 R2 (two write-ups)",
+      "recency": "2025-08",
+      "sources": [
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/",
+        "https://medium.com/@singhgyanendra583/microsoft-sde2-interview-experience-selected-4969a504b92d"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Excel-like sheet (pages, sheets, rows, columns, cells)",
+      "prompt": "Design an Excel-like platform where cells hold text, images or videos.",
+      "deliverable": "class hierarchy + create/delete operations, discussion of interfaces vs abstract classes",
+      "probes": [
+        "applying an operation to a whole row/column",
+        "adding new cell/row properties in an open/closed way",
+        "formula parsing as an extension (guide lists mention an Excel formula parser)",
+        "multiple candidate designs with trade-offs"
+      ],
+      "round": "LLD round (60 min, senior engineer)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Oct 2024 Noida L61 R2; 'Excel formula parser' in 2026 guide list",
+      "recency": "2025-09",
+      "sources": [
+        "https://medium.com/@nehagoyal592000/microsoft-sde2-l61-noida-f646a7db75ad",
+        "https://medium.com/@id.shivanjali/the-complete-microsoft-software-engineering-interview-guide-2026-a27fb1ece27d"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Games: Snake & Ladder, Battleship, Tic-tac-toe, Snake",
+      "prompt": "Explain the design then code a board game: Snake & Ladder (Noida L61), Battleship (two players place ships, alternate turns, hit/miss, winner), Tic-tac-toe (AA round, playGame), Snake (design patterns + data structures).",
+      "deliverable": "working game loop with Board/Player/Piece classes; ~95% code completion was accepted as Lean Hire",
+      "probes": [
+        "rule validation and win detection",
+        "extensibility (board size, more players, new piece types)",
+        "optimisation follow-ups (Battleship)",
+        "compare your code against ChatGPT output (Tic-tac-toe AA)"
+      ],
+      "round": "LLD round / AA round",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Nov 2025 Noida L61 R2 (Snake & Ladder); Oct 2024 Noida L61 R3 (Battleship); Dec 2025 Noida AA (Tic-tac-toe); 2025 consolidated list (Snake)",
+      "recency": "2025-12",
+      "sources": [
+        "https://leetcode.com/discuss/post/7357425/microsoft-sde2-interview-experience-by-a-9v91/",
+        "https://medium.com/@nehagoyal592000/microsoft-sde2-l61-noida-f646a7db75ad",
+        "https://leetcode.com/discuss/post/7423217/microsoft-l6162-interview-selected-and-r-rqx3/",
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "In-memory file system (design and code)",
+      "prompt": "Design and code a simplified Linux-like file system: create, read, list, rename, delete, search files and directories.",
+      "deliverable": "working code (multilevel map / trie of path components) in 60 min",
+      "probes": [
+        "handling file updates",
+        "saving/consistency in a distributed environment",
+        "permissions as extension",
+        "LC 588 is the closest practice problem"
+      ],
+      "round": "Coding + design round",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "2024 Azure SDE-2 R2; 2025 consolidated LLD list ('file system design')",
+      "recency": "2025",
+      "sources": [
+        "https://hackernoon.com/tips-and-insights-from-a-successful-sde-2-application-microsoft-engineer-interview-offer-2024",
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Logging module / logger library",
+      "prompt": "Design an importable logger: configurable levels (INFO/ERROR/DEBUG), destinations (console, file, server), formats (plain, HTML), config given at construction and updatable at runtime.",
+      "deliverable": "class structure (abstract base + pluggable appenders/formatters), discussion for ~2 hours",
+      "probes": [
+        "runtime reconfiguration",
+        "async/batched writes and thread safety",
+        "Chain-of-responsibility for levels",
+        "extensibility of sinks"
+      ],
+      "round": "LLD round (ran ~2 h) — poor performance here caused the rejection",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Hyderabad SDE-2 R3; reused as mental model in Aug 2025 Noida LLD",
+      "recency": "2025-08",
+      "sources": [
+        "https://leetcode.com/discuss/post/889286/microsoft-sde-2-hyderabad-rejected/",
+        "https://www.geeksforgeeks.org/interview-experiences/microsoft-interview-experience-for-sde-ii-level-61/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Image-serving library (download + cache + retries)",
+      "prompt": "Design a library, reusable across Microsoft products, that takes an HTTP image URL and returns the image, handling download, caching and failures.",
+      "deliverable": "interfaces, input/output models, class design with named patterns",
+      "probes": [
+        "retry strategies and resiliency",
+        "cache with custom eviction policy",
+        "naming conventions and API ergonomics",
+        "interviewer supportive; this round was a Hire"
+      ],
+      "round": "LLD round",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Jan 2025 Hyderabad L62 R2",
+      "recency": "2025-01",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/6366462/Microsoft-or-L62-or-Hyderabad-or-January-2025-Reject/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Transaction filter service (thread-safe)",
+      "prompt": "Filter transactions stored in a DB by customer ID, date range and other user-provided criteria; then make it thread-safe.",
+      "deliverable": "C++/Java interfaces + classes in ~30 min, then mutex/lock-based thread safety demonstrated with concurrent test calls",
+      "probes": [
+        "composable filter/specification pattern",
+        "thread safety and simulated concurrent calls",
+        "language-specific follow-ups"
+      ],
+      "round": "LLD round (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "2024 SDE2 offer loop R4",
+      "recency": "2024-06",
+      "sources": [
+        "https://medium.com/@iamabhishek229313/microsoft-sde2-interview-experience-f570deba9c0d"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Music streaming app (Spotify-like) LLD",
+      "prompt": "Design the object model for a Spotify-like app.",
+      "deliverable": "classes, interfaces, enums in pseudocode (full code not required)",
+      "probes": [
+        "playlists, playback state, subscriptions",
+        "extensibility for new media types"
+      ],
+      "round": "LLD round",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "2026 SDE 2 L61/62 loop",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7545165/microsoft-sde-2-l6162-interview-experien-e5q7/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Job scheduler and agentic workflow (2025–26 LLD prompts)",
+      "prompt": "Design and implement a job scheduler (2026 loop); design an agentic workflow engine — steps/tools, state, retries (Dec 2025 L62 loop).",
+      "deliverable": "class design plus a runnable core (scheduler queue/worker; workflow step executor)",
+      "probes": [
+        "priority/delay queues",
+        "retry and failure handling",
+        "idempotent steps",
+        "observability of runs"
+      ],
+      "round": "LLD round",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "2026 L61/62 selected loop R6; Dec 2025 L62 R2",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/8426715/microsoft-sde-2-interview-experience-by-ep8dz/",
+        "https://leetcode.com/discuss/post/7392060/microsoft-sde2-l62-interview-loop-offer-al63c/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Windows notification system (AI-assisted LLD)",
+      "prompt": "Design the notification subsystem where applications generate notifications that the OS displays.",
+      "deliverable": "class design; the interviewer allowed an LLM and graded how prompts were written, refined and the output evaluated",
+      "probes": [
+        "Observer/pub-sub between apps and the notification centre",
+        "priority and grouping",
+        "persistence and action buttons",
+        "explain reasoning first, use AI only for unclear parts"
+      ],
+      "round": "LLD round (Windows team)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "2026 Windows SDE-2 R2",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/8462091/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Message queue / producer-consumer with synchronisation",
+      "prompt": "Design a message queueing system focusing on multithreading and design patterns; thread synchronisation with mutexes and semaphores followed by producer-consumer scenarios.",
+      "deliverable": "class design + bounded-buffer code with condition variables",
+      "probes": [
+        "at-least-once vs at-most-once",
+        "deadlock avoidance",
+        "consumer groups"
+      ],
+      "round": "LLD round",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "2025 consolidated SDE-2 LLD list",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "In-memory key-value store with expiration",
+      "prompt": "Design a KV store whose keys expire at set times.",
+      "deliverable": "code: map + min-heap/TTL wheel with lazy or active expiry",
+      "probes": [
+        "active vs lazy expiry",
+        "thread safety",
+        "memory bounds"
+      ],
+      "round": "LLD round",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "2025 consolidated SDE-2 LLD list",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/post/6403987/microsoft-sde-2-recent-questions-2025-co-4dj2/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Infinite scroll / small API implementations in HM rounds",
+      "prompt": "Short implementation tasks given by hiring managers: implement infinite scroll (2026), implement a small API for parsing data (Redmond 2025), design a tic-tac-toe API (IGotAnOffer list).",
+      "deliverable": "working code submitted in the shared editor",
+      "probes": [
+        "pagination tokens",
+        "error handling",
+        "dry-run and find your own bug (appreciated)"
+      ],
+      "round": "Hiring manager round / first onsite",
+      "difficulty": "Easy",
+      "classic": false,
+      "evidence": "2026 SDE-2 R4; Aug 2025 Redmond R2",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7576877/",
+        "https://roundz.substack.com/p/interview-experience-150-microsoft-sde2"
+      ],
+      "confidence": "medium"
+    }
+  ]
+}

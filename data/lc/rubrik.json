@@ -1,0 +1,494 @@
+{
+ "company": "rubrik",
+ "folder": "rubrik",
+ "totalTagged": 35,
+ "top": [
+  {
+   "lcId": 2193,
+   "title": "Minimum Number of Moves to Make Palindrome",
+   "url": "https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/",
+   "difficulty": "Hard",
+   "acceptance": 53.0,
+   "score": 250.0,
+   "windows": {
+    "6mo": 100.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "minimum-number-of-moves-to-make-palindrome"
+  },
+  {
+   "lcId": 3207,
+   "title": "Maximum Points After Enemy Battles",
+   "url": "https://leetcode.com/problems/maximum-points-after-enemy-battles/",
+   "difficulty": "Medium",
+   "acceptance": 33.5,
+   "score": 160.0,
+   "windows": {
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "maximum-points-after-enemy-battles"
+  },
+  {
+   "lcId": 2249,
+   "title": "Count Lattice Points Inside a Circle",
+   "url": "https://leetcode.com/problems/count-lattice-points-inside-a-circle/",
+   "difficulty": "Medium",
+   "acceptance": 56.9,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "count-lattice-points-inside-a-circle"
+  },
+  {
+   "lcId": 3410,
+   "title": "Maximize Subarray Sum After Removing All Occurrences of One Element",
+   "url": "https://leetcode.com/problems/maximize-subarray-sum-after-removing-all-occurrences-of-one-element/",
+   "difficulty": "Hard",
+   "acceptance": 23.4,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "maximize-subarray-sum-after-removing-all-occurrences-of-one-element"
+  },
+  {
+   "lcId": 3426,
+   "title": "Manhattan Distances of All Arrangements of Pieces",
+   "url": "https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces/",
+   "difficulty": "Hard",
+   "acceptance": 35.7,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "manhattan-distances-of-all-arrangements-of-pieces"
+  },
+  {
+   "lcId": 2982,
+   "title": "Find Longest Special Substring That Occurs Thrice II",
+   "url": "https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-ii/",
+   "difficulty": "Medium",
+   "acceptance": 39.3,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "find-longest-special-substring-that-occurs-thrice-ii"
+  },
+  {
+   "lcId": 3524,
+   "title": "Find X Value of Array I",
+   "url": "https://leetcode.com/problems/find-x-value-of-array-i/",
+   "difficulty": "Medium",
+   "acceptance": 37.7,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "find-x-value-of-array-i"
+  },
+  {
+   "lcId": 3525,
+   "title": "Find X Value of Array II",
+   "url": "https://leetcode.com/problems/find-x-value-of-array-ii/",
+   "difficulty": "Hard",
+   "acceptance": 31.6,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "find-x-value-of-array-ii"
+  },
+  {
+   "lcId": 2132,
+   "title": "Stamping the Grid",
+   "url": "https://leetcode.com/problems/stamping-the-grid/",
+   "difficulty": "Hard",
+   "acceptance": 35.6,
+   "score": 92.5,
+   "windows": {
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "stamping-the-grid"
+  },
+  {
+   "lcId": 528,
+   "title": "Random Pick with Weight",
+   "url": "https://leetcode.com/problems/random-pick-with-weight/",
+   "difficulty": "Medium",
+   "acceptance": 49.2,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "random-pick-with-weight"
+  },
+  {
+   "lcId": 723,
+   "title": "Candy Crush",
+   "url": "https://leetcode.com/problems/candy-crush/",
+   "difficulty": "Medium",
+   "acceptance": 77.6,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "candy-crush"
+  },
+  {
+   "lcId": 2927,
+   "title": "Distribute Candies Among Children III",
+   "url": "https://leetcode.com/problems/distribute-candies-among-children-iii/",
+   "difficulty": "Hard",
+   "acceptance": 57.2,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "distribute-candies-among-children-iii"
+  },
+  {
+   "lcId": 2928,
+   "title": "Distribute Candies Among Children I",
+   "url": "https://leetcode.com/problems/distribute-candies-among-children-i/",
+   "difficulty": "Easy",
+   "acceptance": 76.6,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "distribute-candies-among-children-i"
+  },
+  {
+   "lcId": 2929,
+   "title": "Distribute Candies Among Children II",
+   "url": "https://leetcode.com/problems/distribute-candies-among-children-ii/",
+   "difficulty": "Medium",
+   "acceptance": 55.6,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "distribute-candies-among-children-ii"
+  },
+  {
+   "lcId": 3021,
+   "title": "Alice and Bob Playing Flower Game",
+   "url": "https://leetcode.com/problems/alice-and-bob-playing-flower-game/",
+   "difficulty": "Medium",
+   "acceptance": 60.0,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "alice-and-bob-playing-flower-game"
+  },
+  {
+   "lcId": 3083,
+   "title": "Existence of a Substring in a String and Its Reverse",
+   "url": "https://leetcode.com/problems/existence-of-a-substring-in-a-string-and-its-reverse/",
+   "difficulty": "Easy",
+   "acceptance": 66.7,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "existence-of-a-substring-in-a-string-and-its-reverse"
+  },
+  {
+   "lcId": 3098,
+   "title": "Find the Sum of Subsequence Powers",
+   "url": "https://leetcode.com/problems/find-the-sum-of-subsequence-powers/",
+   "difficulty": "Hard",
+   "acceptance": 25.5,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "find-the-sum-of-subsequence-powers"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 301,
+   "title": "Remove Invalid Parentheses",
+   "url": "https://leetcode.com/problems/remove-invalid-parentheses/",
+   "difficulty": "Hard",
+   "acceptance": 50.0,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "remove-invalid-parentheses"
+  },
+  {
+   "lcId": 621,
+   "title": "Task Scheduler",
+   "url": "https://leetcode.com/problems/task-scheduler/",
+   "difficulty": "Medium",
+   "acceptance": 63.4,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "task-scheduler"
+  },
+  {
+   "lcId": 1146,
+   "title": "Snapshot Array",
+   "url": "https://leetcode.com/problems/snapshot-array/",
+   "difficulty": "Medium",
+   "acceptance": 36.8,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "snapshot-array"
+  },
+  {
+   "lcId": 1242,
+   "title": "Web Crawler Multithreaded",
+   "url": "https://leetcode.com/problems/web-crawler-multithreaded/",
+   "difficulty": "Medium",
+   "acceptance": 51.3,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "web-crawler-multithreaded"
+  },
+  {
+   "lcId": 18,
+   "title": "4Sum",
+   "url": "https://leetcode.com/problems/4sum/",
+   "difficulty": "Medium",
+   "acceptance": 41.1,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "4sum"
+  },
+  {
+   "lcId": 31,
+   "title": "Next Permutation",
+   "url": "https://leetcode.com/problems/next-permutation/",
+   "difficulty": "Medium",
+   "acceptance": 45.6,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "next-permutation"
+  },
+  {
+   "lcId": 87,
+   "title": "Scramble String",
+   "url": "https://leetcode.com/problems/scramble-string/",
+   "difficulty": "Hard",
+   "acceptance": 45.0,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "scramble-string"
+  },
+  {
+   "lcId": 380,
+   "title": "Insert Delete GetRandom O(1)",
+   "url": "https://leetcode.com/problems/insert-delete-getrandom-o1/",
+   "difficulty": "Medium",
+   "acceptance": 55.4,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "insert-delete-getrandom-o-1"
+  },
+  {
+   "lcId": 622,
+   "title": "Design Circular Queue",
+   "url": "https://leetcode.com/problems/design-circular-queue/",
+   "difficulty": "Medium",
+   "acceptance": 55.0,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "design-circular-queue"
+  },
+  {
+   "lcId": 761,
+   "title": "Special Binary String",
+   "url": "https://leetcode.com/problems/special-binary-string/",
+   "difficulty": "Hard",
+   "acceptance": 79.4,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "special-binary-string"
+  },
+  {
+   "lcId": 1236,
+   "title": "Web Crawler",
+   "url": "https://leetcode.com/problems/web-crawler/",
+   "difficulty": "Medium",
+   "acceptance": 68.8,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "web-crawler"
+  },
+  {
+   "lcId": 1463,
+   "title": "Cherry Pickup II",
+   "url": "https://leetcode.com/problems/cherry-pickup-ii/",
+   "difficulty": "Hard",
+   "acceptance": 72.5,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "cherry-pickup-ii"
+  },
+  {
+   "lcId": 2365,
+   "title": "Task Scheduler II",
+   "url": "https://leetcode.com/problems/task-scheduler-ii/",
+   "difficulty": "Medium",
+   "acceptance": 54.9,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "task-scheduler-ii"
+  },
+  {
+   "lcId": 2502,
+   "title": "Design Memory Allocator",
+   "url": "https://leetcode.com/problems/design-memory-allocator/",
+   "difficulty": "Medium",
+   "acceptance": 50.4,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "design-memory-allocator"
+  },
+  {
+   "lcId": 276,
+   "title": "Paint Fence",
+   "url": "https://leetcode.com/problems/paint-fence/",
+   "difficulty": "Medium",
+   "acceptance": 48.5,
+   "score": 37.5,
+   "windows": {
+    "all": 37.5
+   },
+   "recency": "all",
+   "slug": "paint-fence"
+  },
+  {
+   "lcId": 1202,
+   "title": "Smallest String With Swaps",
+   "url": "https://leetcode.com/problems/smallest-string-with-swaps/",
+   "difficulty": "Medium",
+   "acceptance": 60.8,
+   "score": 37.5,
+   "windows": {
+    "all": 37.5
+   },
+   "recency": "all",
+   "slug": "smallest-string-with-swaps"
+  },
+  {
+   "lcId": 2747,
+   "title": "Count Zero Request Servers",
+   "url": "https://leetcode.com/problems/count-zero-request-servers/",
+   "difficulty": "Medium",
+   "acceptance": 36.2,
+   "score": 37.5,
+   "windows": {
+    "all": 37.5
+   },
+   "recency": "all",
+   "slug": "count-zero-request-servers"
+  }
+ ]
+}

@@ -1,0 +1,713 @@
+{
+ "company": "intuit",
+ "folder": "intuit",
+ "totalTagged": 64,
+ "top": [
+  {
+   "lcId": 20,
+   "title": "Valid Parentheses",
+   "url": "https://leetcode.com/problems/valid-parentheses/",
+   "difficulty": "Easy",
+   "acceptance": 44.5,
+   "score": 660.0,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "3mo",
+   "slug": "valid-parentheses"
+  },
+  {
+   "lcId": 322,
+   "title": "Coin Change",
+   "url": "https://leetcode.com/problems/coin-change/",
+   "difficulty": "Medium",
+   "acceptance": 48.7,
+   "score": 550.0,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 87.5,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "coin-change"
+  },
+  {
+   "lcId": 772,
+   "title": "Basic Calculator III",
+   "url": "https://leetcode.com/problems/basic-calculator-iii/",
+   "difficulty": "Hard",
+   "acceptance": 53.4,
+   "score": 525.0,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 87.5,
+    "all": 50.0
+   },
+   "recency": "3mo",
+   "slug": "basic-calculator-iii"
+  },
+  {
+   "lcId": 139,
+   "title": "Word Break",
+   "url": "https://leetcode.com/problems/word-break/",
+   "difficulty": "Medium",
+   "acceptance": 49.6,
+   "score": 287.5,
+   "windows": {
+    "6mo": 87.5,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "word-break"
+  },
+  {
+   "lcId": 664,
+   "title": "Strange Printer",
+   "url": "https://leetcode.com/problems/strange-printer/",
+   "difficulty": "Hard",
+   "acceptance": 61.0,
+   "score": 237.5,
+   "windows": {
+    "6mo": 87.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "strange-printer"
+  },
+  {
+   "lcId": 647,
+   "title": "Palindromic Substrings",
+   "url": "https://leetcode.com/problems/palindromic-substrings/",
+   "difficulty": "Medium",
+   "acceptance": 73.0,
+   "score": 225.0,
+   "windows": {
+    "6mo": 87.5,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "palindromic-substrings"
+  },
+  {
+   "lcId": 3719,
+   "title": "Longest Balanced Subarray I",
+   "url": "https://leetcode.com/problems/longest-balanced-subarray-i/",
+   "difficulty": "Medium",
+   "acceptance": 65.7,
+   "score": 225.0,
+   "windows": {
+    "6mo": 87.5,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "longest-balanced-subarray-i"
+  },
+  {
+   "lcId": 546,
+   "title": "Remove Boxes",
+   "url": "https://leetcode.com/problems/remove-boxes/",
+   "difficulty": "Hard",
+   "acceptance": 49.6,
+   "score": 212.5,
+   "windows": {
+    "6mo": 87.5,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "remove-boxes"
+  },
+  {
+   "lcId": 2812,
+   "title": "Find the Safest Path in a Grid",
+   "url": "https://leetcode.com/problems/find-the-safest-path-in-a-grid/",
+   "difficulty": "Medium",
+   "acceptance": 57.2,
+   "score": 212.5,
+   "windows": {
+    "6mo": 87.5,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "find-the-safest-path-in-a-grid"
+  },
+  {
+   "lcId": 66,
+   "title": "Plus One",
+   "url": "https://leetcode.com/problems/plus-one/",
+   "difficulty": "Easy",
+   "acceptance": 50.2,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "plus-one"
+  },
+  {
+   "lcId": 628,
+   "title": "Maximum Product of Three Numbers",
+   "url": "https://leetcode.com/problems/maximum-product-of-three-numbers/",
+   "difficulty": "Easy",
+   "acceptance": 46.1,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "maximum-product-of-three-numbers"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 994,
+   "title": "Rotting Oranges",
+   "url": "https://leetcode.com/problems/rotting-oranges/",
+   "difficulty": "Medium",
+   "acceptance": 59.0,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "rotting-oranges"
+  },
+  {
+   "lcId": 2467,
+   "title": "Most Profitable Path in a Tree",
+   "url": "https://leetcode.com/problems/most-profitable-path-in-a-tree/",
+   "difficulty": "Medium",
+   "acceptance": 67.3,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "most-profitable-path-in-a-tree"
+  },
+  {
+   "lcId": 3148,
+   "title": "Maximum Difference Score in a Grid",
+   "url": "https://leetcode.com/problems/maximum-difference-score-in-a-grid/",
+   "difficulty": "Medium",
+   "acceptance": 48.3,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "maximum-difference-score-in-a-grid"
+  },
+  {
+   "lcId": 695,
+   "title": "Max Area of Island",
+   "url": "https://leetcode.com/problems/max-area-of-island/",
+   "difficulty": "Medium",
+   "acceptance": 74.1,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "max-area-of-island"
+  },
+  {
+   "lcId": 770,
+   "title": "Basic Calculator IV",
+   "url": "https://leetcode.com/problems/basic-calculator-iv/",
+   "difficulty": "Hard",
+   "acceptance": 49.9,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "basic-calculator-iv"
+  },
+  {
+   "lcId": 1698,
+   "title": "Number of Distinct Substrings in a String",
+   "url": "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/",
+   "difficulty": "Medium",
+   "acceptance": 64.7,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "number-of-distinct-substrings-in-a-string"
+  },
+  {
+   "lcId": 2234,
+   "title": "Maximum Total Beauty of the Gardens",
+   "url": "https://leetcode.com/problems/maximum-total-beauty-of-the-gardens/",
+   "difficulty": "Hard",
+   "acceptance": 30.2,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "maximum-total-beauty-of-the-gardens"
+  },
+  {
+   "lcId": 2453,
+   "title": "Destroy Sequential Targets",
+   "url": "https://leetcode.com/problems/destroy-sequential-targets/",
+   "difficulty": "Medium",
+   "acceptance": 42.2,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "destroy-sequential-targets"
+  },
+  {
+   "lcId": 2489,
+   "title": "Number of Substrings With Fixed Ratio",
+   "url": "https://leetcode.com/problems/number-of-substrings-with-fixed-ratio/",
+   "difficulty": "Medium",
+   "acceptance": 57.2,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "number-of-substrings-with-fixed-ratio"
+  },
+  {
+   "lcId": 2915,
+   "title": "Length of the Longest Subsequence That Sums to Target",
+   "url": "https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/",
+   "difficulty": "Medium",
+   "acceptance": 40.1,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "length-of-the-longest-subsequence-that-sums-to-target"
+  },
+  {
+   "lcId": 3088,
+   "title": "Make String Anti-palindrome",
+   "url": "https://leetcode.com/problems/make-string-anti-palindrome/",
+   "difficulty": "Hard",
+   "acceptance": 46.4,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "make-string-anti-palindrome"
+  },
+  {
+   "lcId": 3619,
+   "title": "Count Islands With Total Value Divisible by K",
+   "url": "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/",
+   "difficulty": "Medium",
+   "acceptance": 56.2,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "count-islands-with-total-value-divisible-by-k"
+  },
+  {
+   "lcId": 1,
+   "title": "Two Sum",
+   "url": "https://leetcode.com/problems/two-sum/",
+   "difficulty": "Easy",
+   "acceptance": 57.8,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "two-sum"
+  },
+  {
+   "lcId": 210,
+   "title": "Course Schedule II",
+   "url": "https://leetcode.com/problems/course-schedule-ii/",
+   "difficulty": "Medium",
+   "acceptance": 55.9,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "course-schedule-ii"
+  },
+  {
+   "lcId": 359,
+   "title": "Logger Rate Limiter",
+   "url": "https://leetcode.com/problems/logger-rate-limiter/",
+   "difficulty": "Easy",
+   "acceptance": 76.9,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "logger-rate-limiter"
+  },
+  {
+   "lcId": 493,
+   "title": "Reverse Pairs",
+   "url": "https://leetcode.com/problems/reverse-pairs/",
+   "difficulty": "Hard",
+   "acceptance": 34.7,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "reverse-pairs"
+  },
+  {
+   "lcId": 1411,
+   "title": "Number of Ways to Paint N \u00d7 3 Grid",
+   "url": "https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid/",
+   "difficulty": "Hard",
+   "acceptance": 80.5,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "number-of-ways-to-paint-n-3-grid"
+  },
+  {
+   "lcId": 22,
+   "title": "Generate Parentheses",
+   "url": "https://leetcode.com/problems/generate-parentheses/",
+   "difficulty": "Medium",
+   "acceptance": 78.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "generate-parentheses"
+  },
+  {
+   "lcId": 32,
+   "title": "Longest Valid Parentheses",
+   "url": "https://leetcode.com/problems/longest-valid-parentheses/",
+   "difficulty": "Hard",
+   "acceptance": 39.1,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "longest-valid-parentheses"
+  },
+  {
+   "lcId": 37,
+   "title": "Sudoku Solver",
+   "url": "https://leetcode.com/problems/sudoku-solver/",
+   "difficulty": "Hard",
+   "acceptance": 65.6,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "sudoku-solver"
+  },
+  {
+   "lcId": 49,
+   "title": "Group Anagrams",
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "difficulty": "Medium",
+   "acceptance": 72.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "group-anagrams"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 125,
+   "title": "Valid Palindrome",
+   "url": "https://leetcode.com/problems/valid-palindrome/",
+   "difficulty": "Easy",
+   "acceptance": 53.7,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "valid-palindrome"
+  },
+  {
+   "lcId": 198,
+   "title": "House Robber",
+   "url": "https://leetcode.com/problems/house-robber/",
+   "difficulty": "Medium",
+   "acceptance": 53.4,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "house-robber"
+  },
+  {
+   "lcId": 354,
+   "title": "Russian Doll Envelopes",
+   "url": "https://leetcode.com/problems/russian-doll-envelopes/",
+   "difficulty": "Hard",
+   "acceptance": 38.0,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "russian-doll-envelopes"
+  },
+  {
+   "lcId": 739,
+   "title": "Daily Temperatures",
+   "url": "https://leetcode.com/problems/daily-temperatures/",
+   "difficulty": "Medium",
+   "acceptance": 68.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "daily-temperatures"
+  },
+  {
+   "lcId": 929,
+   "title": "Unique Email Addresses",
+   "url": "https://leetcode.com/problems/unique-email-addresses/",
+   "difficulty": "Easy",
+   "acceptance": 67.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "unique-email-addresses"
+  },
+  {
+   "lcId": 1931,
+   "title": "Painting a Grid With Three Different Colors",
+   "url": "https://leetcode.com/problems/painting-a-grid-with-three-different-colors/",
+   "difficulty": "Hard",
+   "acceptance": 77.0,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "painting-a-grid-with-three-different-colors"
+  },
+  {
+   "lcId": 6,
+   "title": "Zigzag Conversion",
+   "url": "https://leetcode.com/problems/zigzag-conversion/",
+   "difficulty": "Medium",
+   "acceptance": 54.5,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "zigzag-conversion"
+  },
+  {
+   "lcId": 31,
+   "title": "Next Permutation",
+   "url": "https://leetcode.com/problems/next-permutation/",
+   "difficulty": "Medium",
+   "acceptance": 45.6,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "next-permutation"
+  },
+  {
+   "lcId": 54,
+   "title": "Spiral Matrix",
+   "url": "https://leetcode.com/problems/spiral-matrix/",
+   "difficulty": "Medium",
+   "acceptance": 57.2,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "spiral-matrix"
+  },
+  {
+   "lcId": 85,
+   "title": "Maximal Rectangle",
+   "url": "https://leetcode.com/problems/maximal-rectangle/",
+   "difficulty": "Hard",
+   "acceptance": 59.2,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "maximal-rectangle"
+  },
+  {
+   "lcId": 91,
+   "title": "Decode Ways",
+   "url": "https://leetcode.com/problems/decode-ways/",
+   "difficulty": "Medium",
+   "acceptance": 38.2,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "decode-ways"
+  },
+  {
+   "lcId": 236,
+   "title": "Lowest Common Ancestor of a Binary Tree",
+   "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "lowest-common-ancestor-of-a-binary-tree"
+  },
+  {
+   "lcId": 283,
+   "title": "Move Zeroes",
+   "url": "https://leetcode.com/problems/move-zeroes/",
+   "difficulty": "Easy",
+   "acceptance": 64.1,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "move-zeroes"
+  },
+  {
+   "lcId": 295,
+   "title": "Find Median from Data Stream",
+   "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+   "difficulty": "Hard",
+   "acceptance": 54.7,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "find-median-from-data-stream"
+  },
+  {
+   "lcId": 347,
+   "title": "Top K Frequent Elements",
+   "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+   "difficulty": "Medium",
+   "acceptance": 66.8,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "top-k-frequent-elements"
+  },
+  {
+   "lcId": 380,
+   "title": "Insert Delete GetRandom O(1)",
+   "url": "https://leetcode.com/problems/insert-delete-getrandom-o1/",
+   "difficulty": "Medium",
+   "acceptance": 55.4,
+   "score": 67.5,
+   "windows": {
+    "older": 50.0,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "insert-delete-getrandom-o-1"
+  }
+ ]
+}

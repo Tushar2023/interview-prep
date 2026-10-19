@@ -1,0 +1,712 @@
+{
+ "company": "atlassian",
+ "folder": "atlassian",
+ "totalTagged": 62,
+ "top": [
+  {
+   "lcId": 121,
+   "title": "Best Time to Buy and Sell Stock",
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+   "difficulty": "Easy",
+   "acceptance": 57.0,
+   "score": 580.0,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "3mo",
+   "slug": "best-time-to-buy-and-sell-stock"
+  },
+  {
+   "lcId": 3953,
+   "title": "Maximum Score with Co-Prime Element",
+   "url": "https://leetcode.com/problems/maximum-score-with-co-prime-element/",
+   "difficulty": "Hard",
+   "acceptance": 27.5,
+   "score": 537.5,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "all": 37.5
+   },
+   "recency": "3mo",
+   "slug": "maximum-score-with-co-prime-element"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 332.5,
+   "windows": {
+    "6mo": 100.0,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 79,
+   "title": "Word Search",
+   "url": "https://leetcode.com/problems/word-search/",
+   "difficulty": "Medium",
+   "acceptance": 47.7,
+   "score": 300.0,
+   "windows": {
+    "6mo": 100.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "word-search"
+  },
+  {
+   "lcId": 1366,
+   "title": "Rank Teams by Votes",
+   "url": "https://leetcode.com/problems/rank-teams-by-votes/",
+   "difficulty": "Medium",
+   "acceptance": 60.0,
+   "score": 160.0,
+   "windows": {
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "rank-teams-by-votes"
+  },
+  {
+   "lcId": 2034,
+   "title": "Stock Price Fluctuation",
+   "url": "https://leetcode.com/problems/stock-price-fluctuation/",
+   "difficulty": "Medium",
+   "acceptance": 49.2,
+   "score": 160.0,
+   "windows": {
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "stock-price-fluctuation"
+  },
+  {
+   "lcId": 353,
+   "title": "Design Snake Game",
+   "url": "https://leetcode.com/problems/design-snake-game/",
+   "difficulty": "Medium",
+   "acceptance": 40.0,
+   "score": 140.0,
+   "windows": {
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "design-snake-game"
+  },
+  {
+   "lcId": 432,
+   "title": "All O`one Data Structure",
+   "url": "https://leetcode.com/problems/all-oone-data-structure/",
+   "difficulty": "Hard",
+   "acceptance": 44.4,
+   "score": 140.0,
+   "windows": {
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "all-o-one-data-structure"
+  },
+  {
+   "lcId": 236,
+   "title": "Lowest Common Ancestor of a Binary Tree",
+   "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "lowest-common-ancestor-of-a-binary-tree"
+  },
+  {
+   "lcId": 253,
+   "title": "Meeting Rooms II",
+   "url": "https://leetcode.com/problems/meeting-rooms-ii/",
+   "difficulty": "Medium",
+   "acceptance": 52.7,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "meeting-rooms-ii"
+  },
+  {
+   "lcId": 2933,
+   "title": "High-Access Employees",
+   "url": "https://leetcode.com/problems/high-access-employees/",
+   "difficulty": "Medium",
+   "acceptance": 47.7,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "high-access-employees"
+  },
+  {
+   "lcId": 68,
+   "title": "Text Justification",
+   "url": "https://leetcode.com/problems/text-justification/",
+   "difficulty": "Hard",
+   "acceptance": 51.5,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "text-justification"
+  },
+  {
+   "lcId": 1676,
+   "title": "Lowest Common Ancestor of a Binary Tree IV",
+   "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/",
+   "difficulty": "Medium",
+   "acceptance": 79.6,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "lowest-common-ancestor-of-a-binary-tree-iv"
+  },
+  {
+   "lcId": 2639,
+   "title": "Find the Width of Columns of a Grid",
+   "url": "https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/",
+   "difficulty": "Easy",
+   "acceptance": 70.5,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "find-the-width-of-columns-of-a-grid"
+  },
+  {
+   "lcId": 2975,
+   "title": "Maximum Square Area by Removing Fences From a Field",
+   "url": "https://leetcode.com/problems/maximum-square-area-by-removing-fences-from-a-field/",
+   "difficulty": "Medium",
+   "acceptance": 49.5,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "maximum-square-area-by-removing-fences-from-a-field"
+  },
+  {
+   "lcId": 3000,
+   "title": "Maximum Area of Longest Diagonal Rectangle",
+   "url": "https://leetcode.com/problems/maximum-area-of-longest-diagonal-rectangle/",
+   "difficulty": "Easy",
+   "acceptance": 45.9,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "maximum-area-of-longest-diagonal-rectangle"
+  },
+  {
+   "lcId": 2039,
+   "title": "The Time When the Network Becomes Idle",
+   "url": "https://leetcode.com/problems/the-time-when-the-network-becomes-idle/",
+   "difficulty": "Medium",
+   "acceptance": 55.8,
+   "score": 87.5,
+   "windows": {
+    "older": 62.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "the-time-when-the-network-becomes-idle"
+  },
+  {
+   "lcId": 1307,
+   "title": "Verbal Arithmetic Puzzle",
+   "url": "https://leetcode.com/problems/verbal-arithmetic-puzzle/",
+   "difficulty": "Hard",
+   "acceptance": 33.4,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "verbal-arithmetic-puzzle"
+  },
+  {
+   "lcId": 2577,
+   "title": "Minimum Time to Visit a Cell In a Grid",
+   "url": "https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/",
+   "difficulty": "Hard",
+   "acceptance": 56.1,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "minimum-time-to-visit-a-cell-in-a-grid"
+  },
+  {
+   "lcId": 2598,
+   "title": "Smallest Missing Non-negative Integer After Operations",
+   "url": "https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations/",
+   "difficulty": "Medium",
+   "acceptance": 55.9,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "smallest-missing-non-negative-integer-after-operations"
+  },
+  {
+   "lcId": 2948,
+   "title": "Make Lexicographically Smallest Array by Swapping Elements",
+   "url": "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/",
+   "difficulty": "Medium",
+   "acceptance": 60.3,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "make-lexicographically-smallest-array-by-swapping-elements"
+  },
+  {
+   "lcId": 2959,
+   "title": "Number of Possible Sets of Closing Branches",
+   "url": "https://leetcode.com/problems/number-of-possible-sets-of-closing-branches/",
+   "difficulty": "Hard",
+   "acceptance": 51.5,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "number-of-possible-sets-of-closing-branches"
+  },
+  {
+   "lcId": 2976,
+   "title": "Minimum Cost to Convert String I",
+   "url": "https://leetcode.com/problems/minimum-cost-to-convert-string-i/",
+   "difficulty": "Medium",
+   "acceptance": 63.2,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "minimum-cost-to-convert-string-i"
+  },
+  {
+   "lcId": 2977,
+   "title": "Minimum Cost to Convert String II",
+   "url": "https://leetcode.com/problems/minimum-cost-to-convert-string-ii/",
+   "difficulty": "Hard",
+   "acceptance": 59.6,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "minimum-cost-to-convert-string-ii"
+  },
+  {
+   "lcId": 3026,
+   "title": "Maximum Good Subarray Sum",
+   "url": "https://leetcode.com/problems/maximum-good-subarray-sum/",
+   "difficulty": "Medium",
+   "acceptance": 22.2,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "maximum-good-subarray-sum"
+  },
+  {
+   "lcId": 49,
+   "title": "Group Anagrams",
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "difficulty": "Medium",
+   "acceptance": 72.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "group-anagrams"
+  },
+  {
+   "lcId": 347,
+   "title": "Top K Frequent Elements",
+   "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+   "difficulty": "Medium",
+   "acceptance": 66.8,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "top-k-frequent-elements"
+  },
+  {
+   "lcId": 354,
+   "title": "Russian Doll Envelopes",
+   "url": "https://leetcode.com/problems/russian-doll-envelopes/",
+   "difficulty": "Hard",
+   "acceptance": 38.0,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "russian-doll-envelopes"
+  },
+  {
+   "lcId": 359,
+   "title": "Logger Rate Limiter",
+   "url": "https://leetcode.com/problems/logger-rate-limiter/",
+   "difficulty": "Easy",
+   "acceptance": 76.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "logger-rate-limiter"
+  },
+  {
+   "lcId": 605,
+   "title": "Can Place Flowers",
+   "url": "https://leetcode.com/problems/can-place-flowers/",
+   "difficulty": "Easy",
+   "acceptance": 29.2,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "can-place-flowers"
+  },
+  {
+   "lcId": 1048,
+   "title": "Longest String Chain",
+   "url": "https://leetcode.com/problems/longest-string-chain/",
+   "difficulty": "Medium",
+   "acceptance": 63.3,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "longest-string-chain"
+  },
+  {
+   "lcId": 128,
+   "title": "Longest Consecutive Sequence",
+   "url": "https://leetcode.com/problems/longest-consecutive-sequence/",
+   "difficulty": "Medium",
+   "acceptance": 47.2,
+   "score": 72.5,
+   "windows": {
+    "older": 37.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "longest-consecutive-sequence"
+  },
+  {
+   "lcId": 1,
+   "title": "Two Sum",
+   "url": "https://leetcode.com/problems/two-sum/",
+   "difficulty": "Easy",
+   "acceptance": 57.8,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "two-sum"
+  },
+  {
+   "lcId": 3,
+   "title": "Longest Substring Without Repeating Characters",
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "longest-substring-without-repeating-characters"
+  },
+  {
+   "lcId": 31,
+   "title": "Next Permutation",
+   "url": "https://leetcode.com/problems/next-permutation/",
+   "difficulty": "Medium",
+   "acceptance": 45.6,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "next-permutation"
+  },
+  {
+   "lcId": 34,
+   "title": "Find First and Last Position of Element in Sorted Array",
+   "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+   "difficulty": "Medium",
+   "acceptance": 49.3,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "find-first-and-last-position-of-element-in-sorted-array"
+  },
+  {
+   "lcId": 44,
+   "title": "Wildcard Matching",
+   "url": "https://leetcode.com/problems/wildcard-matching/",
+   "difficulty": "Hard",
+   "acceptance": 32.3,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "wildcard-matching"
+  },
+  {
+   "lcId": 45,
+   "title": "Jump Game II",
+   "url": "https://leetcode.com/problems/jump-game-ii/",
+   "difficulty": "Medium",
+   "acceptance": 43.1,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "jump-game-ii"
+  },
+  {
+   "lcId": 53,
+   "title": "Maximum Subarray",
+   "url": "https://leetcode.com/problems/maximum-subarray/",
+   "difficulty": "Medium",
+   "acceptance": 53.5,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "maximum-subarray"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 177,
+   "title": "Nth Highest Salary",
+   "url": "https://leetcode.com/problems/nth-highest-salary/",
+   "difficulty": "Medium",
+   "acceptance": 39.5,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "nth-highest-salary"
+  },
+  {
+   "lcId": 211,
+   "title": "Design Add and Search Words Data Structure",
+   "url": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+   "difficulty": "Medium",
+   "acceptance": 48.7,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "design-add-and-search-words-data-structure"
+  },
+  {
+   "lcId": 297,
+   "title": "Serialize and Deserialize Binary Tree",
+   "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+   "difficulty": "Hard",
+   "acceptance": 61.1,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "serialize-and-deserialize-binary-tree"
+  },
+  {
+   "lcId": 300,
+   "title": "Longest Increasing Subsequence",
+   "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+   "difficulty": "Medium",
+   "acceptance": 59.7,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "longest-increasing-subsequence"
+  },
+  {
+   "lcId": 362,
+   "title": "Design Hit Counter",
+   "url": "https://leetcode.com/problems/design-hit-counter/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "design-hit-counter"
+  },
+  {
+   "lcId": 658,
+   "title": "Find K Closest Elements",
+   "url": "https://leetcode.com/problems/find-k-closest-elements/",
+   "difficulty": "Medium",
+   "acceptance": 49.9,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "find-k-closest-elements"
+  },
+  {
+   "lcId": 875,
+   "title": "Koko Eating Bananas",
+   "url": "https://leetcode.com/problems/koko-eating-bananas/",
+   "difficulty": "Medium",
+   "acceptance": 50.2,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "koko-eating-bananas"
+  },
+  {
+   "lcId": 881,
+   "title": "Boats to Save People",
+   "url": "https://leetcode.com/problems/boats-to-save-people/",
+   "difficulty": "Medium",
+   "acceptance": 62.0,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "boats-to-save-people"
+  },
+  {
+   "lcId": 1010,
+   "title": "Pairs of Songs With Total Durations Divisible by 60",
+   "url": "https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/",
+   "difficulty": "Medium",
+   "acceptance": 53.5,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "pairs-of-songs-with-total-durations-divisible-by-60"
+  },
+  {
+   "lcId": 1166,
+   "title": "Design File System",
+   "url": "https://leetcode.com/problems/design-file-system/",
+   "difficulty": "Medium",
+   "acceptance": 65.2,
+   "score": 60.0,
+   "windows": {
+    "older": 37.5,
+    "all": 37.5
+   },
+   "recency": "older",
+   "slug": "design-file-system"
+  }
+ ]
+}

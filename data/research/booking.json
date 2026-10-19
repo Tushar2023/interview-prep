@@ -1,0 +1,1502 @@
+{
+  "company": "Booking.com",
+  "slug": "booking",
+  "levelMapping": "Booking's IC ladder: Software Engineer I (~0-2 YOE) -> Software Engineer II (~2-5 YOE; the mid-level band, roughly Google L4 / Amazon SDE II; India postings and candidates call it SDE-2 / Software Engineer II) -> Senior Software Engineer (~5-8+ YOE; roughly L5) -> Staff / Principal. 'Junior Software Engineer II' is a separate Amsterdam graduate/early-career title, not the mid band. With ~3.3 YOE expect to be loop-ed as Software Engineer II in Amsterdam or Bengaluru; the Bengaluru Senior loops reported were for 5.5-8 YOE candidates (one Nov 2025 SDE-II offer in Bangalore went to a 5.5 YOE engineer). Confirm the title with the recruiter early: Booking sometimes re-routes a near-miss to a lower level or a different team.",
+  "process": {
+    "summary": "Booking's loop is a recruiter/sourcer call, a HackerRank gate, then an onsite that in 2026 is usually compressed into one day or one week. The HackerRank gate comes in two flavours: 2-4 LeetCode easy/medium problems in 75-90 minutes (the 'Award Top K Hotels' review-scoring problem has appeared from 2021 through Jan 2026), or, for many backend and almost all Bengaluru roles, a Spring Boot + H2 machine-coding take-home where you add APIs (nearest hotels via Haversine), fix deliberately broken tests and add your own. The onsite is a 60-minute live or pair-programming round built on a business scenario (process booking/payment JSON into a report, plan trips under a budget, merge per-night room offers) rather than a named LeetCode problem, a 45-90 minute system design round on a Booking-flavoured problem (fraud detection on reservations, availability sync across OTAs, Genius membership, live viewer counter, notifications), and a 45-60 minute culture-fit / 'business skills' round with an engineering manager built on Booking's five values plus commercial-awareness questions (KPIs, A/B tests). Some teams add a separate hiring-manager round. Rounds are elimination-based and post-rejection feedback is thin.",
+    "rounds": [
+      {
+        "name": "Recruiter / sourcer screen",
+        "type": "screen",
+        "duration": "15-30 min",
+        "what": "CV walk-through, motivation for Booking and for Amsterdam/Bengaluru, how your team works (agile practices, team size), salary expectations, notice period, other processes, relocation. Recruiters share the format of each later round in advance.",
+        "probes": "'Why Booking?' and fit with a ~6,000-person Amsterdam office. An Apr 2026 SWE I sourcer ended the call at ~7 minutes and declined to progress a candidate from a <20-person company on culture-fit grounds, so have a crisp story about working in a large, process-heavy org."
+      },
+      {
+        "name": "HackerRank online assessment (algorithmic)",
+        "type": "oa",
+        "duration": "75-90 min",
+        "what": "2-4 problems, typically 1 easy + 1-2 medium (occasionally 1 hard) with hidden tests; grads/interns get 2 coding + 2 MCQs and sometimes a Harver personality test. An Apr 2026 SWE I variant mixed one LeetCode-style problem, one 'call an OpenAPI endpoint and filter the response' task and one non-trivial SQL query. 'Award Top K Hotels' recurs; others seen: Maximal Square, Minimum Knight Moves, Minimum Sum with K Operations, string rotation, parked-cars roof coverage, multiples of x or y but not z, missing reservations between two lists, employee schedule breaks, Manhattan-distance averages.",
+        "probes": "Finishing on time is the main difficulty. Several candidates progressed with one failing test case; one Senior report cites a minimum score of 50/100 to advance. Results arrive in hours to 3 weeks."
+      },
+      {
+        "name": "HackerRank machine-coding take-home (Spring Boot)",
+        "type": "practical",
+        "duration": "~90-150 min",
+        "what": "A half-built Spring Boot + H2 project with Hotel and City JPA entities (lat/long). Implement CRUD / GET /hotel endpoints and an API returning the 3 closest hotels to a city centre (Haversine), fix pre-written tests that were deliberately broken so the build fails, add unit/integration tests. Reported Amsterdam Nov 2022 and Feb 2023, Bengaluru Feb 2025, mid-2025 and Nov 2025 (Bengaluru Senior Aug 2025 got a frontend + backend API variant).",
+        "probes": "Hidden tests include empty inputs and bad requests; the build must compile; Java is required. Read the provided code and tests first and get the build green before adding features."
+      },
+      {
+        "name": "Live coding / pair programming",
+        "type": "practical",
+        "duration": "60 min (one SWE I loop: 40 min coding + 40 min design + 10 min buffer)",
+        "what": "One (sometimes two) scenario-based problems with two interviewers (occasionally three, including a trainee or apprentice observing): parse JSON booking/payment logs into a report, compare two datasets and derive insights, trip/budget planning via DFS, merge per-night room offers, graph BFS (knight moves, itinerary). Some teams run it TDD-style; the Singapore SWE II and intern loops pair-program on the candidate's own take-home (explain, debug, extend, refactor, add tests). Any mainstream language, Java/Python most common.",
+        "probes": "Clarify ambiguous requirements before coding (interviewers deliberately under-specify and may just repeat the prompt), justify data-structure choices and trade-offs, absorb a mid-exercise requirement change, state time/space complexity and optimise. A fully working solution is not required if direction and interaction are good."
+      },
+      {
+        "name": "System design",
+        "type": "design",
+        "duration": "45-60 min (one report of 90 min)",
+        "what": "Booking-flavoured HLD with two interviewers on a virtual whiteboard; sometimes 'extend this existing system with a new service' or a theory-heavy discussion of idempotency, retries, IPC, observability, reliability and scalability.",
+        "probes": "Requirements and scale (~1M bookings/day), strong vs eventual consistency (no double booking), idempotency, retries/backoff, failure handling and graceful degradation, integration with external systems, extensibility, batch vs real-time, caching, queues, SQL vs NoSQL. Interviewers may add constraints (latency, data residency) mid-way, may stay silent and give no feedback, and have failed candidates for not laying out functional and non-functional requirements."
+      },
+      {
+        "name": "Culture fit / business skills (hiring manager)",
+        "type": "behavioral",
+        "duration": "45-60 min",
+        "what": "An EM or Senior EM (sometimes two EMs, sometimes with an apprentice observing) runs STAR/situational questions mapped to Booking's values (Think customer first, Succeed together, Own it, Learn forever, Do the right thing), plus commercial awareness: propose an improvement to Booking.com and the KPIs to measure it, how you would A/B test a feature, how Booking makes money. Expect a deep dive on your current project.",
+        "probes": "Conflict with a manager or teammate, leading an initiative, delivering under pressure, handling feedback, mentoring, an on-call incident you handled. One report counted 35+ rapid-fire questions with follow-ups; a Bangalore Nov 2025 candidate had to explain their project four times before the interviewer accepted it solved the stated problem."
+      },
+      {
+        "name": "Hiring manager round (some teams)",
+        "type": "hm",
+        "duration": "30-45 min",
+        "what": "In some loops a separate HM conversation follows culture fit (Senior May 2022; SWE II Amsterdam Sep 2026; Bengaluru Senior Aug 2025 'manager round'; Bengaluru SDE-2 2026): role and team fit, current project in depth, situational questions.",
+        "probes": "Why this team, how you handle ambiguity, what you would do in your first months."
+      }
+    ],
+    "indiaNotes": "Booking Holdings' India Technology Centre in Bengaluru (Prestige Tech Park) started around Dec 2022 and is scaling fast (~800 engineers, stated target ~3,000 by 2027); it builds search, pricing, personalisation and payments on a Java/Python/Go/Kafka/AWS stack. It hires Software Engineer II (SDE-2), Senior Software Engineer and EMs. Reported Bengaluru loops (Feb 2025, mid-2025, Aug 2025, Nov 2025, early 2026): Spring Boot machine-coding OA on HackerRank -> system design (rating & review system; availability sync across OTAs; 'define a system for error handling') -> DSA/scenario coding (all ways to spend a budget on a multi-city trip; compare two JSON arrays) -> culture fit -> hiring manager. Same shape and bar as Amsterdam, but the Java take-home is almost always the gate, system design often comes before DSA, and each onsite round is elimination-based; ghosting after a round was reported twice. Blind: a Senior SWE Bengaluru candidate with 8 YOE quoted ~45 LPA TC.",
+    "timeline": "2-6 weeks end to end (Glassdoor average ~25-27 days; Booking's own page says 3-6 weeks). Amsterdam onsites in 2026 often run within one day or one week of the screen; OA results take hours to 3 weeks; final feedback is promised within a week but several candidates report ghosting or a generic rejection email.",
+    "tips": [
+      "Drill 'Award Top K Hotels' (LeetCode 2512 'Reward Top K Students' is the same problem) and its sentiment-scoring relatives; it has appeared in Booking OAs from 2021 through Jan 2026.",
+      "Expect scenario problems over hotel/booking/payment JSON rather than named LeetCode problems; practise turning 'build a report from this data' into clarifying questions, a data model and hash-map/sorted-structure choices.",
+      "Graph BFS/DFS with business constraints (budget, dates, start = end city, visit max cities) is the most common live-coding theme; be fluent in BFS shortest path with path reconstruction and DFS enumeration with pruning.",
+      "For the Spring Boot take-home: read the provided code and tests first, make the build green, then add the APIs with tests; hidden tests hit empty inputs and bad requests.",
+      "In system design, say the functional and non-functional requirements out loud and address the Booking angle explicitly: no double booking, idempotent payments, fraud, retries against flaky partner APIs; candidates were failed for skipping requirements.",
+      "Prepare 8-10 STAR stories mapped to the five values and expect rapid follow-ups; also prepare 'why Booking', an 'improve Booking.com + KPIs' pitch and how you would A/B test it.",
+      "Confirm your coding language in writing: a Feb 2026 SWE II candidate was promised PHP on HackerRank and found it missing.",
+      "Refresh SQL joins/aggregation/window functions and calling + filtering a paginated REST API; both appeared in a 2026 OA.",
+      "Keep a tight 2-minute narrative of your current project; the culture-fit/HM interviewer will push on it repeatedly."
+    ],
+    "notes": "No dedicated LLD/OOD round for SWE II/Senior; practical work is the live-coding round and the Spring Boot take-home (listed under lld only where clearly design-ish). OA platform is HackerRank (plus a Harver personality test for graduates). Rounds are elimination-based; a borderline design round sometimes gets a repeat round or an offer for a different team or lower level. Interviews in English; Java and Python dominate (Perl is legacy), the take-home requires Java. Relocation to Amsterdam: Booking is a recognised sponsor for the Dutch Highly Skilled Migrant permit and applies for the 30% ruling; 2021-22 Core Backend offers for 4-5 YOE engineers from India were ~EUR 90-93k base + 15% bonus + ~USD 20k stock over 3 years + EUR 5-7k relocation, flights, first month's accommodation and housing-search help. Raise relocation in the first recruiter call. Re-apply cool-off after rejection is ~6-12 months.",
+    "sources": [
+      {
+        "title": "Booking.com careers: How we hire",
+        "url": "https://careers.booking.com/how-we-hire",
+        "date": "2026"
+      },
+      {
+        "title": "Glassdoor: Software Engineer II interview reports (Amsterdam Sep 2026, Singapore May 2026, Amsterdam Apr 2026)",
+        "url": "https://static.glassdoor.com.au/Interview/Booking-com-Software-Engineer-II-Interview-Questions-EI_IE256653.0,11_KO12,32.htm",
+        "date": "2026-09"
+      },
+      {
+        "title": "Glassdoor: Software Engineer reports (Amsterdam Sep 2026 same-day loop; Nov 2025 report-building problem; Jun 2026 offer)",
+        "url": "https://static.glassdoor.fr/Interview/Booking-com-Developer-Interview-Questions-EI_IE256653.0,11_KO12,21.htm",
+        "date": "2026-09"
+      },
+      {
+        "title": "Glassdoor: Software Engineer reports Nov 2025 / Jul 2025 (HackerRank, live coding with two engineers, architecture round)",
+        "url": "https://static.glassdoor.fr/Interview/Booking-com-Developer-Interview-Questions-EI_IE256653.0,11_KO12,21_IP4.htm",
+        "date": "2025-11"
+      },
+      {
+        "title": "Glassdoor: SWE I Amsterdam Apr 2026 (OA = LeetCode problem + OpenAPI call + SQL; sourcer call cut short)",
+        "url": "https://www.glassdoor.com.au/Interview/Booking-com-Interview-E256653-RVW103757410.htm",
+        "date": "2026-04"
+      },
+      {
+        "title": "Glassdoor: SWE I Amsterdam Feb 2026 (40 min coding + 40 min design live technical; FIT interview)",
+        "url": "https://static.glassdoor.at/Interview/Booking-com-Interview-E256653-RVW102804498.htm",
+        "date": "2026-02"
+      },
+      {
+        "title": "Glassdoor: SWE Apr 2026 (TDD pair-programming coding round, behavioural with Senior EM)",
+        "url": "https://www.glassdoor.co.nz/Interview/Booking-com-Interview-E256653-RVW103661714.htm",
+        "date": "2026-04"
+      },
+      {
+        "title": "Glassdoor: SWE II Amsterdam Feb 2026 (PHP missing on HackerRank; coding, design, HM rounds)",
+        "url": "https://www.glassdoor.es/Entrevista/Booking-com-Entrevista-E256653-RVW103670120.htm",
+        "date": "2026-02"
+      },
+      {
+        "title": "Glassdoor: Software Engineer Bengaluru Feb 2025 (Spring Boot take-home, DSA round, ghosted)",
+        "url": "https://www.glassdoor.ie/Interview/Booking-com-Interview-E256653-RVW104186733.htm",
+        "date": "2025-02"
+      },
+      {
+        "title": "Glassdoor: Senior SWE Bengaluru Aug 2025 (frontend+backend OA, design, manager round)",
+        "url": "https://www.glassdoor.ie/Interview/Booking-com-Interview-E256653-RVW102070017.htm",
+        "date": "2025-08"
+      },
+      {
+        "title": "LeetCode Discuss: Booking.com SDE2 Bengaluru 2025 (Spring Boot OA, rating/review design, budget DSA)",
+        "url": "https://leetcode.com/discuss/post/6819299/bookingcom-sde2-interview-experience-ben-nm2g/",
+        "date": "2025-06"
+      },
+      {
+        "title": "LeetCode Discuss: Booking Holdings SDE-2 Bangalore Nov 2025 (availability sync design, culture fit, selected)",
+        "url": "https://leetcode.com/discuss/post/7377607/booking-holdings-sde-2-bangalore-nov-202-tkfa/",
+        "date": "2025-11"
+      },
+      {
+        "title": "LeetCode Discuss: Booking.com SDE-2 (machine-coding OA, JSON comparison coding, BNPL design, HM round)",
+        "url": "https://leetcode.com/discuss/post/7533778/",
+        "date": "2026"
+      },
+      {
+        "title": "Blind: Booking.com Bangalore interview process (Senior SWE, HM round, values prep)",
+        "url": "https://www.teamblind.com/post/bookingcom-bangalore-interview-process-y3ztewza",
+        "date": "2023"
+      },
+      {
+        "title": "Roundz: Booking.com SDE-2 Amsterdam offer (OA, JSON payments report, fraud design, culture fit)",
+        "url": "https://roundz.substack.com/p/interview-experience-144-bookingcom-sde2",
+        "date": "2025"
+      },
+      {
+        "title": "Glassdoor: Senior SWE reports (Jul 2025 design fail, Toronto Oct 2025 screen)",
+        "url": "https://www.glassdoor.com/Interview/Booking-com-Senior-Software-Engineer-Interview-Questions-EI_IE256653.0,11_KO12,36.htm",
+        "date": "2026-04"
+      },
+      {
+        "title": "DesignGurus: Booking.com interview process round by round",
+        "url": "https://www.designgurus.io/answers/detail/what-is-the-booking-com-interview-process-like-round-by-round",
+        "date": "2025"
+      },
+      {
+        "title": "Interview Query: Booking.com Software Engineer guide (19 candidate reports)",
+        "url": "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer",
+        "date": "2025"
+      },
+      {
+        "title": "Business of GCC: Booking Holdings India Technology Centre, Bangalore",
+        "url": "https://www.businessofgcc.com/gcc-data/companies/booking-holdings-india-bangalore",
+        "date": "2026"
+      },
+      {
+        "title": "LeetCode compensation: Core Backend Engineer Amsterdam (relocation, visa, 30% ruling)",
+        "url": "https://leetcode.com/discuss/compensation/2134106/Booking.com-or-Core-Backend-Engineer-or-Amsterdam",
+        "date": "2022-03"
+      },
+      {
+        "title": "LeetCode compensation: Backend Developer Amsterdam Feb 2022 (relocation package)",
+        "url": "https://leetcode.com/discuss/compensation/1794952/bookingcom-amsterdam-backend-developer",
+        "date": "2022-02"
+      }
+    ]
+  },
+  "dsa": [
+    {
+      "title": "Award Top K Hotels (review keyword scoring)",
+      "lcId": 2512,
+      "url": "https://leetcode.com/problems/reward-top-k-students/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "String",
+        "Sorting",
+        "Heap"
+      ],
+      "statement": "",
+      "variant": "Booking's HackerRank version: each positive keyword in a review scores +3, each negative keyword -1; matching is case-insensitive, commas/dots are stripped, repeated words count every time. Input is parallel arrays hotelIds[] and reviews[] plus k; return hotel ids by descending score, ties broken by smaller id, all hotels if k exceeds the number of distinct ids. Constraints hint at very large input, so aggregate in one pass with a hash map and then sort or use a heap. A Mar 2024 taker notes the input format differs slightly from the LeetCode version, so read it carefully.",
+      "evidence": "Reported in OAs May 2021, Mar 2022 (two posts), New Grad Mar 2022, Dec 2022, MLE Mar 2024, Graduate SWE Jan 2026, and the roundz SDE-2 OA; described by multiple posters as Booking's most common OA question.",
+      "recency": "2026-01",
+      "sources": [
+        "https://leetcode.com/discuss/interview-question/1431676/Booking.com-Award-Top-K-Hotels-OA-HackerRank",
+        "https://leetcode.com/discuss/interview-question/1245302/Booking.com-or-Hacker-rank-test-or-May-2021",
+        "https://leetcode.com/discuss/interview-experience/2134024/bookingcom-core-backend-engineer-amsterdam-offer",
+        "https://leetcode.com/discuss/interview-experience/2047697/",
+        "https://www.glassdoor.co.uk/Interview/Booking-com-Interview-E256653-RVW71788531.htm",
+        "https://www.glassdoor.com.br/Entrevista/Booking-com-Entrevista-E256653-RVW67154577.htm",
+        "https://fr.glassdoor.ca/Entretien/Booking-com-Entretien-E256653-RVW44437968.htm",
+        "https://roundz.substack.com/p/interview-experience-144-bookingcom-sde2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Payments/bookings JSON logs -> operations report",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Data Processing",
+        "Design"
+      ],
+      "statement": "You are given JSON log records of payments and bookings (ids, amounts, statuses, timestamps, currencies) and asked to write code that produces a report for the payment-operations team. The spec is deliberately vague: you must ask what the report should contain (totals per status or currency, payments without a matching booking, failed bookings), choose data structures, then absorb follow-up requirement changes and discuss runtime complexity and optimisation.",
+      "variant": "Nov 2025 Amsterdam variant: 'create a report from the given requirements and example input using multiple data structures' with an interviewer who mostly repeated the prompt.",
+      "evidence": "Reported in the roundz SDE-2 Amsterdam loop (60-min coding round) and a Nov 2025 Amsterdam coding interview; matches the 'hash-map based, not LeetCode style' description from a Sep 2026 SWE II report.",
+      "recency": "2025-11",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-144-bookingcom-sde2",
+        "https://static.glassdoor.fr/Interview/Booking-com-Developer-Interview-Questions-EI_IE256653.0,11_KO12,21.htm",
+        "https://static.glassdoor.com.au/Interview/Booking-com-Software-Engineer-II-Interview-Questions-EI_IE256653.0,11_KO12,32.htm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Derive output C by comparing two input datasets A and B",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Set",
+        "BFS",
+        "Data Processing"
+      ],
+      "statement": "You receive two JSON arrays/objects (for example bookings and payments, or two hotel inventories) and must compare them to derive insights or an output object C: matching keys, differences, aggregates per group. The hard part is working out what C represents and how to transform A and B into it; expect deep follow-ups on hash map versus sorted structures and the trade-offs of each.",
+      "variant": "An early-2021 solution used sets, maps and BFS; the 2026 SDE-2 version focused on data-structure choice and optimisation discussion.",
+      "evidence": "Reported in the SDE-2 onsite coding round (LeetCode post, early 2026) and the 2021 Amsterdam SDE onsite coding round.",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7533778/",
+        "https://leetcode.com/discuss/interview-experience/1006376/bookingcom-sde-amsterdam-2021-passed",
+        "https://roundz.substack.com/p/interview-experience-bookingcom-sde2"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "All ways to spend a budget on a multi-city trip",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "DFS",
+        "Backtracking",
+        "Prefix Sum",
+        "Dynamic Programming"
+      ],
+      "statement": "Each city has a list of per-day prices and the trip visits the cities in order, spending exactly d consecutive days in each city, with total spend not exceeding the budget. Return every achievable total expenditure. Example: d = 2, budget 390, Paris [10,20,50,80,100,20], LA [90,10,40,90,12,11], Amsterdam [70,20,10,30,20,80]; Paris days 1-2 (30) + LA days 3-4 (130) + Amsterdam days 5-6 (100) = 260 is one valid total. Precompute each city's consecutive-window sums, then DFS/DP across cities with budget pruning, respecting that days advance across cities.",
+      "variant": "",
+      "evidence": "Bengaluru SDE2 2025 DSA round (round 2 after system design); the candidate did not finish and was ghosted.",
+      "recency": "2025-06",
+      "sources": [
+        "https://leetcode.com/discuss/post/6819299/bookingcom-sde2-interview-experience-ben-nm2g/",
+        "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Booking.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Longest itinerary under a budget",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "DFS",
+        "Backtracking",
+        "Graph",
+        "Pruning"
+      ],
+      "statement": "Given flights between cities, each with a departure date and price, plus a nightly hotel cost per city, a budget (about EUR 5000 in the report), and a start city/date, find the itinerary with the longest total duration whose total cost (flights plus hotel nights) stays within budget. Expected approach: DFS over flights in date order from the start city, tracking spend and days, with budget pruning; discuss memoisation on (city, date, remaining budget).",
+      "variant": "",
+      "evidence": "Final-round coding question in an Amsterdam Backend Engineer loop (rejected); the interviewer expected DFS and the candidate ran out of time implementing.",
+      "recency": "2021",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1402193/bookingcom-amsterdam-backend-engineer-reject"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Round trip visiting the most cities within a budget",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "DFS",
+        "Graph",
+        "Backtracking",
+        "Bitmask DP"
+      ],
+      "statement": "Given cities and priced flights between them, plan a trip that starts and ends in the same city, stays within a budget, and visits as many distinct cities as possible. DFS with a visited set and budget pruning; for small n a bitmask DP over (mask, city) works. An EM-round variant: given flights with days, find the shortest route that covers all cities.",
+      "variant": "A Mar 2022 onsite also included a graph problem requiring one DFS pass whose result feeds a second DFS.",
+      "evidence": "Mar 2022 Core Backend Engineer onsite coding (Amsterdam); EM loop Apr 2023 variant.",
+      "recency": "2023-04",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/2134024/bookingcom-core-backend-engineer-amsterdam-offer",
+        "https://clear.glassdoor.nl/Interview/Booking-com-Interview-E256653-RVW77815864.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Combined room offers for a stay",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Set",
+        "Intervals",
+        "Data Processing"
+      ],
+      "statement": "Input: a map from day number to a list of room offers (price, feature set such as breakfast/refundable, availability count), plus check-in day, check-out day, required features and number of rooms. Produce the combined offers for the whole stay: pick one offer per night for nights [check-in, check-out), keep only offers that include the required features, total price is the sum, availability is the minimum across nights, features are the intersection. Example: nights 176-177 with required ['breakfast'] yields {250, breakfast, availability 1} and {260, breakfast + refundable, availability 3}.",
+      "variant": "",
+      "evidence": "Senior SWE onsite coding (40 min, Amsterdam, ~2020); a 2021 SDE poster said their onsite coding matched this question.",
+      "recency": "2021",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/538560/bookingcom-interview-experience-senior-software-engineer-feb-25-reject/",
+        "https://leetcode.com/discuss/interview-experience/1006376/bookingcom-sde-amsterdam-2021-passed"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Backspace string processing with redo follow-up",
+      "lcId": 844,
+      "url": "https://leetcode.com/problems/backspace-string-compare/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "Stack",
+        "String"
+      ],
+      "statement": "",
+      "variant": "Booking's version processes a single string: each '#' deletes the previous character ('ABC#DD#E' -> 'ABDE', 'A##BB#E##F' -> 'F', 'abc#def##' -> 'abd'). Follow-up: '@' redoes the last deletion ('A#@BB#E#F' -> 'ABF'); keep a second stack of deleted characters. Asked in a pair-programming phone round and in a two-question coding test.",
+      "evidence": "Two Amsterdam reports: Senior pair-programming phone round (~2020) and Backend Engineer coding test (2021) with the redo follow-up.",
+      "recency": "2021",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/538560/bookingcom-interview-experience-senior-software-engineer-feb-25-reject/",
+        "https://leetcode.com/discuss/interview-experience/1402193/bookingcom-amsterdam-backend-engineer-reject"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Cities with three or more same-name hotels from a stream",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Streaming"
+      ],
+      "statement": "Rows arrive as (hotelId, hotelName, cityName). Return the cities that contain three or more hotels sharing the same name. Nested hash map city -> name -> set of hotel ids (sets dedupe repeated rows); discuss memory for an unbounded stream and emitting a city once.",
+      "variant": "",
+      "evidence": "Second question of the Amsterdam Backend Engineer coding test (same loop as the backspace question).",
+      "recency": "2021",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1402193/bookingcom-amsterdam-backend-engineer-reject"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Fetch logs from the last 30 minutes across unsorted log files",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Hard",
+      "topics": [
+        "Binary Search",
+        "Heap",
+        "Sorting",
+        "External Memory"
+      ],
+      "statement": "You have many large log files with lines like '<DD-MM-YYYY HH:MM:SS:sss> <message>'; the files are not sorted relative to one another (lines within a file may be). Design an algorithm to return all entries from the most recent half hour efficiently: parse timestamps, binary-search the cutoff inside each sorted file, k-way merge with a heap across files, and discuss what to do when files do not fit in memory or are internally unsorted.",
+      "variant": "",
+      "evidence": "Senior SWE pair-programming phone round (1 hour, three engineers, Amsterdam, ~2020).",
+      "recency": "2020",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/538560/bookingcom-interview-experience-senior-software-engineer-feb-25-reject/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Top K closest hotels within a price range on a grid",
+      "lcId": 2146,
+      "url": "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "BFS",
+        "Matrix",
+        "Sorting",
+        "Heap"
+      ],
+      "statement": "",
+      "variant": "Booking's grid: 0 = blocked, 1 = road, values > 1 = a hotel with that price; given an origin and a price range return the k hotels inside the range closest by BFS distance (example grid [[1,2,0,1],[1,3,0,1],[0,2,5,1]]). A Jul 2021 onsite asked the graph form: top K closest hotels from a starting node.",
+      "evidence": "Apr 2021 Senior Java Developer onsite coding; Jul 2021 Backend Developer onsite coding (graph version).",
+      "recency": "2021-07",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1184565/Booking-or-Amsterdam-or-Senior-Java-Developer-or-Apr-2021-Offer",
+        "https://leetcode.com/discuss/interview-experience/1395715/bookingcom-backend-developer-amsterdam-july-2021-offer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Top K largest files via filesystem APIs",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "DFS",
+        "Heap",
+        "Tree"
+      ],
+      "statement": "Given isFolder(path), listFiles(path) and size(path), implement topKLargestFiles(root) returning the paths of the k largest files under root (example answer ['a/b','a/b/d']). Traverse the tree iteratively or recursively, maintain a size-k min-heap, and discuss recursion depth and the cost of API calls.",
+      "variant": "",
+      "evidence": "Apr 2021 Senior Java Developer coding phone screen.",
+      "recency": "2021-04",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1184565/Booking-or-Amsterdam-or-Senior-Java-Developer-or-Apr-2021-Offer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Minimum Knight Moves (with path reconstruction)",
+      "lcId": 1197,
+      "url": "https://leetcode.com/problems/minimum-knight-moves/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "BFS",
+        "Graph"
+      ],
+      "statement": "",
+      "variant": "Follow-up asked in the Feb 2022 onsite: print the shortest path itself (store parent pointers during BFS). Also appeared as an OA question in Mar 2022.",
+      "evidence": "Feb 2022 Backend Engineer onsite coding (Amsterdam) with follow-up; Mar 2022 Core Backend Engineer HackerRank OA.",
+      "recency": "2022-03",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1810773/bookingcom-interview-experience-amsterdam-backend-engineer-february-2022/",
+        "https://leetcode.com/discuss/interview-experience/2134024/bookingcom-core-backend-engineer-amsterdam-offer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Reconstruct Itinerary",
+      "lcId": 332,
+      "url": "https://leetcode.com/problems/reconstruct-itinerary/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Graph",
+        "Eulerian Path",
+        "DFS"
+      ],
+      "statement": "",
+      "variant": "Phrased as 'given an array of start/end journeys, return the itinerary'; Interview Query also lists a graph problem similar to Reconstruct Itinerary.",
+      "evidence": "Sep 2023 Amsterdam coding round (Glassdoor); Interview Query candidate reports.",
+      "recency": "2023-09",
+      "sources": [
+        "https://www.glassdoor.at/Vorstellungsgespräch/Booking-com-Vorstellungsgespräch-E256653-RVW80098242.htm",
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Maximal Square",
+      "lcId": 221,
+      "url": "https://leetcode.com/problems/maximal-square/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Dynamic Programming",
+        "Matrix"
+      ],
+      "statement": "",
+      "variant": "Second of three OA problems (with an easy sort/traverse problem and Award Top K Hotels).",
+      "evidence": "Roundz SDE-2 Amsterdam OA write-up (90 min, three problems).",
+      "recency": "2025",
+      "sources": [
+        "https://roundz.substack.com/p/interview-experience-144-bookingcom-sde2"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Minimum Sum with K Operations",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Heap",
+        "Greedy"
+      ],
+      "statement": "Given an integer array and k, perform k operations; each operation takes the current maximum x and replaces it with ceil(x/2) (Booking's wording). Return the minimum possible array sum after exactly k operations. Greedy with a max-heap. Closest LeetCode analogue: 1962 Remove Stones to Minimize the Total (which removes floor(x/2) instead).",
+      "variant": "",
+      "evidence": "Named as one of two medium problems in the New Grad Mar 2022 HackerRank OA.",
+      "recency": "2022-03",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/2047697/",
+        "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Booking.com"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Parked cars: minimum roof length covering k cars",
+      "lcId": 1984,
+      "url": "https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/",
+      "onLeetcode": true,
+      "difficulty": "Easy",
+      "topics": [
+        "Sorting",
+        "Sliding Window"
+      ],
+      "statement": "",
+      "variant": "Booking's framing: given integer positions of parked cars, find the minimum roof length that covers at least k cars. Sort and take the minimum of positions[i+k-1] - positions[i] + 1 over all windows (LeetCode 1984 without the +1).",
+      "evidence": "May 2021 HackerRank OA (second of three problems).",
+      "recency": "2021-05",
+      "sources": [
+        "https://leetcode.com/discuss/interview-question/1245302/Booking.com-or-Hacker-rank-test-or-May-2021"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Sliding window minimum / maximum",
+      "lcId": 239,
+      "url": "https://leetcode.com/problems/sliding-window-maximum/",
+      "onLeetcode": true,
+      "difficulty": "Hard",
+      "topics": [
+        "Monotonic Deque",
+        "Sliding Window"
+      ],
+      "statement": "",
+      "variant": "Asked as the minimum over each window in a Junior SWE II onsite (Mar 2023). Interview Query reports a sliding-window problem over a JSON list of reservations with discount rates and another 'sliding window with added complexity' in one-hour live-coding rounds.",
+      "evidence": "Mar 2023 Amsterdam onsite (Glassdoor); Interview Query candidate reports (2025).",
+      "recency": "2025",
+      "sources": [
+        "https://static.glassdoor.es/Interview/Booking-com-Interview-E256653-RVW75847166.htm",
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Sliding window over a reservation list with discount rates",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "Hash Map",
+        "Data Processing"
+      ],
+      "statement": "Given a JSON list of reservations (dates, nightly prices) and a set of discount rates, compute the best or total discounted price over windows of consecutive nights (for example the cheapest k-night stay after applying rate rules). Parse the JSON into arrays, slide a window maintaining running sums, and handle rate boundaries and edge cases.",
+      "variant": "",
+      "evidence": "Interview Query aggregates a one-hour live-coding report of this problem; exact rules were not published.",
+      "recency": "2025",
+      "sources": [
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Merge Intervals",
+      "lcId": 56,
+      "url": "https://leetcode.com/problems/merge-intervals/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Intervals",
+        "Sorting"
+      ],
+      "statement": "",
+      "variant": "A Sep 2026 Amsterdam Software Engineer report lists 'merged interval questions' for the coding round; the Dec 2022 OA 'employee schedules -> breaks' is the same technique.",
+      "evidence": "Sep 2026 Amsterdam (Glassdoor).",
+      "recency": "2026-09",
+      "sources": [
+        "https://www.glassdoor.com.mx/Entrevista/Booking-com-Entrevista-E256653-RVW63446146.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Employee work schedules -> break intervals",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Intervals",
+        "Sorting"
+      ],
+      "statement": "Given each employee's list of working intervals during a day (possibly unsorted or overlapping), output their break intervals, i.e. the gaps between the merged working intervals. A related harder variant asks for the intervals when every employee is free at the same time (LeetCode 759 Employee Free Time).",
+      "variant": "",
+      "evidence": "Third of four problems in a Dec 2022 Amsterdam HackerRank OA (75 min).",
+      "recency": "2022-12",
+      "sources": [
+        "https://www.glassdoor.co.uk/Interview/Booking-com-Interview-E256653-RVW71788531.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Missing reservations between two lists",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Set",
+        "Array"
+      ],
+      "statement": "Given two lists of reservation records (ids or tuples of hotel, guest and dates), return the reservations present in the first list but absent from the second. Use a hash set of the second list; clarify duplicates, ordering of the output and how to key composite records.",
+      "variant": "",
+      "evidence": "Second of four problems in a Dec 2022 Amsterdam HackerRank OA.",
+      "recency": "2022-12",
+      "sources": [
+        "https://www.glassdoor.co.uk/Interview/Booking-com-Interview-E256653-RVW71788531.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Multiples of x or y but not z up to n",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Math",
+        "Array"
+      ],
+      "statement": "Given integers x, y, z and n, return all integers from 1 to n that are multiples of x or y but not multiples of z. Simple filter; watch for z dividing x or y and for n up to large values where you should iterate multiples rather than every integer.",
+      "variant": "",
+      "evidence": "First of four problems in a Dec 2022 Amsterdam HackerRank OA.",
+      "recency": "2022-12",
+      "sources": [
+        "https://www.glassdoor.co.uk/Interview/Booking-com-Interview-E256653-RVW71788531.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "String rotation by left and right shifts",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "String",
+        "Math"
+      ],
+      "statement": "Given a string and two integers for a left shift and a right shift, apply both rotations and return the result; compute the net rotation modulo the length and slice once.",
+      "variant": "",
+      "evidence": "First of three problems in a May 2021 HackerRank OA.",
+      "recency": "2021-05",
+      "sources": [
+        "https://leetcode.com/discuss/interview-question/1245302/Booking.com-or-Hacker-rank-test-or-May-2021"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Average Manhattan distance of points",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Math",
+        "Prefix Sum",
+        "Sorting"
+      ],
+      "statement": "Given a set of 2-D integer points, compute the average Manhattan distance over all pairs (or from each point to the others). Brute force is O(n^2); because Manhattan distance separates by axis, sort x and y independently and use prefix sums for O(n log n).",
+      "variant": "",
+      "evidence": "Graduate Junior SWE II HackerRank OA, Mar 2023 (Amsterdam).",
+      "recency": "2023-03",
+      "sources": [
+        "https://static.glassdoor.es/Interview/Booking-com-Interview-E256653-RVW75847166.htm"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Elements appearing more than three times",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Map"
+      ],
+      "statement": "Given an array, return the distinct elements that occur more than three times. Count with a hash map and collect into a set; discuss streaming and memory for very large input.",
+      "variant": "",
+      "evidence": "Early-2021 technical phone screen (one question each from the hiring manager and a peer).",
+      "recency": "2021",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1006376/bookingcom-sde-amsterdam-2021-passed",
+        "https://roundz.substack.com/p/interview-experience-bookingcom-sde2"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Classify a review as positive, negative or neutral",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Set",
+        "String"
+      ],
+      "statement": "Given lists of positive and negative words and a review string, count matches of each kind and classify the review as positive, negative or neutral (tie -> neutral); normalise case and strip punctuation. This is the warm-up relative of Award Top K Hotels.",
+      "variant": "",
+      "evidence": "Early-2021 technical phone screen, second question.",
+      "recency": "2021",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1006376/bookingcom-sde-amsterdam-2021-passed",
+        "https://roundz.substack.com/p/interview-experience-bookingcom-sde2"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Asteroid Collision",
+      "lcId": 735,
+      "url": "https://leetcode.com/problems/asteroid-collision/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Stack",
+        "Simulation"
+      ],
+      "statement": "",
+      "variant": "Junior SWE Amsterdam loop (Jun 2026) alongside mostly dynamic programming and graph problems plus some LLD/HLD discussion.",
+      "evidence": "Jun 2026 Junior Software Engineer, Amsterdam (Glassdoor).",
+      "recency": "2026-06",
+      "sources": [
+        "https://www.glassdoor.sg/Interview/Booking-com-Interview-E256653-RVW102998757.htm",
+        "https://static.glassdoor.fr/Interview/Booking-com-Interview-E256653-RVW79078096.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "LRU / insertion-ordered cache with three methods",
+      "lcId": 146,
+      "url": "https://leetcode.com/problems/lru-cache/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Linked List",
+        "Design"
+      ],
+      "statement": "",
+      "variant": "Reported as an insertion-based cache with three methods coded in a timed online IDE (Java requested); a prep guide lists 'LRU cache for hotel search results'. Be ready for TTL and thread-safety follow-ups.",
+      "evidence": "Interview Query candidate reports; JobMentis prep guide.",
+      "recency": "2025",
+      "sources": [
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer",
+        "https://www.jobmentis.com/en/interviews/booking/swe"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "SQL query in the HackerRank OA",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "SQL",
+        "Joins",
+        "Aggregation"
+      ],
+      "statement": "The OA can include a non-trivial SQL task: multi-table joins, GROUP BY/HAVING aggregation, ranking, or ordering columns independently. Practise joins, aggregation and window functions; Booking-tagged LeetCode SQL problems exist (see the lc file) and a data-engineering OA had a query with tricky joins.",
+      "variant": "",
+      "evidence": "Apr 2026 SWE I OA (described as a fairly complicated SQL question); Senior Data Engineer OA; DesignGurus prep notes recommend refreshing joins/aggregation/indexes.",
+      "recency": "2026-04",
+      "sources": [
+        "https://www.glassdoor.com.au/Interview/Booking-com-Interview-E256653-RVW103757410.htm",
+        "https://leetcode.com/discuss/interview-experience/4616360/",
+        "https://www.designgurus.io/answers/detail/what-is-the-booking-com-interview-process-like-round-by-round"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Call an OpenAPI/REST endpoint and filter the response",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Easy",
+      "topics": [
+        "API",
+        "JSON",
+        "Filtering"
+      ],
+      "statement": "OA task: given an OpenAPI/REST endpoint description, write code that calls it (handling pagination), parses the JSON and returns the records matching filter criteria (for example hotels in a city above a rating), with sensible handling of errors and empty pages.",
+      "variant": "",
+      "evidence": "Apr 2026 SWE I OA (Amsterdam); a Mar 2024 intern take-home also had an exercise about APIs.",
+      "recency": "2026-04",
+      "sources": [
+        "https://www.glassdoor.com.au/Interview/Booking-com-Interview-E256653-RVW103757410.htm",
+        "https://static.glassdoor.nl/Interview/Booking-com-Interview-E256653-RVW93096195.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Peak rooms occupied from check-in/check-out dates",
+      "lcId": 253,
+      "url": "https://leetcode.com/problems/meeting-rooms-ii/",
+      "onLeetcode": true,
+      "difficulty": "Medium",
+      "topics": [
+        "Sweep Line",
+        "Heap",
+        "Sorting"
+      ],
+      "statement": "",
+      "variant": "Booking-flavoured Meeting Rooms II: given bookings with check-in and check-out dates, find the maximum number of rooms occupied at once, where the check-out day is already free for a new guest (treat intervals as half-open). Source is a prep guide, not a dated candidate report.",
+      "evidence": "JobMentis Booking.com SWE guide (sample coding question).",
+      "recency": "2026",
+      "sources": [
+        "https://www.jobmentis.com/en/interviews/booking/swe"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Shortest multi-modal path between two hotels",
+      "lcId": null,
+      "url": "",
+      "onLeetcode": false,
+      "difficulty": "Medium",
+      "topics": [
+        "Dijkstra",
+        "Graph",
+        "Shortest Path"
+      ],
+      "statement": "Hotels are nodes; edges are walking, taxi and public-transport legs each with a cost and a time. Find the fastest path within a cost cap (or cheapest within a time cap). Dijkstra over (node, budget-spent) states or a two-criteria relaxation; discuss pruning and why plain Dijkstra on one weight is insufficient.",
+      "variant": "",
+      "evidence": "JobMentis Booking.com SWE guide (onsite coding sample); not corroborated by a dated candidate report.",
+      "recency": "2026",
+      "sources": [
+        "https://www.jobmentis.com/en/interviews/booking/swe"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "design": [
+    {
+      "title": "Fraud detection for reservations paid with fraudulent cards",
+      "prompt": "Booking handles about 1M bookings/day. Payment is either charged by Booking or captured by the hotel at check-in, and there is a 'book now, pay later' option. An external provider publishes newly reported fraudulent card numbers via an API. Design the service that identifies and blocks reservations made with those cards across both payment modes.",
+      "probes": [
+        "real-time check at booking time vs batch re-scan of existing reservations when new fraud cards arrive",
+        "polling vs webhook ingestion from the third party and handling its outages",
+        "storing card fingerprints (hashing/tokenisation, PCI scope)",
+        "latency budget inside the booking flow",
+        "false positives and a manual-review queue",
+        "notifying hotels for pay-at-property bookings",
+        "idempotency and extensibility to new fraud signals",
+        "data volume and partitioning"
+      ],
+      "round": "System design (60-90 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Asked in a Senior onsite (~2020), the Jul 2021 Backend Developer onsite, the roundz SDE-2 loop (BNPL framing), Interview Query reports (probed on latency, data volume, false positives) and an EM loop in Apr 2023 as 'design a fraud data pipeline'.",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/538560/bookingcom-interview-experience-senior-software-engineer-feb-25-reject/",
+        "https://leetcode.com/discuss/interview-experience/1395715/bookingcom-backend-developer-amsterdam-july-2021-offer",
+        "https://roundz.substack.com/p/interview-experience-144-bookingcom-sde2",
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer",
+        "https://clear.glassdoor.nl/Interview/Booking-com-Interview-E256653-RVW77815864.htm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Room availability sync across multiple booking sites (no overbooking)",
+      "prompt": "Hotels list the same rooms on Booking, Expedia, Agoda and Airbnb. Design a system so that a room is never sold after it is sold out. In one variant all booking services check and update availability through an external availability service; in another Booking must keep availability in sync across channels.",
+      "probes": [
+        "source of truth (hotel/channel manager vs OTA) and how booking services write back after a booking",
+        "optimistic locking / version numbers vs short-lived holds with TTL and atomic decrement",
+        "collision handling when two OTAs book the last room simultaneously",
+        "event-driven updates vs polling, idempotent updates, ordering",
+        "eventual-consistency window and overbooking policy / compensation",
+        "extensibility to new OTAs"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Mar 2022 Core Backend Engineer onsite (Amsterdam) and Nov 2025 SDE-2 Bangalore loop (selected).",
+      "recency": "2025-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/2134024/bookingcom-core-backend-engineer-amsterdam-offer",
+        "https://leetcode.com/discuss/post/7377607/booking-holdings-sde-2-bangalore-nov-202-tkfa/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Live 'N people are viewing this property' counter",
+      "prompt": "Design the feature that shows a user how many other users are currently viewing the same hotel page, at Booking's traffic.",
+      "probes": [
+        "heartbeat/session TTL per hotel in Redis (sorted set by timestamp, or HyperLogLog for approximate counts)",
+        "approximate vs exact counts and acceptable staleness",
+        "push (WebSocket/SSE) vs poll",
+        "hot properties and sharding by hotel id",
+        "fan-out cost and caching",
+        "failure mode: hide the widget rather than show wrong numbers",
+        "ethics of urgency messaging"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Apr 2021 Senior Java Developer onsite, a 2021 Amsterdam Backend Engineer design round (candidate used Redis and queues), and Interview Query reports.",
+      "recency": "2025",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1184565/Booking-or-Amsterdam-or-Senior-Java-Developer-or-Apr-2021-Offer",
+        "https://leetcode.com/discuss/interview-experience/1402193/bookingcom-amsterdam-backend-engineer-reject",
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Genius loyalty / premium membership eligibility service",
+      "prompt": "Design the backend for Booking's Genius loyalty programme: given the rules for how Genius/premium status is granted (for example a number of completed stays in a period, with tiers), expose a low-latency API that returns whether a user is Genius and at which level.",
+      "probes": [
+        "precompute on booking-completion events vs compute on read",
+        "daily batch job plus event-driven updates, and reconciling the two",
+        "caching and invalidation, partitioning by user",
+        "expiry/downgrade logic and status history/audit",
+        "consistency between booking events and status",
+        "serving very high QPS from search and ranking",
+        "cleanup service and failure handling"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Feb 2022 Backend Engineer onsite; early-2021 SDE loop (asked in both the original and the repeat design round).",
+      "recency": "2022-02",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1810773/bookingcom-interview-experience-amsterdam-backend-engineer-february-2022/",
+        "https://leetcode.com/discuss/interview-experience/1006376/bookingcom-sde-amsterdam-2021-passed",
+        "https://roundz.substack.com/p/interview-experience-bookingcom-sde2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Notification service for booking events",
+      "prompt": "Design a notification/messaging system that sends booking confirmations, reminders and changes to guests and properties over email, SMS, push and fax at Booking scale.",
+      "probes": [
+        "event ingestion (Kafka) and templating/i18n",
+        "channel adapters with provider failover",
+        "retries with backoff and idempotency keys so no SMS is sent twice",
+        "per-provider rate limits and priority queues",
+        "scheduled reminders and time zones",
+        "delivery-status callbacks and user preferences/opt-out",
+        "observability and dead-letter handling"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Senior SWE May 2022 ('System Design of Notification System'), Sep 2023 Amsterdam ('design a notification service'), EM loop Jun 2023 (multi-channel incl. fax), Sep 2026 Amsterdam Glassdoor report, and the Dataford guide.",
+      "recency": "2026-09",
+      "sources": [
+        "https://www.glassdoor.com/Interview/Booking-com-Interview-E256653-RVW65307495.htm",
+        "https://www.glassdoor.at/Vorstellungsgespräch/Booking-com-Vorstellungsgespräch-E256653-RVW80098242.htm",
+        "https://clear.glassdoor.nl/Interview/Booking-com-Interview-E256653-RVW77815864.htm",
+        "https://dataford.io/interview-guides/booking/backend-engineer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Hotel search and availability under high traffic",
+      "prompt": "Design hotel search and availability: return available rooms for a city and a date range with filters, under heavy and bursty read traffic.",
+      "probes": [
+        "search index (Elasticsearch/geo) fed by change-data-capture from the booking DB",
+        "per-night room inventory model and precomputed availability summaries",
+        "stale search results vs an authoritative availability re-check at booking",
+        "caching and invalidation on price/availability changes",
+        "ranking and pagination",
+        "multi-region replication and failover",
+        "degradation when the pricing service is slow"
+      ],
+      "round": "System design (final day, 45-60 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "May 2026 Software Engineer final round ('hotel search and availability system returning available rooms for a date range under high traffic'); Interview Query hotel-booking reports (double booking, concurrency, caching, payment failures); listed as the standard prompt by DesignGurus and System Design Handbook.",
+      "recency": "2026-05",
+      "sources": [
+        "https://www.glassdoor.com.mx/Entrevista/Booking-com-Entrevista-E256653-RVW104090437.htm",
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer",
+        "https://www.designgurus.io/answers/detail/what-to-expect-in-the-booking-com-system-design-interview",
+        "https://www.systemdesignhandbook.com/guides/booking-com-system-design-interview/",
+        "https://www.techinterview.org/post/3233474469/system-design-design-booking-com-hotel-booking-search-availability-pricing-overbooking-cancellation-review-system/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Booking payment system / payment capture",
+      "prompt": "Design Booking's payment system and sketch it: take a reservation from created to paid and confirmed across pay-now and pay-at-property, including partner payouts. A variant asks for a payment capture system with tiered charges.",
+      "probes": [
+        "idempotency key per payment attempt",
+        "saga/orchestration across inventory hold, PSP authorisation and capture",
+        "retries on PSP timeouts without double charging",
+        "ledger and reconciliation",
+        "refunds and cancellation penalties",
+        "multi-currency and FX",
+        "PCI scope and tokenisation",
+        "what happens when payment fails after a hold"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Hard",
+      "classic": true,
+      "evidence": "Feb 2023 Software Developer design round (whiteboard tool failed); Interview Query report of a tiered-charge payment capture system; closely related to the BNPL and fraud prompts.",
+      "recency": "2023-02",
+      "sources": [
+        "https://fr.glassdoor.ca/Entretien/Booking-com-Entretien-E256653-RVW73661684.htm",
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Buy-Now-Pay-Later (BNPL) for bookings",
+      "prompt": "Design, and sketch the key components of, a buy-now-pay-later offering for bookings: eligibility, instalment schedule, charging, dunning and fraud exposure.",
+      "probes": [
+        "core components and flows end to end",
+        "risk/eligibility service and limits",
+        "scheduling instalment charges and retrying failed ones",
+        "idempotency and ledger",
+        "integration with the fraud service",
+        "cancellations and refunds mid-plan",
+        "regulatory/consumer-credit constraints"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "SDE-2 onsite system design round ('design and implement a BNPL system', LeetCode post, early 2026); the roundz SDE-2 fraud question was framed around the book-now-pay-later feature.",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/7533778/",
+        "https://roundz.substack.com/p/interview-experience-144-bookingcom-sde2"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Hotel rating and review system",
+      "prompt": "Design Booking's rating and review system: guests who completed a stay can rate and review a hotel, and users can search and filter hotels by rating.",
+      "probes": [
+        "verified-stay gating and one review per booking",
+        "write path vs read-heavy aggregates; incremental average/score updates",
+        "denormalised rating in the search index and its freshness",
+        "moderation, abuse and edits",
+        "pagination and sorting of reviews",
+        "weighted/Bayesian scores for low review counts",
+        "multi-language reviews"
+      ],
+      "round": "System design (Bengaluru round 1, 60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Bengaluru SDE2 2025 loop (first onsite round, before DSA).",
+      "recency": "2025-06",
+      "sources": [
+        "https://leetcode.com/discuss/post/6819299/bookingcom-sde2-interview-experience-ben-nm2g/",
+        "https://www.codingkaro.in/jobs-internships/leetcode-interview-experience/Booking.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Reservation system with users and admins (HLD)",
+      "prompt": "High-level design of a reservation system with two roles: end users who create, modify and cancel bookings, and admins/properties who manage inventory.",
+      "probes": [
+        "data model: property, room, rate plan, booking",
+        "concurrency control on inventory",
+        "roles and permissions",
+        "notifications on changes",
+        "reporting for admins"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Jun 2024 Amsterdam technical round (algorithm question followed by this design).",
+      "recency": "2024-06",
+      "sources": [
+        "https://www.glassdoor.ie/Interview/Booking-com-Interview-E256653-RVW87933795.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Extend a given system with a new service",
+      "prompt": "You are shown a diagram of an existing Booking system and asked to add a new service or feature to it (SWE I live technical: 40 min coding + 40 min design + 10 min buffer).",
+      "probes": [
+        "understand current flows and API contracts first",
+        "data ownership and whether to share or duplicate data",
+        "sync vs async integration",
+        "backward compatibility and rollout",
+        "failure isolation"
+      ],
+      "round": "System design (40 min, combined technical)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Feb 2026 SWE I Amsterdam report.",
+      "recency": "2026-02",
+      "sources": [
+        "https://static.glassdoor.at/Interview/Booking-com-Interview-E256653-RVW102804498.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Scale an existing system to Booking's traffic (concepts round)",
+      "prompt": "Given a simple existing system, discuss how to scale it to Booking's traffic, plus theory on load balancing, caching, sharding, replication and CAP trade-offs.",
+      "probes": [
+        "identify bottlenecks and single points of failure",
+        "read replicas and caching layers",
+        "queues and asynchronous processing",
+        "stateless services and horizontal scaling",
+        "database partitioning and hot keys"
+      ],
+      "round": "System design (45-60 min)",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Nov 2022 SWE II Amsterdam (core concepts + scaling an existing system); Sep 2026 Amsterdam ('just understand theoretical concepts').",
+      "recency": "2026-09",
+      "sources": [
+        "https://static.glassdoor.fr/Interview/Booking-com-Software-Engineer-II-Interview-Questions-EI_IE256653.0,11_KO12,32_IP3.htm",
+        "https://static.glassdoor.fr/Interview/Booking-com-Developer-Interview-Questions-EI_IE256653.0,11_KO12,21.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Reliability discussion: idempotency, retries, IPC, observability",
+      "prompt": "Discussion-style design round that probes idempotency, retry mechanisms, inter-process communication choices (synchronous REST vs asynchronous messaging), observability, reliability and scalability of a service you sketch.",
+      "probes": [
+        "idempotency keys and deduplication",
+        "retry with exponential backoff and jitter, circuit breakers",
+        "REST vs gRPC vs message queues",
+        "metrics, tracing, alerting",
+        "graceful degradation"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Jun 2026 Amsterdam Software Engineer report (hands-on coding followed by this design discussion).",
+      "recency": "2026-06",
+      "sources": [
+        "https://www.glassdoor.com.mx/Entrevista/Booking-com-Entrevista-E256653-RVW104090437.htm",
+        "https://static.glassdoor.fr/Interview/Booking-com-Developer-Interview-Questions-EI_IE256653.0,11_KO12,21.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Error-handling system across services",
+      "prompt": "Define/design a system for error handling across Booking's services (asked in a Bengaluru Senior technical round after discussing the take-home).",
+      "probes": [
+        "error taxonomy: transient vs permanent, client vs server",
+        "retries vs dead-letter queues",
+        "circuit breakers and bulkheads",
+        "alerting and runbooks",
+        "idempotent reprocessing",
+        "user-facing fallbacks"
+      ],
+      "round": "Technical / system design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Aug 2025 Bengaluru Senior SWE loop.",
+      "recency": "2025-08",
+      "sources": [
+        "https://www.glassdoor.ie/Interview/Booking-com-Interview-E256653-RVW102070017.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Near real-time transactions and reporting pipeline",
+      "prompt": "Design a system that ingests payment/booking transactions and serves near-real-time reports.",
+      "probes": [
+        "queues vs direct API calls",
+        "SQL vs NoSQL for the store",
+        "scaling to 10x load",
+        "duplicate handling and exactly-once-ish semantics",
+        "retries and backpressure"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Interview Query candidate report with these follow-ups.",
+      "recency": "2025",
+      "sources": [
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Internal log collection and processing platform",
+      "prompt": "Design a scalable system to collect, store and process logs from Booking's internal infrastructure.",
+      "probes": [
+        "agents and buffering (Kafka)",
+        "indexing and search",
+        "retention tiers and cost",
+        "backpressure under spikes",
+        "multi-tenant isolation and querying"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Nov 2020 Senior SWE onsite (Amsterdam).",
+      "recency": "2020-11",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/980567/bookingcom-senior-software-engineer-amsterdam-nov-2020-offer"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Booking component integrating an external system",
+      "prompt": "Design a component in Booking's flow that talks to an external/partner system, handling scale, retries, failures and modularity.",
+      "probes": [
+        "timeouts and retries with backoff",
+        "circuit breaker and fallback",
+        "idempotency",
+        "asynchronous queues vs synchronous calls",
+        "modular boundaries and testability"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Hyderabad Backend Developer loop, Apr 2022 (round 2).",
+      "recency": "2022-04",
+      "sources": [
+        "https://www.glassdoor.com/Interview/Booking-com-Interview-E256653-RVW59916888.htm",
+        "https://www.glassdoor.co.in/Interview/Booking-com-Interview-E256653-RVW103612458.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Hotel data store for batch and real-time queries",
+      "prompt": "Design storage and serving for hotel data that supports both batch analytics and real-time lookups (Senior Data Engineer loop, adjacent to SWE).",
+      "probes": [
+        "lambda vs kappa architecture",
+        "database choice per access pattern",
+        "deployment and operations",
+        "how users and services query it"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Senior Data Engineer Amsterdam loop (LeetCode post).",
+      "recency": "2024",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/4616360/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Dynamic hotel pricing engine",
+      "prompt": "Design a pricing service that updates room rates in near real time with demand, occupancy and currency changes and serves them to search.",
+      "probes": [
+        "rate-plan data model",
+        "cache freshness vs safe updates",
+        "re-verify price at checkout",
+        "FX handling",
+        "propagation to the search index"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "MLE Feb 2025 Glassdoor report ('a design question on hotel pricing'); listed as a standard prompt by DesignGurus and System Design Handbook.",
+      "recency": "2025-02",
+      "sources": [
+        "https://fr.glassdoor.ca/Entretien/Booking-com-Entretien-E256653-RVW44437968.htm",
+        "https://www.designgurus.io/answers/detail/what-to-expect-in-the-booking-com-system-design-interview",
+        "https://www.systemdesignhandbook.com/guides/booking-com-system-design-interview/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Hotel / destination recommendation system",
+      "prompt": "Design personalised hotel or destination recommendations from booking history, searches and location for millions of users and hotels.",
+      "probes": [
+        "ingestion and feature store",
+        "candidate generation then ranking",
+        "serving latency and caching",
+        "cold start",
+        "offline vs online evaluation"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "MLE 2021 onsite presentation (destination recommendation); JobMentis and System Design Handbook list it for SWE.",
+      "recency": "2025",
+      "sources": [
+        "https://fr.glassdoor.ca/Entretien/Booking-com-Entretien-E256653-RVW44437968.htm",
+        "https://www.jobmentis.com/en/interviews/booking/swe",
+        "https://www.systemdesignhandbook.com/guides/booking-com-system-design-interview/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Distributed rate limiter for the Booking API",
+      "prompt": "Design a distributed rate limiter for Booking.com's public/partner API that limits by user or IP across many servers.",
+      "probes": [
+        "token bucket vs sliding window",
+        "centralised Redis vs local approximations",
+        "clock skew and hot keys",
+        "fail-open vs fail-closed"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "JobMentis prep guide only; no dated candidate report found.",
+      "recency": "2026",
+      "sources": [
+        "https://www.jobmentis.com/en/interviews/booking/swe"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Peak-season traffic spikes / flash deal inventory",
+      "prompt": "Design for massive traffic spikes during peak travel seasons or a flash deal, protecting inventory and payments.",
+      "probes": [
+        "admission control and queueing",
+        "aggressive caching of search",
+        "inventory holds with TTL",
+        "autoscaling and degraded modes",
+        "protecting the payment path"
+      ],
+      "round": "System design (60 min)",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "Dataford guide lists it; no dated candidate report found.",
+      "recency": "2025",
+      "sources": [
+        "https://dataford.io/interview-guides/booking/backend-engineer"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "A/B testing / experimentation platform",
+      "prompt": "Design Booking's experimentation platform (assignment, exposure logging, metrics). More often probed in the business round as 'how would you A/B test this feature and which KPIs would you track'.",
+      "probes": [
+        "deterministic bucketing and assignment",
+        "exposure logging",
+        "metric pipelines and guardrail metrics",
+        "sample-ratio mismatch and peeking",
+        "rollout/kill switches"
+      ],
+      "round": "Culture fit / business round, occasionally system design",
+      "difficulty": "Hard",
+      "classic": false,
+      "evidence": "Jul 2021 culture-fit round asked how to test a feature with A/B testing; JobMentis behavioural sample about an A/B test conflicting with data-science tracking; Booking's experimentation culture is well known.",
+      "recency": "2021-07",
+      "sources": [
+        "https://leetcode.com/discuss/interview-experience/1395715/bookingcom-backend-developer-amsterdam-july-2021-offer",
+        "https://www.jobmentis.com/en/interviews/booking/swe"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "lld": [
+    {
+      "title": "Spring Boot hotel service take-home (HackerRank)",
+      "prompt": "A half-built Spring Boot + H2 project with Hotel and City JPA entities and repositories (lat/long columns). Implement CRUD endpoints for Hotel (GET /hotel lists all), an endpoint returning the N (3) closest hotels to a city centre using the Haversine formula, fix the pre-written tests that were deliberately broken so the build fails, and add unit/integration tests. Also phrased as 'make a booking service in Spring Boot'.",
+      "deliverable": "Compiling project that passes hidden tests (a minimum score around 50/100 was reported to progress) with your own tests added.",
+      "probes": [
+        "controller/service/repository layering and DTOs",
+        "validation and 400/404 handling for bad requests and empty inputs",
+        "Haversine correctness and sorting/limiting",
+        "making the build green before adding features",
+        "test coverage and naming",
+        "time management in 90-150 min"
+      ],
+      "round": "Online assessment / take-home",
+      "difficulty": "Medium",
+      "classic": true,
+      "evidence": "Reported Amsterdam Nov 2022 (3 new APIs + tests), Senior Feb 2023 (GET /hotel, H2, min score 50), Amsterdam Backend Engineer reject (nearest-to-city-centre APIs + fixing failing tests), Bengaluru Feb 2025, Bengaluru SDE2 2025, Bangalore SDE-2 Nov 2025 (same OA), SDE-2 early 2026.",
+      "recency": "2026",
+      "sources": [
+        "https://leetcode.com/discuss/post/6819299/bookingcom-sde2-interview-experience-ben-nm2g/",
+        "https://leetcode.com/discuss/post/7377607/booking-holdings-sde-2-bangalore-nov-202-tkfa/",
+        "https://leetcode.com/discuss/post/7533778/",
+        "https://leetcode.com/discuss/interview-experience/1402193/bookingcom-amsterdam-backend-engineer-reject",
+        "https://www.glassdoor.ie/Interview/Booking-com-Interview-E256653-RVW104186733.htm",
+        "https://www.glassdoor.com/Interview/Booking-com-Interview-E256653-RVW74278632.htm",
+        "https://static.glassdoor.fr/Interview/Booking-com-Software-Engineer-II-Interview-Questions-EI_IE256653.0,11_KO12,32_IP3.htm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "title": "Pair programming on your own take-home",
+      "prompt": "Two engineers review your take-home live: explain the implementation and design choices, then debug an edge case or planted bug, add an enhancement, refactor, and add test cases.",
+      "deliverable": "Working code changes with tests, made live.",
+      "probes": [
+        "reasoning about your own design decisions",
+        "spotting code smells and testability gaps",
+        "incremental, safe changes",
+        "communication while coding"
+      ],
+      "round": "Practical coding (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Singapore SWE II May 2026 (role-specific take-home then pair programming with two engineers); Dec 2025 intern loop (take-home then technical/teamwork interviews).",
+      "recency": "2026-05",
+      "sources": [
+        "https://www.glassdoor.es/Entrevista/Booking-com-Entrevista-E256653-RVW104171123.htm",
+        "https://static.glassdoor.com.au/Interview/Booking-com-Software-Engineer-II-Interview-Questions-EI_IE256653.0,11_KO12,32.htm",
+        "https://static.glassdoor.nl/Interview/Booking-com-Interview-E256653-RVW93096195.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "TDD pair-programming coding round",
+      "prompt": "Coding round run test-first with an engineer pairing and an engineering manager observing: write failing tests, implement, refactor, for a small booking-domain problem.",
+      "deliverable": "Tests plus implementation, developed red-green-refactor.",
+      "probes": [
+        "test naming and granularity",
+        "handling a requirement change mid-way",
+        "refactoring without breaking tests",
+        "explaining trade-offs while typing"
+      ],
+      "round": "Practical coding (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Apr 2026 Software Engineer report (accepted offer): screener with a Director, TDD coding with an engineer and EM, behavioural with a Senior EM.",
+      "recency": "2026-04",
+      "sources": [
+        "https://www.glassdoor.co.nz/Interview/Booking-com-Interview-E256653-RVW103661714.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Java state-modelling exercise for a processing flow",
+      "prompt": "Model a booking/processing flow in Java: choose the states (enums), design the processing pipeline and state transitions, and handle edge cases; explicitly less about algorithms and more about clean modelling.",
+      "deliverable": "Class design plus working code.",
+      "probes": [
+        "state machine clarity and invalid transitions",
+        "extensibility to new states",
+        "modular, testable components",
+        "edge cases and error paths"
+      ],
+      "round": "Coding round (60 min)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Hyderabad Backend Developer loop, Apr 2022 (round 1).",
+      "recency": "2022-04",
+      "sources": [
+        "https://www.glassdoor.com/Interview/Booking-com-Interview-E256653-RVW59916888.htm",
+        "https://www.glassdoor.co.in/Interview/Booking-com-Interview-E256653-RVW103612458.htm"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "title": "Bounded cache class with three operations",
+      "prompt": "Implement a bounded, insertion-ordered or LRU cache class with three methods in a timed online IDE (Java requested in one report); variant: LRU cache for hotel search results.",
+      "deliverable": "Working class with O(1) operations and eviction.",
+      "probes": [
+        "eviction policy choice",
+        "hash map + doubly linked list",
+        "thread safety",
+        "TTL follow-up"
+      ],
+      "round": "Practical coding (timed IDE)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "Interview Query candidate report; JobMentis prep guide.",
+      "recency": "2025",
+      "sources": [
+        "https://www.interviewquery.com/interview-guides/bookingcom-software-engineer",
+        "https://www.jobmentis.com/en/interviews/booking/swe"
+      ],
+      "confidence": "low"
+    },
+    {
+      "title": "Debug intermittent empty results for Paris hotel searches",
+      "prompt": "Given a service where hotel searches for Paris sometimes return empty results, find the root cause (for example cache key/encoding, timezone, pagination) and fix it without introducing regressions.",
+      "deliverable": "Diagnosis, fix and a regression test.",
+      "probes": [
+        "root cause before patching",
+        "using logs/metrics to localise",
+        "regression tests",
+        "communicating the fix"
+      ],
+      "round": "Onsite coding (debugging)",
+      "difficulty": "Medium",
+      "classic": false,
+      "evidence": "JobMentis prep guide sample; not corroborated by a dated candidate report.",
+      "recency": "2026",
+      "sources": [
+        "https://www.jobmentis.com/en/interviews/booking/swe"
+      ],
+      "confidence": "low"
+    }
+  ]
+}

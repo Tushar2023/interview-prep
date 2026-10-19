@@ -1,0 +1,650 @@
+{
+ "company": "agoda",
+ "folder": "agoda",
+ "totalTagged": 45,
+ "top": [
+  {
+   "lcId": 726,
+   "title": "Number of Atoms",
+   "url": "https://leetcode.com/problems/number-of-atoms/",
+   "difficulty": "Hard",
+   "acceptance": 65.2,
+   "score": 1032.5,
+   "windows": {
+    "30d": 100.0,
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "30d",
+   "slug": "number-of-atoms"
+  },
+  {
+   "lcId": 1209,
+   "title": "Remove All Adjacent Duplicates in String II",
+   "url": "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/",
+   "difficulty": "Medium",
+   "acceptance": 61.6,
+   "score": 950.0,
+   "windows": {
+    "30d": 100.0,
+    "3mo": 100.0,
+    "6mo": 87.5,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "remove-all-adjacent-duplicates-in-string-ii"
+  },
+  {
+   "lcId": 78,
+   "title": "Subsets",
+   "url": "https://leetcode.com/problems/subsets/",
+   "difficulty": "Medium",
+   "acceptance": 82.5,
+   "score": 887.5,
+   "windows": {
+    "30d": 100.0,
+    "3mo": 100.0,
+    "6mo": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "subsets"
+  },
+  {
+   "lcId": 198,
+   "title": "House Robber",
+   "url": "https://leetcode.com/problems/house-robber/",
+   "difficulty": "Medium",
+   "acceptance": 53.4,
+   "score": 517.5,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "3mo",
+   "slug": "house-robber"
+  },
+  {
+   "lcId": 1200,
+   "title": "Minimum Absolute Difference",
+   "url": "https://leetcode.com/problems/minimum-absolute-difference/",
+   "difficulty": "Easy",
+   "acceptance": 75.2,
+   "score": 335.0,
+   "windows": {
+    "6mo": 87.5,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "6mo",
+   "slug": "minimum-absolute-difference"
+  },
+  {
+   "lcId": 1921,
+   "title": "Eliminate Maximum Number of Monsters",
+   "url": "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/",
+   "difficulty": "Medium",
+   "acceptance": 51.2,
+   "score": 327.5,
+   "windows": {
+    "6mo": 87.5,
+    "older": 87.5,
+    "all": 100.0
+   },
+   "recency": "6mo",
+   "slug": "eliminate-maximum-number-of-monsters"
+  },
+  {
+   "lcId": 1011,
+   "title": "Capacity To Ship Packages Within D Days",
+   "url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/",
+   "difficulty": "Medium",
+   "acceptance": 74.3,
+   "score": 315.0,
+   "windows": {
+    "6mo": 87.5,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "capacity-to-ship-packages-within-d-days"
+  },
+  {
+   "lcId": 739,
+   "title": "Daily Temperatures",
+   "url": "https://leetcode.com/problems/daily-temperatures/",
+   "difficulty": "Medium",
+   "acceptance": 68.9,
+   "score": 265.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "daily-temperatures"
+  },
+  {
+   "lcId": 3,
+   "title": "Longest Substring Without Repeating Characters",
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 237.5,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "longest-substring-without-repeating-characters"
+  },
+  {
+   "lcId": 75,
+   "title": "Sort Colors",
+   "url": "https://leetcode.com/problems/sort-colors/",
+   "difficulty": "Medium",
+   "acceptance": 70.0,
+   "score": 212.5,
+   "windows": {
+    "6mo": 75.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "sort-colors"
+  },
+  {
+   "lcId": 1331,
+   "title": "Rank Transform of an Array",
+   "url": "https://leetcode.com/problems/rank-transform-of-an-array/",
+   "difficulty": "Easy",
+   "acceptance": 72.7,
+   "score": 212.5,
+   "windows": {
+    "6mo": 75.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "rank-transform-of-an-array"
+  },
+  {
+   "lcId": 560,
+   "title": "Subarray Sum Equals K",
+   "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+   "difficulty": "Medium",
+   "acceptance": 47.7,
+   "score": 187.5,
+   "windows": {
+    "6mo": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "subarray-sum-equals-k"
+  },
+  {
+   "lcId": 875,
+   "title": "Koko Eating Bananas",
+   "url": "https://leetcode.com/problems/koko-eating-bananas/",
+   "difficulty": "Medium",
+   "acceptance": 50.2,
+   "score": 187.5,
+   "windows": {
+    "6mo": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "koko-eating-bananas"
+  },
+  {
+   "lcId": 55,
+   "title": "Jump Game",
+   "url": "https://leetcode.com/problems/jump-game/",
+   "difficulty": "Medium",
+   "acceptance": 41.2,
+   "score": 175.0,
+   "windows": {
+    "6mo": 62.5,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "jump-game"
+  },
+  {
+   "lcId": 3893,
+   "title": "Maximum Team Size with Overlapping Intervals",
+   "url": "https://leetcode.com/problems/maximum-team-size-with-overlapping-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 44.4,
+   "score": 175.0,
+   "windows": {
+    "6mo": 62.5,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "maximum-team-size-with-overlapping-intervals"
+  },
+  {
+   "lcId": 121,
+   "title": "Best Time to Buy and Sell Stock",
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+   "difficulty": "Easy",
+   "acceptance": 57.0,
+   "score": 160.0,
+   "windows": {
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "best-time-to-buy-and-sell-stock"
+  },
+  {
+   "lcId": 15,
+   "title": "3Sum",
+   "url": "https://leetcode.com/problems/3sum/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "3sum"
+  },
+  {
+   "lcId": 63,
+   "title": "Unique Paths II",
+   "url": "https://leetcode.com/problems/unique-paths-ii/",
+   "difficulty": "Medium",
+   "acceptance": 44.7,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "unique-paths-ii"
+  },
+  {
+   "lcId": 394,
+   "title": "Decode String",
+   "url": "https://leetcode.com/problems/decode-string/",
+   "difficulty": "Medium",
+   "acceptance": 62.9,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "decode-string"
+  },
+  {
+   "lcId": 3178,
+   "title": "Find the Child Who Has the Ball After K Seconds",
+   "url": "https://leetcode.com/problems/find-the-child-who-has-the-ball-after-k-seconds/",
+   "difficulty": "Easy",
+   "acceptance": 62.2,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "find-the-child-who-has-the-ball-after-k-seconds"
+  },
+  {
+   "lcId": 844,
+   "title": "Backspace String Compare",
+   "url": "https://leetcode.com/problems/backspace-string-compare/",
+   "difficulty": "Easy",
+   "acceptance": 50.0,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "backspace-string-compare"
+  },
+  {
+   "lcId": 70,
+   "title": "Climbing Stairs",
+   "url": "https://leetcode.com/problems/climbing-stairs/",
+   "difficulty": "Easy",
+   "acceptance": 54.2,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "climbing-stairs"
+  },
+  {
+   "lcId": 239,
+   "title": "Sliding Window Maximum",
+   "url": "https://leetcode.com/problems/sliding-window-maximum/",
+   "difficulty": "Hard",
+   "acceptance": 49.0,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "sliding-window-maximum"
+  },
+  {
+   "lcId": 724,
+   "title": "Find Pivot Index",
+   "url": "https://leetcode.com/problems/find-pivot-index/",
+   "difficulty": "Easy",
+   "acceptance": 63.2,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "find-pivot-index"
+  },
+  {
+   "lcId": 1636,
+   "title": "Sort Array by Increasing Frequency",
+   "url": "https://leetcode.com/problems/sort-array-by-increasing-frequency/",
+   "difficulty": "Easy",
+   "acceptance": 80.9,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "sort-array-by-increasing-frequency"
+  },
+  {
+   "lcId": 322,
+   "title": "Coin Change",
+   "url": "https://leetcode.com/problems/coin-change/",
+   "difficulty": "Medium",
+   "acceptance": 48.7,
+   "score": 92.5,
+   "windows": {
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "coin-change"
+  },
+  {
+   "lcId": 1,
+   "title": "Two Sum",
+   "url": "https://leetcode.com/problems/two-sum/",
+   "difficulty": "Easy",
+   "acceptance": 57.8,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "two-sum"
+  },
+  {
+   "lcId": 12,
+   "title": "Integer to Roman",
+   "url": "https://leetcode.com/problems/integer-to-roman/",
+   "difficulty": "Medium",
+   "acceptance": 71.2,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "integer-to-roman"
+  },
+  {
+   "lcId": 20,
+   "title": "Valid Parentheses",
+   "url": "https://leetcode.com/problems/valid-parentheses/",
+   "difficulty": "Easy",
+   "acceptance": 44.5,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "valid-parentheses"
+  },
+  {
+   "lcId": 46,
+   "title": "Permutations",
+   "url": "https://leetcode.com/problems/permutations/",
+   "difficulty": "Medium",
+   "acceptance": 82.1,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "permutations"
+  },
+  {
+   "lcId": 120,
+   "title": "Triangle",
+   "url": "https://leetcode.com/problems/triangle/",
+   "difficulty": "Medium",
+   "acceptance": 59.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "triangle"
+  },
+  {
+   "lcId": 122,
+   "title": "Best Time to Buy and Sell Stock II",
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/",
+   "difficulty": "Medium",
+   "acceptance": 71.3,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "best-time-to-buy-and-sell-stock-ii"
+  },
+  {
+   "lcId": 202,
+   "title": "Happy Number",
+   "url": "https://leetcode.com/problems/happy-number/",
+   "difficulty": "Easy",
+   "acceptance": 59.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "happy-number"
+  },
+  {
+   "lcId": 300,
+   "title": "Longest Increasing Subsequence",
+   "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+   "difficulty": "Medium",
+   "acceptance": 59.7,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "longest-increasing-subsequence"
+  },
+  {
+   "lcId": 380,
+   "title": "Insert Delete GetRandom O(1)",
+   "url": "https://leetcode.com/problems/insert-delete-getrandom-o1/",
+   "difficulty": "Medium",
+   "acceptance": 55.4,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "insert-delete-getrandom-o-1"
+  },
+  {
+   "lcId": 412,
+   "title": "Fizz Buzz",
+   "url": "https://leetcode.com/problems/fizz-buzz/",
+   "difficulty": "Easy",
+   "acceptance": 75.7,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "fizz-buzz"
+  },
+  {
+   "lcId": 496,
+   "title": "Next Greater Element I",
+   "url": "https://leetcode.com/problems/next-greater-element-i/",
+   "difficulty": "Easy",
+   "acceptance": 76.5,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "next-greater-element-i"
+  },
+  {
+   "lcId": 713,
+   "title": "Subarray Product Less Than K",
+   "url": "https://leetcode.com/problems/subarray-product-less-than-k/",
+   "difficulty": "Medium",
+   "acceptance": 54.7,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "subarray-product-less-than-k"
+  },
+  {
+   "lcId": 767,
+   "title": "Reorganize String",
+   "url": "https://leetcode.com/problems/reorganize-string/",
+   "difficulty": "Medium",
+   "acceptance": 57.3,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "reorganize-string"
+  },
+  {
+   "lcId": 977,
+   "title": "Squares of a Sorted Array",
+   "url": "https://leetcode.com/problems/squares-of-a-sorted-array/",
+   "difficulty": "Easy",
+   "acceptance": 73.9,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "squares-of-a-sorted-array"
+  },
+  {
+   "lcId": 1048,
+   "title": "Longest String Chain",
+   "url": "https://leetcode.com/problems/longest-string-chain/",
+   "difficulty": "Medium",
+   "acceptance": 63.3,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "longest-string-chain"
+  },
+  {
+   "lcId": 1190,
+   "title": "Reverse Substrings Between Each Pair of Parentheses",
+   "url": "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/",
+   "difficulty": "Medium",
+   "acceptance": 72.0,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "reverse-substrings-between-each-pair-of-parentheses"
+  },
+  {
+   "lcId": 1283,
+   "title": "Find the Smallest Divisor Given a Threshold",
+   "url": "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/",
+   "difficulty": "Medium",
+   "acceptance": 66.3,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "find-the-smallest-divisor-given-a-threshold"
+  },
+  {
+   "lcId": 2734,
+   "title": "Lexicographically Smallest String After Substring Operation",
+   "url": "https://leetcode.com/problems/lexicographically-smallest-string-after-substring-operation/",
+   "difficulty": "Medium",
+   "acceptance": 35.2,
+   "score": 80.0,
+   "windows": {
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "lexicographically-smallest-string-after-substring-operation"
+  },
+  {
+   "lcId": 3787,
+   "title": "Find Diameter Endpoints of a Tree",
+   "url": "https://leetcode.com/problems/find-diameter-endpoints-of-a-tree/",
+   "difficulty": "Medium",
+   "acceptance": 66.9,
+   "score": 75.0,
+   "windows": {
+    "all": 75.0
+   },
+   "recency": "all",
+   "slug": "find-diameter-endpoints-of-a-tree"
+  }
+ ]
+}

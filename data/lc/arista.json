@@ -1,0 +1,562 @@
+{
+ "company": "arista",
+ "folder": "arista-networks",
+ "totalTagged": 40,
+ "top": [
+  {
+   "lcId": 25,
+   "title": "Reverse Nodes in k-Group",
+   "url": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+   "difficulty": "Hard",
+   "acceptance": 66.6,
+   "score": 147.5,
+   "windows": {
+    "older": 100.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "reverse-nodes-in-k-group"
+  },
+  {
+   "lcId": 93,
+   "title": "Restore IP Addresses",
+   "url": "https://leetcode.com/problems/restore-ip-addresses/",
+   "difficulty": "Medium",
+   "acceptance": 56.4,
+   "score": 147.5,
+   "windows": {
+    "older": 100.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "restore-ip-addresses"
+  },
+  {
+   "lcId": 2182,
+   "title": "Construct String With Repeat Limit",
+   "url": "https://leetcode.com/problems/construct-string-with-repeat-limit/",
+   "difficulty": "Medium",
+   "acceptance": 70.8,
+   "score": 145.0,
+   "windows": {
+    "older": 75.0,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "construct-string-with-repeat-limit"
+  },
+  {
+   "lcId": 143,
+   "title": "Reorder List",
+   "url": "https://leetcode.com/problems/reorder-list/",
+   "difficulty": "Medium",
+   "acceptance": 65.7,
+   "score": 140.0,
+   "windows": {
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "reorder-list"
+  },
+  {
+   "lcId": 997,
+   "title": "Find the Town Judge",
+   "url": "https://leetcode.com/problems/find-the-town-judge/",
+   "difficulty": "Easy",
+   "acceptance": 50.9,
+   "score": 137.5,
+   "windows": {
+    "older": 62.5,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "find-the-town-judge"
+  },
+  {
+   "lcId": 92,
+   "title": "Reverse Linked List II",
+   "url": "https://leetcode.com/problems/reverse-linked-list-ii/",
+   "difficulty": "Medium",
+   "acceptance": 51.9,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "reverse-linked-list-ii"
+  },
+  {
+   "lcId": 104,
+   "title": "Maximum Depth of Binary Tree",
+   "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+   "difficulty": "Easy",
+   "acceptance": 78.4,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "maximum-depth-of-binary-tree"
+  },
+  {
+   "lcId": 138,
+   "title": "Copy List with Random Pointer",
+   "url": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+   "difficulty": "Medium",
+   "acceptance": 63.3,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "copy-list-with-random-pointer"
+  },
+  {
+   "lcId": 203,
+   "title": "Remove Linked List Elements",
+   "url": "https://leetcode.com/problems/remove-linked-list-elements/",
+   "difficulty": "Easy",
+   "acceptance": 54.9,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "remove-linked-list-elements"
+  },
+  {
+   "lcId": 210,
+   "title": "Course Schedule II",
+   "url": "https://leetcode.com/problems/course-schedule-ii/",
+   "difficulty": "Medium",
+   "acceptance": 55.9,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "course-schedule-ii"
+  },
+  {
+   "lcId": 219,
+   "title": "Contains Duplicate II",
+   "url": "https://leetcode.com/problems/contains-duplicate-ii/",
+   "difficulty": "Easy",
+   "acceptance": 51.5,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "contains-duplicate-ii"
+  },
+  {
+   "lcId": 268,
+   "title": "Missing Number",
+   "url": "https://leetcode.com/problems/missing-number/",
+   "difficulty": "Easy",
+   "acceptance": 72.3,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "missing-number"
+  },
+  {
+   "lcId": 510,
+   "title": "Inorder Successor in BST II",
+   "url": "https://leetcode.com/problems/inorder-successor-in-bst-ii/",
+   "difficulty": "Medium",
+   "acceptance": 61.1,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "inorder-successor-in-bst-ii"
+  },
+  {
+   "lcId": 33,
+   "title": "Search in Rotated Sorted Array",
+   "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+   "difficulty": "Medium",
+   "acceptance": 45.2,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "search-in-rotated-sorted-array"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 71,
+   "title": "Simplify Path",
+   "url": "https://leetcode.com/problems/simplify-path/",
+   "difficulty": "Medium",
+   "acceptance": 50.9,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "simplify-path"
+  },
+  {
+   "lcId": 82,
+   "title": "Remove Duplicates from Sorted List II",
+   "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/",
+   "difficulty": "Medium",
+   "acceptance": 52.1,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "remove-duplicates-from-sorted-list-ii"
+  },
+  {
+   "lcId": 788,
+   "title": "Rotated Digits",
+   "url": "https://leetcode.com/problems/rotated-digits/",
+   "difficulty": "Medium",
+   "acceptance": 64.1,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "rotated-digits"
+  },
+  {
+   "lcId": 1710,
+   "title": "Maximum Units on a Truck",
+   "url": "https://leetcode.com/problems/maximum-units-on-a-truck/",
+   "difficulty": "Easy",
+   "acceptance": 75.0,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "maximum-units-on-a-truck"
+  },
+  {
+   "lcId": 2,
+   "title": "Add Two Numbers",
+   "url": "https://leetcode.com/problems/add-two-numbers/",
+   "difficulty": "Medium",
+   "acceptance": 48.8,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "add-two-numbers"
+  },
+  {
+   "lcId": 3,
+   "title": "Longest Substring Without Repeating Characters",
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "longest-substring-without-repeating-characters"
+  },
+  {
+   "lcId": 5,
+   "title": "Longest Palindromic Substring",
+   "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+   "difficulty": "Medium",
+   "acceptance": 38.2,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "longest-palindromic-substring"
+  },
+  {
+   "lcId": 24,
+   "title": "Swap Nodes in Pairs",
+   "url": "https://leetcode.com/problems/swap-nodes-in-pairs/",
+   "difficulty": "Medium",
+   "acceptance": 69.8,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "swap-nodes-in-pairs"
+  },
+  {
+   "lcId": 46,
+   "title": "Permutations",
+   "url": "https://leetcode.com/problems/permutations/",
+   "difficulty": "Medium",
+   "acceptance": 82.1,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "permutations"
+  },
+  {
+   "lcId": 53,
+   "title": "Maximum Subarray",
+   "url": "https://leetcode.com/problems/maximum-subarray/",
+   "difficulty": "Medium",
+   "acceptance": 53.5,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "maximum-subarray"
+  },
+  {
+   "lcId": 72,
+   "title": "Edit Distance",
+   "url": "https://leetcode.com/problems/edit-distance/",
+   "difficulty": "Medium",
+   "acceptance": 60.9,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "edit-distance"
+  },
+  {
+   "lcId": 79,
+   "title": "Word Search",
+   "url": "https://leetcode.com/problems/word-search/",
+   "difficulty": "Medium",
+   "acceptance": 47.7,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "word-search"
+  },
+  {
+   "lcId": 113,
+   "title": "Path Sum II",
+   "url": "https://leetcode.com/problems/path-sum-ii/",
+   "difficulty": "Medium",
+   "acceptance": 62.5,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "path-sum-ii"
+  },
+  {
+   "lcId": 125,
+   "title": "Valid Palindrome",
+   "url": "https://leetcode.com/problems/valid-palindrome/",
+   "difficulty": "Easy",
+   "acceptance": 53.7,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "valid-palindrome"
+  },
+  {
+   "lcId": 139,
+   "title": "Word Break",
+   "url": "https://leetcode.com/problems/word-break/",
+   "difficulty": "Medium",
+   "acceptance": 49.6,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "word-break"
+  },
+  {
+   "lcId": 347,
+   "title": "Top K Frequent Elements",
+   "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+   "difficulty": "Medium",
+   "acceptance": 66.8,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "top-k-frequent-elements"
+  },
+  {
+   "lcId": 647,
+   "title": "Palindromic Substrings",
+   "url": "https://leetcode.com/problems/palindromic-substrings/",
+   "difficulty": "Medium",
+   "acceptance": 73.0,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "palindromic-substrings"
+  },
+  {
+   "lcId": 703,
+   "title": "Kth Largest Element in a Stream",
+   "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+   "difficulty": "Easy",
+   "acceptance": 61.3,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "kth-largest-element-in-a-stream"
+  },
+  {
+   "lcId": 1669,
+   "title": "Merge In Between Linked Lists",
+   "url": "https://leetcode.com/problems/merge-in-between-linked-lists/",
+   "difficulty": "Medium",
+   "acceptance": 83.1,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "merge-in-between-linked-lists"
+  },
+  {
+   "lcId": 1910,
+   "title": "Remove All Occurrences of a Substring",
+   "url": "https://leetcode.com/problems/remove-all-occurrences-of-a-substring/",
+   "difficulty": "Medium",
+   "acceptance": 78.6,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "remove-all-occurrences-of-a-substring"
+  },
+  {
+   "lcId": 21,
+   "title": "Merge Two Sorted Lists",
+   "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+   "difficulty": "Easy",
+   "acceptance": 68.5,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "merge-two-sorted-lists"
+  },
+  {
+   "lcId": 232,
+   "title": "Implement Queue using Stacks",
+   "url": "https://leetcode.com/problems/implement-queue-using-stacks/",
+   "difficulty": "Easy",
+   "acceptance": 70.1,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "implement-queue-using-stacks"
+  },
+  {
+   "lcId": 346,
+   "title": "Moving Average from Data Stream",
+   "url": "https://leetcode.com/problems/moving-average-from-data-stream/",
+   "difficulty": "Easy",
+   "acceptance": 80.2,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "moving-average-from-data-stream"
+  },
+  {
+   "lcId": 394,
+   "title": "Decode String",
+   "url": "https://leetcode.com/problems/decode-string/",
+   "difficulty": "Medium",
+   "acceptance": 62.9,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "decode-string"
+  },
+  {
+   "lcId": 1351,
+   "title": "Count Negative Numbers in a Sorted Matrix",
+   "url": "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/",
+   "difficulty": "Easy",
+   "acceptance": 79.7,
+   "score": 62.5,
+   "windows": {
+    "all": 62.5
+   },
+   "recency": "all",
+   "slug": "count-negative-numbers-in-a-sorted-matrix"
+  }
+ ]
+}

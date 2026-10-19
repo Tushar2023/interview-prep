@@ -1,0 +1,721 @@
+{
+ "company": "airbnb",
+ "folder": "airbnb",
+ "totalTagged": 64,
+ "top": [
+  {
+   "lcId": 631,
+   "title": "Design Excel Sum Formula",
+   "url": "https://leetcode.com/problems/design-excel-sum-formula/",
+   "difficulty": "Hard",
+   "acceptance": 39.6,
+   "score": 612.5,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "design-excel-sum-formula"
+  },
+  {
+   "lcId": 1235,
+   "title": "Maximum Profit in Job Scheduling",
+   "url": "https://leetcode.com/problems/maximum-profit-in-job-scheduling/",
+   "difficulty": "Hard",
+   "acceptance": 54.8,
+   "score": 602.5,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 100.0,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "3mo",
+   "slug": "maximum-profit-in-job-scheduling"
+  },
+  {
+   "lcId": 68,
+   "title": "Text Justification",
+   "url": "https://leetcode.com/problems/text-justification/",
+   "difficulty": "Hard",
+   "acceptance": 51.5,
+   "score": 572.5,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 75.0,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "3mo",
+   "slug": "text-justification"
+  },
+  {
+   "lcId": 3076,
+   "title": "Shortest Uncommon Substring in an Array",
+   "url": "https://leetcode.com/problems/shortest-uncommon-substring-in-an-array/",
+   "difficulty": "Medium",
+   "acceptance": 51.1,
+   "score": 530.0,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 87.5,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "3mo",
+   "slug": "shortest-uncommon-substring-in-an-array"
+  },
+  {
+   "lcId": 2101,
+   "title": "Detonate the Maximum Bombs",
+   "url": "https://leetcode.com/problems/detonate-the-maximum-bombs/",
+   "difficulty": "Medium",
+   "acceptance": 50.3,
+   "score": 425.0,
+   "windows": {
+    "3mo": 87.5,
+    "6mo": 62.5,
+    "all": 37.5
+   },
+   "recency": "3mo",
+   "slug": "detonate-the-maximum-bombs"
+  },
+  {
+   "lcId": 1298,
+   "title": "Maximum Candies You Can Get from Boxes",
+   "url": "https://leetcode.com/problems/maximum-candies-you-can-get-from-boxes/",
+   "difficulty": "Hard",
+   "acceptance": 67.2,
+   "score": 307.5,
+   "windows": {
+    "6mo": 87.5,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "maximum-candies-you-can-get-from-boxes"
+  },
+  {
+   "lcId": 638,
+   "title": "Shopping Offers",
+   "url": "https://leetcode.com/problems/shopping-offers/",
+   "difficulty": "Medium",
+   "acceptance": 52.6,
+   "score": 275.0,
+   "windows": {
+    "6mo": 87.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "shopping-offers"
+  },
+  {
+   "lcId": 251,
+   "title": "Flatten 2D Vector",
+   "url": "https://leetcode.com/problems/flatten-2d-vector/",
+   "difficulty": "Medium",
+   "acceptance": 50.5,
+   "score": 257.5,
+   "windows": {
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "flatten-2d-vector"
+  },
+  {
+   "lcId": 1257,
+   "title": "Smallest Common Region",
+   "url": "https://leetcode.com/problems/smallest-common-region/",
+   "difficulty": "Medium",
+   "acceptance": 68.3,
+   "score": 257.5,
+   "windows": {
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "smallest-common-region"
+  },
+  {
+   "lcId": 160,
+   "title": "Intersection of Two Linked Lists",
+   "url": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+   "difficulty": "Easy",
+   "acceptance": 64.2,
+   "score": 237.5,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "intersection-of-two-linked-lists"
+  },
+  {
+   "lcId": 721,
+   "title": "Accounts Merge",
+   "url": "https://leetcode.com/problems/accounts-merge/",
+   "difficulty": "Medium",
+   "acceptance": 61.6,
+   "score": 225.0,
+   "windows": {
+    "6mo": 87.5,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "accounts-merge"
+  },
+  {
+   "lcId": 1928,
+   "title": "Minimum Cost to Reach Destination in Time",
+   "url": "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/",
+   "difficulty": "Hard",
+   "acceptance": 41.9,
+   "score": 162.5,
+   "windows": {
+    "6mo": 62.5,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "minimum-cost-to-reach-destination-in-time"
+  },
+  {
+   "lcId": 336,
+   "title": "Palindrome Pairs",
+   "url": "https://leetcode.com/problems/palindrome-pairs/",
+   "difficulty": "Hard",
+   "acceptance": 37.4,
+   "score": 132.5,
+   "windows": {
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "palindrome-pairs"
+  },
+  {
+   "lcId": 755,
+   "title": "Pour Water",
+   "url": "https://leetcode.com/problems/pour-water/",
+   "difficulty": "Medium",
+   "acceptance": 49.1,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "pour-water"
+  },
+  {
+   "lcId": 2043,
+   "title": "Simple Bank System",
+   "url": "https://leetcode.com/problems/simple-bank-system/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "simple-bank-system"
+  },
+  {
+   "lcId": 42,
+   "title": "Trapping Rain Water",
+   "url": "https://leetcode.com/problems/trapping-rain-water/",
+   "difficulty": "Hard",
+   "acceptance": 67.7,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "trapping-rain-water"
+  },
+  {
+   "lcId": 219,
+   "title": "Contains Duplicate II",
+   "url": "https://leetcode.com/problems/contains-duplicate-ii/",
+   "difficulty": "Easy",
+   "acceptance": 51.5,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "contains-duplicate-ii"
+  },
+  {
+   "lcId": 269,
+   "title": "Alien Dictionary",
+   "url": "https://leetcode.com/problems/alien-dictionary/",
+   "difficulty": "Hard",
+   "acceptance": 37.3,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "alien-dictionary"
+  },
+  {
+   "lcId": 773,
+   "title": "Sliding Puzzle",
+   "url": "https://leetcode.com/problems/sliding-puzzle/",
+   "difficulty": "Hard",
+   "acceptance": 74.5,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "sliding-puzzle"
+  },
+  {
+   "lcId": 39,
+   "title": "Combination Sum",
+   "url": "https://leetcode.com/problems/combination-sum/",
+   "difficulty": "Medium",
+   "acceptance": 76.8,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "combination-sum"
+  },
+  {
+   "lcId": 1,
+   "title": "Two Sum",
+   "url": "https://leetcode.com/problems/two-sum/",
+   "difficulty": "Easy",
+   "acceptance": 57.8,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "two-sum"
+  },
+  {
+   "lcId": 2,
+   "title": "Add Two Numbers",
+   "url": "https://leetcode.com/problems/add-two-numbers/",
+   "difficulty": "Medium",
+   "acceptance": 48.8,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "add-two-numbers"
+  },
+  {
+   "lcId": 212,
+   "title": "Word Search II",
+   "url": "https://leetcode.com/problems/word-search-ii/",
+   "difficulty": "Hard",
+   "acceptance": 38.6,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "word-search-ii"
+  },
+  {
+   "lcId": 751,
+   "title": "IP to CIDR",
+   "url": "https://leetcode.com/problems/ip-to-cidr/",
+   "difficulty": "Medium",
+   "acceptance": 53.8,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "ip-to-cidr"
+  },
+  {
+   "lcId": 759,
+   "title": "Employee Free Time",
+   "url": "https://leetcode.com/problems/employee-free-time/",
+   "difficulty": "Hard",
+   "acceptance": 73.0,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "employee-free-time"
+  },
+  {
+   "lcId": 787,
+   "title": "Cheapest Flights Within K Stops",
+   "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+   "difficulty": "Medium",
+   "acceptance": 42.2,
+   "score": 105.0,
+   "windows": {
+    "older": 50.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "cheapest-flights-within-k-stops"
+  },
+  {
+   "lcId": 76,
+   "title": "Minimum Window Substring",
+   "url": "https://leetcode.com/problems/minimum-window-substring/",
+   "difficulty": "Hard",
+   "acceptance": 47.9,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "minimum-window-substring"
+  },
+  {
+   "lcId": 10,
+   "title": "Regular Expression Matching",
+   "url": "https://leetcode.com/problems/regular-expression-matching/",
+   "difficulty": "Hard",
+   "acceptance": 31.2,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "regular-expression-matching"
+  },
+  {
+   "lcId": 20,
+   "title": "Valid Parentheses",
+   "url": "https://leetcode.com/problems/valid-parentheses/",
+   "difficulty": "Easy",
+   "acceptance": 44.5,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "valid-parentheses"
+  },
+  {
+   "lcId": 23,
+   "title": "Merge k Sorted Lists",
+   "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+   "difficulty": "Hard",
+   "acceptance": 60.0,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "merge-k-sorted-lists"
+  },
+  {
+   "lcId": 108,
+   "title": "Convert Sorted Array to Binary Search Tree",
+   "url": "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/",
+   "difficulty": "Easy",
+   "acceptance": 75.8,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "convert-sorted-array-to-binary-search-tree"
+  },
+  {
+   "lcId": 136,
+   "title": "Single Number",
+   "url": "https://leetcode.com/problems/single-number/",
+   "difficulty": "Easy",
+   "acceptance": 77.9,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "single-number"
+  },
+  {
+   "lcId": 190,
+   "title": "Reverse Bits",
+   "url": "https://leetcode.com/problems/reverse-bits/",
+   "difficulty": "Easy",
+   "acceptance": 68.8,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "reverse-bits"
+  },
+  {
+   "lcId": 198,
+   "title": "House Robber",
+   "url": "https://leetcode.com/problems/house-robber/",
+   "difficulty": "Medium",
+   "acceptance": 53.4,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "house-robber"
+  },
+  {
+   "lcId": 202,
+   "title": "Happy Number",
+   "url": "https://leetcode.com/problems/happy-number/",
+   "difficulty": "Easy",
+   "acceptance": 59.9,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "happy-number"
+  },
+  {
+   "lcId": 217,
+   "title": "Contains Duplicate",
+   "url": "https://leetcode.com/problems/contains-duplicate/",
+   "difficulty": "Easy",
+   "acceptance": 64.5,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "contains-duplicate"
+  },
+  {
+   "lcId": 220,
+   "title": "Contains Duplicate III",
+   "url": "https://leetcode.com/problems/contains-duplicate-iii/",
+   "difficulty": "Hard",
+   "acceptance": 24.9,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "contains-duplicate-iii"
+  },
+  {
+   "lcId": 221,
+   "title": "Maximal Square",
+   "url": "https://leetcode.com/problems/maximal-square/",
+   "difficulty": "Medium",
+   "acceptance": 50.6,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "maximal-square"
+  },
+  {
+   "lcId": 227,
+   "title": "Basic Calculator II",
+   "url": "https://leetcode.com/problems/basic-calculator-ii/",
+   "difficulty": "Medium",
+   "acceptance": 47.0,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "basic-calculator-ii"
+  },
+  {
+   "lcId": 385,
+   "title": "Mini Parser",
+   "url": "https://leetcode.com/problems/mini-parser/",
+   "difficulty": "Medium",
+   "acceptance": 42.9,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "mini-parser"
+  },
+  {
+   "lcId": 415,
+   "title": "Add Strings",
+   "url": "https://leetcode.com/problems/add-strings/",
+   "difficulty": "Easy",
+   "acceptance": 52.2,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "add-strings"
+  },
+  {
+   "lcId": 756,
+   "title": "Pyramid Transition Matrix",
+   "url": "https://leetcode.com/problems/pyramid-transition-matrix/",
+   "difficulty": "Medium",
+   "acceptance": 60.6,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "pyramid-transition-matrix"
+  },
+  {
+   "lcId": 1017,
+   "title": "Convert to Base -2",
+   "url": "https://leetcode.com/problems/convert-to-base-2/",
+   "difficulty": "Medium",
+   "acceptance": 62.0,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "convert-to-base-2"
+  },
+  {
+   "lcId": 1041,
+   "title": "Robot Bounded In Circle",
+   "url": "https://leetcode.com/problems/robot-bounded-in-circle/",
+   "difficulty": "Medium",
+   "acceptance": 56.6,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "robot-bounded-in-circle"
+  },
+  {
+   "lcId": 1058,
+   "title": "Minimize Rounding Error to Meet Target",
+   "url": "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/",
+   "difficulty": "Medium",
+   "acceptance": 45.9,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "minimize-rounding-error-to-meet-target"
+  },
+  {
+   "lcId": 1166,
+   "title": "Design File System",
+   "url": "https://leetcode.com/problems/design-file-system/",
+   "difficulty": "Medium",
+   "acceptance": 65.2,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "design-file-system"
+  },
+  {
+   "lcId": 1284,
+   "title": "Minimum Number of Flips to Convert Binary Matrix to Zero Matrix",
+   "url": "https://leetcode.com/problems/minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix/",
+   "difficulty": "Hard",
+   "acceptance": 72.9,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix"
+  },
+  {
+   "lcId": 1554,
+   "title": "Strings Differ by One Character",
+   "url": "https://leetcode.com/problems/strings-differ-by-one-character/",
+   "difficulty": "Medium",
+   "acceptance": 39.7,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "strings-differ-by-one-character"
+  },
+  {
+   "lcId": 1557,
+   "title": "Minimum Number of Vertices to Reach All Nodes",
+   "url": "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/",
+   "difficulty": "Medium",
+   "acceptance": 81.7,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "minimum-number-of-vertices-to-reach-all-nodes"
+  },
+  {
+   "lcId": 2189,
+   "title": "Number of Ways to Build House of Cards",
+   "url": "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/",
+   "difficulty": "Medium",
+   "acceptance": 62.9,
+   "score": 97.5,
+   "windows": {
+    "older": 37.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "number-of-ways-to-build-house-of-cards"
+  }
+ ]
+}

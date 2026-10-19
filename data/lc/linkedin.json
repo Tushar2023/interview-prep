@@ -1,0 +1,747 @@
+{
+ "company": "linkedin",
+ "folder": "linkedin",
+ "totalTagged": 176,
+ "top": [
+  {
+   "lcId": 200,
+   "title": "Number of Islands",
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "difficulty": "Medium",
+   "acceptance": 64.7,
+   "score": 545.0,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "number-of-islands"
+  },
+  {
+   "lcId": 33,
+   "title": "Search in Rotated Sorted Array",
+   "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+   "difficulty": "Medium",
+   "acceptance": 45.2,
+   "score": 525.0,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "3mo",
+   "slug": "search-in-rotated-sorted-array"
+  },
+  {
+   "lcId": 716,
+   "title": "Max Stack",
+   "url": "https://leetcode.com/problems/max-stack/",
+   "difficulty": "Hard",
+   "acceptance": 46.0,
+   "score": 360.0,
+   "windows": {
+    "6mo": 100.0,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "6mo",
+   "slug": "max-stack"
+  },
+  {
+   "lcId": 364,
+   "title": "Nested List Weight Sum II",
+   "url": "https://leetcode.com/problems/nested-list-weight-sum-ii/",
+   "difficulty": "Medium",
+   "acceptance": 67.0,
+   "score": 310.0,
+   "windows": {
+    "6mo": 75.0,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "6mo",
+   "slug": "nested-list-weight-sum-ii"
+  },
+  {
+   "lcId": 244,
+   "title": "Shortest Word Distance II",
+   "url": "https://leetcode.com/problems/shortest-word-distance-ii/",
+   "difficulty": "Medium",
+   "acceptance": 62.9,
+   "score": 307.5,
+   "windows": {
+    "6mo": 87.5,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "shortest-word-distance-ii"
+  },
+  {
+   "lcId": 17,
+   "title": "Letter Combinations of a Phone Number",
+   "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+   "difficulty": "Medium",
+   "acceptance": 66.4,
+   "score": 295.0,
+   "windows": {
+    "6mo": 87.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "letter-combinations-of-a-phone-number"
+  },
+  {
+   "lcId": 53,
+   "title": "Maximum Subarray",
+   "url": "https://leetcode.com/problems/maximum-subarray/",
+   "difficulty": "Medium",
+   "acceptance": 53.5,
+   "score": 295.0,
+   "windows": {
+    "6mo": 87.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "maximum-subarray"
+  },
+  {
+   "lcId": 20,
+   "title": "Valid Parentheses",
+   "url": "https://leetcode.com/problems/valid-parentheses/",
+   "difficulty": "Easy",
+   "acceptance": 44.5,
+   "score": 270.0,
+   "windows": {
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "valid-parentheses"
+  },
+  {
+   "lcId": 127,
+   "title": "Word Ladder",
+   "url": "https://leetcode.com/problems/word-ladder/",
+   "difficulty": "Hard",
+   "acceptance": 46.0,
+   "score": 270.0,
+   "windows": {
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "word-ladder"
+  },
+  {
+   "lcId": 339,
+   "title": "Nested List Weight Sum",
+   "url": "https://leetcode.com/problems/nested-list-weight-sum/",
+   "difficulty": "Medium",
+   "acceptance": 86.0,
+   "score": 270.0,
+   "windows": {
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "nested-list-weight-sum"
+  },
+  {
+   "lcId": 1004,
+   "title": "Max Consecutive Ones III",
+   "url": "https://leetcode.com/problems/max-consecutive-ones-iii/",
+   "difficulty": "Medium",
+   "acceptance": 68.0,
+   "score": 265.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "max-consecutive-ones-iii"
+  },
+  {
+   "lcId": 360,
+   "title": "Sort Transformed Array",
+   "url": "https://leetcode.com/problems/sort-transformed-array/",
+   "difficulty": "Medium",
+   "acceptance": 58.2,
+   "score": 250.0,
+   "windows": {
+    "6mo": 75.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "sort-transformed-array"
+  },
+  {
+   "lcId": 152,
+   "title": "Maximum Product Subarray",
+   "url": "https://leetcode.com/problems/maximum-product-subarray/",
+   "difficulty": "Medium",
+   "acceptance": 36.7,
+   "score": 245.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "maximum-product-subarray"
+  },
+  {
+   "lcId": 277,
+   "title": "Find the Celebrity",
+   "url": "https://leetcode.com/problems/find-the-celebrity/",
+   "difficulty": "Medium",
+   "acceptance": 49.0,
+   "score": 245.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "find-the-celebrity"
+  },
+  {
+   "lcId": 366,
+   "title": "Find Leaves of Binary Tree",
+   "url": "https://leetcode.com/problems/find-leaves-of-binary-tree/",
+   "difficulty": "Medium",
+   "acceptance": 81.3,
+   "score": 245.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "find-leaves-of-binary-tree"
+  },
+  {
+   "lcId": 380,
+   "title": "Insert Delete GetRandom O(1)",
+   "url": "https://leetcode.com/problems/insert-delete-getrandom-o1/",
+   "difficulty": "Medium",
+   "acceptance": 55.4,
+   "score": 245.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "insert-delete-getrandom-o-1"
+  },
+  {
+   "lcId": 605,
+   "title": "Can Place Flowers",
+   "url": "https://leetcode.com/problems/can-place-flowers/",
+   "difficulty": "Easy",
+   "acceptance": 29.2,
+   "score": 245.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "can-place-flowers"
+  },
+  {
+   "lcId": 381,
+   "title": "Insert Delete GetRandom O(1) - Duplicates allowed",
+   "url": "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/",
+   "difficulty": "Hard",
+   "acceptance": 36.7,
+   "score": 242.5,
+   "windows": {
+    "6mo": 75.0,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "insert-delete-getrandom-o-1-duplicates-allowed"
+  },
+  {
+   "lcId": 698,
+   "title": "Partition to K Equal Sum Subsets",
+   "url": "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/",
+   "difficulty": "Medium",
+   "acceptance": 38.8,
+   "score": 237.5,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "6mo",
+   "slug": "partition-to-k-equal-sum-subsets"
+  },
+  {
+   "lcId": 104,
+   "title": "Maximum Depth of Binary Tree",
+   "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+   "difficulty": "Easy",
+   "acceptance": 78.4,
+   "score": 225.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "maximum-depth-of-binary-tree"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 225.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 256,
+   "title": "Paint House",
+   "url": "https://leetcode.com/problems/paint-house/",
+   "difficulty": "Medium",
+   "acceptance": 64.5,
+   "score": 225.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "paint-house"
+  },
+  {
+   "lcId": 272,
+   "title": "Closest Binary Search Tree Value II",
+   "url": "https://leetcode.com/problems/closest-binary-search-tree-value-ii/",
+   "difficulty": "Hard",
+   "acceptance": 61.2,
+   "score": 225.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "closest-binary-search-tree-value-ii"
+  },
+  {
+   "lcId": 319,
+   "title": "Bulb Switcher",
+   "url": "https://leetcode.com/problems/bulb-switcher/",
+   "difficulty": "Medium",
+   "acceptance": 56.1,
+   "score": 225.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "bulb-switcher"
+  },
+  {
+   "lcId": 215,
+   "title": "Kth Largest Element in an Array",
+   "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+   "difficulty": "Medium",
+   "acceptance": 69.1,
+   "score": 217.5,
+   "windows": {
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "kth-largest-element-in-an-array"
+  },
+  {
+   "lcId": 528,
+   "title": "Random Pick with Weight",
+   "url": "https://leetcode.com/problems/random-pick-with-weight/",
+   "difficulty": "Medium",
+   "acceptance": 49.2,
+   "score": 217.5,
+   "windows": {
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "random-pick-with-weight"
+  },
+  {
+   "lcId": 149,
+   "title": "Max Points on a Line",
+   "url": "https://leetcode.com/problems/max-points-on-a-line/",
+   "difficulty": "Hard",
+   "acceptance": 31.0,
+   "score": 210.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "max-points-on-a-line"
+  },
+  {
+   "lcId": 516,
+   "title": "Longest Palindromic Subsequence",
+   "url": "https://leetcode.com/problems/longest-palindromic-subsequence/",
+   "difficulty": "Medium",
+   "acceptance": 65.7,
+   "score": 205.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "longest-palindromic-subsequence"
+  },
+  {
+   "lcId": 617,
+   "title": "Merge Two Binary Trees",
+   "url": "https://leetcode.com/problems/merge-two-binary-trees/",
+   "difficulty": "Easy",
+   "acceptance": 79.1,
+   "score": 205.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "merge-two-binary-trees"
+  },
+  {
+   "lcId": 744,
+   "title": "Find Smallest Letter Greater Than Target",
+   "url": "https://leetcode.com/problems/find-smallest-letter-greater-than-target/",
+   "difficulty": "Easy",
+   "acceptance": 59.4,
+   "score": 192.5,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "find-smallest-letter-greater-than-target"
+  },
+  {
+   "lcId": 1188,
+   "title": "Design Bounded Blocking Queue",
+   "url": "https://leetcode.com/problems/design-bounded-blocking-queue/",
+   "difficulty": "Medium",
+   "acceptance": 73.9,
+   "score": 192.5,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "design-bounded-blocking-queue"
+  },
+  {
+   "lcId": 65,
+   "title": "Valid Number",
+   "url": "https://leetcode.com/problems/valid-number/",
+   "difficulty": "Hard",
+   "acceptance": 23.2,
+   "score": 185.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "valid-number"
+  },
+  {
+   "lcId": 61,
+   "title": "Rotate List",
+   "url": "https://leetcode.com/problems/rotate-list/",
+   "difficulty": "Medium",
+   "acceptance": 42.9,
+   "score": 180.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "rotate-list"
+  },
+  {
+   "lcId": 210,
+   "title": "Course Schedule II",
+   "url": "https://leetcode.com/problems/course-schedule-ii/",
+   "difficulty": "Medium",
+   "acceptance": 55.9,
+   "score": 180.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "course-schedule-ii"
+  },
+  {
+   "lcId": 489,
+   "title": "Robot Room Cleaner",
+   "url": "https://leetcode.com/problems/robot-room-cleaner/",
+   "difficulty": "Hard",
+   "acceptance": 78.0,
+   "score": 180.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "robot-room-cleaner"
+  },
+  {
+   "lcId": 886,
+   "title": "Possible Bipartition",
+   "url": "https://leetcode.com/problems/possible-bipartition/",
+   "difficulty": "Medium",
+   "acceptance": 52.8,
+   "score": 180.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 50.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "possible-bipartition"
+  },
+  {
+   "lcId": 3,
+   "title": "Longest Substring Without Repeating Characters",
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 152.5,
+   "windows": {
+    "6mo": 50.0,
+    "older": 25.0,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "longest-substring-without-repeating-characters"
+  },
+  {
+   "lcId": 432,
+   "title": "All O`one Data Structure",
+   "url": "https://leetcode.com/problems/all-oone-data-structure/",
+   "difficulty": "Hard",
+   "acceptance": 44.4,
+   "score": 147.5,
+   "windows": {
+    "older": 100.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "all-o-one-data-structure"
+  },
+  {
+   "lcId": 827,
+   "title": "Making A Large Island",
+   "url": "https://leetcode.com/problems/making-a-large-island/",
+   "difficulty": "Hard",
+   "acceptance": 56.9,
+   "score": 140.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 25.0,
+    "all": 25.0
+   },
+   "recency": "6mo",
+   "slug": "making-a-large-island"
+  },
+  {
+   "lcId": 752,
+   "title": "Open the Lock",
+   "url": "https://leetcode.com/problems/open-the-lock/",
+   "difficulty": "Medium",
+   "acceptance": 61.4,
+   "score": 125.0,
+   "windows": {
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "6mo",
+   "slug": "open-the-lock"
+  },
+  {
+   "lcId": 863,
+   "title": "All Nodes Distance K in Binary Tree",
+   "url": "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/",
+   "difficulty": "Medium",
+   "acceptance": 67.8,
+   "score": 125.0,
+   "windows": {
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "6mo",
+   "slug": "all-nodes-distance-k-in-binary-tree"
+  },
+  {
+   "lcId": 994,
+   "title": "Rotting Oranges",
+   "url": "https://leetcode.com/problems/rotting-oranges/",
+   "difficulty": "Medium",
+   "acceptance": 59.0,
+   "score": 125.0,
+   "windows": {
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "6mo",
+   "slug": "rotting-oranges"
+  },
+  {
+   "lcId": 34,
+   "title": "Find First and Last Position of Element in Sorted Array",
+   "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+   "difficulty": "Medium",
+   "acceptance": 49.3,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "find-first-and-last-position-of-element-in-sorted-array"
+  },
+  {
+   "lcId": 156,
+   "title": "Binary Tree Upside Down",
+   "url": "https://leetcode.com/problems/binary-tree-upside-down/",
+   "difficulty": "Medium",
+   "acceptance": 65.5,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "binary-tree-upside-down"
+  },
+  {
+   "lcId": 50,
+   "title": "Pow(x, n)",
+   "url": "https://leetcode.com/problems/powx-n/",
+   "difficulty": "Medium",
+   "acceptance": 38.9,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "pow-x-n"
+  },
+  {
+   "lcId": 235,
+   "title": "Lowest Common Ancestor of a Binary Search Tree",
+   "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+   "difficulty": "Medium",
+   "acceptance": 70.9,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "lowest-common-ancestor-of-a-binary-search-tree"
+  },
+  {
+   "lcId": 76,
+   "title": "Minimum Window Substring",
+   "url": "https://leetcode.com/problems/minimum-window-substring/",
+   "difficulty": "Hard",
+   "acceptance": 47.9,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "minimum-window-substring"
+  },
+  {
+   "lcId": 101,
+   "title": "Symmetric Tree",
+   "url": "https://leetcode.com/problems/symmetric-tree/",
+   "difficulty": "Easy",
+   "acceptance": 61.6,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "symmetric-tree"
+  },
+  {
+   "lcId": 205,
+   "title": "Isomorphic Strings",
+   "url": "https://leetcode.com/problems/isomorphic-strings/",
+   "difficulty": "Easy",
+   "acceptance": 48.7,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "isomorphic-strings"
+  },
+  {
+   "lcId": 236,
+   "title": "Lowest Common Ancestor of a Binary Tree",
+   "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "lowest-common-ancestor-of-a-binary-tree"
+  }
+ ]
+}

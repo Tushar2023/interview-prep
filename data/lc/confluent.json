@@ -1,0 +1,136 @@
+{
+ "company": "confluent",
+ "folder": "confluent",
+ "totalTagged": 9,
+ "top": [
+  {
+   "lcId": 36,
+   "title": "Valid Sudoku",
+   "url": "https://leetcode.com/problems/valid-sudoku/",
+   "difficulty": "Medium",
+   "acceptance": 64.7,
+   "score": 335.0,
+   "windows": {
+    "6mo": 87.5,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "6mo",
+   "slug": "valid-sudoku"
+  },
+  {
+   "lcId": 37,
+   "title": "Sudoku Solver",
+   "url": "https://leetcode.com/problems/sudoku-solver/",
+   "difficulty": "Hard",
+   "acceptance": 65.6,
+   "score": 335.0,
+   "windows": {
+    "6mo": 87.5,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "6mo",
+   "slug": "sudoku-solver"
+  },
+  {
+   "lcId": 1797,
+   "title": "Design Authentication Manager",
+   "url": "https://leetcode.com/problems/design-authentication-manager/",
+   "difficulty": "Medium",
+   "acceptance": 58.7,
+   "score": 332.5,
+   "windows": {
+    "6mo": 100.0,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "design-authentication-manager"
+  },
+  {
+   "lcId": 981,
+   "title": "Time Based Key-Value Store",
+   "url": "https://leetcode.com/problems/time-based-key-value-store/",
+   "difficulty": "Medium",
+   "acceptance": 50.0,
+   "score": 160.0,
+   "windows": {
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "older",
+   "slug": "time-based-key-value-store"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 147.5,
+   "windows": {
+    "older": 100.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 2604,
+   "title": "Minimum Time to Eat All Grains",
+   "url": "https://leetcode.com/problems/minimum-time-to-eat-all-grains/",
+   "difficulty": "Hard",
+   "acceptance": 40.9,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "minimum-time-to-eat-all-grains"
+  },
+  {
+   "lcId": 39,
+   "title": "Combination Sum",
+   "url": "https://leetcode.com/problems/combination-sum/",
+   "difficulty": "Medium",
+   "acceptance": 76.8,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "combination-sum"
+  },
+  {
+   "lcId": 2622,
+   "title": "Cache With Time Limit",
+   "url": "https://leetcode.com/problems/cache-with-time-limit/",
+   "difficulty": "Medium",
+   "acceptance": 76.2,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "cache-with-time-limit"
+  },
+  {
+   "lcId": 2627,
+   "title": "Debounce",
+   "url": "https://leetcode.com/problems/debounce/",
+   "difficulty": "Medium",
+   "acceptance": 91.7,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "debounce"
+  }
+ ]
+}

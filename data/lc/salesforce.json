@@ -1,0 +1,739 @@
+{
+ "company": "salesforce",
+ "folder": "salesforce",
+ "totalTagged": 191,
+ "top": [
+  {
+   "lcId": 2571,
+   "title": "Minimum Operations to Reduce an Integer to 0",
+   "url": "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/",
+   "difficulty": "Medium",
+   "acceptance": 62.8,
+   "score": 1010.0,
+   "windows": {
+    "30d": 87.5,
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 100.0,
+    "all": 100.0
+   },
+   "recency": "30d",
+   "slug": "minimum-operations-to-reduce-an-integer-to-0"
+  },
+  {
+   "lcId": 443,
+   "title": "String Compression",
+   "url": "https://leetcode.com/problems/string-compression/",
+   "difficulty": "Medium",
+   "acceptance": 60.3,
+   "score": 965.0,
+   "windows": {
+    "30d": 87.5,
+    "3mo": 100.0,
+    "6mo": 87.5,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "30d",
+   "slug": "string-compression"
+  },
+  {
+   "lcId": 2380,
+   "title": "Time Needed to Rearrange a Binary String",
+   "url": "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/",
+   "difficulty": "Medium",
+   "acceptance": 53.4,
+   "score": 962.5,
+   "windows": {
+    "30d": 87.5,
+    "3mo": 100.0,
+    "6mo": 100.0,
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "30d",
+   "slug": "time-needed-to-rearrange-a-binary-string"
+  },
+  {
+   "lcId": 628,
+   "title": "Maximum Product of Three Numbers",
+   "url": "https://leetcode.com/problems/maximum-product-of-three-numbers/",
+   "difficulty": "Easy",
+   "acceptance": 46.1,
+   "score": 825.0,
+   "windows": {
+    "30d": 87.5,
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "maximum-product-of-three-numbers"
+  },
+  {
+   "lcId": 3893,
+   "title": "Maximum Team Size with Overlapping Intervals",
+   "url": "https://leetcode.com/problems/maximum-team-size-with-overlapping-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 44.4,
+   "score": 825.0,
+   "windows": {
+    "30d": 100.0,
+    "3mo": 87.5,
+    "6mo": 62.5,
+    "all": 37.5
+   },
+   "recency": "30d",
+   "slug": "maximum-team-size-with-overlapping-intervals"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 737.5,
+   "windows": {
+    "30d": 87.5,
+    "3mo": 62.5,
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "30d",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 460,
+   "title": "LFU Cache",
+   "url": "https://leetcode.com/problems/lfu-cache/",
+   "difficulty": "Hard",
+   "acceptance": 49.7,
+   "score": 495.0,
+   "windows": {
+    "3mo": 75.0,
+    "6mo": 75.0,
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "3mo",
+   "slug": "lfu-cache"
+  },
+  {
+   "lcId": 3035,
+   "title": "Maximum Palindromes After Operations",
+   "url": "https://leetcode.com/problems/maximum-palindromes-after-operations/",
+   "difficulty": "Medium",
+   "acceptance": 47.2,
+   "score": 425.0,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 87.5,
+    "all": 62.5
+   },
+   "recency": "3mo",
+   "slug": "maximum-palindromes-after-operations"
+  },
+  {
+   "lcId": 2366,
+   "title": "Minimum Replacements to Sort the Array",
+   "url": "https://leetcode.com/problems/minimum-replacements-to-sort-the-array/",
+   "difficulty": "Hard",
+   "acceptance": 53.1,
+   "score": 387.5,
+   "windows": {
+    "3mo": 75.0,
+    "6mo": 62.5,
+    "all": 37.5
+   },
+   "recency": "3mo",
+   "slug": "minimum-replacements-to-sort-the-array"
+  },
+  {
+   "lcId": 3634,
+   "title": "Minimum Removals to Balance Array",
+   "url": "https://leetcode.com/problems/minimum-removals-to-balance-array/",
+   "difficulty": "Medium",
+   "acceptance": 47.9,
+   "score": 387.5,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 75.0,
+    "all": 50.0
+   },
+   "recency": "3mo",
+   "slug": "minimum-removals-to-balance-array"
+  },
+  {
+   "lcId": 1209,
+   "title": "Remove All Adjacent Duplicates in String II",
+   "url": "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/",
+   "difficulty": "Medium",
+   "acceptance": 61.6,
+   "score": 360.0,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 50.0,
+    "older": 37.5,
+    "all": 50.0
+   },
+   "recency": "3mo",
+   "slug": "remove-all-adjacent-duplicates-in-string-ii"
+  },
+  {
+   "lcId": 22,
+   "title": "Generate Parentheses",
+   "url": "https://leetcode.com/problems/generate-parentheses/",
+   "difficulty": "Medium",
+   "acceptance": 78.9,
+   "score": 350.0,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 62.5,
+    "all": 37.5
+   },
+   "recency": "3mo",
+   "slug": "generate-parentheses"
+  },
+  {
+   "lcId": 560,
+   "title": "Subarray Sum Equals K",
+   "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+   "difficulty": "Medium",
+   "acceptance": 47.7,
+   "score": 312.5,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "3mo",
+   "slug": "subarray-sum-equals-k"
+  },
+  {
+   "lcId": 1344,
+   "title": "Angle Between Hands of a Clock",
+   "url": "https://leetcode.com/problems/angle-between-hands-of-a-clock/",
+   "difficulty": "Medium",
+   "acceptance": 69.7,
+   "score": 312.5,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "3mo",
+   "slug": "angle-between-hands-of-a-clock"
+  },
+  {
+   "lcId": 2858,
+   "title": "Minimum Edge Reversals So Every Node Is Reachable",
+   "url": "https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/",
+   "difficulty": "Hard",
+   "acceptance": 60.0,
+   "score": 312.5,
+   "windows": {
+    "3mo": 62.5,
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "3mo",
+   "slug": "minimum-edge-reversals-so-every-node-is-reachable"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 225.0,
+   "windows": {
+    "6mo": 62.5,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 49,
+   "title": "Group Anagrams",
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "difficulty": "Medium",
+   "acceptance": 72.9,
+   "score": 200.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "group-anagrams"
+  },
+  {
+   "lcId": 210,
+   "title": "Course Schedule II",
+   "url": "https://leetcode.com/problems/course-schedule-ii/",
+   "difficulty": "Medium",
+   "acceptance": 55.9,
+   "score": 200.0,
+   "windows": {
+    "6mo": 50.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "course-schedule-ii"
+  },
+  {
+   "lcId": 1200,
+   "title": "Minimum Absolute Difference",
+   "url": "https://leetcode.com/problems/minimum-absolute-difference/",
+   "difficulty": "Easy",
+   "acceptance": 75.2,
+   "score": 172.5,
+   "windows": {
+    "6mo": 50.0,
+    "older": 37.5,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "minimum-absolute-difference"
+  },
+  {
+   "lcId": 664,
+   "title": "Strange Printer",
+   "url": "https://leetcode.com/problems/strange-printer/",
+   "difficulty": "Hard",
+   "acceptance": 61.0,
+   "score": 162.5,
+   "windows": {
+    "6mo": 62.5,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "strange-printer"
+  },
+  {
+   "lcId": 2603,
+   "title": "Collect Coins in a Tree",
+   "url": "https://leetcode.com/problems/collect-coins-in-a-tree/",
+   "difficulty": "Hard",
+   "acceptance": 39.5,
+   "score": 162.5,
+   "windows": {
+    "6mo": 62.5,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "collect-coins-in-a-tree"
+  },
+  {
+   "lcId": 207,
+   "title": "Course Schedule",
+   "url": "https://leetcode.com/problems/course-schedule/",
+   "difficulty": "Medium",
+   "acceptance": 51.8,
+   "score": 137.5,
+   "windows": {
+    "6mo": 50.0,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "course-schedule"
+  },
+  {
+   "lcId": 295,
+   "title": "Find Median from Data Stream",
+   "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+   "difficulty": "Hard",
+   "acceptance": 54.7,
+   "score": 137.5,
+   "windows": {
+    "6mo": 50.0,
+    "all": 37.5
+   },
+   "recency": "6mo",
+   "slug": "find-median-from-data-stream"
+  },
+  {
+   "lcId": 3488,
+   "title": "Closest Equal Element Queries",
+   "url": "https://leetcode.com/problems/closest-equal-element-queries/",
+   "difficulty": "Medium",
+   "acceptance": 51.5,
+   "score": 127.5,
+   "windows": {
+    "older": 87.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "closest-equal-element-queries"
+  },
+  {
+   "lcId": 105,
+   "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+   "url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+   "difficulty": "Medium",
+   "acceptance": 69.1,
+   "score": 125.0,
+   "windows": {
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "6mo",
+   "slug": "construct-binary-tree-from-preorder-and-inorder-traversal"
+  },
+  {
+   "lcId": 1962,
+   "title": "Remove Stones to Minimize the Total",
+   "url": "https://leetcode.com/problems/remove-stones-to-minimize-the-total/",
+   "difficulty": "Medium",
+   "acceptance": 65.9,
+   "score": 125.0,
+   "windows": {
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "6mo",
+   "slug": "remove-stones-to-minimize-the-total"
+  },
+  {
+   "lcId": 2534,
+   "title": "Time Taken to Cross the Door",
+   "url": "https://leetcode.com/problems/time-taken-to-cross-the-door/",
+   "difficulty": "Hard",
+   "acceptance": 50.4,
+   "score": 125.0,
+   "windows": {
+    "6mo": 50.0,
+    "all": 25.0
+   },
+   "recency": "6mo",
+   "slug": "time-taken-to-cross-the-door"
+  },
+  {
+   "lcId": 2957,
+   "title": "Remove Adjacent Almost-Equal Characters",
+   "url": "https://leetcode.com/problems/remove-adjacent-almost-equal-characters/",
+   "difficulty": "Medium",
+   "acceptance": 53.8,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "remove-adjacent-almost-equal-characters"
+  },
+  {
+   "lcId": 3398,
+   "title": "Smallest Substring With Identical Characters I",
+   "url": "https://leetcode.com/problems/smallest-substring-with-identical-characters-i/",
+   "difficulty": "Hard",
+   "acceptance": 20.8,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "smallest-substring-with-identical-characters-i"
+  },
+  {
+   "lcId": 3399,
+   "title": "Smallest Substring With Identical Characters II",
+   "url": "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/",
+   "difficulty": "Hard",
+   "acceptance": 40.5,
+   "score": 112.5,
+   "windows": {
+    "older": 62.5,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "smallest-substring-with-identical-characters-ii"
+  },
+  {
+   "lcId": 115,
+   "title": "Distinct Subsequences",
+   "url": "https://leetcode.com/problems/distinct-subsequences/",
+   "difficulty": "Hard",
+   "acceptance": 52.2,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "distinct-subsequences"
+  },
+  {
+   "lcId": 713,
+   "title": "Subarray Product Less Than K",
+   "url": "https://leetcode.com/problems/subarray-product-less-than-k/",
+   "difficulty": "Medium",
+   "acceptance": 54.7,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "subarray-product-less-than-k"
+  },
+  {
+   "lcId": 924,
+   "title": "Minimize Malware Spread",
+   "url": "https://leetcode.com/problems/minimize-malware-spread/",
+   "difficulty": "Hard",
+   "acceptance": 43.3,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "minimize-malware-spread"
+  },
+  {
+   "lcId": 1297,
+   "title": "Maximum Number of Occurrences of a Substring",
+   "url": "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/",
+   "difficulty": "Medium",
+   "acceptance": 54.6,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "maximum-number-of-occurrences-of-a-substring"
+  },
+  {
+   "lcId": 3607,
+   "title": "Power Grid Maintenance",
+   "url": "https://leetcode.com/problems/power-grid-maintenance/",
+   "difficulty": "Medium",
+   "acceptance": 56.1,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "power-grid-maintenance"
+  },
+  {
+   "lcId": 3,
+   "title": "Longest Substring Without Repeating Characters",
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "longest-substring-without-repeating-characters"
+  },
+  {
+   "lcId": 200,
+   "title": "Number of Islands",
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "difficulty": "Medium",
+   "acceptance": 64.7,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "number-of-islands"
+  },
+  {
+   "lcId": 647,
+   "title": "Palindromic Substrings",
+   "url": "https://leetcode.com/problems/palindromic-substrings/",
+   "difficulty": "Medium",
+   "acceptance": 73.0,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "palindromic-substrings"
+  },
+  {
+   "lcId": 740,
+   "title": "Delete and Earn",
+   "url": "https://leetcode.com/problems/delete-and-earn/",
+   "difficulty": "Medium",
+   "acceptance": 57.4,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "delete-and-earn"
+  },
+  {
+   "lcId": 1221,
+   "title": "Split a String in Balanced Strings",
+   "url": "https://leetcode.com/problems/split-a-string-in-balanced-strings/",
+   "difficulty": "Easy",
+   "acceptance": 87.5,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "split-a-string-in-balanced-strings"
+  },
+  {
+   "lcId": 3540,
+   "title": "Minimum Time to Visit All Houses",
+   "url": "https://leetcode.com/problems/minimum-time-to-visit-all-houses/",
+   "difficulty": "Medium",
+   "acceptance": 69.2,
+   "score": 100.0,
+   "windows": {
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "minimum-time-to-visit-all-houses"
+  },
+  {
+   "lcId": 124,
+   "title": "Binary Tree Maximum Path Sum",
+   "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+   "difficulty": "Hard",
+   "acceptance": 42.5,
+   "score": 87.5,
+   "windows": {
+    "older": 62.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "binary-tree-maximum-path-sum"
+  },
+  {
+   "lcId": 532,
+   "title": "K-diff Pairs in an Array",
+   "url": "https://leetcode.com/problems/k-diff-pairs-in-an-array/",
+   "difficulty": "Medium",
+   "acceptance": 46.1,
+   "score": 87.5,
+   "windows": {
+    "older": 62.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "k-diff-pairs-in-an-array"
+  },
+  {
+   "lcId": 1143,
+   "title": "Longest Common Subsequence",
+   "url": "https://leetcode.com/problems/longest-common-subsequence/",
+   "difficulty": "Medium",
+   "acceptance": 59.3,
+   "score": 87.5,
+   "windows": {
+    "older": 62.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "longest-common-subsequence"
+  },
+  {
+   "lcId": 2488,
+   "title": "Count Subarrays With Median K",
+   "url": "https://leetcode.com/problems/count-subarrays-with-median-k/",
+   "difficulty": "Hard",
+   "acceptance": 49.0,
+   "score": 87.5,
+   "windows": {
+    "older": 62.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "count-subarrays-with-median-k"
+  },
+  {
+   "lcId": 2964,
+   "title": "Number of Divisible Triplet Sums",
+   "url": "https://leetcode.com/problems/number-of-divisible-triplet-sums/",
+   "difficulty": "Medium",
+   "acceptance": 67.6,
+   "score": 87.5,
+   "windows": {
+    "older": 62.5,
+    "all": 50.0
+   },
+   "recency": "older",
+   "slug": "number-of-divisible-triplet-sums"
+  },
+  {
+   "lcId": 895,
+   "title": "Maximum Frequency Stack",
+   "url": "https://leetcode.com/problems/maximum-frequency-stack/",
+   "difficulty": "Hard",
+   "acceptance": 66.9,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "maximum-frequency-stack"
+  },
+  {
+   "lcId": 1051,
+   "title": "Height Checker",
+   "url": "https://leetcode.com/problems/height-checker/",
+   "difficulty": "Easy",
+   "acceptance": 81.8,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "height-checker"
+  },
+  {
+   "lcId": 1150,
+   "title": "Check If a Number Is Majority Element in a Sorted Array",
+   "url": "https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/",
+   "difficulty": "Easy",
+   "acceptance": 59.9,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "check-if-a-number-is-majority-element-in-a-sorted-array"
+  },
+  {
+   "lcId": 1659,
+   "title": "Maximize Grid Happiness",
+   "url": "https://leetcode.com/problems/maximize-grid-happiness/",
+   "difficulty": "Hard",
+   "acceptance": 41.3,
+   "score": 85.0,
+   "windows": {
+    "older": 37.5,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "maximize-grid-happiness"
+  }
+ ]
+}

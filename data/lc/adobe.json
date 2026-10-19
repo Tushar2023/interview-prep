@@ -1,0 +1,715 @@
+{
+ "company": "adobe",
+ "folder": "adobe",
+ "totalTagged": 147,
+ "top": [
+  {
+   "lcId": 134,
+   "title": "Gas Station",
+   "url": "https://leetcode.com/problems/gas-station/",
+   "difficulty": "Medium",
+   "acceptance": 48.3,
+   "score": 550.0,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 75.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "3mo",
+   "slug": "gas-station"
+  },
+  {
+   "lcId": 341,
+   "title": "Flatten Nested List Iterator",
+   "url": "https://leetcode.com/problems/flatten-nested-list-iterator/",
+   "difficulty": "Medium",
+   "acceptance": 65.8,
+   "score": 537.5,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 87.5,
+    "all": 62.5
+   },
+   "recency": "3mo",
+   "slug": "flatten-nested-list-iterator"
+  },
+  {
+   "lcId": 289,
+   "title": "Game of Life",
+   "url": "https://leetcode.com/problems/game-of-life/",
+   "difficulty": "Medium",
+   "acceptance": 72.8,
+   "score": 525.0,
+   "windows": {
+    "3mo": 100.0,
+    "6mo": 87.5,
+    "all": 50.0
+   },
+   "recency": "3mo",
+   "slug": "game-of-life"
+  },
+  {
+   "lcId": 49,
+   "title": "Group Anagrams",
+   "url": "https://leetcode.com/problems/group-anagrams/",
+   "difficulty": "Medium",
+   "acceptance": 72.9,
+   "score": 340.0,
+   "windows": {
+    "6mo": 100.0,
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "group-anagrams"
+  },
+  {
+   "lcId": 146,
+   "title": "LRU Cache",
+   "url": "https://leetcode.com/problems/lru-cache/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 332.5,
+   "windows": {
+    "6mo": 100.0,
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "6mo",
+   "slug": "lru-cache"
+  },
+  {
+   "lcId": 1,
+   "title": "Two Sum",
+   "url": "https://leetcode.com/problems/two-sum/",
+   "difficulty": "Easy",
+   "acceptance": 57.8,
+   "score": 302.5,
+   "windows": {
+    "6mo": 75.0,
+    "older": 87.5,
+    "all": 100.0
+   },
+   "recency": "6mo",
+   "slug": "two-sum"
+  },
+  {
+   "lcId": 179,
+   "title": "Largest Number",
+   "url": "https://leetcode.com/problems/largest-number/",
+   "difficulty": "Medium",
+   "acceptance": 43.3,
+   "score": 250.0,
+   "windows": {
+    "6mo": 75.0,
+    "older": 62.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "largest-number"
+  },
+  {
+   "lcId": 124,
+   "title": "Binary Tree Maximum Path Sum",
+   "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+   "difficulty": "Hard",
+   "acceptance": 42.5,
+   "score": 237.5,
+   "windows": {
+    "6mo": 87.5,
+    "all": 62.5
+   },
+   "recency": "6mo",
+   "slug": "binary-tree-maximum-path-sum"
+  },
+  {
+   "lcId": 227,
+   "title": "Basic Calculator II",
+   "url": "https://leetcode.com/problems/basic-calculator-ii/",
+   "difficulty": "Medium",
+   "acceptance": 47.0,
+   "score": 200.0,
+   "windows": {
+    "6mo": 75.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "basic-calculator-ii"
+  },
+  {
+   "lcId": 392,
+   "title": "Is Subsequence",
+   "url": "https://leetcode.com/problems/is-subsequence/",
+   "difficulty": "Easy",
+   "acceptance": 49.2,
+   "score": 200.0,
+   "windows": {
+    "6mo": 75.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "is-subsequence"
+  },
+  {
+   "lcId": 475,
+   "title": "Heaters",
+   "url": "https://leetcode.com/problems/heaters/",
+   "difficulty": "Medium",
+   "acceptance": 42.2,
+   "score": 200.0,
+   "windows": {
+    "6mo": 75.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "heaters"
+  },
+  {
+   "lcId": 983,
+   "title": "Minimum Cost For Tickets",
+   "url": "https://leetcode.com/problems/minimum-cost-for-tickets/",
+   "difficulty": "Medium",
+   "acceptance": 67.5,
+   "score": 200.0,
+   "windows": {
+    "6mo": 75.0,
+    "all": 50.0
+   },
+   "recency": "6mo",
+   "slug": "minimum-cost-for-tickets"
+  },
+  {
+   "lcId": 761,
+   "title": "Special Binary String",
+   "url": "https://leetcode.com/problems/special-binary-string/",
+   "difficulty": "Hard",
+   "acceptance": 79.4,
+   "score": 147.5,
+   "windows": {
+    "older": 100.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "special-binary-string"
+  },
+  {
+   "lcId": 56,
+   "title": "Merge Intervals",
+   "url": "https://leetcode.com/problems/merge-intervals/",
+   "difficulty": "Medium",
+   "acceptance": 52.3,
+   "score": 140.0,
+   "windows": {
+    "older": 87.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "merge-intervals"
+  },
+  {
+   "lcId": 2,
+   "title": "Add Two Numbers",
+   "url": "https://leetcode.com/problems/add-two-numbers/",
+   "difficulty": "Medium",
+   "acceptance": 48.8,
+   "score": 132.5,
+   "windows": {
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "add-two-numbers"
+  },
+  {
+   "lcId": 3,
+   "title": "Longest Substring Without Repeating Characters",
+   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 132.5,
+   "windows": {
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "longest-substring-without-repeating-characters"
+  },
+  {
+   "lcId": 4,
+   "title": "Median of Two Sorted Arrays",
+   "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+   "difficulty": "Hard",
+   "acceptance": 47.0,
+   "score": 132.5,
+   "windows": {
+    "older": 75.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "median-of-two-sorted-arrays"
+  },
+  {
+   "lcId": 15,
+   "title": "3Sum",
+   "url": "https://leetcode.com/problems/3sum/",
+   "difficulty": "Medium",
+   "acceptance": 39.4,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "3sum"
+  },
+  {
+   "lcId": 70,
+   "title": "Climbing Stairs",
+   "url": "https://leetcode.com/problems/climbing-stairs/",
+   "difficulty": "Easy",
+   "acceptance": 54.2,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "climbing-stairs"
+  },
+  {
+   "lcId": 169,
+   "title": "Majority Element",
+   "url": "https://leetcode.com/problems/majority-element/",
+   "difficulty": "Easy",
+   "acceptance": 66.4,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "majority-element"
+  },
+  {
+   "lcId": 206,
+   "title": "Reverse Linked List",
+   "url": "https://leetcode.com/problems/reverse-linked-list/",
+   "difficulty": "Easy",
+   "acceptance": 80.8,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "reverse-linked-list"
+  },
+  {
+   "lcId": 292,
+   "title": "Nim Game",
+   "url": "https://leetcode.com/problems/nim-game/",
+   "difficulty": "Easy",
+   "acceptance": 60.1,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "nim-game"
+  },
+  {
+   "lcId": 910,
+   "title": "Smallest Range II",
+   "url": "https://leetcode.com/problems/smallest-range-ii/",
+   "difficulty": "Medium",
+   "acceptance": 38.0,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "smallest-range-ii"
+  },
+  {
+   "lcId": 2328,
+   "title": "Number of Increasing Paths in a Grid",
+   "url": "https://leetcode.com/problems/number-of-increasing-paths-in-a-grid/",
+   "difficulty": "Hard",
+   "acceptance": 57.3,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "number-of-increasing-paths-in-a-grid"
+  },
+  {
+   "lcId": 2406,
+   "title": "Divide Intervals Into Minimum Number of Groups",
+   "url": "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/",
+   "difficulty": "Medium",
+   "acceptance": 63.6,
+   "score": 125.0,
+   "windows": {
+    "older": 62.5,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "divide-intervals-into-minimum-number-of-groups"
+  },
+  {
+   "lcId": 12,
+   "title": "Integer to Roman",
+   "url": "https://leetcode.com/problems/integer-to-roman/",
+   "difficulty": "Medium",
+   "acceptance": 71.2,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "integer-to-roman"
+  },
+  {
+   "lcId": 31,
+   "title": "Next Permutation",
+   "url": "https://leetcode.com/problems/next-permutation/",
+   "difficulty": "Medium",
+   "acceptance": 45.6,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "next-permutation"
+  },
+  {
+   "lcId": 55,
+   "title": "Jump Game",
+   "url": "https://leetcode.com/problems/jump-game/",
+   "difficulty": "Medium",
+   "acceptance": 41.2,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "jump-game"
+  },
+  {
+   "lcId": 76,
+   "title": "Minimum Window Substring",
+   "url": "https://leetcode.com/problems/minimum-window-substring/",
+   "difficulty": "Hard",
+   "acceptance": 47.9,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "minimum-window-substring"
+  },
+  {
+   "lcId": 121,
+   "title": "Best Time to Buy and Sell Stock",
+   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+   "difficulty": "Easy",
+   "acceptance": 57.0,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "best-time-to-buy-and-sell-stock"
+  },
+  {
+   "lcId": 200,
+   "title": "Number of Islands",
+   "url": "https://leetcode.com/problems/number-of-islands/",
+   "difficulty": "Medium",
+   "acceptance": 64.7,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "number-of-islands"
+  },
+  {
+   "lcId": 468,
+   "title": "Validate IP Address",
+   "url": "https://leetcode.com/problems/validate-ip-address/",
+   "difficulty": "Medium",
+   "acceptance": 28.4,
+   "score": 120.0,
+   "windows": {
+    "older": 75.0,
+    "all": 75.0
+   },
+   "recency": "older",
+   "slug": "validate-ip-address"
+  },
+  {
+   "lcId": 195,
+   "title": "Tenth Line",
+   "url": "https://leetcode.com/problems/tenth-line/",
+   "difficulty": "Easy",
+   "acceptance": 37.0,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "tenth-line"
+  },
+  {
+   "lcId": 237,
+   "title": "Delete Node in a Linked List",
+   "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
+   "difficulty": "Medium",
+   "acceptance": 84.1,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "delete-node-in-a-linked-list"
+  },
+  {
+   "lcId": 258,
+   "title": "Add Digits",
+   "url": "https://leetcode.com/problems/add-digits/",
+   "difficulty": "Easy",
+   "acceptance": 69.1,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "add-digits"
+  },
+  {
+   "lcId": 703,
+   "title": "Kth Largest Element in a Stream",
+   "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+   "difficulty": "Easy",
+   "acceptance": 61.3,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "kth-largest-element-in-a-stream"
+  },
+  {
+   "lcId": 793,
+   "title": "Preimage Size of Factorial Zeroes Function",
+   "url": "https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/",
+   "difficulty": "Hard",
+   "acceptance": 47.2,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "preimage-size-of-factorial-zeroes-function"
+  },
+  {
+   "lcId": 795,
+   "title": "Number of Subarrays with Bounded Maximum",
+   "url": "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/",
+   "difficulty": "Medium",
+   "acceptance": 55.1,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "number-of-subarrays-with-bounded-maximum"
+  },
+  {
+   "lcId": 908,
+   "title": "Smallest Range I",
+   "url": "https://leetcode.com/problems/smallest-range-i/",
+   "difficulty": "Easy",
+   "acceptance": 73.8,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "smallest-range-i"
+  },
+  {
+   "lcId": 1190,
+   "title": "Reverse Substrings Between Each Pair of Parentheses",
+   "url": "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/",
+   "difficulty": "Medium",
+   "acceptance": 72.0,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "reverse-substrings-between-each-pair-of-parentheses"
+  },
+  {
+   "lcId": 1916,
+   "title": "Count Ways to Build Rooms in an Ant Colony",
+   "url": "https://leetcode.com/problems/count-ways-to-build-rooms-in-an-ant-colony/",
+   "difficulty": "Hard",
+   "acceptance": 51.8,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "count-ways-to-build-rooms-in-an-ant-colony"
+  },
+  {
+   "lcId": 2055,
+   "title": "Plates Between Candles",
+   "url": "https://leetcode.com/problems/plates-between-candles/",
+   "difficulty": "Medium",
+   "acceptance": 47.6,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "plates-between-candles"
+  },
+  {
+   "lcId": 2143,
+   "title": "Choose Numbers From Two Arrays in Range",
+   "url": "https://leetcode.com/problems/choose-numbers-from-two-arrays-in-range/",
+   "difficulty": "Hard",
+   "acceptance": 52.9,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "choose-numbers-from-two-arrays-in-range"
+  },
+  {
+   "lcId": 2422,
+   "title": "Merge Operations to Turn Array Into a Palindrome",
+   "url": "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/",
+   "difficulty": "Medium",
+   "acceptance": 68.9,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "merge-operations-to-turn-array-into-a-palindrome"
+  },
+  {
+   "lcId": 2429,
+   "title": "Minimize XOR",
+   "url": "https://leetcode.com/problems/minimize-xor/",
+   "difficulty": "Medium",
+   "acceptance": 62.4,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "minimize-xor"
+  },
+  {
+   "lcId": 2892,
+   "title": "Minimizing Array After Replacing Pairs With Their Product",
+   "url": "https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product/",
+   "difficulty": "Medium",
+   "acceptance": 40.8,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "minimizing-array-after-replacing-pairs-with-their-product"
+  },
+  {
+   "lcId": 2962,
+   "title": "Count Subarrays Where Max Element Appears at Least K Times",
+   "url": "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/",
+   "difficulty": "Medium",
+   "acceptance": 62.4,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "count-subarrays-where-max-element-appears-at-least-k-times"
+  },
+  {
+   "lcId": 3173,
+   "title": "Bitwise OR of Adjacent Elements",
+   "url": "https://leetcode.com/problems/bitwise-or-of-adjacent-elements/",
+   "difficulty": "Easy",
+   "acceptance": 94.7,
+   "score": 117.5,
+   "windows": {
+    "older": 50.0,
+    "all": 87.5
+   },
+   "recency": "older",
+   "slug": "bitwise-or-of-adjacent-elements"
+  },
+  {
+   "lcId": 5,
+   "title": "Longest Palindromic Substring",
+   "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+   "difficulty": "Medium",
+   "acceptance": 38.2,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "longest-palindromic-substring"
+  },
+  {
+   "lcId": 14,
+   "title": "Longest Common Prefix",
+   "url": "https://leetcode.com/problems/longest-common-prefix/",
+   "difficulty": "Easy",
+   "acceptance": 47.9,
+   "score": 107.5,
+   "windows": {
+    "older": 75.0,
+    "all": 62.5
+   },
+   "recency": "older",
+   "slug": "longest-common-prefix"
+  }
+ ]
+}
